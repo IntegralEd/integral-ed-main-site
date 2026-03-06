@@ -1,0 +1,14 @@
+{
+  "name": "integral-ed-main-site",
+  "version": "1.0.0",
+  "description": "Integral Ed — Main brand site for integral-ed.com",
+  "siteSlug": "integral-ed",
+  "scripts": {
+    "build": "node build.js",
+    "dev": "python3 -m http.server 8000",
+    "preview": "cd dist && python3 -m http.server 8080"
+  },
+  "keywords": ["education", "elearning", "blended learning", "instructional design"],
+  "author": "IntegralEd",
+  "license": "MIT"
+}

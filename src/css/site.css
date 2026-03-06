@@ -1,0 +1,516 @@
+/*
+ * Integral Ed Main Site — site.css
+ * Site-specific overrides on top of vendor/integralthemes/theme/theme.css
+ */
+
+/* ── Nav logo image ─────────────────────────────────────────────────────── */
+.nav-logo {
+  display: flex;
+  align-items: center;
+}
+
+.nav-logo-img {
+  height: 36px;
+  width: auto;
+  display: block;
+}
+
+.nav-cta-link {
+  background: var(--primary);
+  color: white !important;
+  padding: 0.5rem 1.25rem;
+  border-radius: var(--radius-md);
+  font-weight: 500;
+  transition: background var(--transition-fast);
+}
+
+.nav-cta-link:hover {
+  background: var(--primary-dark);
+  color: white !important;
+}
+
+/* ── Footer ─────────────────────────────────────────────────────────────── */
+.footer-grid {
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr 1fr;
+  gap: var(--spacing-xl);
+  margin-bottom: var(--spacing-xl);
+}
+
+.footer-brand {
+  max-width: 320px;
+}
+
+.footer-tagline {
+  color: var(--text-tertiary);
+  font-size: 0.9375rem;
+  margin-bottom: var(--spacing-sm);
+  max-width: 100%;
+}
+
+.footer-parent {
+  color: var(--text-tertiary);
+  font-size: 0.875rem;
+  font-style: italic;
+  max-width: 100%;
+}
+
+.footer-nav-heading {
+  font-size: 0.8125rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--text-tertiary);
+  margin-bottom: var(--spacing-sm);
+}
+
+.footer-nav ul {
+  list-style: none;
+}
+
+.footer-nav li {
+  margin-bottom: 0.375rem;
+}
+
+.footer-nav a {
+  color: var(--text-secondary);
+  font-size: 0.9375rem;
+}
+
+.footer-nav a:hover {
+  color: var(--primary);
+}
+
+.footer-contact-btn {
+  margin-top: var(--spacing-sm);
+}
+
+.footer-copy {
+  border-top: 1px solid var(--border-light);
+  padding-top: var(--spacing-md);
+  color: var(--text-tertiary);
+  font-size: 0.875rem;
+  max-width: 100%;
+}
+
+/* ── Page headers (interior pages) ─────────────────────────────────────── */
+.page-header {
+  padding: calc(80px + var(--spacing-xl)) 0 var(--spacing-xl);
+  background: var(--bg-accent);
+  border-bottom: 1px solid var(--border-light);
+}
+
+.page-header h1 {
+  margin-bottom: var(--spacing-sm);
+}
+
+.page-header .page-intro {
+  font-size: clamp(1.125rem, 2vw, 1.375rem);
+  color: var(--text-secondary);
+  max-width: 700px;
+  margin-bottom: 0;
+}
+
+/* ── Hero accent bar ─────────────────────────────────────────────────────── */
+.hero-accent {
+  display: inline-block;
+  background: var(--accent-magenta);
+  color: white;
+  font-size: 0.8125rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  padding: 0.25rem 0.75rem;
+  border-radius: var(--radius-sm);
+  margin-bottom: var(--spacing-md);
+}
+
+/* ── Trust strip ──────────────────────────────────────────────────────────── */
+.trust-strip-label {
+  font-size: 0.875rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--text-tertiary);
+  text-align: center;
+  margin-bottom: var(--spacing-md);
+}
+
+.logo-strip {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  gap: var(--spacing-lg);
+}
+
+/* ── Support points list ─────────────────────────────────────────────────── */
+.support-points {
+  list-style: none;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: var(--spacing-sm) var(--spacing-lg);
+  margin: var(--spacing-lg) 0;
+}
+
+.support-points li {
+  padding-left: var(--spacing-md);
+  position: relative;
+  font-size: 1rem;
+}
+
+.support-points li::before {
+  content: '●';
+  position: absolute;
+  left: 0;
+  color: var(--accent-magenta);
+  font-size: 0.75rem;
+  top: 0.3em;
+}
+
+/* ── Practice area cards (homepage + index) ─────────────────────────────── */
+.practice-cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: var(--spacing-lg);
+  margin-top: var(--spacing-xl);
+}
+
+.practice-card {
+  background: var(--bg-primary);
+  border: 2px solid var(--border-light);
+  border-radius: var(--radius-md);
+  padding: var(--spacing-lg);
+  text-decoration: none;
+  color: inherit;
+  display: block;
+  transition: all var(--transition-base);
+  position: relative;
+}
+
+.practice-card:hover {
+  border-color: var(--primary);
+  box-shadow: var(--shadow-md);
+  transform: translateY(-2px);
+}
+
+.practice-card.primary-card {
+  border-color: var(--primary);
+  background: var(--bg-accent);
+}
+
+.practice-card-tag {
+  display: inline-block;
+  font-size: 0.75rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--primary);
+  margin-bottom: var(--spacing-sm);
+}
+
+.practice-card.primary-card .practice-card-tag {
+  color: var(--accent-magenta);
+}
+
+.practice-card h3 {
+  font-size: 1.125rem;
+  margin-bottom: var(--spacing-sm);
+  color: var(--text-primary);
+}
+
+.practice-card p {
+  font-size: 0.9375rem;
+  color: var(--text-secondary);
+  margin-bottom: var(--spacing-md);
+  max-width: 100%;
+}
+
+.practice-card-link {
+  font-size: 0.9375rem;
+  font-weight: 500;
+  color: var(--primary);
+  display: inline-flex;
+  align-items: center;
+  gap: 0.25rem;
+}
+
+.practice-card-link::after {
+  content: '→';
+  transition: transform var(--transition-fast);
+}
+
+.practice-card:hover .practice-card-link::after {
+  transform: translateX(3px);
+}
+
+/* ── Media placeholder with descriptor ─────────────────────────────────── */
+.asset-placeholder {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 280px;
+  background: var(--bg-tertiary);
+  border: 3px dashed var(--border-medium);
+  border-radius: var(--radius-md);
+  color: var(--text-tertiary);
+  font-size: 0.9375rem;
+  text-align: center;
+  padding: var(--spacing-lg);
+  margin: var(--spacing-lg) 0;
+}
+
+.asset-placeholder .asset-filename {
+  font-family: monospace;
+  font-size: 0.8125rem;
+  color: var(--text-tertiary);
+  margin-top: var(--spacing-xs);
+  opacity: 0.75;
+}
+
+/* ── "How this connects" section (practice pages) ───────────────────────── */
+.connects-section {
+  background: var(--bg-accent);
+  border-left: 4px solid var(--primary);
+  border-radius: 0 var(--radius-md) var(--radius-md) 0;
+  padding: var(--spacing-lg);
+  margin: var(--spacing-xl) 0;
+}
+
+.connects-section h3 {
+  margin-bottom: var(--spacing-sm);
+}
+
+/* ── "When this is the right fit" list ──────────────────────────────────── */
+.fit-list {
+  list-style: none;
+  margin: var(--spacing-md) 0 var(--spacing-lg);
+}
+
+.fit-list li {
+  padding: 0.5rem 0 0.5rem var(--spacing-lg);
+  position: relative;
+  border-bottom: 1px solid var(--border-light);
+  font-size: 1rem;
+}
+
+.fit-list li:last-child {
+  border-bottom: none;
+}
+
+.fit-list li::before {
+  content: '✓';
+  position: absolute;
+  left: 0;
+  color: var(--primary);
+  font-weight: 700;
+}
+
+/* ── Values block (About) ───────────────────────────────────────────────── */
+.values-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--spacing-lg);
+  margin: var(--spacing-xl) 0;
+}
+
+.value-card {
+  text-align: center;
+  padding: var(--spacing-lg);
+  background: var(--bg-accent);
+  border-radius: var(--radius-md);
+  border: 2px solid var(--border-light);
+}
+
+.value-card h3 {
+  font-size: 1.5rem;
+  color: var(--primary);
+  margin-bottom: var(--spacing-sm);
+}
+
+.value-card p {
+  font-size: 0.9375rem;
+  color: var(--text-secondary);
+  max-width: 100%;
+  margin: 0;
+}
+
+/* ── Team grid ──────────────────────────────────────────────────────────── */
+.team-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+  gap: var(--spacing-lg);
+  margin-top: var(--spacing-xl);
+}
+
+.team-card {
+  text-align: center;
+}
+
+.team-photo {
+  width: 100%;
+  aspect-ratio: 1;
+  object-fit: cover;
+  border-radius: var(--radius-md);
+  background: var(--bg-secondary);
+  display: block;
+  margin-bottom: var(--spacing-md);
+}
+
+.team-name {
+  font-size: 1.125rem;
+  font-weight: 600;
+  margin-bottom: 0.25rem;
+}
+
+.team-title {
+  font-size: 0.9375rem;
+  color: var(--text-tertiary);
+  margin: 0;
+}
+
+/* ── Portfolio lock section ─────────────────────────────────────────────── */
+.portfolio-lock {
+  background: var(--bg-accent);
+  border: 2px solid var(--border-light);
+  border-radius: var(--radius-lg);
+  padding: var(--spacing-xl);
+  text-align: center;
+  max-width: 700px;
+  margin: var(--spacing-xl) auto;
+}
+
+.portfolio-lock-icon {
+  font-size: 2.5rem;
+  margin-bottom: var(--spacing-md);
+  display: block;
+}
+
+.portfolio-cta-group {
+  display: flex;
+  gap: var(--spacing-md);
+  justify-content: center;
+  flex-wrap: wrap;
+  margin-top: var(--spacing-lg);
+}
+
+/* ── Contact form ───────────────────────────────────────────────────────── */
+.contact-form-wrap {
+  max-width: 680px;
+  margin: 0 auto;
+}
+
+.form-group {
+  margin-bottom: var(--spacing-md);
+}
+
+.form-group label {
+  display: block;
+  font-weight: 500;
+  margin-bottom: 0.375rem;
+  font-size: 0.9375rem;
+}
+
+.form-group input,
+.form-group select,
+.form-group textarea {
+  width: 100%;
+  padding: 0.75rem 1rem;
+  border: 2px solid var(--border-medium);
+  border-radius: var(--radius-sm);
+  font-family: var(--font-primary);
+  font-size: 1rem;
+  color: var(--text-primary);
+  background: var(--bg-primary);
+  transition: border-color var(--transition-fast);
+}
+
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus {
+  outline: none;
+  border-color: var(--primary);
+}
+
+.form-group textarea {
+  min-height: 120px;
+  resize: vertical;
+}
+
+.form-helper {
+  font-size: 0.875rem;
+  color: var(--text-tertiary);
+  margin-top: 0.25rem;
+  max-width: 100%;
+}
+
+.form-checkboxes {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 0.5rem;
+  margin-top: 0.5rem;
+}
+
+.checkbox-label {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.9375rem;
+  cursor: pointer;
+}
+
+.checkbox-label input[type="checkbox"] {
+  width: auto;
+  accent-color: var(--primary);
+}
+
+.form-submit-group {
+  margin-top: var(--spacing-lg);
+  text-align: center;
+}
+
+.form-success {
+  display: none;
+  background: #e8f5e9;
+  border: 2px solid #4caf50;
+  border-radius: var(--radius-md);
+  padding: var(--spacing-lg);
+  text-align: center;
+  margin-top: var(--spacing-lg);
+}
+
+/* ── Responsive ─────────────────────────────────────────────────────────── */
+@media (max-width: 900px) {
+  .footer-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .footer-brand {
+    grid-column: 1 / -1;
+    max-width: 100%;
+  }
+
+  .values-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 768px) {
+  .footer-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .nav-logo-img {
+    height: 30px;
+  }
+
+  .practice-cards {
+    grid-template-columns: 1fr;
+  }
+
+  .portfolio-cta-group {
+    flex-direction: column;
+    align-items: center;
+  }
+}

@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contact | Integral Ed</title>
+  <meta name="description" content="Tell us what your organization is trying to launch, improve, or scale. Reach out to start a conversation with the Integral Ed team.">
+  <link rel="canonical" href="https://www.integral-ed.com/contact/">
+
+  <!-- Favicons -->
+  <link rel="icon" type="image/png" sizes="32x32" href="/vendor/integralthemes/assets/brand/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/vendor/integralthemes/assets/brand/favicon-16x16.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="/vendor/integralthemes/assets/brand/apple-touch-icon.png">
+
+  <!-- Styles -->
+  <link rel="stylesheet" href="/vendor/integralthemes/theme/theme.css">
+  <link rel="stylesheet" href="/css/site.css">
+</head>
+<body>
+
+  <!-- @nav -->
+
+  <header class="page-header" aria-labelledby="contact-heading">
+    <div class="container">
+      <h1 id="contact-heading">Tell us what you are building</h1>
+      <p class="page-intro">You do not need a perfect scope before reaching out. Tell us what your organization is trying to launch, improve, translate, or scale. Let us know which service areas seem most relevant, or just tell us where the challenge sits right now.</p>
+    </div>
+  </header>
+
+  <main>
+
+    <section class="section" aria-label="Contact form">
+      <div class="container">
+        <div class="contact-form-wrap">
+
+          <!-- Web3Forms intake form -->
+          <!-- Replace YOUR_WEB3FORMS_ACCESS_KEY with the key from web3forms.com dashboard -->
+          <form
+            id="contact-form"
+            action="https://api.web3forms.com/submit"
+            method="POST"
+            novalidate
+            aria-label="Contact form"
+          >
+            <input type="hidden" name="access_key" value="YOUR_WEB3FORMS_ACCESS_KEY">
+            <input type="hidden" name="subject" value="New inquiry — Integral Ed main site">
+            <input type="hidden" name="from_name" value="Integral Ed Website">
+            <input type="checkbox" name="botcheck" style="display:none">
+
+            <div class="form-group">
+              <label for="name">Name</label>
+              <input type="text" id="name" name="name" autocomplete="name" required>
+            </div>
+
+            <div class="form-group">
+              <label for="organization">Organization</label>
+              <input type="text" id="organization" name="organization" autocomplete="organization">
+            </div>
+
+            <div class="form-group">
+              <label for="role">Your role</label>
+              <input type="text" id="role" name="role">
+            </div>
+
+            <div class="form-group">
+              <label for="email">Email <span aria-hidden="true">*</span></label>
+              <input type="email" id="email" name="email" autocomplete="email" required>
+            </div>
+
+            <div class="form-group">
+              <label for="exploring">What are you exploring?</label>
+              <input type="text" id="exploring" name="exploring" placeholder="e.g. We need to redesign our onboarding course, or We are looking for an eLearning partner for a new program launch.">
+            </div>
+
+            <div class="form-group">
+              <label>Service areas of interest</label>
+              <p class="form-helper">Select any that feel relevant — or skip if you are not sure yet. We can help you figure out the right fit.</p>
+              <div class="form-checkboxes" role="group" aria-label="Service areas of interest">
+                <label class="checkbox-label">
+                  <input type="checkbox" name="service_areas[]" value="eLearning and blended learning">
+                  eLearning and blended learning
+                </label>
+                <label class="checkbox-label">
+                  <input type="checkbox" name="service_areas[]" value="Professional learning">
+                  Professional learning
+                </label>
+                <label class="checkbox-label">
+                  <input type="checkbox" name="service_areas[]" value="Career pathways and workforce development">
+                  Career pathways and workforce development
+                </label>
+                <label class="checkbox-label">
+                  <input type="checkbox" name="service_areas[]" value="Strategy and growth">
+                  Strategy and growth
+                </label>
+                <label class="checkbox-label">
+                  <input type="checkbox" name="service_areas[]" value="Platforms and systems">
+                  Platforms and systems
+                </label>
+                <label class="checkbox-label">
+                  <input type="checkbox" name="service_areas[]" value="Media and communications">
+                  Media and communications
+                </label>
+                <label class="checkbox-label">
+                  <input type="checkbox" name="service_areas[]" value="Not sure yet">
+                  Not sure yet
+                </label>
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label for="timeline">Timeline</label>
+              <select id="timeline" name="timeline">
+                <option value="">Select a timeline</option>
+                <option value="Immediate — within the next month">Immediate — within the next month</option>
+                <option value="Near-term — within 1–3 months">Near-term — within 1–3 months</option>
+                <option value="Planning — 3–6 months out">Planning — 3–6 months out</option>
+                <option value="Exploring — no firm timeline yet">Exploring — no firm timeline yet</option>
+              </select>
+            </div>
+
+            <div class="form-group">
+              <label for="message">Anything else you would like us to know?</label>
+              <textarea id="message" name="message" placeholder="Tell us more about your organization, the challenge, or what would make this project a success."></textarea>
+            </div>
+
+            <div class="form-submit-group">
+              <button type="submit" class="btn btn-primary">Send</button>
+            </div>
+          </form>
+
+          <div class="form-success" id="form-success" role="alert" aria-live="polite">
+            <h3>Thank you — we received your message.</h3>
+            <p>Someone from our team will follow up with you shortly.</p>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- @footer -->
+
+  <script src="/js/main.js"></script>
+  <script>
+    // Web3Forms submission handler
+    document.getElementById('contact-form').addEventListener('submit', function (e) {
+      e.preventDefault();
+      var form = e.target;
+      var data = new FormData(form);
+      fetch('https://api.web3forms.com/submit', {
+        method: 'POST',
+        body: data
+      })
+      .then(function (res) { return res.json(); })
+      .then(function (json) {
+        if (json.success) {
+          form.style.display = 'none';
+          document.getElementById('form-success').style.display = 'block';
+        } else {
+          alert('Something went wrong. Please try again or email us directly.');
+        }
+      })
+      .catch(function () {
+        alert('Something went wrong. Please try again or email us directly.');
+      });
+    });
+  </script>
+</body>
+</html>
