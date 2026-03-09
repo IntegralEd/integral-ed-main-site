@@ -16,13 +16,14 @@ Line 2 (animated — each word fades in purple then settles to black, 1s each):
 learn,  [0s]  adapt,  [1s]  and grow.  [2s]
 
 CTA: Contact Us → /contact/
+[Note: button fades in as "grow." begins at 2s]
 
 
 ── HERO IMAGE + OVERLAY CARD ───────────────────────────────────────────────────
 
-Image: /assets/images/instruction-stock-image.avif
+[IMAGE: Instructor with students at tablet — instruction-stock-image.avif]
 
-Overlay card heading:
+Overlay card H2:
 Ensuring online learning works in the real world.
 
 Body:
@@ -41,7 +42,7 @@ For more than fifteen years, we have partnered with organizations across educati
 
 Strip label: Organizations we have served
 
-[LOGOS: 21 client logos in /assets/images/client-logos/ — displayed in 4-per-row grid at full color]
+[IMAGE: Client logo grid — 21 logos in /assets/images/client-logos/]
 
 
 ── CORE OFFER ──────────────────────────────────────────────────────────────────
@@ -75,7 +76,7 @@ Our clients do not need to assemble and manage multiple vendors.
 
 Each partnership has a clear point of contact who can bring in the right support at the right time, whether that means instructional design, platform planning, communications, workforce alignment, or executive-facing materials. We start where the need is most urgent and build from there.
 
-[MEDIA: Team photo or collage — /assets/home/hero-team-photo.jpg — placeholder]
+[IMAGE: Team photo or collage showing connected, collaborative work — /assets/home/hero-team-photo.jpg]
 
 
 ── LONG-TERM PARTNERSHIPS ──────────────────────────────────────────────────────
@@ -101,23 +102,23 @@ Cards (no subhead tags):
 
   eLearning & Blended Learning  [primary card]
   Custom eLearning design, blended programs, interactive modules, and digital learning experiences for real users.
-  → /practice-areas/elearning-and-blended-learning/
+  → /practice-areas/elearning/
 
-  Professional Learning
-  Asynchronous and blended professional development that helps educators and adult learners apply new ideas.
-  → /practice-areas/professional-learning/
+  Technical Assistance
+  We support mission-driven organizations as they enter new service areas, codify expertise into training, and strengthen leadership capacity for system-wide change.
+  → /practice-areas/capacity/
 
-  Career Pathways & Workforce
+  Career Connected Learning
   Career exploration tools, advising resources, and workforce development learning experiences.
-  → /practice-areas/career-pathways-and-workforce/
+  → /practice-areas/career-pathways/
 
-  Strategy & Growth
+  Growth Strategy
   Market positioning, growth planning, proposal support, and go-to-market communications.
   → /practice-areas/strategy-and-growth/
 
-  Platforms & Systems
+  LMS & Platforms
   LMS selection, digital workflow design, and implementation support tied to learning goals.
-  → /practice-areas/platforms-and-systems/
+  → /practice-areas/platforms/
 
   Media & Communications
   Video, motion graphics, decks, and communications assets that support learning and growth initiatives.
@@ -132,16 +133,16 @@ Selected work across learning, strategy, and media
 Body:
 Our portfolio includes interactive eLearning, blended professional learning, workforce development tools, career exploration experiences, executive communications, and custom systems that support implementation. Many examples are available through our gated portfolio.
 
-[MEDIA: Featured work collage — /assets/home/featured-work-collage.jpg — placeholder]
+[IMAGE: Featured work collage — /assets/home/featured-work-collage.jpg]
 
 
 ── PORTFOLIO CTA ───────────────────────────────────────────────────────────────
 
 Section heading:
-Need to see examples?
+Want to be inspired?
 
 Body:
-We maintain a curated portfolio of selected client work, including interactive demos, sample media, and project examples across practice areas.
+We would welcome the chance to show you a curated portfolio of recent and relevant work, including interactive demos, sample media. Let us know of your needs so we can tailor the right samples for your organization.
 
 CTA: Request Portfolio Access → /portfolio/
 
@@ -158,64 +159,20 @@ CTA: Talk With Our Team → /contact/
 
 
 ════════════════════════════════════════════════════════════════════════════════
-PAGE: TEAM  /team/
-════════════════════════════════════════════════════════════════════════════════
-
-── PAGE HEADER ─────────────────────────────────────────────────────────────────
-
-H1:
-Our Team
-
-Intro:
-Our team brings experience across learning design, organizational leadership, and real-world implementation. Integral Ed designers have created more than 120 custom eLearning courses and blended learning programs for our clients. Members of our team have held executive leadership roles at major nonprofits and education technology organizations and have taught in formal education settings from early childhood classrooms through post-secondary institutions.
-
-
-── HOW WE WORK ─────────────────────────────────────────────────────────────────
-
-H2:
-How we work
-
-Body:
-Each engagement is led by a Project Director who serves as the single point of contact for your organization. The Project Director coordinates the work and brings in the right expertise at the right time.
-
-Our model is designed to be flexible and practical for our partners. We bill only for the hours our team works, allowing organizations to scale support up or down as needs evolve.
-
-
-── TEAM DIRECTORY ──────────────────────────────────────────────────────────────
-
-[EMBED: Softr team directory — https://integral.softr.app/teamdirectory-public]
-
-
-── CTA ─────────────────────────────────────────────────────────────────────────
-
-Section heading:
-Work with us
-
-Body:
-We work with mission-driven organizations. If you are looking to collaborate — as a client, a contractor, or a partner — we would love to hear from you.
-
-CTA: Talk With Our Team → /contact/
-
-
-════════════════════════════════════════════════════════════════════════════════
 PAGE: ABOUT  /about/
 ════════════════════════════════════════════════════════════════════════════════
 
-── PAGE HEADER ─────────────────────────────────────────────────────────────────
-
-Headline:
+H1:
 A long-term partner for mission-driven learning and growth
 
-
-── BODY ────────────────────────────────────────────────────────────────────────
-
+Body:
 Integral Ed works with schools, nonprofits, workforce organizations, and adjacent mission-driven teams that need more than a narrow vendor.
 
 For more than fifteen years, we have helped organizations design learning experiences, strengthen communications, support implementation, and grow into new channels. Much of our work begins with eLearning, online learning, or blended learning. Over time, clients often rely on us more broadly because the needs around learning are rarely isolated. They touch systems, facilitation, messaging, strategy, and user experience.
 
 We work as a connected team. Clients have a clear point of contact and access to the right expertise when it is needed. That means less fragmentation, better judgment, and work that stays aligned as priorities evolve.
 
-[MEDIA: Team or organizational photo — /assets/about/team-photo.jpg — placeholder]
+[IMAGE: Team or organizational photo — /assets/about/team-photo.jpg]
 
 
 ── VALUES ──────────────────────────────────────────────────────────────────────
@@ -255,9 +212,7 @@ CTAs: Talk With Our Team  /  How We Work
 PAGE: APPROACH  /approach/
 ════════════════════════════════════════════════════════════════════════════════
 
-── PAGE HEADER ─────────────────────────────────────────────────────────────────
-
-Headline:
+H1:
 How we work
 
 Intro:
@@ -291,6 +246,493 @@ CTAs: Talk With Our Team  /  Explore Practice Areas
 
 
 ════════════════════════════════════════════════════════════════════════════════
+PAGE: PRACTICE AREAS INDEX  /practice-areas/
+════════════════════════════════════════════════════════════════════════════════
+
+H1:
+Practice areas that work together
+
+Intro:
+Integral Ed is organized around a set of connected practice areas. eLearning and blended learning are at the center of much of our work, but clients often need more than one kind of support. We help organizations connect learning design, implementation, communications, systems, and growth so that good ideas can actually scale.
+
+Cards (no subhead tags):
+
+  eLearning & Blended Learning  [primary card]
+  Custom eLearning design, blended programs, interactive modules, and digital learning experiences for real users.
+  → /practice-areas/elearning/
+
+  Technical Assistance
+  We support mission-driven organizations as they enter new service areas, codify expertise into training, and strengthen leadership capacity for system-wide change.
+  → /practice-areas/capacity/
+
+  Career Connected Learning
+  Career exploration tools, advising resources, and workforce development learning experiences.
+  → /practice-areas/career-pathways/
+
+  Growth Strategy
+  Market positioning, growth planning, proposal support, and go-to-market communications.
+  → /practice-areas/strategy-and-growth/
+
+  LMS & Platforms
+  LMS selection, digital workflow design, and implementation support tied to learning goals.
+  → /practice-areas/platforms/
+
+  Media & Communications
+  Video, motion graphics, decks, and communications assets that support learning and growth initiatives.
+  → /practice-areas/media-and-communications/
+
+
+── CTA ─────────────────────────────────────────────────────────────────────────
+
+Section heading:
+Not sure where to start?
+
+Body:
+Tell us about your organization and what you are trying to build. We will help you identify the right starting point.
+
+CTA: Talk With Our Team → /contact/
+
+
+════════════════════════════════════════════════════════════════════════════════
+PAGE: ELEARNING & BLENDED LEARNING  /practice-areas/elearning/
+════════════════════════════════════════════════════════════════════════════════
+
+H1:
+eLearning & Blended Learning
+
+Body:
+We design digital learning experiences that help organizations teach clearly, engage real users, and deliver learning in formats that fit the context. That includes fully asynchronous modules, blended programs, scenario-based learning, interactive tools, and media-rich courses for educators, students, job seekers, and adult learners. We work in industry standard tools and design portable file formats such as SCORM that can move with you as you replatform and grow.
+
+[IMAGE: eLearning module screenshots — /assets/practice/elearning-screenshot-01.jpg]
+
+Typical work includes:
+- Custom elearning modules
+- Blended learning programs
+- Scenario-based learning
+- Interactive learning tools
+- Professional learning and training courses
+- Curriculum adapted for online delivery
+
+
+── HOW THIS CONNECTS ───────────────────────────────────────────────────────────
+
+Body:
+eLearning work often connects to technical assistance, platforms, and media. Many clients who begin with a course engagement expand into facilitator support, LMS selection, or communications design as their programs grow.
+
+Often paired with:
+- Technical Assistance — Codifying expertise into training and supporting broader implementation.
+- LMS & Platforms — LMS selection and deployment that supports the delivery of eLearning content.
+- Media & Communications — Video, motion graphics, and instructional media that bring learning to life.
+
+
+── GO DEEPER ───────────────────────────────────────────────────────────────────
+
+Body:
+Our eLearning practice area covers our process, tools, and approach in greater depth.
+Link: Explore the eLearning services → integralelearning.com
+
+
+── CTA ─────────────────────────────────────────────────────────────────────────
+
+Section heading:
+Ready to talk about a learning project?
+
+Body:
+Tell us what you are building and where you are in the process. We will help you figure out the right approach.
+
+CTAs: Talk With Our Team  /  Request Portfolio Access
+
+
+════════════════════════════════════════════════════════════════════════════════
+PAGE: TECHNICAL ASSISTANCE  /practice-areas/capacity/
+════════════════════════════════════════════════════════════════════════════════
+
+H1:
+Technical Assistance
+
+Body:
+We support mission-driven organizations as they enter new service areas, codify expertise into training, and strengthen leadership capacity for system-wide change.
+
+Our team often works alongside leadership teams and program staff to translate deep program knowledge into learning, systems, and operational structures that can be implemented across teams and partners.
+
+[IMAGE: Technical assistance or leadership team photo — /assets/practice/capacity-photo-01.jpg]
+
+Typical work includes:
+- Program and initiative design
+- Codifying expertise into training
+- Leadership support and capacity building
+- Operationalizing programs for broader implementation
+- Technical assistance delivery models
+
+
+── HOW THIS CONNECTS ───────────────────────────────────────────────────────────
+
+Body:
+Technical assistance work often leads to eLearning development, professional learning design, and communications that help organizations share their model with partners and stakeholders.
+
+Often paired with:
+- eLearning & Blended Learning — Translating program expertise into structured digital learning experiences.
+- Growth Strategy — Positioning and communications support that helps organizations expand their reach.
+
+
+── GO DEEPER ───────────────────────────────────────────────────────────────────
+
+Body:
+Our technical assistance practice area covers our approach in greater depth.
+Link: Explore the technical assistance services → integralcapacity.com
+
+
+── CTA ─────────────────────────────────────────────────────────────────────────
+
+Section heading:
+Ready to talk about your organization's needs?
+
+Body:
+Tell us where your team is and what you are trying to build. We will help you find the right starting point.
+
+CTA: Talk With Our Team → /contact/
+
+
+════════════════════════════════════════════════════════════════════════════════
+PAGE: CAREER CONNECTED LEARNING  /practice-areas/career-pathways/
+════════════════════════════════════════════════════════════════════════════════
+
+H1:
+Career Connected Learning
+
+Body:
+Career exploration tools, advising resources, and workforce development learning experiences that help learners understand pathways and make informed decisions about education and work.
+
+We design resources that support educators, advisors, and workforce programs while helping learners connect classroom experiences with real career opportunities.
+
+[IMAGE: Career exploration tool or workforce development interface — /assets/practice/career-pathways-screenshot-01.jpg]
+
+Typical work includes:
+- Career exploration tools
+- Advising and guidance resources
+- Career pathway learning experiences
+- Workforce development training
+- Student and job seeker learning tools
+
+
+── HOW THIS CONNECTS ───────────────────────────────────────────────────────────
+
+Body:
+Career connected learning work often overlaps with eLearning design, growth strategy, and platforms. Career pathway tools frequently require custom digital experiences, user-facing communications, and platform decisions that shape how learners access content.
+
+Often paired with:
+- eLearning & Blended Learning — Digital learning experiences that support career exploration and workforce readiness.
+- Growth Strategy — Positioning and communications support for workforce and pathway programs.
+
+
+── GO DEEPER ───────────────────────────────────────────────────────────────────
+
+Body:
+Our career pathways practice area covers our approach in greater depth.
+Link: Explore the career pathways services → integralcareerpathways.com
+
+
+── CTA ─────────────────────────────────────────────────────────────────────────
+
+Section heading:
+Ready to talk about your program?
+
+Body:
+Tell us about your learners and what you are trying to build. We will help you find the right approach.
+
+CTA: Talk With Our Team → /contact/
+
+
+════════════════════════════════════════════════════════════════════════════════
+PAGE: GROWTH STRATEGY  /practice-areas/strategy-and-growth/
+════════════════════════════════════════════════════════════════════════════════
+
+H1:
+Growth Strategy
+
+Body:
+Market positioning, growth planning, proposal development, and communications strategies that help organizations expand their reach and impact.
+
+We work with leadership teams to clarify value propositions, identify growth opportunities, and translate program expertise into compelling communications and proposals.
+
+[IMAGE: Strategy deck, executive communication, or pitch material sample — /assets/practice/strategy-sample-01.jpg]
+
+Typical work includes:
+- Growth strategy development
+- Market positioning
+- Proposal and grant development support
+- Go-to-market communications
+- Strategic messaging and positioning
+
+
+── HOW THIS CONNECTS ───────────────────────────────────────────────────────────
+
+Body:
+This work often connects to media and communications, career pathways, and core eLearning offerings. Strategy engagements frequently surface the need for companion content — pitch decks, launch materials, or program communications — that our team can produce in the same workflow.
+
+Often paired with:
+- Media & Communications — Decks, launch materials, and communications assets that make strategy tangible and usable.
+- eLearning & Blended Learning — Learning products that bring strategic programs to life for real users.
+
+
+── GO DEEPER ───────────────────────────────────────────────────────────────────
+
+Link: Explore the growth strategy services → integralgrowthstrategies.com
+
+
+── CTA ─────────────────────────────────────────────────────────────────────────
+
+Section heading:
+Working on a strategic initiative or growth challenge?
+
+Body:
+Tell us where your organization is and what you are trying to move forward. We are good at finding the right starting point.
+
+CTA: Talk With Our Team → /contact/
+
+
+════════════════════════════════════════════════════════════════════════════════
+PAGE: LMS & PLATFORMS  /practice-areas/platforms/
+════════════════════════════════════════════════════════════════════════════════
+
+H1:
+LMS & Platforms
+
+Body:
+Choosing the right LMS can be a high stakes decision. We support platform evaluation, branded trials, and head-to-head comparisons of costs and features at your scale using your own content.
+
+Good learning also requires the right delivery environment. We help organizations think through the platforms, systems, and implementation choices that support online and blended learning.
+
+This includes LMS selection, digital workflow design, portal development, and practical decisions about how users access and experience learning content.
+
+[IMAGE: LMS interface screenshot or platform comparison output — /assets/practice/platforms-screenshot-01.jpg]
+
+Typical work includes:
+- LMS evaluation and selection
+- Platform pilots and branded trials
+- Digital workflow design
+- Learning portal design
+- Platform implementation planning
+
+
+── HOW THIS CONNECTS ───────────────────────────────────────────────────────────
+
+Body:
+Platform work rarely stands alone. Organizations making a platform decision usually also need content, facilitation support, or communications to make the platform useful for learners.
+
+Often paired with:
+- eLearning & Blended Learning — Content development that runs on the platforms we help select and deploy.
+- Technical Assistance — Implementation support that helps teams adopt and operate new platforms effectively.
+
+
+── GO DEEPER ───────────────────────────────────────────────────────────────────
+
+Body:
+Our platforms practice area covers our evaluation process and approach in greater depth.
+Link: Explore the platforms services → integralplatforms.com
+
+
+── CTA ─────────────────────────────────────────────────────────────────────────
+
+Section heading:
+Evaluating a platform?
+
+Body:
+Tell us about your organization, your current setup, and what you are trying to improve. We will help you find the right fit.
+
+CTA: Talk With Our Team → /contact/
+
+
+════════════════════════════════════════════════════════════════════════════════
+PAGE: MEDIA & COMMUNICATIONS  /practice-areas/media-and-communications/
+════════════════════════════════════════════════════════════════════════════════
+
+H1:
+Media & Communications
+
+Body:
+Video, motion graphics, presentation decks, and communications assets that support learning initiatives and growth strategies.
+
+Our media work helps organizations explain complex ideas clearly, support learning programs, and communicate with partners, educators, and stakeholders.
+
+[IMAGE: Media production sample — video still, motion graphic, or deck cover — /assets/practice/media-sample-01.jpg]
+
+Typical work includes:
+- Instructional video production
+- Motion graphics and animation
+- Presentation and pitch decks
+- Visual communications assets
+- Media for learning programs
+
+
+── HOW THIS CONNECTS ───────────────────────────────────────────────────────────
+
+Body:
+This work frequently supports eLearning, growth strategy, and technical assistance. Media and communications are most effective when connected to the instructional or strategic work they are helping to communicate.
+
+Often paired with:
+- eLearning & Blended Learning — Instructional video, motion graphics, and multimedia that bring learning experiences to life.
+- Growth Strategy — Executive decks and launch communications that support strategic initiatives.
+
+
+── GO DEEPER ───────────────────────────────────────────────────────────────────
+
+Link: Explore the media services → integralmediadesign.com
+
+
+── CTA ─────────────────────────────────────────────────────────────────────────
+
+Section heading:
+Have a communications or media need?
+
+Body:
+Tell us about the initiative and what you are trying to communicate. We will help you figure out the right format and approach.
+
+CTA: Talk With Our Team → /contact/
+
+
+════════════════════════════════════════════════════════════════════════════════
+PAGE: TEAM  /team/
+════════════════════════════════════════════════════════════════════════════════
+
+H1:
+Our Team
+
+Intro:
+Our team brings experience across learning design, organizational leadership, and real-world implementation. Integral Ed designers have created more than 120 custom eLearning courses and blended learning programs for our clients. Members of our team have held executive leadership roles at major nonprofits and education technology organizations and have taught in formal education settings from early childhood classrooms through post-secondary institutions.
+
+
+── HOW WE WORK ─────────────────────────────────────────────────────────────────
+
+H2:
+How we work
+
+Body:
+Each engagement is led by a Project Director who serves as the single point of contact for your organization. The Project Director coordinates the work and brings in the right expertise at the right time.
+
+Our model is designed to be flexible and practical for our partners. We bill only for the hours our team works, allowing organizations to scale support up or down as needs evolve.
+
+
+── TEAM DIRECTORY ──────────────────────────────────────────────────────────────
+
+[EMBED: Softr team directory — https://integral.softr.app/teamdirectory-public]
+
+
+── CTA ─────────────────────────────────────────────────────────────────────────
+
+Section heading:
+Work with us
+
+Body:
+We work with mission-driven organizations. If you are looking to collaborate — as a client, a contractor, or a partner — we would love to hear from you.
+
+CTA: Talk With Our Team → /contact/
+
+
+════════════════════════════════════════════════════════════════════════════════
+PAGE: PORTFOLIO  /portfolio/
+════════════════════════════════════════════════════════════════════════════════
+
+H1:
+A curated portfolio of selected work
+
+Body:
+Our portfolio includes interactive demos, sample media, and project examples across eLearning, blended learning, professional learning, workforce development, communications, and digital systems.
+
+Some examples are public. Many are curated or gated because they reflect client-specific work, implementation details, or materials that are more useful in the context of a real conversation.
+
+If you would like access, tell us a bit about what you are exploring and we will point you to the most relevant examples.
+
+
+── WHAT IS IN THE PORTFOLIO ────────────────────────────────────────────────────
+
+Section heading:
+What is in the portfolio
+
+Intro:
+A tailored selection of examples relevant to your organization's focus area — not a generic demo reel.
+
+eLearning & Blended Learning
+Interactive eLearning modules — Scenario-based learning, Rise courses, custom HTML5, and Storyline-based interactions built for real users.
+
+Technical Assistance / Professional Learning
+Facilitator and blended PD — Asynchronous and blended professional development programs, facilitator guides, and implementation tools.
+
+Career Connected Learning
+Career exploration tools — Digital career exploration experiences, advising tools, and pathway communications for students and job seekers.
+
+Media & Communications
+Video and instructional media — Explainer video, motion graphics, and communications assets that support learning and organizational goals.
+
+LMS & Platforms
+LMS and platform work — LMS selection deliverables, platform configuration examples, and digital workflow designs.
+
+Growth Strategy
+Strategy and communications — Pitch decks, program positioning materials, and executive-facing communications.
+
+[IMAGE: Portfolio preview grid — /assets/portfolio/portfolio-preview-grid.jpg]
+
+
+── ACCESS GATE ─────────────────────────────────────────────────────────────────
+
+Section heading:
+Request access to see examples
+
+Body:
+We curate a set of relevant examples for each prospective client based on the kind of work they are exploring. Gated access protects client-specific content and helps us point you to what is actually useful.
+
+Tell us what you are working on and we will share the most relevant examples from our portfolio environment.
+
+CTAs: Request Portfolio Access  /  Talk With Our Team
+
+
+════════════════════════════════════════════════════════════════════════════════
+PAGE: CONTACT  /contact/
+════════════════════════════════════════════════════════════════════════════════
+
+H1:
+Tell us what you are building
+
+Intro:
+You do not need a perfect scope before reaching out. Tell us what your organization is trying to launch, improve, translate, or scale. Let us know which service areas seem most relevant, or just tell us where the challenge sits right now.
+
+
+── FORM FIELDS ─────────────────────────────────────────────────────────────────
+
+Name
+Organization
+Your role
+Email *
+What are you exploring?
+  [Helper: e.g. We need to redesign our onboarding course, or We are looking for an eLearning partner for a new program launch.]
+
+Service areas of interest (select all that apply)
+  - eLearning and blended learning
+  - Professional learning
+  - Career pathways and workforce development
+  - Strategy and growth
+  - Platforms and systems
+  - Media and communications
+  - Not sure yet
+  [Helper: Select any that feel relevant — or skip if you are not sure yet. We can help you figure out the right fit.]
+
+Timeline
+  - Immediate — within the next month
+  - Near-term — within 1–3 months
+  - Planning — 3–6 months out
+  - Exploring — no firm timeline yet
+
+Anything else you would like us to know?
+  [Helper: Tell us more about your organization, the challenge, or what would make this project a success.]
+
+Submit button: Send
+
+Confirmation message:
+  Thank you — we received your message.
+  Someone from our team will follow up with you shortly.
+
+
+════════════════════════════════════════════════════════════════════════════════
 FOOTER (all pages)
 ════════════════════════════════════════════════════════════════════════════════
 
@@ -303,7 +745,7 @@ Integral Ed is the parent organization with a set of connected practice-areas.
 Main page links:
 Home / About / Approach / Practice Areas / Team / Portfolio / Contact
 
-Practice area microsite links:
+Practice area links:
 eLearning & Blended Learning → integralelearning.com
 Platforms & LMS → integralplatforms.com
 Technical Assistance → integralcapacity.com
