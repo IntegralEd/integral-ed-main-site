@@ -306,32 +306,38 @@
 }
 
 .logo-strip {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
   gap: 56px 48px;
   padding: var(--spacing-2xl) var(--spacing-xl);
-  align-items: center;
 }
 
 .client-logo {
-  width: 100%;
+  width: auto;
   height: 48px;
+  max-width: 160px;
   object-fit: contain;
-  justify-self: center;
+  flex: 0 0 auto;
 }
 
 @media (max-width: 900px) {
   .logo-strip {
-    grid-template-columns: repeat(3, 1fr);
     gap: 48px 40px;
+  }
+  .client-logo {
+    max-width: 130px;
   }
 }
 
 @media (max-width: 560px) {
   .logo-strip {
-    grid-template-columns: repeat(2, 1fr);
     gap: 40px 32px;
     padding: var(--spacing-xl) var(--spacing-md);
+  }
+  .client-logo {
+    max-width: 110px;
   }
 }
 
