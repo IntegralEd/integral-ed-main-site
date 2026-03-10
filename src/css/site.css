@@ -393,7 +393,6 @@
 
 .practice-card.primary-card {
   border-color: var(--primary);
-  background: var(--bg-accent);
 }
 
 .practice-card-tag {
