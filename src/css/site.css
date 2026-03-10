@@ -391,9 +391,7 @@
   transform: translateY(-2px);
 }
 
-.practice-card.primary-card {
-  border-color: var(--primary);
-}
+
 
 .practice-card-tag {
   display: inline-block;
