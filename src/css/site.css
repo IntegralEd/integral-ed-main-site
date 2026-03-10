@@ -496,6 +496,11 @@
   border-bottom: none;
 }
 
+
+/* ── Fit list inside cta-plum stays left-aligned ───────────────────────── */
+.cta-plum .fit-list {
+  text-align: left;
+}
 .fit-list li::before {
   content: '✓';
   position: absolute;
