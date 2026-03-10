@@ -687,7 +687,7 @@
 .team-directory-frame {
   display: block;
   width: 100%;
-  min-height: 80vh;
+  min-height: 1800px;
   border: none;
   border-radius: var(--radius-md);
 }

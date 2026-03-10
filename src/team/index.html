@@ -68,5 +68,19 @@
   <!-- @footer -->
 
   <script src="/js/main.js"></script>
+  <script>
+    window.addEventListener('message', function(e) {
+      var frame = document.querySelector('.team-directory-frame');
+      if (!frame) return;
+      if (e.data && typeof e.data.height === 'number') {
+        frame.style.height = e.data.height + 'px';
+      } else if (e.data && typeof e.data === 'string') {
+        try {
+          var data = JSON.parse(e.data);
+          if (data.height) frame.style.height = data.height + 'px';
+        } catch(err) {}
+      }
+    });
+  </script>
 </body>
 </html>
