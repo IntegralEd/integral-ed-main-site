@@ -500,6 +500,9 @@
 /* ── Fit list inside cta-plum stays left-aligned ───────────────────────── */
 .cta-plum .fit-list {
   text-align: left;
+  max-width: 480px;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .cta-plum .fit-list li {
