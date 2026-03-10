@@ -501,6 +501,10 @@
 .cta-plum .fit-list {
   text-align: left;
 }
+
+.cta-plum .fit-list li {
+  border-bottom-color: #d9d9d9;
+}
 .fit-list li::before {
   content: '✓';
   position: absolute;
