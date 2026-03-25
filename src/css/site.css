@@ -265,8 +265,12 @@
 /* ── Page headers (interior pages) ─────────────────────────────────────── */
 .page-header {
   padding: calc(80px + var(--spacing-xl)) 0 var(--spacing-xl);
-  background: var(--bg-accent);
-  border-bottom: 1px solid var(--border-light);
+  background: transparent;
+}
+
+.page-header .container {
+  border-bottom: 1px solid #ebebeb;
+  padding-bottom: var(--spacing-xl);
 }
 
 .page-header h1 {
