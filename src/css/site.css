@@ -264,7 +264,7 @@
 
 /* ── Page headers (interior pages) ─────────────────────────────────────── */
 .page-header {
-  padding: calc(80px + var(--spacing-lg)) 0 0;
+  padding: calc(80px + var(--spacing-2xl)) 0 0;
   background: transparent;
 }
 
