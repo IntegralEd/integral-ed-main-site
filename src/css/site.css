@@ -264,14 +264,14 @@
 
 /* ── Page headers (interior pages) ─────────────────────────────────────── */
 .page-header {
-  padding: calc(80px + var(--spacing-2xl)) 0 0;
+  padding: calc(80px + var(--spacing-lg)) 0 0;
   background: transparent;
 }
 
 .page-header h1 {
   max-width: 900px;
   margin: 0 auto;
-  padding-bottom: var(--spacing-2xl);
+  padding-bottom: var(--spacing-lg);
   border-bottom: 1px solid #ebebeb;
 }
 
