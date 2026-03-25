@@ -269,6 +269,7 @@
 }
 
 .page-header .container {
+  max-width: 900px;
   border-bottom: 1px solid #ebebeb;
   padding-bottom: var(--spacing-xl);
 }
