@@ -518,9 +518,9 @@
 
 .value-icon {
   display: block;
-  width: 48px;
-  height: 48px;
-  margin-bottom: var(--spacing-sm);
+  width: 80px;
+  height: 80px;
+  margin: 0 auto var(--spacing-sm);
 }
 
 .value-card h3 {
