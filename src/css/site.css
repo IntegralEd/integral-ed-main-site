@@ -780,3 +780,24 @@
 .section {
   padding: var(--spacing-lg) 0;
 }
+
+/* ── Connected model 2-column layout ────────────────────────────────────── */
+.connected-model-layout {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--spacing-xl);
+  align-items: center;
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.connected-model-image .asset-placeholder {
+  margin: 0;
+  min-height: 240px;
+}
+
+@media (max-width: 768px) {
+  .connected-model-layout {
+    grid-template-columns: 1fr;
+  }
+}
