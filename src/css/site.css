@@ -516,6 +516,13 @@
   padding: var(--spacing-lg);
 }
 
+.value-icon {
+  display: block;
+  width: 48px;
+  height: 48px;
+  margin-bottom: var(--spacing-sm);
+}
+
 .value-card h3 {
   font-size: 1.5rem;
   color: var(--primary);

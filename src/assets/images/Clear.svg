@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg id="Layer_2" data-name="Layer 2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 1000">
+  <defs>
+    <style>
+      .cls-1 {
+        fill: #fff;
+        fill-rule: evenodd;
+        isolation: isolate;
+        opacity: .2;
+      }
+
+      .cls-2 {
+        opacity: .81;
+      }
+
+      .cls-3 {
+        fill: #4d72ac;
+      }
+    </style>
+  </defs>
+  <g id="Layer_1-2" data-name="Layer 1">
+    <g>
+      <rect class="cls-3" width="1000" height="1000" rx="120.83" ry="120.83"/>
+      <g id="Group" class="cls-2">
+        <path id="Ellipse" class="cls-1" d="M500,925c-235.03,0-425-189.97-425-425S264.97,75,500,75s425,189.97,425,425-189.97,425-425,425Z"/>
+        <path id="Ellipse-2" data-name="Ellipse" class="cls-1" d="M500,826.35c-181.02,0-327.35-146.32-327.35-327.35S318.98,171.67,500,171.67s327.34,146.32,327.34,327.34-146.32,327.35-327.34,327.35Z"/>
+        <path id="Ellipse-3" data-name="Ellipse" class="cls-1" d="M500,710.87c-117.16,0-211.86-94.7-211.86-211.86s94.7-211.85,211.86-211.85,211.85,94.7,211.85,211.85-94.69,211.86-211.85,211.86Z"/>
+        <path id="Ellipse-4" data-name="Ellipse" class="cls-1" d="M500,612.91c-62.99,0-113.91-50.92-113.91-113.91s50.92-113.9,113.91-113.9,113.9,50.92,113.9,113.9-50.92,113.91-113.9,113.91Z"/>
+      </g>
+    </g>
+  </g>
+</svg>
