@@ -763,3 +763,12 @@
   background: transparent;
   padding: var(--spacing-lg) 0;
 }
+
+/* ── Reduce inter-section spacing ───────────────────────────────────────── */
+.service-content {
+  margin-bottom: 0;
+}
+
+.section {
+  padding: var(--spacing-lg) 0;
+}
