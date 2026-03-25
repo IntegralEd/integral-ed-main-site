@@ -463,6 +463,14 @@
   opacity: 0.75;
 }
 
+.section-image {
+  display: block;
+  width: 100%;
+  height: auto;
+  border-radius: var(--radius-md);
+  margin: var(--spacing-lg) 0;
+}
+
 /* ── "How this connects" section (practice pages) ───────────────────────── */
 .connects-section {
   background: var(--bg-accent);
