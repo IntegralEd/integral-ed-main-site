@@ -860,6 +860,10 @@
   margin-bottom: var(--spacing-xl);
 }
 
+.photo-background-section .hero-buttons {
+  justify-content: flex-start;
+}
+
 @media (max-width: 768px) {
   .photo-background-section .content {
     max-width: 100%;
