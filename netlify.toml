@@ -1,3 +1,69 @@
 [build]
   command = "npm run build"
   publish = "dist"
+
+# ── /practice-areas/ → /services/ redirects (301 permanent) ─────────────────
+# Covers old URLs from pre-March-2026 site and any inbound microsite links.
+# Legacy slug variants (elearning-and-blended-learning etc.) redirect to the
+# canonical /services/ slug.
+
+[[redirects]]
+  from = "/practice-areas/"
+  to   = "/services/"
+  status = 301
+
+[[redirects]]
+  from = "/practice-areas/elearning/"
+  to   = "/services/elearning/"
+  status = 301
+
+[[redirects]]
+  from = "/practice-areas/elearning-and-blended-learning/"
+  to   = "/services/elearning/"
+  status = 301
+
+[[redirects]]
+  from = "/practice-areas/capacity/"
+  to   = "/services/capacity/"
+  status = 301
+
+[[redirects]]
+  from = "/practice-areas/career-pathways/"
+  to   = "/services/career-pathways/"
+  status = 301
+
+[[redirects]]
+  from = "/practice-areas/career-pathways-and-workforce/"
+  to   = "/services/career-pathways/"
+  status = 301
+
+[[redirects]]
+  from = "/practice-areas/strategy-and-growth/"
+  to   = "/services/strategy-and-growth/"
+  status = 301
+
+[[redirects]]
+  from = "/practice-areas/platforms/"
+  to   = "/services/platforms/"
+  status = 301
+
+[[redirects]]
+  from = "/practice-areas/platforms-and-systems/"
+  to   = "/services/platforms/"
+  status = 301
+
+[[redirects]]
+  from = "/practice-areas/media-and-communications/"
+  to   = "/services/media-and-communications/"
+  status = 301
+
+[[redirects]]
+  from = "/practice-areas/professional-learning/"
+  to   = "/services/capacity/"
+  status = 301
+
+# Also redirect the microsite back-link that points to /service/lms (no trailing s)
+[[redirects]]
+  from = "/service/lms"
+  to   = "/services/platforms/"
+  status = 301
