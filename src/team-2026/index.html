@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Our Team | Integral Ed</title>
+  <meta name="description" content="Meet the Integral Ed team — instructional designers, learning strategists, media producers, and systems thinkers serving mission-driven organizations.">
+  <link rel="canonical" href="https://www.integral-ed.com/team-2026/">
+  <meta name="robots" content="noindex">
+
+  <!-- Favicons -->
+  <link rel="icon" type="image/png" sizes="32x32" href="/vendor/integralthemes/assets/brand/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/vendor/integralthemes/assets/brand/favicon-16x16.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="/vendor/integralthemes/assets/brand/apple-touch-icon.png">
+
+  <!-- Styles -->
+  <link rel="stylesheet" href="/vendor/integralthemes/theme/theme.css">
+  <link rel="stylesheet" href="/vendor/integralthemes/components/popout-frame.css">
+  <link rel="stylesheet" href="/css/site.css">
+</head>
+<body>
+
+  <!-- @nav -->
+
+  <header class="page-header" aria-labelledby="team-heading">
+    <div class="container">
+      <h1 id="team-heading">Our Team</h1>
+      <p class="page-intro">Our team brings experience across learning design, organizational leadership, and real-world implementation. Integral Ed designers have created more than 120 custom eLearning courses and blended learning programs for our clients. Members of our team have held executive leadership roles at major nonprofits and education technology organizations and have taught in formal education settings from early childhood classrooms through post-secondary institutions.</p>
+    </div>
+  </header>
+
+  <main>
+
+    <section class="section" aria-labelledby="model-heading" id="our-model">
+      <div class="container">
+        <div class="about-content">
+          <h2 id="model-heading">How we work</h2>
+          <p>Each engagement is led by a Project Director who serves as the single point of contact for your organization. The Project Director coordinates the work and brings in the right expertise at the right time.</p>
+          <p>Our model is designed to be flexible and practical for our partners. We bill only for the hours our team works, allowing organizations to scale support up or down as needs evolve.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section-alt" aria-label="Team directory" id="team-directory">
+      <div class="container">
+        <div class="team-search">
+          <label for="team-search-input" class="visually-hidden">Search by name or job title</label>
+          <input
+            type="search"
+            id="team-search-input"
+            class="team-search-input"
+            placeholder="Search by name or job title"
+            autocomplete="off"
+          >
+        </div>
+
+        <div class="team-grid" id="team-grid" data-team-base="/team-2026/">
+          <!-- @team-cards -->
+        </div>
+
+        <p class="team-empty" id="team-empty" hidden>No teammates match your search.</p>
+
+        <div id="team-detail-templates" hidden>
+          <!-- @team-modals -->
+        </div>
+
+        <div id="team-modal" class="popout-frame popout-team" role="dialog" aria-modal="true" aria-labelledby="team-modal-title">
+          <div class="popout-inner">
+            <div class="popout-actions">
+              <button type="button" class="popout-copy" aria-label="Copy link to this profile" title="Copy link">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                  <path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"/>
+                  <path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"/>
+                </svg>
+              </button>
+              <button type="button" class="popout-close" onclick="PopoutFrame.close('team-modal')" aria-label="Close">&#10005;</button>
+            </div>
+            <div class="popout-body" id="team-modal-body"></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" aria-label="Work with us">
+      <div class="container">
+        <div class="cta-plum">
+          <h2>Work with us</h2>
+          <p class="cta-text">We work with mission-driven organizations. If you are looking to collaborate — as a client, a contractor, or a partner — we would love to hear from you.</p>
+          <div class="hero-buttons">
+            <a href="/contact/" class="btn btn-primary">Talk With Our Team</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- @footer -->
+
+  <script src="/js/main.js"></script>
+  <script src="/vendor/integralthemes/components/popout-frame.js"></script>
+  <script src="/js/team.js"></script>
+</body>
+</html>

@@ -537,38 +537,333 @@
   margin: 0;
 }
 
-/* ── Team grid ──────────────────────────────────────────────────────────── */
-.team-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
-  gap: var(--spacing-lg);
-  margin-top: var(--spacing-xl);
+/* ── Team gallery ───────────────────────────────────────────────────────── */
+.visually-hidden {
+  position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px;
+  overflow: hidden; clip: rect(0,0,0,0); white-space: nowrap; border: 0;
 }
 
+.team-search {
+  max-width: 480px;
+  margin: 0 auto var(--spacing-lg);
+}
+.team-search-input {
+  width: 100%;
+  padding: 0.75rem 1.125rem;
+  border: 2px solid var(--border-medium, #d4d4d4);
+  border-radius: 999px;
+  font-family: var(--font-primary);
+  font-size: 1rem;
+  background: var(--bg-primary);
+  color: var(--text-primary);
+  transition: border-color var(--transition-fast);
+}
+.team-search-input:focus {
+  outline: none;
+  border-color: var(--primary);
+}
+
+.team-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: var(--spacing-lg);
+  margin-top: var(--spacing-md);
+}
+
+/* Each card is a positioning context for the copy-link button overlay */
 .team-card {
-  text-align: center;
+  position: relative;
+  background: var(--bg-primary);
+  border: 1px solid var(--border-light);
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  transition: transform var(--transition-base), box-shadow var(--transition-base), border-color var(--transition-base);
+}
+.team-card:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-sm);
+  border-color: var(--primary);
+}
+.team-card[hidden] { display: none; }
+
+/* The whole card content is a button — strip default styling */
+.team-card-trigger {
+  display: block;
+  width: 100%;
+  text-align: left;
+  padding: 0;
+  background: none;
+  border: 0;
+  cursor: pointer;
+  font: inherit;
+  color: inherit;
 }
 
 .team-photo {
   width: 100%;
   aspect-ratio: 1;
   object-fit: cover;
-  border-radius: var(--radius-md);
   background: var(--bg-secondary);
   display: block;
-  margin-bottom: var(--spacing-md);
 }
 
-.team-name {
+.team-card .team-name {
+  margin: var(--spacing-md) var(--spacing-md) 0.25rem;
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: var(--primary);
+}
+.team-card .team-title {
+  margin: 0 var(--spacing-md);
+  font-size: 0.9375rem;
+  font-weight: 600;
+  color: var(--text-primary);
+}
+
+.team-card .team-quote {
+  margin: var(--spacing-sm) var(--spacing-md) 0.25rem;
+  padding: 0;
+  border: 0;
+  font-size: 0.9375rem;
+  line-height: 1.5;
+  color: var(--primary);
+  font-style: normal;
+}
+.team-card .team-attribution {
+  margin: 0 var(--spacing-md) var(--spacing-md);
+  padding: 0;
+  font-size: 0.875rem;
+  font-style: italic;
+  color: var(--primary);
+}
+
+/* Copy-link icon — top-right of card, on top of the trigger button */
+.team-card-link {
+  position: absolute;
+  top: 0.5rem;
+  right: 0.5rem;
+  z-index: 2;
+  width: 2rem;
+  height: 2rem;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  border: 0;
+  background: rgba(255, 255, 255, 0.92);
+  color: var(--primary);
+  cursor: pointer;
+  opacity: 0;
+  transform: translateY(-2px);
+  transition: opacity var(--transition-fast), transform var(--transition-fast), background var(--transition-fast);
+  box-shadow: 0 1px 3px rgba(0,0,0,0.12);
+}
+.team-card:hover .team-card-link,
+.team-card:focus-within .team-card-link,
+.team-card-link:focus {
+  opacity: 1;
+  transform: translateY(0);
+}
+.team-card-link:hover { background: var(--primary); color: #fff; }
+.team-card-link.is-copied {
+  background: var(--primary);
+  color: #fff;
+}
+.team-card-link.is-copied::after {
+  content: 'Link copied';
+  position: absolute;
+  top: calc(100% + 6px);
+  right: 0;
+  background: var(--text-primary);
+  color: #fff;
+  font-size: 0.75rem;
+  padding: 0.25rem 0.5rem;
+  border-radius: var(--radius-sm);
+  white-space: nowrap;
+  pointer-events: none;
+}
+
+.team-empty {
+  text-align: center;
+  color: var(--text-tertiary);
+  padding: var(--spacing-xl) 0;
+}
+
+/* ── Team modal — overrides on .popout-frame for a light profile panel ──── */
+.popout-team .popout-inner {
+  max-width: 720px;
+  width: min(720px, 100%);
+  height: auto;
+  max-height: 88vh;
+  background: var(--bg-primary);
+  color: var(--text-primary);
+  border-radius: var(--radius-md);
+  overflow-y: auto;
+}
+.popout-team .popout-actions {
+  top: 0.75rem;
+  right: 0.75rem;
+}
+.popout-team .popout-actions button {
+  background: rgba(0,0,0,0.55);
+  border-color: rgba(255,255,255,0.7);
+  width: 2.25rem; height: 2.25rem;
+}
+.popout-team .popout-copy.is-copied {
+  background: var(--primary);
+  border-color: var(--primary);
+}
+
+.popout-team .popout-body {
+  padding: var(--spacing-xl) var(--spacing-xl) var(--spacing-lg);
+}
+.team-detail {
+  display: grid;
+  grid-template-columns: 140px 1fr;
+  grid-template-areas:
+    "photo  meta"
+    "bio    bio";
+  column-gap: var(--spacing-lg);
+  row-gap: var(--spacing-md);
+}
+.team-detail-photo {
+  grid-area: photo;
+  width: 140px;
+  height: 140px;
+  border-radius: var(--radius-md);
+  object-fit: cover;
+  background: var(--bg-secondary);
+}
+.team-detail-meta { grid-area: meta; align-self: center; }
+.team-detail-name {
+  margin: 0 0 0.25rem;
+  font-size: 1.5rem;
+  color: var(--primary);
+}
+.team-detail-title {
+  margin: 0;
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--text-primary);
+}
+.team-detail-tenure {
+  margin: 0.25rem 0 0;
+  font-size: 0.875rem;
+  color: var(--text-tertiary);
+}
+.team-detail-bio { grid-area: bio; }
+.team-detail-bio p {
+  margin: 0 0 var(--spacing-sm);
+  font-size: 0.9375rem;
+  line-height: 1.65;
+  color: var(--text-secondary);
+}
+
+@media (max-width: 540px) {
+  .team-detail {
+    grid-template-columns: 1fr;
+    grid-template-areas: "photo" "meta" "bio";
+    text-align: center;
+  }
+  .team-detail-photo { width: 120px; height: 120px; margin: 0 auto; }
+  .popout-team .popout-body { padding: var(--spacing-lg); }
+}
+
+/* ── Standalone /team/<slug>/ page ──────────────────────────────────────── */
+.team-profile-section { padding: var(--spacing-xl) 0; }
+.team-profile-container { max-width: 760px; }
+.team-profile-back {
+  margin: 0 0 var(--spacing-md);
+  font-size: 0.9375rem;
+}
+.team-profile-back a {
+  color: var(--primary);
+  text-decoration: none;
+}
+.team-profile-back a:hover { text-decoration: underline; }
+
+.team-profile {
+  display: grid;
+  grid-template-columns: 200px 1fr;
+  grid-template-areas:
+    "photo header"
+    "bio   bio"
+    "quote quote";
+  column-gap: var(--spacing-xl);
+  row-gap: var(--spacing-lg);
+}
+.team-profile-photo {
+  grid-area: photo;
+  width: 200px;
+  height: 200px;
+  border-radius: var(--radius-md);
+  object-fit: cover;
+  background: var(--bg-secondary);
+}
+.team-profile-header { grid-area: header; align-self: center; }
+.team-profile-header h1 {
+  margin: 0 0 0.25rem;
+  font-size: 2rem;
+  color: var(--primary);
+}
+.team-profile-title {
+  margin: 0;
   font-size: 1.125rem;
   font-weight: 600;
-  margin-bottom: 0.25rem;
 }
-
-.team-title {
+.team-profile-tenure {
+  margin: 0.5rem 0 0;
   font-size: 0.9375rem;
   color: var(--text-tertiary);
+}
+.team-profile-copy {
+  margin-top: var(--spacing-md);
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.5rem 1rem;
+  border: 1.5px solid var(--primary);
+  border-radius: 999px;
+  background: transparent;
+  color: var(--primary);
+  font-size: 0.875rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background var(--transition-fast), color var(--transition-fast);
+}
+.team-profile-copy:hover { background: var(--primary); color: #fff; }
+.team-profile-copy.is-copied { background: var(--primary); color: #fff; }
+.team-profile-copy.is-copied span::after { content: ' — copied'; }
+
+.team-profile-bio { grid-area: bio; }
+.team-profile-bio p {
+  margin: 0 0 var(--spacing-md);
+  font-size: 1rem;
+  line-height: 1.7;
+  color: var(--text-secondary);
+}
+.team-profile .team-quote {
+  grid-area: quote;
   margin: 0;
+  padding: var(--spacing-md) var(--spacing-lg);
+  border-left: 3px solid var(--primary);
+  font-size: 1.0625rem;
+  color: var(--primary);
+}
+.team-profile .team-attribution {
+  grid-area: quote;
+  margin: 0;
+  padding-left: var(--spacing-lg);
+  font-style: italic;
+  color: var(--primary);
+}
+
+@media (max-width: 640px) {
+  .team-profile {
+    grid-template-columns: 1fr;
+    grid-template-areas: "photo" "header" "bio" "quote";
+  }
+  .team-profile-photo { width: 160px; height: 160px; }
 }
 
 /* ── Portfolio lock section ─────────────────────────────────────────────── */
@@ -685,15 +980,6 @@
   padding: var(--spacing-lg);
   text-align: center;
   margin-top: var(--spacing-lg);
-}
-
-/* ── Team directory iframe ──────────────────────────────────────────────── */
-.team-directory-frame {
-  display: block;
-  width: 100%;
-  min-height: 4700px;
-  border: none;
-  border-radius: var(--radius-md);
 }
 
 /* ── Responsive ─────────────────────────────────────────────────────────── */
