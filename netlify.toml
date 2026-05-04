@@ -67,3 +67,15 @@
   from = "/service/lms"
   to   = "/services/platforms/"
   status = 301
+
+# ── /team-2026/ → /team/ redirects (301 permanent) ──────────────────────────
+# team-2026 was the staging path; /team/ is now the canonical URL.
+[[redirects]]
+  from = "/team-2026/"
+  to   = "/team/"
+  status = 301
+
+[[redirects]]
+  from = "/team-2026/:slug/"
+  to   = "/team/:slug/"
+  status = 301

@@ -14,6 +14,7 @@
 
   <!-- Styles -->
   <link rel="stylesheet" href="/vendor/integralthemes/theme/theme.css">
+  <link rel="stylesheet" href="/vendor/integralthemes/components/popout-frame.css">
   <link rel="stylesheet" href="/css/site.css">
 </head>
 <body>
@@ -41,13 +42,41 @@
 
     <section class="section section-alt" aria-label="Team directory" id="team-directory">
       <div class="container">
-        <iframe
-          src="https://integral.softr.app/teamdirectory-public"
-          title="Integral Ed Team Directory"
-          class="team-directory-frame"
-          loading="lazy"
-          allowfullscreen
-        ></iframe>
+        <div class="team-search">
+          <label for="team-search-input" class="visually-hidden">Search by name or job title</label>
+          <input
+            type="search"
+            id="team-search-input"
+            class="team-search-input"
+            placeholder="Search by name or job title"
+            autocomplete="off"
+          >
+        </div>
+
+        <div class="team-grid" id="team-grid" data-team-base="/team/">
+          <!-- @team-cards -->
+        </div>
+
+        <p class="team-empty" id="team-empty" hidden>No teammates match your search.</p>
+
+        <div id="team-detail-templates" hidden>
+          <!-- @team-modals -->
+        </div>
+
+        <div id="team-modal" class="popout-frame popout-team" role="dialog" aria-modal="true" aria-labelledby="team-modal-title">
+          <div class="popout-inner">
+            <div class="popout-actions">
+              <button type="button" class="popout-copy" aria-label="Copy link to this profile" title="Copy link">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                  <path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"/>
+                  <path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"/>
+                </svg>
+              </button>
+              <button type="button" class="popout-close" onclick="PopoutFrame.close('team-modal')" aria-label="Close">&#10005;</button>
+            </div>
+            <div class="popout-body" id="team-modal-body"></div>
+          </div>
+        </div>
       </div>
     </section>
 
@@ -68,19 +97,7 @@
   <!-- @footer -->
 
   <script src="/js/main.js"></script>
-  <script>
-    window.addEventListener('message', function(e) {
-      var frame = document.querySelector('.team-directory-frame');
-      if (!frame) return;
-      if (e.data && typeof e.data.height === 'number') {
-        frame.style.height = e.data.height + 'px';
-      } else if (e.data && typeof e.data === 'string') {
-        try {
-          var data = JSON.parse(e.data);
-          if (data.height) frame.style.height = data.height + 'px';
-        } catch(err) {}
-      }
-    });
-  </script>
+  <script src="/vendor/integralthemes/components/popout-frame.js"></script>
+  <script src="/js/team.js"></script>
 </body>
 </html>

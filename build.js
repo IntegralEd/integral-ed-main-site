@@ -114,7 +114,7 @@ htmlFiles.forEach(relPath => {
   const destPath = path.join(distDir, relPath);
   fs.mkdirSync(path.dirname(destPath), { recursive: true });
   let content = fs.readFileSync(srcPath, 'utf8');
-  const extras = relPath === path.join('team-2026', 'index.html')
+  const extras = relPath === path.join('team', 'index.html')
     ? { cards: teamCardsHtml, modals: teamModalsHtml }
     : null;
   content = processHtml(content, navHtml, footerHtml, analyticsHtml, widgetHtml, siteSlug, extras);
@@ -130,10 +130,10 @@ team.forEach(member => {
     renderStandalone(member, siteUrl),
     navHtml, footerHtml, analyticsHtml, widgetHtml, siteSlug, null
   );
-  const dir = path.join(distDir, 'team-2026', member.slug);
+  const dir = path.join(distDir, 'team', member.slug);
   fs.mkdirSync(dir, { recursive: true });
   fs.writeFileSync(path.join(dir, 'index.html'), html, 'utf8');
-  console.log(`  team-2026/${member.slug}/`);
+  console.log(`  team/${member.slug}/`);
 });
 
 // Copy CSS

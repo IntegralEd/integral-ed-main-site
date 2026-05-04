@@ -240,11 +240,9 @@ function renderTeamModals(team) {
   </template>`).join('\n');
 }
 
-// ── Render: standalone /team-2026/<slug>/index.html source.  Returned as full HTML
+// ── Render: standalone /team/<slug>/index.html source.  Returned as full HTML
 //    with @nav/@footer placeholders intact so build.js's processHtml fills them.
-//    NOTE: while /team-2026/ is the staging path, this is the only place to flip
-//    the URL pattern when we cut over to /team/.
-const TEAM_BASE = '/team-2026/';
+const TEAM_BASE = '/team/';
 
 function renderStandalone(m, siteUrl) {
   const url = `${siteUrl}${TEAM_BASE}${m.slug}/`;
