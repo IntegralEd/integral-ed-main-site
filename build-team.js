@@ -56,14 +56,16 @@ function bioToHtml(bio) {
 }
 
 // ── Quote pattern from CSV: "<text>"\n##### *— Author*
+// The regex tolerates an optional leading backslash before ##### so that
+// Airtable entries like \##### (escaped by some editors) still parse correctly.
 function quoteToHtml(quote) {
   if (!quote) return '';
-  const idx = quote.search(/\n\s*#####\s*/);
+  const idx = quote.search(/\n\s*\\?#####\s*/);
   if (idx === -1) {
     return `<blockquote class="team-quote">${inlineMd(quote.trim())}</blockquote>`;
   }
   const text = quote.slice(0, idx).trim();
-  const attribution = quote.slice(idx).replace(/\n\s*#####\s*/, '').trim();
+  const attribution = quote.slice(idx).replace(/\n\s*\\?#####\s*/, '').trim();
   return `<blockquote class="team-quote">${inlineMd(text)}</blockquote>` +
          `<p class="team-attribution">${inlineMd(attribution)}</p>`;
 }
