@@ -19,6 +19,47 @@
       '<code>data/anniversary-data.js</code>.</div>';
   };
 
+  /* ── Teammate name auto-linker ────────────────────────────────────────────
+   * Any teammate's name written in body copy is turned bold + linked to their
+   * /team/ profile, with a hover/focus preview card. Built once from the team
+   * roster. Full names always match; an unambiguous first name also matches. */
+  var NAME_RE = null, NAME_MAP = {};
+  var FIRST_STOP = { jo: 1, an: 1, april: 1, may: 1, june: 1, art: 1, ray: 1 };
+  function reEsc(s) { return String(s).replace(/[.*+?^${}()|[\]\\]/g, '\\$&'); }
+  function buildNameIndex() {
+    var members = ((D.team && D.team.members) || []).filter(function (m) { return m && m.name; });
+    var aliases = [];
+    var ambiguous = {};
+    members.forEach(function (m) {
+      var ref = { name: m.name, href: (m.href && m.href !== '/team/') ? m.href : '', img: m.image || '', role: m.role || '' };
+      if (!NAME_MAP[m.name]) { NAME_MAP[m.name] = ref; aliases.push(m.name); }
+      var first = String(m.name).trim().split(/\s+/)[0];
+      if (first && first.length >= 4 && !FIRST_STOP[first.toLowerCase()]) {
+        if (NAME_MAP[first] && NAME_MAP[first].name !== m.name) { ambiguous[first] = 1; }
+        else if (!NAME_MAP[first]) { NAME_MAP[first] = ref; aliases.push(first); }
+      }
+    });
+    Object.keys(ambiguous).forEach(function (k) { delete NAME_MAP[k]; });
+    aliases = aliases.filter(function (a) { return NAME_MAP[a]; })
+                     .sort(function (a, b) { return b.length - a.length; });
+    NAME_RE = aliases.length ? new RegExp('\\b(' + aliases.map(reEsc).join('|') + ')\\b', 'g') : null;
+  }
+  // Escape text, THEN wrap any known teammate name in a linked, bold span.
+  function linkNames(text) {
+    var safe = esc(text);
+    if (!NAME_RE) return safe;
+    return safe.replace(NAME_RE, function (m) {
+      var ref = NAME_MAP[m];
+      if (!ref) return m;
+      var attrs = ' data-name="' + esc(ref.name) + '"' +
+        (ref.img ? ' data-img="' + esc(ref.img) + '"' : '') +
+        (ref.role ? ' data-role="' + esc(ref.role) + '"' : '');
+      return ref.href
+        ? '<a class="anniv-name" href="' + esc(ref.href) + '"' + attrs + '>' + m + '</a>'
+        : '<strong class="anniv-name anniv-name--plain"' + attrs + '>' + m + '</strong>';
+    });
+  }
+
   /* ── Hero meta + counters ─────────────────────────────────────────────── */
   function renderHero() {
     var m = D.meta || {};
@@ -50,33 +91,102 @@
         '<span class="anniv-tl-year">' + esc(t.year || '') + '</span>' +
         (t.tag ? '<span class="anniv-tl-tag">' + esc(t.tag) + '</span>' : '') +
         (t.title ? '<h3 class="anniv-tl-title">' + esc(t.title) + '</h3>' : '') +
-        (t.body ? '<p class="anniv-tl-body">' + esc(t.body) + '</p>' : '') +
+        (t.body ? '<p class="anniv-tl-body">' + linkNames(t.body) + '</p>' : '') +
         (t.image ? '<img class="anniv-tl-img" src="' + esc(t.image) + '" alt="' + esc(t.title || '') + '" loading="lazy">' : '') +
         '</li>';
     }).join('');
   }
 
-  /* ── Evolution (additive stacked bars) ───────────────────────────────── */
+  /* ── Evolution: "subway map" weave + detail legend ────────────────────────
+   * Each capability is a line that starts at its year and runs to today, the
+   * lines converging into a bundle on the right to show how the streams now
+   * weave together (blended media / print / facilitated learning). */
+  function buildSubway(stages) {
+    var start = (D.meta && D.meta.foundedYear) || stages[0].year || 2011;
+    var end   = (D.meta && D.meta.anniversaryYear) ||
+                stages.reduce(function (m, s) { return Math.max(m, Number(s.year || 0)); }, start);
+    if (end <= start) end = start + 1;
+
+    var VBW = 1000, padL = 156, padR = 150, top = 58, rowH = 62;
+    var n = stages.length;
+    var mapBottom = top + (n - 1) * rowH;
+    var axisY = mapBottom + 58;
+    var VBH = axisY + 34;
+    var spanX = VBW - padL - padR;
+    function xOf(y) {
+      var t = (Number(y) - start) / (end - start);
+      t = Math.max(0, Math.min(1, t));
+      return padL + t * spanX;
+    }
+    var termX = xOf(end);
+    var bundleCenter = top + (n - 1) * rowH / 2;
+    var baseConvergeX = padL + spanX * 0.64;
+
+    // year ticks (every 3 yrs from start, always include end)
+    var ticks = [];
+    for (var y = start; y <= end; y += 3) ticks.push(y);
+    if (ticks[ticks.length - 1] !== end) ticks.push(end);
+
+    var grid = ticks.map(function (ty) {
+      var x = xOf(ty);
+      return '<line class="anniv-subway-grid" x1="' + x + '" y1="' + (top - 26) + '" x2="' + x + '" y2="' + axisY + '"/>' +
+             '<text class="anniv-subway-tick" x="' + x + '" y="' + (axisY + 22) + '">' + esc(ty) + '</text>';
+    }).join('');
+
+    var lines = stages.map(function (s, i) {
+      var color = 'evo-' + (s.color || 'plum');
+      var oX = xOf(s.year), oY = top + i * rowH;
+      var bY = bundleCenter + (i - (n - 1) / 2) * 13;
+      var cX = Math.max(oX + 26, baseConvergeX);
+      if (cX > termX - 70) cX = termX - 70;
+      if (cX < oX + 12) cX = oX + 12;
+      var d = 'M ' + oX + ' ' + oY + ' H ' + cX +
+              ' C ' + (cX + 54) + ' ' + oY + ' ' + (termX - 64) + ' ' + bY + ' ' + termX + ' ' + bY;
+      return '<g class="anniv-subway-line ' + color + '">' +
+        '<title>' + esc(s.stage) + ' · since ' + esc(s.year) + '</title>' +
+        '<path class="anniv-subway-path" d="' + d + '"/>' +
+        '<circle class="anniv-subway-stop" cx="' + oX + '" cy="' + oY + '" r="7"/>' +
+        '<circle class="anniv-subway-term" cx="' + termX + '" cy="' + bY + '" r="4.5"/>' +
+        '<text class="anniv-subway-label" x="' + (oX - 16) + '" y="' + (oY - 3) + '" text-anchor="end">' + esc(s.stage) + '</text>' +
+        '<text class="anniv-subway-yr" x="' + (oX - 16) + '" y="' + (oY + 13) + '" text-anchor="end">' + esc(s.year) + '</text>' +
+        '</g>';
+    }).join('');
+
+    var todayLabel =
+      '<text class="anniv-subway-today" x="' + (termX + 16) + '" y="' + (bundleCenter - 4) + '">' + esc(end) + '</text>' +
+      '<text class="anniv-subway-today-sub" x="' + (termX + 16) + '" y="' + (bundleCenter + 13) + '">Today — woven together</text>';
+
+    return '<div class="anniv-subway-wrap reveal">' +
+      '<svg class="anniv-subway" viewBox="0 0 ' + VBW + ' ' + VBH + '" role="img" ' +
+      'aria-label="Capability streams from ' + esc(start) + ' to ' + esc(end) + ', each added over time and now converging.">' +
+      '<line class="anniv-subway-axis" x1="' + padL + '" y1="' + axisY + '" x2="' + termX + '" y2="' + axisY + '"/>' +
+      grid + lines + todayLabel +
+      '</svg></div>';
+  }
+
   function renderEvolution() {
     var el = $('anniv-evolution');
     if (!el) return;
     var stages = (D.evolution || []).filter(function (s) { return s && s.stage; });
     if (!stages.length) { el.innerHTML = empty('Evolution stages'); return; }
-    var n = stages.length;
-    el.innerHTML = stages.map(function (s, i) {
-      var w = Math.round(((i + 1) / n) * 100); // additive: each layer extends further
+
+    var legend = '<div class="anniv-evo-list">' + stages.map(function (s) {
       var color = 'evo-' + (s.color || 'plum');
-      return '<div class="anniv-evo-row reveal ' + color + '" style="--w:' + w + '%">' +
-        '<div class="anniv-evo-top">' +
-          '<span class="anniv-evo-year">' + esc(s.year != null ? s.year : '·') + '</span>' +
-          '<span class="anniv-evo-stage">' + esc(s.stage) + '</span>' +
-          (s.tagline ? '<span class="anniv-evo-tagline">' + esc(s.tagline) + '</span>' : '') +
+      return '<div class="anniv-evo-row reveal ' + color + '">' +
+        '<span class="anniv-evo-swatch" aria-hidden="true"></span>' +
+        '<div class="anniv-evo-rowmain">' +
+          '<div class="anniv-evo-top">' +
+            '<span class="anniv-evo-year">' + esc(s.year != null ? s.year : '·') + '</span>' +
+            '<span class="anniv-evo-stage">' + esc(s.stage) + '</span>' +
+            (s.tagline ? '<span class="anniv-evo-tagline">' + esc(s.tagline) + '</span>' : '') +
+          '</div>' +
+          (s.whatWeCouldDo ? '<p class="anniv-evo-what">' + linkNames(s.whatWeCouldDo) + '</p>' : '') +
+          (s.proof ? '<div class="anniv-evo-proof">' + linkNames(s.proof) + '</div>' : '') +
         '</div>' +
-        (s.whatWeCouldDo ? '<p class="anniv-evo-what">' + esc(s.whatWeCouldDo) + '</p>' : '') +
-        '<div class="anniv-evo-bar"><i></i></div>' +
-        (s.proof ? '<div class="anniv-evo-proof">' + esc(s.proof) + '</div>' : '') +
         '</div>';
-    }).join('');
+    }).join('') + '</div>';
+
+    el.innerHTML = buildSubway(stages) + legend;
   }
 
   /* ── Projects ─────────────────────────────────────────────────────────── */
@@ -86,20 +196,29 @@
     var items = (D.projects || []).filter(function (p) { return p && p.title; });
     if (!items.length) { el.innerHTML = empty('Projects'); return; }
     el.innerHTML = items.map(function (p) {
+      // Whole card is clickable when there's a destination. (An embed-only card
+      // shows its demo inline and stays a non-link article.)
+      var dest = p.href || p.link || p.videoUrl || '';
       var media = '';
       if (p.embedUrl) media = '<div class="anniv-project-media"><iframe src="' + esc(p.embedUrl) + '" title="' + esc(p.title) + '" loading="lazy" allowfullscreen></iframe></div>';
       else if (p.image) media = '<div class="anniv-project-media"><img src="' + esc(p.image) + '" alt="' + esc(p.title) + '" loading="lazy"></div>';
       var metaBits = [p.year, p.serviceArea, p.client].filter(Boolean).map(esc).join(' · ');
-      var links = [];
-      if (p.videoUrl) links.push('<a class="anniv-project-link" href="' + esc(p.videoUrl) + '" target="_blank" rel="noopener">Watch the video →</a>');
-      if (p.link)     links.push('<a class="anniv-project-link" href="' + esc(p.link) + '">Learn more →</a>');
-      return '<article class="anniv-project reveal">' + media +
+      var ctaLabel = p.videoUrl ? 'Watch the video' : (p.embedUrl ? 'Open the demo' : 'View project');
+      var cta = dest ? '<span class="anniv-project-cta">' + ctaLabel + ' &rarr;</span>' : '';
+      var body =
         '<div class="anniv-project-body">' +
           (metaBits ? '<div class="anniv-project-meta">' + metaBits + '</div>' : '') +
           '<h3 class="anniv-project-title">' + esc(p.title) + '</h3>' +
-          (p.summary ? '<p class="anniv-project-summary">' + esc(p.summary) + '</p>' : '') +
-          (links.length ? '<div class="anniv-project-links">' + links.join('') + '</div>' : '') +
-        '</div></article>';
+          (p.summary ? '<p class="anniv-project-summary">' + linkNames(p.summary) + '</p>' : '') +
+          cta +
+        '</div>';
+      if (dest) {
+        var external = /^https?:/i.test(dest);
+        var tgt = external ? ' target="_blank" rel="noopener"' : '';
+        return '<a class="anniv-project anniv-project--link reveal" href="' + esc(dest) + '"' + tgt + '>' +
+          media + body + '</a>';
+      }
+      return '<article class="anniv-project reveal">' + media + body + '</article>';
     }).join('');
   }
 
@@ -164,7 +283,7 @@
       feat.innerHTML = fs.map(function (f) {
         return '<div class="anniv-client-card reveal">' +
           (f.logo ? '<img class="anniv-client-logo" src="' + esc(f.logo) + '" alt="' + esc(f.name || '') + '" loading="lazy">' : '') +
-          (f.story ? '<p class="anniv-client-story">' + esc(f.story) + '</p>' : '') +
+          (f.story ? '<p class="anniv-client-story">' + linkNames(f.story) + '</p>' : '') +
           (f.quote ? '<blockquote class="anniv-client-quote">' + esc(f.quote) +
             (f.quoteAttribution ? '<cite>' + esc(f.quoteAttribution) + '</cite>' : '') +
             '</blockquote>' : '') +
@@ -265,8 +384,76 @@
     sections.forEach(function (s) { io.observe(s); });
   }
 
+  /* ── Teammate name hover/focus preview ────────────────────────────────── */
+  function setupNamePreviews() {
+    var names = document.querySelectorAll('a.anniv-name[data-img]');
+    if (!names.length) return;
+    var pop = document.createElement('div');
+    pop.className = 'anniv-name-pop';
+    pop.setAttribute('hidden', '');
+    pop.innerHTML = '<img class="anniv-name-pop-img" alt=""><div class="anniv-name-pop-txt">' +
+      '<span class="anniv-name-pop-name"></span><span class="anniv-name-pop-role"></span></div>';
+    document.body.appendChild(pop);
+    var img  = pop.querySelector('.anniv-name-pop-img');
+    var nmEl = pop.querySelector('.anniv-name-pop-name');
+    var rlEl = pop.querySelector('.anniv-name-pop-role');
+    var hideT;
+
+    function show(a) {
+      clearTimeout(hideT);
+      img.src = a.getAttribute('data-img') || '';
+      nmEl.textContent = a.getAttribute('data-name') || a.textContent;
+      rlEl.textContent = a.getAttribute('data-role') || '';
+      pop.removeAttribute('hidden');
+      // measure, then position (prefer above; flip below near the top edge)
+      var r = a.getBoundingClientRect();
+      var ph = pop.offsetHeight, pw = pop.offsetWidth;
+      var cx = r.left + r.width / 2;
+      var left = Math.max(10, Math.min(window.innerWidth - pw - 10, cx - pw / 2));
+      pop.style.left = left + 'px';
+      if (r.top > ph + 14) { pop.style.top = (r.top - ph - 10) + 'px'; pop.classList.remove('below'); }
+      else { pop.style.top = (r.bottom + 10) + 'px'; pop.classList.add('below'); }
+      pop.style.setProperty('--arrow-x', (cx - left) + 'px');
+      pop.classList.add('is-on');
+    }
+    function hide() {
+      pop.classList.remove('is-on');
+      hideT = setTimeout(function () { pop.setAttribute('hidden', ''); }, 160);
+    }
+    Array.prototype.forEach.call(names, function (a) {
+      a.addEventListener('mouseenter', function () { show(a); });
+      a.addEventListener('mouseleave', hide);
+      a.addEventListener('focus', function () { show(a); });
+      a.addEventListener('blur', hide);
+    });
+  }
+
+  /* ── Subway map: draw the lines in when the section scrolls into view ───── */
+  function setupSubway() {
+    var wrap = document.querySelector('.anniv-subway-wrap');
+    if (!wrap) return;
+    var paths = wrap.querySelectorAll('.anniv-subway-path');
+    var reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    Array.prototype.forEach.call(paths, function (p, i) {
+      var len = 0;
+      try { len = p.getTotalLength(); } catch (e) { len = 0; }
+      if (len && !reduce) {
+        p.style.strokeDasharray = len;
+        p.style.strokeDashoffset = len;
+        p.style.transitionDelay = (i * 180) + 'ms';
+      }
+    });
+    function draw() { wrap.classList.add('is-drawn'); }
+    if (reduce || !('IntersectionObserver' in window)) { draw(); return; }
+    var io = new IntersectionObserver(function (entries) {
+      entries.forEach(function (en) { if (en.isIntersecting) { draw(); io.disconnect(); } });
+    }, { threshold: 0.25 });
+    io.observe(wrap);
+  }
+
   /* ── Init ─────────────────────────────────────────────────────────────── */
   function init() {
+    buildNameIndex();
     renderHero();
     renderTimeline();
     renderEvolution();
@@ -277,6 +464,8 @@
     renderServices();
     setupObservers();
     setupScrollSpy();
+    setupNamePreviews();
+    setupSubway();
   }
 
   if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', init);

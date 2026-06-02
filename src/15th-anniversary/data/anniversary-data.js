@@ -43,6 +43,9 @@ window.ANNIVERSARY_DATA = {
    * 1) HISTORY — the scrolling timeline (2011 → 2026)
    *    Drafted from the Dec 2024 newsletter + our records. David: edit wording.
    * ------------------------------------------------------------------------- */
+  // NOTE: any teammate's full name written in these bodies is automatically
+  // turned bold + linked to their /team/ profile (with a hover preview) by the
+  // page script — just write the name plainly, e.g. "Asha Kelly".
   timeline: [
     {
       year: 2011,
@@ -67,10 +70,24 @@ window.ANNIVERSARY_DATA = {
     },
     {
       year: 2017,
-      title: "eLearning comes of age",
-      body: "Creative Director Asha Kelly joins and our first interactive eLearning ships — blended, branded, and built to scale.",
+      title: "Design, media & print",
+      body: "Creative Director Asha Kelly joins, bringing design and media experience to our curriculum and print media.",
       image: "",
       tag: "Milestone"
+    },
+    {
+      year: 2019,
+      title: "Our first eLearning",
+      body: "Nadia Zaid joins and we launch our first eLearning project — a build for Early Learning Indiana.",
+      image: "",
+      tag: "eLearning"
+    },
+    {
+      year: 2019,
+      title: "A STEM specialization",
+      body: "Cara Johnson joins and we build out our STEM specialization — including the Nano experience.",
+      image: "",
+      tag: "STEM"
     },
     {
       year: 2020,
@@ -78,6 +95,13 @@ window.ANNIVERSARY_DATA = {
       body: "When the world went remote, we helped partners stand up learning management systems and move whole programs online, fast.",
       image: "",
       tag: "COVID pivot"
+    },
+    {
+      year: 2021,
+      title: "Media production, in-house",
+      body: "Michaela Bradley joins and we build out our capacity for media production — video and motion alongside print and design.",
+      image: "",
+      tag: "Media"
     },
     {
       year: 2023,
@@ -106,11 +130,14 @@ window.ANNIVERSARY_DATA = {
    * 2) EVOLUTION — the capability-growth visualization (stacked, additive)
    *    Each stage = a new thing the company could newly do.
    * ------------------------------------------------------------------------- */
+  // These are the "subway lines" in the Evolution map: each is a capability we
+  // added and never retired. They start at their year and run to today, weaving
+  // together as we increasingly blend media, print, and facilitated learning.
   evolution: [
     {
       id: "data",
       year: 2011,
-      stage: "Data analysis",
+      stage: "Data & analysis",
       tagline: "One person, one laptop.",
       whatWeCouldDo: "Turn messy program data into clear, decision-ready insight.",
       proof: "The founding service — analytics for mission-driven education orgs.",
@@ -119,29 +146,29 @@ window.ANNIVERSARY_DATA = {
     {
       id: "curriculum",
       year: 2014,
-      stage: "Curriculum",
-      tagline: "Slides, guides, handouts.",
+      stage: "Curriculum & facilitation",
+      tagline: "Slides, guides, facilitator kits.",
       whatWeCouldDo: "Design the curriculum and facilitator materials partners teach from.",
       proof: "Ava Millstone joins to lead curriculum and learning design.",
       color: "teal"
     },
     {
-      id: "elearning",
+      id: "media",
       year: 2017,
-      stage: "eLearning",
-      tagline: "Interactive, blended, at scale.",
-      whatWeCouldDo: "Build interactive, self-paced modules that scale beyond the room.",
-      proof: "Creative Director Asha Kelly joins; our first interactive courses ship.",
-      color: "yellow"
+      stage: "Media & print",
+      tagline: "Design, video, print media.",
+      whatWeCouldDo: "Bring design, motion, and print-media craft to every learning experience.",
+      proof: "Creative Director Asha Kelly joins; Michaela Bradley later builds out in-house media production.",
+      color: "magenta"
     },
     {
-      id: "media-tech",
-      year: 2020,
-      stage: "Media + Technical",
-      tagline: "Video, marketing, platforms, systems.",
-      whatWeCouldDo: "Produce broadcast-quality media and stand up the platforms that deliver it.",
-      proof: "COVID-era LMS pivot moves whole programs online; media design becomes a growth engine for partners.",
-      color: "magenta"
+      id: "elearning",
+      year: 2019,
+      stage: "eLearning & STEM",
+      tagline: "Interactive, blended, at scale.",
+      whatWeCouldDo: "Build interactive, self-paced modules — including STEM-specialized experiences — that scale beyond the room.",
+      proof: "Nadia Zaid joins for our first eLearning build with Early Learning Indiana; Cara Johnson grows our STEM specialization with Nano.",
+      color: "yellow"
     },
     {
       id: "agentic",
@@ -159,6 +186,10 @@ window.ANNIVERSARY_DATA = {
    *    can be embedded right on the page.
    *    David: add embed/video/case-study URLs when you have them.
    * ------------------------------------------------------------------------- */
+  // Each card is clickable. The whole card links to `href` (or, if you add one,
+  // a `link`/`embedUrl`/`videoUrl`). Until you have a live demo/case-study URL,
+  // `href` points to the most relevant service page so every card goes somewhere
+  // real — just swap in the demo URL when ready.
   projects: [
     {
       title: "Continuous Improvement Toolkit for Educators",
@@ -167,9 +198,10 @@ window.ANNIVERSARY_DATA = {
       serviceArea: "eLearning & Blended Learning",
       summary: "A flagship blend: broadcast-quality video, scenario-based interactions, and an AI-powered chatbot that coaches educators through continuous-improvement cycles. The toolkit translates StriveTogether's methodology into learning that responds.",
       image: "",                         // /assets/images/work/...
-      embedUrl: "",                      // TODO: e-learning demo URL
-      videoUrl: "",                      // TODO: walkthrough video URL
-      link: ""                           // TODO: case study URL
+      href: "/services/elearning/",      // TODO: swap to live e-learning demo / case-study URL
+      embedUrl: "",                      // optional: inline e-learning demo to embed
+      videoUrl: "",                      // optional: walkthrough video
+      link: ""                           // optional: case study URL
     },
     {
       title: "Black Wall Street History Experience",
@@ -178,7 +210,8 @@ window.ANNIVERSARY_DATA = {
       serviceArea: "eLearning & Blended Learning",
       summary: "An interactive history experience bringing the story of Tulsa's Greenwood District — “Black Wall Street” — to life for learners: archival media, narrative, and exploration that turns history into something you move through, not just read.",
       image: "",
-      embedUrl: "",                      // TODO: demo URL
+      href: "/services/elearning/",      // TODO: swap to live demo URL
+      embedUrl: "",
       videoUrl: "",
       link: ""
     },
@@ -189,7 +222,8 @@ window.ANNIVERSARY_DATA = {
       serviceArea: "Career Connected Learning",
       summary: "A gamified, exploration-based learning experience that sends learners hunting for the energy concepts hidden in the world around them — turning a technical subject into hands-on, curiosity-driven discovery.",
       image: "",
-      embedUrl: "",                      // TODO: demo URL
+      href: "/services/career-pathways/", // TODO: swap to live demo URL
+      embedUrl: "",
       videoUrl: "",
       link: ""
     },
@@ -200,11 +234,23 @@ window.ANNIVERSARY_DATA = {
       serviceArea: "Career Connected Learning",
       summary: "Five years alongside KIPP supporting KIPP Forward — the work of guiding students beyond high school into college, career, and the choices that shape a life. A highlight partnership built on trust, iteration, and shared mission.",
       image: "",
+      href: "/services/career-pathways/", // TODO: swap to live case-study URL
       embedUrl: "",
       videoUrl: "",
       link: ""
     }
-    // TODO: add/confirm details + drop in demo/video/case-study URLs above.
+    // ── READY TO ADD: the "Nano" STEM highlight (from Cara's STEM work). ──────
+    // Uncomment and confirm details + a demo URL, then it appears as a 5th card.
+    // ,{
+    //   title: "Nano",
+    //   client: "",                      // CONFIRM client/partner
+    //   year: null,                      // CONFIRM year
+    //   serviceArea: "eLearning & Blended Learning",
+    //   summary: "",                     // CONFIRM short description
+    //   image: "",
+    //   href: "",                        // demo / case-study URL
+    //   embedUrl: "", videoUrl: "", link: ""
+    // }
   ],
 
   /* ---------------------------------------------------------------------------
