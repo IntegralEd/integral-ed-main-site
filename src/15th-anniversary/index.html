@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- Soft preview gate: lock immediately to avoid a flash of content before gate.js runs -->
+  <script>(function(){try{if(sessionStorage.getItem('anniv-unlocked')!=='1')document.documentElement.className+=' anniv-locked';}catch(e){document.documentElement.className+=' anniv-locked';}})();</script>
+  <title>Integral Ed | 15 Years — 2011–2026</title>
+  <meta name="description" content="Celebrating 15 years of Integral Ed (2011–2026): the history, the work, and the team behind full-service learning and media design for mission-driven organizations.">
+  <meta name="robots" content="noindex, nofollow">
+  <meta name="author" content="Integral Ed">
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Integral Ed | 15 Years — 2011–2026">
+  <meta property="og:description" content="Celebrating 15 years of helping organizations learn, adapt, and grow.">
+
+  <!-- Favicons -->
+  <link rel="icon" type="image/png" sizes="32x32" href="/vendor/integralthemes/assets/brand/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/vendor/integralthemes/assets/brand/favicon-16x16.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="/vendor/integralthemes/assets/brand/apple-touch-icon.png">
+
+  <!-- Styles -->
+  <link rel="stylesheet" href="/vendor/integralthemes/theme/theme.css">
+  <link rel="stylesheet" href="/css/site.css">
+  <link rel="stylesheet" href="/15th-anniversary/anniversary.css">
+</head>
+<body class="anniv-body">
+
+  <!-- ══ Soft password gate (preview only) ═══════════════════════════════ -->
+  <div class="anniv-gate" id="anniv-gate" role="dialog" aria-modal="true" aria-labelledby="anniv-gate-h">
+    <div class="anniv-gate-card">
+      <div class="anniv-gate-mark" aria-hidden="true">15</div>
+      <h1 id="anniv-gate-h">A private preview</h1>
+      <p>We've been putting together something to celebrate 15 years. Enter the password to take an early look.</p>
+      <form id="anniv-gate-form" autocomplete="off">
+        <input type="password" id="anniv-gate-input" placeholder="Password" aria-label="Password" autocomplete="off" autocapitalize="off" spellcheck="false">
+        <button type="submit">Enter &rarr;</button>
+      </form>
+      <p class="anniv-gate-err" id="anniv-gate-err" role="alert" hidden>That's not it — try again.</p>
+    </div>
+  </div>
+
+  <!-- @nav -->
+
+  <!-- ══ Anniversary layout: sticky left rail + main column ══════════════ -->
+  <div class="anniv-layout">
+
+    <!-- ── Sticky left-nav (scroll-spy) ─────────────────────────────── -->
+    <aside class="anniv-rail" aria-label="Page sections">
+      <div class="anniv-rail-inner">
+        <a href="#intro" class="anniv-rail-brand" aria-label="15th anniversary, top">
+          <span class="anniv-rail-15">15</span>
+          <span class="anniv-rail-15-sub">YEARS · 2011–2026</span>
+        </a>
+
+        <nav aria-label="Sections">
+          <ol class="anniv-rail-nav">
+            <li><a href="#intro"><span class="num">00</span><span class="lbl">Welcome</span></a></li>
+            <li><a href="#history"><span class="num">01</span><span class="lbl">History</span></a></li>
+            <li><a href="#evolution"><span class="num">02</span><span class="lbl">Evolution</span></a></li>
+            <li><a href="#work"><span class="num">03</span><span class="lbl">Our Work</span></a></li>
+            <li><a href="#team"><span class="num">04</span><span class="lbl">The Team</span></a></li>
+            <li><a href="#clients"><span class="num">05</span><span class="lbl">Clients</span></a></li>
+            <li><a href="#today"><span class="num">06</span><span class="lbl">Today</span></a></li>
+          </ol>
+        </nav>
+
+        <div class="anniv-rail-services">
+          <h2 class="anniv-rail-services-h">What we do today</h2>
+          <ul class="anniv-rail-services-list" id="anniv-rail-services" role="list">
+            <!-- populated from anniversary-data.js (serviceAreas) -->
+          </ul>
+        </div>
+      </div>
+    </aside>
+
+    <!-- ── Main content column ──────────────────────────────────────── -->
+    <main class="anniv-main">
+
+      <!-- 00 · INTRO (dark celebratory hero) -->
+      <section class="anniv-hero" id="intro" aria-labelledby="anniv-hero-h">
+        <div class="anniv-hero-bgfx" aria-hidden="true">
+          <div class="glow-blob blob-plum"></div>
+          <div class="glow-blob blob-magenta"></div>
+          <div class="glow-blob blob-teal"></div>
+        </div>
+        <div class="anniv-hero-content reveal">
+          <p class="anniv-eyebrow" id="anniv-eyebrow">2011 — 2026</p>
+          <h1 class="anniv-hero-title" id="anniv-hero-h">Fifteen years helping organizations<br><span class="grad-magenta">learn</span>, <span class="grad-yellow">adapt</span>, and <span class="grad-teal">grow</span>.</h1>
+          <p class="anniv-hero-sub" id="anniv-hero-sub"></p>
+          <div class="anniv-counters" id="anniv-counters" aria-label="By the numbers">
+            <!-- populated from data.meta.counters -->
+          </div>
+        </div>
+        <a href="#history" class="anniv-scroll-cue" aria-label="Scroll to history">↓</a>
+      </section>
+
+      <!-- 01 · HISTORY (light) -->
+      <section class="anniv-section" id="history" aria-labelledby="history-h">
+        <div class="anniv-section-head reveal">
+          <span class="anniv-kicker">01 · History</span>
+          <h2 id="history-h">How it started, and how it grew</h2>
+          <p class="anniv-lede">From one laptop in 2011 to a full-service studio — the turning points along the way.</p>
+        </div>
+        <ol class="anniv-timeline" id="anniv-timeline" role="list">
+          <!-- populated from data.timeline -->
+        </ol>
+      </section>
+
+      <!-- 02 · EVOLUTION (dark) -->
+      <section class="anniv-section anniv-section--dark" id="evolution" aria-labelledby="evolution-h">
+        <div class="anniv-hero-bgfx anniv-hero-bgfx--soft" aria-hidden="true">
+          <div class="glow-blob blob-plum"></div>
+          <div class="glow-blob blob-teal"></div>
+        </div>
+        <div class="anniv-section-head reveal">
+          <span class="anniv-kicker">02 · Evolution</span>
+          <h2 id="evolution-h">Each year, a new thing we could do</h2>
+          <p class="anniv-lede">Our capabilities stacked — never replaced. Hover or scroll through the layers.</p>
+        </div>
+        <div class="anniv-evolution" id="anniv-evolution">
+          <!-- populated from data.evolution -->
+        </div>
+      </section>
+
+      <!-- 03 · WORK (light) -->
+      <section class="anniv-section" id="work" aria-labelledby="work-h">
+        <div class="anniv-section-head reveal">
+          <span class="anniv-kicker">03 · Our Work</span>
+          <h2 id="work-h">Work we're proud of</h2>
+          <p class="anniv-lede">A few projects that capture the craft, the impact, and the partnerships.</p>
+        </div>
+        <div class="anniv-projects" id="anniv-projects">
+          <!-- populated from data.projects -->
+        </div>
+      </section>
+
+      <!-- 04 · TEAM (light) -->
+      <section class="anniv-section anniv-section--alt" id="team" aria-labelledby="team-h">
+        <div class="anniv-section-head reveal">
+          <span class="anniv-kicker">04 · The Team</span>
+          <h2 id="team-h">The people behind the work</h2>
+          <p class="anniv-lede">Long-tenured, multi-disciplinary, and growing.</p>
+        </div>
+        <div class="anniv-tenure" id="anniv-tenure" aria-label="Team headcount over time">
+          <!-- populated from data.team.headcountByYear -->
+        </div>
+        <div class="anniv-team" id="anniv-team">
+          <!-- populated from data.team.members -->
+        </div>
+      </section>
+
+      <!-- 05 · CLIENTS (light) -->
+      <section class="anniv-section" id="clients" aria-labelledby="clients-h">
+        <div class="anniv-section-head reveal">
+          <span class="anniv-kicker">05 · Clients</span>
+          <h2 id="clients-h">Who we've grown alongside</h2>
+          <p class="anniv-lede">Fifteen years of partnerships across education, workforce, and the nonprofit sector.</p>
+        </div>
+        <div class="anniv-clients-featured" id="anniv-clients-featured">
+          <!-- populated from data.clients.featured -->
+        </div>
+        <div class="anniv-logos" id="anniv-logos" aria-label="Client organizations">
+          <!-- populated from data.clients.logos -->
+        </div>
+      </section>
+
+      <!-- 06 · TODAY / CTA (dark plum) -->
+      <section class="anniv-section anniv-section--cta" id="today" aria-labelledby="today-h">
+        <div class="anniv-section-head reveal">
+          <span class="anniv-kicker">06 · Today</span>
+          <h2 id="today-h">What we do today</h2>
+          <p class="anniv-lede">Six related service areas — one partner, one point of contact.</p>
+        </div>
+        <div class="anniv-services" id="anniv-services">
+          <!-- populated from data.serviceAreas -->
+        </div>
+        <div class="anniv-cta-box reveal">
+          <h3>Here's to the next fifteen.</h3>
+          <p>Bring us the project you're trying to move forward — we'll help you find the right starting point.</p>
+          <a href="/contact/" class="btn btn-pill-primary">Talk With Our Team</a>
+        </div>
+      </section>
+
+    </main>
+  </div>
+
+  <!-- @footer -->
+
+  <script src="/15th-anniversary/gate.js"></script>
+  <script src="/15th-anniversary/data/anniversary-data.js"></script>
+  <script src="/15th-anniversary/anniversary.js"></script>
+  <script src="/js/main.js"></script>
+</body>
+</html>

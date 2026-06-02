@@ -1,0 +1,6 @@
+# This repo is PUBLIC. The raw source/reference material dropped in this folder
+# (transaction lists, internal financials, newsletters, roster CSVs) must NEVER
+# be committed. Only the hand-authored page data file is allowed through.
+*
+!.gitignore
+!anniversary-data.js

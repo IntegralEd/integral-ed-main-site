@@ -191,6 +191,34 @@ if (fs.existsSync(vendorSrcDir)) {
 console.log('');
 await syncPhotos(team, path.join(distDir, 'assets/team'));
 
+// Copy page-level static files (non-HTML co-located with pages, e.g.
+// src/<page>/anniversary.css, src/<page>/anniversary.js, src/<page>/data/*.js).
+// Top-level dirs already handled above are skipped to avoid duplicate work.
+console.log('\nCopying page-level static files...');
+const PAGE_STATIC_SKIP = ['partials', 'css', 'js', 'assets'];
+// Source/reference material that must NOT be published (raw data drops,
+// internal financials, source documents). These stay in src/ for authoring
+// only — never copied into the deployable dist/.
+const PAGE_STATIC_SKIP_EXT = ['.csv', '.pdf', '.xlsx', '.xls', '.docx', '.doc', '.numbers', '.key'];
+function copyPageStatics(dir) {
+  fs.readdirSync(dir).forEach(item => {
+    const full = path.join(dir, item);
+    const rel  = path.relative(srcDir, full);
+    const stat = fs.statSync(full);
+    if (stat.isDirectory()) {
+      if (PAGE_STATIC_SKIP.includes(rel.split(path.sep)[0])) return;
+      copyPageStatics(full);
+    } else if (!item.endsWith('.html') && !item.endsWith('.md') && item !== '.DS_Store' &&
+               !PAGE_STATIC_SKIP_EXT.includes(path.extname(item).toLowerCase())) {
+      const dest = path.join(distDir, rel);
+      fs.mkdirSync(path.dirname(dest), { recursive: true });
+      fs.copyFileSync(full, dest);
+      console.log(`  ${rel}`);
+    }
+  });
+}
+copyPageStatics(srcDir);
+
 console.log('\nBuild complete.');
 console.log(`Output: ${distDir}\n`);
 
