@@ -199,7 +199,7 @@ const PAGE_STATIC_SKIP = ['partials', 'css', 'js', 'assets'];
 // Source/reference material that must NOT be published (raw data drops,
 // internal financials, source documents). These stay in src/ for authoring
 // only — never copied into the deployable dist/.
-const PAGE_STATIC_SKIP_EXT = ['.csv', '.pdf', '.xlsx', '.xls', '.docx', '.doc', '.numbers', '.key'];
+const PAGE_STATIC_SKIP_EXT = ['.csv', '.pdf', '.xlsx', '.xls', '.docx', '.doc', '.numbers', '.key', '.txt'];
 function copyPageStatics(dir) {
   fs.readdirSync(dir).forEach(item => {
     const full = path.join(dir, item);
