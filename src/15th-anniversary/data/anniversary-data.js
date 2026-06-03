@@ -258,11 +258,11 @@ window.ANNIVERSARY_DATA = {
       link: ""
     },
     {
-      title: "KIPP Forward — a five-year partnership",
+      title: "KIPP Forward — National Counseling Institute",
       client: "KIPP",
-      year: null,                        // CONFIRM span, e.g. 2019–2024
+      year: 2022,                        // partnership began 2022 (per KIPP Forward)
       serviceArea: "Career Connected Learning",
-      summary: "Five years alongside KIPP supporting KIPP Forward — guiding students beyond high school into college, career, and the choices that shape a life. The work includes a College & Career Match Playbook, with case studies, role plays, and asynchronous practice that help counselors and students navigate the match process. A highlight partnership built on trust, iteration, and shared mission.",
+      summary: "Since 2022, the design partner behind KIPP Forward's National Counseling Institute — asynchronous training modules, newly designed anchor graphics, and live facilitation rooted in role plays and real student case studies. The work grows equity-focused, student-centered counseling across KIPP high schools, and has since scaled into a regional train-the-trainer model.",
       image: "",
       href: "/services/career-pathways/", // TODO: swap to live case-study URL
       embedUrl: "",
@@ -355,10 +355,18 @@ window.ANNIVERSARY_DATA = {
       {
         name: "KIPP",
         logo: "/assets/images/client-logos/KIPP%20Logo.png",
-        story: "A five-year partnership supporting KIPP Forward — building a College & Career Match Playbook with case studies, role plays, and asynchronous practice that help students navigate the path beyond high school.",
-        quote: "",                       // TODO: add Sarah Gomez quote about the KIPP partnership
-        quoteAttribution: "Sarah Gomez, KIPP",
-        since: null
+        story: "Since 2022, a central partner to KIPP Forward's National Counseling Institute — with Whitney Henderson directing the work: asynchronous modules, newly designed anchor graphics, and live, role-play-rich facilitation built on real student case studies that grow equity-focused, student-centered counseling across KIPP high schools.",
+        quote: "Integral Ed's responsiveness to our evolving needs, and deep commitment to educational equity have made them an exceptional partner.",
+        quoteAttribution: "Sarah Gomez, M.Ed., Interim Senior Director, KIPP Forward",
+        since: 2022
+      },
+      {
+        name: "Danielson Group",
+        logo: "/assets/images/client-logos/Danielson%20Group%20-%20Horiz%20Logo_Color-RGB.avif",
+        story: "Since 2020, Integral Ed has been the Danielson Group's insourced eLearning team — led by Tara Williams — carrying them from fully in-person delivery into blended and asynchronous formats: building every one of their e-learning courses, standing up their LMS, and shaping guidance documents downloaded by more than a million educators nationwide.",
+        quote: "They have truly been critical partners in our growth and ongoing success.",
+        quoteAttribution: "Dr. Lee Kappes, CEO, Danielson Group",
+        since: 2020
       }
     ],
     // Logo wall (paths copied from the homepage logo strip)
