@@ -255,6 +255,7 @@
 .evo-yellow  { --evo-c: var(--accent-yellow); }
 .evo-magenta { --evo-c: var(--accent-magenta); }
 .evo-plum    { --evo-c: var(--primary-light, #b066bd); }
+.evo-sky     { --evo-c: #58b0e3; }
 
 .anniv-subway-wrap { overflow-x: auto; margin-bottom: var(--spacing-2xl); -webkit-overflow-scrolling: touch; }
 .anniv-subway { display: block; width: 100%; min-width: 680px; height: auto; overflow: visible; }
@@ -315,15 +316,55 @@
 .anniv-project-summary { margin: 0; color: var(--text-secondary); font-size: 0.95rem; }
 .anniv-project-link { display: inline-block; margin-top: 0.7rem; color: var(--color-plum); font-weight: 600; text-decoration: none; }
 .anniv-project-link:hover { text-decoration: underline; }
-/* whole-card link */
+/* whole-card link / button */
 a.anniv-project, a.anniv-project:visited { text-decoration: none; color: inherit; display: block; }
 .anniv-project--link { cursor: pointer; }
 .anniv-project-cta {
   display: inline-flex; align-items: center; gap: 0.25rem; margin-top: 0.8rem;
   color: var(--color-plum); font-weight: 700; font-size: 0.92rem;
 }
-a.anniv-project:hover .anniv-project-cta { text-decoration: underline; }
-a.anniv-project:focus-visible { outline: 3px solid var(--accent-magenta); outline-offset: 2px; }
+.anniv-project--link:hover .anniv-project-cta { text-decoration: underline; }
+.anniv-project--link:focus-visible { outline: 3px solid var(--accent-magenta); outline-offset: 2px; }
+
+/* ── Work modal ─────────────────────────────────────────────────────────── */
+html.anniv-modal-open { overflow: hidden; }
+.anniv-modal {
+  position: fixed; inset: 0; z-index: 1000; display: flex; align-items: center; justify-content: center;
+  padding: clamp(0.8rem, 3vw, 2.2rem);
+  opacity: 0; transition: opacity 0.2s ease;
+}
+.anniv-modal.is-on { opacity: 1; }
+.anniv-modal-backdrop { position: absolute; inset: 0; background: rgba(20, 10, 28, 0.66); backdrop-filter: blur(3px); }
+.anniv-modal-card {
+  position: relative; z-index: 1; width: min(760px, 100%); max-height: 90vh; overflow-y: auto;
+  background: var(--bg-primary); border-radius: var(--radius-lg); box-shadow: var(--shadow-lg);
+  padding: clamp(1.4rem, 3vw, 2.2rem);
+  transform: translateY(14px) scale(0.985); transition: transform 0.2s ease;
+}
+.anniv-modal.is-on .anniv-modal-card { transform: none; }
+.anniv-modal-close {
+  position: absolute; top: 0.6rem; right: 0.6rem; width: 2.2rem; height: 2.2rem; border: 0; cursor: pointer;
+  background: var(--bg-secondary); border-radius: 50%; font-size: 1.5rem; line-height: 1; color: var(--text-secondary);
+}
+.anniv-modal-close:hover { background: var(--border-light); color: var(--text-primary); }
+.anniv-modal-meta { font-size: 0.72rem; letter-spacing: 0.08em; text-transform: uppercase; color: var(--accent-magenta); }
+.anniv-modal-meta:empty { display: none; }
+.anniv-modal-title { margin: 0.3rem 2rem 0.9rem 0; font-size: clamp(1.3rem, 3vw, 1.7rem); }
+.anniv-modal-media { aspect-ratio: 16/9; background: var(--bg-secondary); border-radius: var(--radius-md); overflow: hidden; margin-bottom: 1.1rem; }
+.anniv-modal-media[hidden] { display: none; }
+.anniv-modal-media img, .anniv-modal-media iframe { width: 100%; height: 100%; object-fit: cover; border: 0; display: block; }
+.anniv-modal-body { color: var(--text-secondary); font-size: 1rem; line-height: 1.6; }
+.anniv-modal-body p { margin: 0 0 0.8rem; }
+.anniv-modal-actions { margin-top: 1.2rem; }
+.anniv-modal-actions:empty { display: none; }
+.anniv-modal-btn {
+  display: inline-flex; align-items: center; gap: 0.3rem; padding: 0.7rem 1.2rem; border-radius: 999px;
+  background: var(--color-plum); color: #fff; font-weight: 700; text-decoration: none; font-size: 0.95rem;
+}
+.anniv-modal-btn:hover { background: color-mix(in srgb, var(--color-plum) 84%, #000); }
+@media (prefers-reduced-motion: reduce) {
+  .anniv-modal, .anniv-modal-card { transition: none; }
+}
 
 /* ── Tenure chart ───────────────────────────────────────────────────────── */
 .anniv-tenure { max-width: 760px; margin: 0 auto var(--spacing-2xl); display: grid; gap: 0.7rem; }

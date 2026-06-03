@@ -190,36 +190,135 @@
   }
 
   /* ── Projects ─────────────────────────────────────────────────────────── */
+  // Filtered list kept in module scope so the modal can look projects up by index.
+  var PROJECTS = [];
   function renderProjects() {
     var el = $('anniv-projects');
     if (!el) return;
-    var items = (D.projects || []).filter(function (p) { return p && p.title; });
-    if (!items.length) { el.innerHTML = empty('Projects'); return; }
-    el.innerHTML = items.map(function (p) {
-      // Whole card is clickable when there's a destination. (An embed-only card
-      // shows its demo inline and stays a non-link article.)
-      var dest = p.href || p.link || p.videoUrl || '';
-      var media = '';
-      if (p.embedUrl) media = '<div class="anniv-project-media"><iframe src="' + esc(p.embedUrl) + '" title="' + esc(p.title) + '" loading="lazy" allowfullscreen></iframe></div>';
-      else if (p.image) media = '<div class="anniv-project-media"><img src="' + esc(p.image) + '" alt="' + esc(p.title) + '" loading="lazy"></div>';
+    PROJECTS = (D.projects || []).filter(function (p) { return p && p.title; });
+    if (!PROJECTS.length) { el.innerHTML = empty('Projects'); return; }
+    el.innerHTML = PROJECTS.map(function (p, i) {
+      // Every card opens a modal demo (embed/video if available, otherwise a
+      // write-up with a link out to the full project / related service work).
+      var media = p.image
+        ? '<div class="anniv-project-media"><img src="' + esc(p.image) + '" alt="' + esc(p.title) + '" loading="lazy"></div>'
+        : '';
       var metaBits = [p.year, p.serviceArea, p.client].filter(Boolean).map(esc).join(' · ');
-      var ctaLabel = p.videoUrl ? 'Watch the video' : (p.embedUrl ? 'Open the demo' : 'View project');
-      var cta = dest ? '<span class="anniv-project-cta">' + ctaLabel + ' &rarr;</span>' : '';
+      var hasDemo = !!(p.embedUrl || p.videoUrl);
+      var ctaLabel = hasDemo ? (p.videoUrl ? 'Watch the demo' : 'Open the demo') : 'See the work';
       var body =
         '<div class="anniv-project-body">' +
           (metaBits ? '<div class="anniv-project-meta">' + metaBits + '</div>' : '') +
           '<h3 class="anniv-project-title">' + esc(p.title) + '</h3>' +
           (p.summary ? '<p class="anniv-project-summary">' + linkNames(p.summary) + '</p>' : '') +
-          cta +
+          '<span class="anniv-project-cta">' + ctaLabel + ' &rarr;</span>' +
         '</div>';
-      if (dest) {
-        var external = /^https?:/i.test(dest);
-        var tgt = external ? ' target="_blank" rel="noopener"' : '';
-        return '<a class="anniv-project anniv-project--link reveal" href="' + esc(dest) + '"' + tgt + '>' +
-          media + body + '</a>';
-      }
-      return '<article class="anniv-project reveal">' + media + body + '</article>';
+      return '<article class="anniv-project anniv-project--link reveal" data-i="' + i + '" ' +
+        'tabindex="0" role="button" aria-haspopup="dialog" aria-label="' + esc(p.title) + ' — open demo">' +
+        media + body + '</article>';
     }).join('');
+  }
+
+  /* ── Work modal: launches a demo (embed/video) or a write-up + link out ─── */
+  var MODAL = null;
+  function ensureModal() {
+    if (MODAL) return MODAL;
+    var overlay = document.createElement('div');
+    overlay.className = 'anniv-modal';
+    overlay.setAttribute('hidden', '');
+    overlay.innerHTML =
+      '<div class="anniv-modal-backdrop" data-close></div>' +
+      '<div class="anniv-modal-card" role="dialog" aria-modal="true" aria-labelledby="anniv-modal-title">' +
+        '<button type="button" class="anniv-modal-close" data-close aria-label="Close">&times;</button>' +
+        '<div class="anniv-modal-meta"></div>' +
+        '<h3 class="anniv-modal-title" id="anniv-modal-title"></h3>' +
+        '<div class="anniv-modal-media"></div>' +
+        '<div class="anniv-modal-body"></div>' +
+        '<div class="anniv-modal-actions"></div>' +
+      '</div>';
+    document.body.appendChild(overlay);
+    overlay.addEventListener('click', function (e) {
+      if (e.target.hasAttribute('data-close')) closeModal();
+    });
+    MODAL = overlay;
+    return overlay;
+  }
+  var lastFocus = null;
+  function openProjectModal(i) {
+    var p = PROJECTS[i];
+    if (!p) return;
+    var m = ensureModal();
+    lastFocus = document.activeElement;
+    var metaBits = [p.year, p.serviceArea, p.client].filter(Boolean).map(esc).join(' · ');
+    m.querySelector('.anniv-modal-meta').innerHTML = metaBits;
+    m.querySelector('.anniv-modal-title').textContent = p.title;
+
+    var mediaEl = m.querySelector('.anniv-modal-media');
+    if (p.embedUrl) {
+      mediaEl.innerHTML = '<iframe src="' + esc(p.embedUrl) + '" title="' + esc(p.title) +
+        '" loading="lazy" allowfullscreen></iframe>';
+      mediaEl.hidden = false;
+    } else if (p.videoUrl) {
+      mediaEl.innerHTML = '<iframe src="' + esc(p.videoUrl) + '" title="' + esc(p.title) +
+        '" loading="lazy" allow="autoplay; fullscreen" allowfullscreen></iframe>';
+      mediaEl.hidden = false;
+    } else if (p.image) {
+      mediaEl.innerHTML = '<img src="' + esc(p.image) + '" alt="' + esc(p.title) + '">';
+      mediaEl.hidden = false;
+    } else {
+      mediaEl.innerHTML = '';
+      mediaEl.hidden = true;
+    }
+
+    m.querySelector('.anniv-modal-body').innerHTML =
+      p.summary ? '<p>' + linkNames(p.summary) + '</p>' : '';
+
+    var dest = p.link || p.href || '';
+    var actions = '';
+    if (dest) {
+      var external = /^https?:/i.test(dest);
+      var tgt = external ? ' target="_blank" rel="noopener"' : '';
+      var label = (p.link ? 'View the full case study' : 'Explore related work');
+      actions = '<a class="anniv-modal-btn" href="' + esc(dest) + '"' + tgt + '>' + label + ' &rarr;</a>';
+    }
+    m.querySelector('.anniv-modal-actions').innerHTML = actions;
+
+    m.removeAttribute('hidden');
+    document.documentElement.classList.add('anniv-modal-open');
+    requestAnimationFrame(function () { m.classList.add('is-on'); });
+    var closeBtn = m.querySelector('.anniv-modal-close');
+    if (closeBtn) closeBtn.focus();
+  }
+  function closeModal() {
+    if (!MODAL) return;
+    MODAL.classList.remove('is-on');
+    document.documentElement.classList.remove('anniv-modal-open');
+    var m = MODAL;
+    setTimeout(function () {
+      m.setAttribute('hidden', '');
+      var media = m.querySelector('.anniv-modal-media');
+      if (media) media.innerHTML = '';   // stop any playing embed/video
+    }, 200);
+    if (lastFocus && lastFocus.focus) { try { lastFocus.focus(); } catch (e) {} }
+  }
+  function setupProjectModal() {
+    var grid = $('anniv-projects');
+    if (!grid) return;
+    grid.addEventListener('click', function (e) {
+      var card = e.target.closest ? e.target.closest('.anniv-project[data-i]') : null;
+      if (!card) return;
+      openProjectModal(Number(card.getAttribute('data-i')));
+    });
+    grid.addEventListener('keydown', function (e) {
+      if (e.key !== 'Enter' && e.key !== ' ') return;
+      var card = e.target.closest ? e.target.closest('.anniv-project[data-i]') : null;
+      if (!card) return;
+      e.preventDefault();
+      openProjectModal(Number(card.getAttribute('data-i')));
+    });
+    document.addEventListener('keydown', function (e) {
+      if (e.key === 'Escape' && MODAL && !MODAL.hasAttribute('hidden')) closeModal();
+    });
   }
 
   /* ── Tenure chart ─────────────────────────────────────────────────────── */
@@ -319,18 +418,34 @@
   }
 
   /* ── Counter animation ────────────────────────────────────────────────── */
+  // The counters live in the hero, which is visible the instant the page loads —
+  // even while the password gate is still covering it. If we animated right away
+  // the count-up would finish behind the gate and the user would never see it.
+  // So defer the count-up until the page is actually unlocked.
+  function isLocked() {
+    return document.documentElement.classList.contains('anniv-locked');
+  }
+  function whenUnlocked(fn) {
+    if (!isLocked()) { fn(); return; }
+    document.addEventListener('anniv:unlocked', function once() {
+      document.removeEventListener('anniv:unlocked', once);
+      fn();
+    });
+  }
   function animateCounter(el) {
-    var target = Number(el.getAttribute('data-target') || 0);
-    var suffix = el.getAttribute('data-suffix') || '';
-    var dur = 1600, start = null;
-    function tick(ts) {
-      if (start == null) start = ts;
-      var t = Math.min((ts - start) / dur, 1);
-      var eased = 1 - Math.pow(1 - t, 3);
-      el.textContent = Math.round(eased * target).toLocaleString() + suffix;
-      if (t < 1) requestAnimationFrame(tick);
-    }
-    requestAnimationFrame(tick);
+    whenUnlocked(function () {
+      var target = Number(el.getAttribute('data-target') || 0);
+      var suffix = el.getAttribute('data-suffix') || '';
+      var dur = 1600, start = null;
+      function tick(ts) {
+        if (start == null) start = ts;
+        var t = Math.min((ts - start) / dur, 1);
+        var eased = 1 - Math.pow(1 - t, 3);
+        el.textContent = Math.round(eased * target).toLocaleString() + suffix;
+        if (t < 1) requestAnimationFrame(tick);
+      }
+      requestAnimationFrame(tick);
+    });
   }
 
   /* ── Observers: reveal + bars + counters ──────────────────────────────── */
@@ -466,6 +581,7 @@
     setupScrollSpy();
     setupNamePreviews();
     setupSubway();
+    setupProjectModal();
   }
 
   if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', init);

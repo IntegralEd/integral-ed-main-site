@@ -20,6 +20,9 @@
     document.documentElement.classList.remove('anniv-locked');
     var g = document.getElementById('anniv-gate');
     if (g) g.setAttribute('hidden', '');
+    // Let the page know it's now visible, so things like the count-up animations
+    // can run once the content is actually on screen (not behind the gate).
+    try { document.dispatchEvent(new CustomEvent('anniv:unlocked')); } catch (e) {}
   }
 
   function sha256Hex(str) {

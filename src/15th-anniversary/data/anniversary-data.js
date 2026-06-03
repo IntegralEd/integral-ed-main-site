@@ -55,6 +55,13 @@ window.ANNIVERSARY_DATA = {
       tag: "Founding"
     },
     {
+      year: 2013,
+      title: "Partnering with CMOs",
+      body: "We begin working with charter management organizations on assessment-driven learning, data-driven instruction, and assessment reporting.",
+      image: "",
+      tag: "Assessment"
+    },
+    {
       year: 2014,
       title: "Curriculum takes root",
       body: "Ava Millstone joins to lead curriculum, and the work grows from analysis into building the slides, guides, and facilitator materials our partners teach from.",
@@ -62,46 +69,53 @@ window.ANNIVERSARY_DATA = {
       tag: "First hire"
     },
     {
-      year: 2016,
-      title: "Building the foundations",
-      body: "We begin producing media-rich, asynchronous learning — the foundation that everything since has been built on.",
+      year: 2015,
+      title: "The team grows",
+      body: "Alicia Chipman joins, expanding our curriculum-design capacity, and April Graham joins, growing our postsecondary ideation and access work.",
       image: "",
-      tag: "Era"
+      tag: "Team"
+    },
+    {
+      year: 2016,
+      title: "Foundations & a first redesign",
+      body: "We hit our stride in media-rich, asynchronous learning — and deliver our first major redesign package for iMentor's multigrade postsecondary program.",
+      image: "",
+      tag: "iMentor"
     },
     {
       year: 2017,
-      title: "Design, media & print",
-      body: "Creative Director Asha Kelly joins, bringing design and media experience to our curriculum and print media.",
+      title: "A breakout year",
+      body: "Creative Director Asha Kelly joins, bringing design and media to our curriculum and print media; we sign our first six-figure contracts; and our NMSI curriculum work aligns to NGSS.",
       image: "",
       tag: "Milestone"
     },
     {
+      year: 2018,
+      title: "Our first app & LMS",
+      body: "We build our first app and launch our first learning management system with TTK.",
+      image: "",
+      tag: "Platforms"
+    },
+    {
       year: 2019,
-      title: "Our first eLearning",
-      body: "Nadia Zaid joins and we launch our first eLearning project — a build for Early Learning Indiana.",
+      title: "eLearning & STEM take off",
+      body: "Nadia Zaid joins and we launch our first eLearning project for Early Learning Indiana; Cara Johnson joins and builds out our STEM specialization, including the Nano experience; and our PLTW work deepens professional-development alignment.",
       image: "",
       tag: "eLearning"
     },
     {
-      year: 2019,
-      title: "A STEM specialization",
-      body: "Cara Johnson joins and we build out our STEM specialization — including the Nano experience.",
-      image: "",
-      tag: "STEM"
-    },
-    {
       year: 2020,
       title: "The crisis turn to LMS",
-      body: "When the world went remote, we helped partners stand up learning management systems and move whole programs online, fast.",
+      body: "When the world went remote, we helped partners stand up learning management systems and move whole programs online, fast — as Erin McIntee joins, bringing expert, complex Storyline development.",
       image: "",
       tag: "COVID pivot"
     },
     {
       year: 2021,
-      title: "Media production, in-house",
-      body: "Michaela Bradley joins and we build out our capacity for media production — video and motion alongside print and design.",
+      title: "Media & adult learning",
+      body: "Michaela Bradley joins and we build out in-house media production, while Morgan Taveras brings adult-learning expertise and character-driven design.",
       image: "",
-      tag: "Media"
+      tag: "Growth"
     },
     {
       year: 2023,
@@ -116,6 +130,13 @@ window.ANNIVERSARY_DATA = {
       body: "The StriveTogether Continuous Improvement Toolkit ships with scenario-based interactions and an AI-powered chatbot — learning that responds.",
       image: "",
       tag: "AI / Agentic"
+    },
+    {
+      year: 2025,
+      title: "Apps, dashboards & custom platforms",
+      body: "We add app design for data dashboards, custom LMS builds, and agentic feedback — software that wraps around the learning.",
+      image: "",
+      tag: "Platforms"
     },
     {
       year: 2026,
@@ -178,6 +199,15 @@ window.ANNIVERSARY_DATA = {
       whatWeCouldDo: "Add AI-powered feedback and conversation so learning responds in real time.",
       proof: "The StriveTogether CI Toolkit ships with an AI-powered chatbot.",
       color: "plum"
+    },
+    {
+      id: "apps",
+      year: 2025,
+      stage: "Apps & custom platforms",
+      tagline: "Dashboards, custom LMS, agentic feedback.",
+      whatWeCouldDo: "Design custom apps, data dashboards, and bespoke LMS builds — with agentic feedback wrapped around the learning.",
+      proof: "App design for data dashboards, custom LMS, and agentic feedback join the toolkit.",
+      color: "sky"
     }
   ],
 
@@ -232,7 +262,7 @@ window.ANNIVERSARY_DATA = {
       client: "KIPP",
       year: null,                        // CONFIRM span, e.g. 2019–2024
       serviceArea: "Career Connected Learning",
-      summary: "Five years alongside KIPP supporting KIPP Forward — the work of guiding students beyond high school into college, career, and the choices that shape a life. A highlight partnership built on trust, iteration, and shared mission.",
+      summary: "Five years alongside KIPP supporting KIPP Forward — guiding students beyond high school into college, career, and the choices that shape a life. The work includes a College & Career Match Playbook, with case studies, role plays, and asynchronous practice that help counselors and students navigate the match process. A highlight partnership built on trust, iteration, and shared mission.",
       image: "",
       href: "/services/career-pathways/", // TODO: swap to live case-study URL
       embedUrl: "",
@@ -312,6 +342,22 @@ window.ANNIVERSARY_DATA = {
         story: "We translated StriveTogether's continuous-improvement methodology into an interactive toolkit for educators — video, scenario-based practice, and an AI-powered chatbot that coaches in real time.",
         quote: "Integral Ed does an amazing job of understanding who we are as an organization. They thoughtfully translate our content into interactive courses that take our work to the next level.",
         quoteAttribution: "Heidi Black, VP of Training, StriveTogether",
+        since: null
+      },
+      {
+        name: "EL Education",
+        logo: "/assets/images/client-logos/EL_EDUCATION_logo_crimson_preferred%20(4).png",
+        story: "A go-to partner for EL Education's professional-learning products — translating their content into polished, ready-to-use learning experiences their team can lean on.",
+        quote: "You guys are our easy button!",
+        quoteAttribution: "Natalie Taylor, Program Team (Professional Learning Products), EL Education",
+        since: null
+      },
+      {
+        name: "KIPP",
+        logo: "/assets/images/client-logos/KIPP%20Logo.png",
+        story: "A five-year partnership supporting KIPP Forward — building a College & Career Match Playbook with case studies, role plays, and asynchronous practice that help students navigate the path beyond high school.",
+        quote: "",                       // TODO: add Sarah Gomez quote about the KIPP partnership
+        quoteAttribution: "Sarah Gomez, KIPP",
         since: null
       }
     ],
