@@ -294,22 +294,25 @@ window.ANNIVERSARY_DATA = {
   /* ---------------------------------------------------------------------------
    * 3b) PORTFOLIO: items referenced by [ref:slug] markup in timeline copy
    *     Each entry uses the same fields as a `projects` item, so the same
-   *     modal-fill logic applies. Paste the YouTube embed URL into `videoUrl`
-   *     (full embed URL: https://www.youtube.com/embed/VIDEO_ID) and the
-   *     player appears inline.
+   *     modal-fill logic applies.
    *
-   *     David: fill in the actual summaries + YouTube embed URLs from the
-   *     matching Portfolio Items in DemoPortfolio (Airtable base
-   *     appOgP4MmHeJgCEUt, table "Portfolio Items").
+   *     Media rules:
+   *       - `videoUrl` is a YouTube embed URL: https://www.youtube.com/embed/<ID>
+   *         (the player appears inline in the modal)
+   *       - `embedUrl` is any other iframe-able URL (Storyline launch URL, etc.)
+   *       - Leave both blank and the modal shows just title + summary + link out.
+   *
+   *     Content extracted from DemoPortfolio Airtable Portfolio Items table
+   *     (base appOgP4MmHeJgCEUt), via the CSV snapshot in this folder.
    * ------------------------------------------------------------------------- */
   portfolio: {
     ttk: {
       title: "Mobile Adaptive Training from The Teaching Kitchen",
-      client: "The Teaching Kitchen",
+      client: "Lenox Hill Neighborhood House",
       year: 2018,
       serviceArea: "eLearning & Blended Learning",
-      summary: "A mobile-first, adaptive training experience built for clinicians and staff learning culinary-medicine fundamentals on the go: bite-sized modules, branching scenarios, and an LMS that travels with the learner.", // TODO: replace with the Full Description from the matching Portfolio Item
-      videoUrl: "",                      // TODO: paste YouTube embed URL when ready
+      summary: "We partnered with Lenox Hill Neighborhood House, a nonprofit that provides an extensive array of effective and integrated human services. We helped design and develop a mobile app to support cooks and kitchen staff to learn “farm to institution” cooking from the Teaching Chefs of The Teaching Kitchen. Our team attended live trainings, filmed cooking demos and produced this mixed program as an app and web-accessible LMS for nonprofits across the nation. This video provides a walkthrough of our eLearning Design for the mobile app.",
+      videoUrl: "https://www.youtube.com/embed/1vV-02hOXdI",
       link: ""
     },
     leadPaint: {
@@ -317,44 +320,45 @@ window.ANNIVERSARY_DATA = {
       client: "Early Learning Indiana",
       year: 2019,
       serviceArea: "eLearning & Blended Learning",
-      summary: "A statewide compliance and awareness module for early-childhood education providers: short, accessible scenarios that walk teachers and home-based providers through lead-paint hazards, screening expectations, and what to do when concerns surface.", // TODO: replace with Full Description
-      videoUrl: "",                      // TODO
+      summary: "We partnered with Early Learning Indiana, an organization dedicated to providing the highest quality early care and education from infancy to pre-K in Indianapolis and West Lafayette-area centers. We helped Early Learning Indiana with these efforts by creating a scenario-based eLearning for child care facilities in the state of Indiana. Our team produced this scenario-based quiz designed to reduce lead toxicity in children and summatively assess the learner at the end of the quiz.",
+      embedUrl: "https://integral-elearning.space/demo/lead_scenario/story.html",
+      videoUrl: "",
       link: ""
     },
     nano: {
       title: "Nano: Virtual Reality Science Labs",
-      client: "Dreamscape Learn",        // CONFIRM client/partner
-      year: 2019,                        // CONFIRM
+      client: "Lighthaus",
+      year: 2019,
       serviceArea: "eLearning & Blended Learning",
-      summary: "Immersive VR science labs that put students inside the experiment: from atomic-scale exploration to lab-safety walkthroughs, the Nano experience built our STEM specialization on virtual reality and presence-driven learning.", // TODO: replace with Full Description
-      videoUrl: "",                      // TODO
+      summary: "We partnered with Lighthaus Inc., a leader in top quality game-powered immersive learning. We helped support curriculum design for Nano, a VR science game with real science in its DNA by Lighthaus Inc.. We were proud to support classroom curriculum design as Lighthaus rigorously tested their beliefs about immersive science learning with innovation grants from the National Institutes of Health and the U.S. Department of Education. As an example of collateral produced through this partnership, our team generated the dynamic video, “NANO Virtual Reality Science”.",
+      videoUrl: "https://www.youtube.com/embed/kNpS80n8z6k",
       link: ""
     },
     apForAll: {
       title: "AP For All Curriculum Materials",
       client: "NMSI",
       year: 2017,
-      serviceArea: "eLearning & Blended Learning",
-      summary: "NGSS-aligned AP curriculum materials supporting NMSI's nationwide expansion of AP access: teacher-ready resources, student practice, and facilitator notes designed to help schools stand up new AP programs.", // TODO: replace with Full Description
-      videoUrl: "",                      // TODO
+      serviceArea: "K-12 Academic Curriculum, Educator Training",
+      summary: "We collaborated with the National Math and Science Initiative (NMSI), a non-profit organization dedicated towards advancing STEM through strengthened STEM educators. Our team worked with subject matter experts to design and develop sets of printable materials. These materials include teacher guidance, student workbooks, pacing guides, and professional development documents for both presenters and participants. As an example of collateral produced through this partnership, our team generated these Instructor-Led Training materials consisting of a presenter handbook, student workbook, and participant workbook.",
+      videoUrl: "",
       link: ""
     },
     identityWayfinding: {
       title: "Identity Exploration and Wayfinding",
       client: "iMentor",
       year: 2016,
-      serviceArea: "Career Connected Learning",
-      summary: "Our first major postsecondary partnership: a multigrade curriculum that helps mentors and mentees navigate identity exploration and college wayfinding, anchored in real student stories and scaffolded reflection.", // TODO: replace with Full Description
-      videoUrl: "",                      // TODO
+      serviceArea: "Post-Secondary Ideation",
+      summary: "From 2017-2019 we partnered with iMentor to revise and align and rebuild curricula for their national 2-year and 4-year program models, including all curricular content for high-school students and their mentors. Goals and outcomes for this curriculum focused on college-fit, soft-skills, transition from high-school and college success.",
+      videoUrl: "https://www.youtube.com/embed/MmePkbDCIWE",
       link: ""
     },
     premiumPortal: {
       title: "Premium Portal: Free and Premium Media for Parents of Kids with Dyslexia",
-      client: "Popped!",
+      client: "Clever Noodle (Popped!)",
       year: 2025,
-      serviceArea: "Apps & Custom Platforms",
-      summary: "A tiered media portal for Popped!: free and premium video, audio, and parent-facing guides for families navigating dyslexia, wrapped in a custom subscription experience and built on the LMS pattern we now use across our app builds.", // TODO: replace with Full Description
-      videoUrl: "",                      // TODO
+      serviceArea: "Custom Platform, Digital Transformation",
+      summary: "Welcome to the Clever Noodle Portal, a tailored platform we designed to support both free and premium experiences for parents. This portal integrates seamlessly with Stripe for secure payment processing and AirTable for efficient data management. It provides a user-friendly interface where parents can access a variety of educational resources and tools. The portal allows for easy tracking of progress and activities, with features that enhance interaction and engagement. Whether opting for the free version or subscribing to premium content, users benefit from a streamlined experience tailored to support educational needs.",
+      videoUrl: "https://www.youtube.com/embed/GxXxpQSeyhw",
       link: ""
     }
   },
