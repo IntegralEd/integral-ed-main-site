@@ -1,9 +1,9 @@
 /* =============================================================================
- * Integral Ed — 15th Anniversary Page Data
+ * Integral Ed 15th Anniversary Page Data
  * -----------------------------------------------------------------------------
  * This is the SINGLE place to add/edit the content that drives the page's
  * visualizations and overviews. David: fill in the blanks below. You do not
- * need to touch any HTML/CSS — the page reads from this file.
+ * need to touch any HTML/CSS. The page reads from this file.
  *
  * Rules of thumb:
  *   - Keep the keys/structure as-is; just edit the values inside quotes.
@@ -14,6 +14,11 @@
  *       "/assets/images/team/jane.jpg"
  *     Drop the files in src/assets/images/... and reference them here.
  *
+ *   - Portfolio modal refs: any body copy can contain
+ *       [ref:slug]Display text[/ref]
+ *     where slug is a key in the `portfolio:` block below. The page wraps the
+ *     display text in a clickable link that opens the modal with that project.
+ *
  * NOTE: This page is for our biz-dev / client list (clients can see each
  * other), so it intentionally carries NO per-client or per-year dollar
  * figures. Keep it that way.
@@ -22,14 +27,14 @@
 window.ANNIVERSARY_DATA = {
 
   /* ---------------------------------------------------------------------------
-   * 0) PAGE META — hero headline + the big animated counters up top
+   * 0) PAGE META: hero headline + the big animated counters up top
    * ------------------------------------------------------------------------- */
   meta: {
     foundedYear: 2011,
     anniversaryYear: 2026,
-    eyebrow: "2011 — 2026",
+    eyebrow: "2011-2026",
     headline: "Fifteen years helping organizations learn, adapt, and grow.",
-    subhead: "From one analyst with a laptop to a 21-person studio building blended, media-rich, AI-assisted learning — here's the road we've traveled together.",
+    subhead: "From one analyst with a laptop to a 21-person studio building blended, media-rich, AI-assisted learning. Here's the road we've traveled together.",
     // Big numbers that count up on load. label is shown under the number.
     counters: [
       { value: 15,  suffix: "",  label: "Years growing together" },
@@ -40,17 +45,20 @@ window.ANNIVERSARY_DATA = {
   },
 
   /* ---------------------------------------------------------------------------
-   * 1) HISTORY — the scrolling timeline (2011 → 2026)
+   * 1) HISTORY: the scrolling timeline (2011 to 2026)
    *    Drafted from the Dec 2024 newsletter + our records. David: edit wording.
    * ------------------------------------------------------------------------- */
   // NOTE: any teammate's full name written in these bodies is automatically
   // turned bold + linked to their /team/ profile (with a hover preview) by the
-  // page script — just write the name plainly, e.g. "Asha Kelly".
+  // page script. Just write the name plainly, e.g. "Asha Kelly".
+  //
+  // Portfolio modal refs use the [ref:slug]Display text[/ref] markup. See the
+  // `portfolio:` block at the bottom of this file for the available slugs.
   timeline: [
     {
       year: 2011,
       title: "Integral Ed begins",
-      body: "David Malbin opens the doors as a one-person analytics shop — helping education organizations make sense of their data.",
+      body: "David Malbin opens the doors as a one-person analytics shop, helping education organizations make sense of their data.",
       image: "",
       tag: "Founding"
     },
@@ -77,36 +85,36 @@ window.ANNIVERSARY_DATA = {
     },
     {
       year: 2016,
-      title: "Foundations & a first redesign",
-      body: "We hit our stride in media-rich, asynchronous learning — and deliver our first major redesign package for iMentor's multigrade postsecondary program.",
+      title: "First major postsecondary mentoring project",
+      body: "We deliver our first major postsecondary partnership with national nonprofit iMentor, building the [ref:identityWayfinding]Identity Exploration and Wayfinding[/ref] curriculum that anchors their multigrade mentoring program.",
       image: "",
       tag: "iMentor"
     },
     {
       year: 2017,
       title: "A breakout year",
-      body: "Creative Director Asha Kelly joins, bringing design and media to our curriculum and print media; we sign our first six-figure contracts; and our NMSI curriculum work aligns to NGSS.",
+      body: "Creative Director Asha Kelly joins, bringing design and media to our curriculum and print media; we sign our first six-figure contracts; and our NMSI partnership deepens with [ref:apForAll]AP For All Curriculum Materials[/ref], NGSS-aligned modules supporting nationwide AP-access expansion.",
       image: "",
       tag: "Milestone"
     },
     {
       year: 2018,
       title: "Our first app & LMS",
-      body: "We build our first app and launch our first learning management system with TTK.",
+      body: "We build our first app and launch our first learning management system with [ref:ttk]The Teaching Kitchen[/ref], including mobile-adaptive training materials.",
       image: "",
       tag: "Platforms"
     },
     {
       year: 2019,
       title: "eLearning & STEM take off",
-      body: "Nadia Zaid joins and we launch our first eLearning project for Early Learning Indiana; Cara Johnson joins and builds out our STEM specialization, including the Nano experience; and our PLTW work deepens professional-development alignment.",
+      body: "Nadia Zaid joins and we launch our first eLearning project for Early Learning Indiana, [ref:leadPaint]Lead Paint Awareness for Indiana ECE Providers[/ref]; Cara Johnson joins and builds out our STEM specialization, including [ref:nano]Nano: Virtual Reality Science Labs[/ref]; and our PLTW work deepens professional-development alignment.",
       image: "",
       tag: "eLearning"
     },
     {
       year: 2020,
       title: "The crisis turn to LMS",
-      body: "When the world went remote, we helped partners stand up learning management systems and move whole programs online, fast — as Erin McIntee joins, bringing expert, complex Storyline development.",
+      body: "When the world went remote, we helped partners stand up learning management systems and move whole programs online, fast, as Erin McIntee joins, bringing expert, complex Storyline development.",
       image: "",
       tag: "COVID pivot"
     },
@@ -127,28 +135,28 @@ window.ANNIVERSARY_DATA = {
     {
       year: 2024,
       title: "Learning gets agentic",
-      body: "The StriveTogether Continuous Improvement Toolkit ships with scenario-based interactions and an AI-powered chatbot — learning that responds.",
+      body: "The StriveTogether Continuous Improvement Toolkit ships with scenario-based interactions and an AI-powered chatbot: learning that responds.",
       image: "",
       tag: "AI / Agentic"
     },
     {
       year: 2025,
       title: "Apps, dashboards & custom platforms",
-      body: "We add app design for data dashboards, custom LMS builds, and agentic feedback — software that wraps around the learning.",
+      body: "We add app design for data dashboards, custom LMS builds, and agentic feedback: software that wraps around the learning. The [ref:premiumPortal]Premium Portal[/ref] for Popped! delivers tiered free and premium media to parents of kids with dyslexia.",
       image: "",
       tag: "Platforms"
     },
     {
       year: 2026,
       title: "Fifteen years on",
-      body: "A 21-person studio spanning instructional design, eLearning, media, platforms, and strategy — still growing together.",
+      body: "A 21-person studio spanning instructional design, eLearning, media, platforms, and strategy, still growing together.",
       image: "",
       tag: "Today"
     }
   ],
 
   /* ---------------------------------------------------------------------------
-   * 2) EVOLUTION — the capability-growth visualization (stacked, additive)
+   * 2) EVOLUTION: the capability-growth visualization (stacked, additive)
    *    Each stage = a new thing the company could newly do.
    * ------------------------------------------------------------------------- */
   // These are the "subway lines" in the Evolution map: each is a capability we
@@ -161,7 +169,7 @@ window.ANNIVERSARY_DATA = {
       stage: "Data & analysis",
       tagline: "One person, one laptop.",
       whatWeCouldDo: "Turn messy program data into clear, decision-ready insight.",
-      proof: "The founding service — analytics for mission-driven education orgs.",
+      proof: "The founding service: analytics for mission-driven education orgs.",
       color: "blue"
     },
     {
@@ -187,7 +195,7 @@ window.ANNIVERSARY_DATA = {
       year: 2019,
       stage: "eLearning & STEM",
       tagline: "Interactive, blended, at scale.",
-      whatWeCouldDo: "Build interactive, self-paced modules — including STEM-specialized experiences — that scale beyond the room.",
+      whatWeCouldDo: "Build interactive, self-paced modules, including STEM-specialized experiences, that scale beyond the room.",
       proof: "Nadia Zaid joins for our first eLearning build with Early Learning Indiana; Cara Johnson grows our STEM specialization with Nano.",
       color: "yellow"
     },
@@ -205,21 +213,21 @@ window.ANNIVERSARY_DATA = {
       year: 2025,
       stage: "Apps & custom platforms",
       tagline: "Dashboards, custom LMS, agentic feedback.",
-      whatWeCouldDo: "Design custom apps, data dashboards, and bespoke LMS builds — with agentic feedback wrapped around the learning.",
+      whatWeCouldDo: "Design custom apps, data dashboards, and bespoke LMS builds, with agentic feedback wrapped around the learning.",
       proof: "App design for data dashboards, custom LMS, and agentic feedback join the toolkit.",
       color: "sky"
     }
   ],
 
   /* ---------------------------------------------------------------------------
-   * 3) WORK — proudest projects (3-6). Anything with a live URL/demo/video
+   * 3) WORK: proudest projects (3-6). Anything with a live URL/demo/video
    *    can be embedded right on the page.
    *    David: add embed/video/case-study URLs when you have them.
    * ------------------------------------------------------------------------- */
-  // Each card is clickable. The whole card links to `href` (or, if you add one,
-  // a `link`/`embedUrl`/`videoUrl`). Until you have a live demo/case-study URL,
-  // `href` points to the most relevant service page so every card goes somewhere
-  // real — just swap in the demo URL when ready.
+  // Each card opens the project modal (same modal used by the [ref:slug] links
+  // in the timeline). Until you have a live demo/case-study URL, `href` points
+  // to the most relevant service page so every card goes somewhere real. Just
+  // paste the YouTube embed URL into `videoUrl` and it appears inline.
   projects: [
     {
       title: "Continuous Improvement Toolkit for Educators",
@@ -230,7 +238,7 @@ window.ANNIVERSARY_DATA = {
       image: "",                         // /assets/images/work/...
       href: "/services/elearning/",      // TODO: swap to live e-learning demo / case-study URL
       embedUrl: "",                      // optional: inline e-learning demo to embed
-      videoUrl: "",                      // optional: walkthrough video
+      videoUrl: "",                      // TODO: paste YouTube embed URL when ready
       link: ""                           // optional: case study URL
     },
     {
@@ -238,11 +246,11 @@ window.ANNIVERSARY_DATA = {
       client: "GLA",                     // CONFIRM full client name
       year: null,                        // CONFIRM year
       serviceArea: "eLearning & Blended Learning",
-      summary: "An interactive history experience bringing the story of Tulsa's Greenwood District — “Black Wall Street” — to life for learners: archival media, narrative, and exploration that turns history into something you move through, not just read.",
+      summary: "An interactive history experience bringing the story of Tulsa's Greenwood District, “Black Wall Street,” to life for learners: archival media, narrative, and exploration that turns history into something you move through, not just read.",
       image: "",
       href: "/services/elearning/",      // TODO: swap to live demo URL
       embedUrl: "",
-      videoUrl: "",
+      videoUrl: "",                      // TODO: paste YouTube embed URL when ready
       link: ""
     },
     {
@@ -250,26 +258,26 @@ window.ANNIVERSARY_DATA = {
       client: "AFS",
       year: null,                        // CONFIRM year
       serviceArea: "Career Connected Learning",
-      summary: "A gamified, exploration-based learning experience that sends learners hunting for the energy concepts hidden in the world around them — turning a technical subject into hands-on, curiosity-driven discovery.",
+      summary: "A gamified, exploration-based learning experience that sends learners hunting for the energy concepts hidden in the world around them, turning a technical subject into hands-on, curiosity-driven discovery.",
       image: "",
       href: "/services/career-pathways/", // TODO: swap to live demo URL
       embedUrl: "",
-      videoUrl: "",
+      videoUrl: "",                      // TODO: paste YouTube embed URL when ready
       link: ""
     },
     {
-      title: "KIPP Forward — National Counseling Institute",
+      title: "KIPP Forward: National Counseling Institute",
       client: "KIPP",
       year: 2022,                        // partnership began 2022 (per KIPP Forward)
       serviceArea: "Career Connected Learning",
-      summary: "Since 2022, the design partner behind KIPP Forward's National Counseling Institute — asynchronous training modules, newly designed anchor graphics, and live facilitation rooted in role plays and real student case studies. The work grows equity-focused, student-centered counseling across KIPP high schools, and has since scaled into a regional train-the-trainer model.",
+      summary: "Since 2022, the design partner behind KIPP Forward's National Counseling Institute: asynchronous training modules, newly designed anchor graphics, and live facilitation rooted in role plays and real student case studies. The work grows equity-focused, student-centered counseling across KIPP high schools, and has since scaled into a regional train-the-trainer model.",
       image: "",
       href: "/services/career-pathways/", // TODO: swap to live case-study URL
       embedUrl: "",
-      videoUrl: "",
+      videoUrl: "",                      // TODO: paste YouTube embed URL when ready
       link: ""
     }
-    // ── READY TO ADD: the "Nano" STEM highlight (from Cara's STEM work). ──────
+    // READY TO ADD: the "Nano" STEM highlight (from Cara's STEM work).
     // Uncomment and confirm details + a demo URL, then it appears as a 5th card.
     // ,{
     //   title: "Nano",
@@ -284,7 +292,75 @@ window.ANNIVERSARY_DATA = {
   ],
 
   /* ---------------------------------------------------------------------------
-   * 4) TEAM — tenure-trend chart + teammate cards
+   * 3b) PORTFOLIO: items referenced by [ref:slug] markup in timeline copy
+   *     Each entry uses the same fields as a `projects` item, so the same
+   *     modal-fill logic applies. Paste the YouTube embed URL into `videoUrl`
+   *     (full embed URL: https://www.youtube.com/embed/VIDEO_ID) and the
+   *     player appears inline.
+   *
+   *     David: fill in the actual summaries + YouTube embed URLs from the
+   *     matching Portfolio Items in DemoPortfolio (Airtable base
+   *     appOgP4MmHeJgCEUt, table "Portfolio Items").
+   * ------------------------------------------------------------------------- */
+  portfolio: {
+    ttk: {
+      title: "Mobile Adaptive Training from The Teaching Kitchen",
+      client: "The Teaching Kitchen",
+      year: 2018,
+      serviceArea: "eLearning & Blended Learning",
+      summary: "A mobile-first, adaptive training experience built for clinicians and staff learning culinary-medicine fundamentals on the go: bite-sized modules, branching scenarios, and an LMS that travels with the learner.", // TODO: replace with the Full Description from the matching Portfolio Item
+      videoUrl: "",                      // TODO: paste YouTube embed URL when ready
+      link: ""
+    },
+    leadPaint: {
+      title: "Lead Paint Awareness for Indiana ECE Providers",
+      client: "Early Learning Indiana",
+      year: 2019,
+      serviceArea: "eLearning & Blended Learning",
+      summary: "A statewide compliance and awareness module for early-childhood education providers: short, accessible scenarios that walk teachers and home-based providers through lead-paint hazards, screening expectations, and what to do when concerns surface.", // TODO: replace with Full Description
+      videoUrl: "",                      // TODO
+      link: ""
+    },
+    nano: {
+      title: "Nano: Virtual Reality Science Labs",
+      client: "Dreamscape Learn",        // CONFIRM client/partner
+      year: 2019,                        // CONFIRM
+      serviceArea: "eLearning & Blended Learning",
+      summary: "Immersive VR science labs that put students inside the experiment: from atomic-scale exploration to lab-safety walkthroughs, the Nano experience built our STEM specialization on virtual reality and presence-driven learning.", // TODO: replace with Full Description
+      videoUrl: "",                      // TODO
+      link: ""
+    },
+    apForAll: {
+      title: "AP For All Curriculum Materials",
+      client: "NMSI",
+      year: 2017,
+      serviceArea: "eLearning & Blended Learning",
+      summary: "NGSS-aligned AP curriculum materials supporting NMSI's nationwide expansion of AP access: teacher-ready resources, student practice, and facilitator notes designed to help schools stand up new AP programs.", // TODO: replace with Full Description
+      videoUrl: "",                      // TODO
+      link: ""
+    },
+    identityWayfinding: {
+      title: "Identity Exploration and Wayfinding",
+      client: "iMentor",
+      year: 2016,
+      serviceArea: "Career Connected Learning",
+      summary: "Our first major postsecondary partnership: a multigrade curriculum that helps mentors and mentees navigate identity exploration and college wayfinding, anchored in real student stories and scaffolded reflection.", // TODO: replace with Full Description
+      videoUrl: "",                      // TODO
+      link: ""
+    },
+    premiumPortal: {
+      title: "Premium Portal: Free and Premium Media for Parents of Kids with Dyslexia",
+      client: "Popped!",
+      year: 2025,
+      serviceArea: "Apps & Custom Platforms",
+      summary: "A tiered media portal for Popped!: free and premium video, audio, and parent-facing guides for families navigating dyslexia, wrapped in a custom subscription experience and built on the LMS pattern we now use across our app builds.", // TODO: replace with Full Description
+      videoUrl: "",                      // TODO
+      link: ""
+    }
+  },
+
+  /* ---------------------------------------------------------------------------
+   * 4) TEAM: tenure-trend chart + teammate cards
    *    headcountByYear = cumulative team size at year end (from our roster).
    *    members = current team; "since" drives tenure.
    * ------------------------------------------------------------------------- */
@@ -332,14 +408,14 @@ window.ANNIVERSARY_DATA = {
   },
 
   /* ---------------------------------------------------------------------------
-   * 5) CLIENTS — featured stories + the full logo set.
+   * 5) CLIENTS: featured stories + the full logo set.
    * ------------------------------------------------------------------------- */
   clients: {
     featured: [
       {
         name: "StriveTogether",
         logo: "/assets/images/client-logos/StriveTogether-Brandmark-w-tag-RGB-Grey-orange-1%20(1).png",
-        story: "We translated StriveTogether's continuous-improvement methodology into an interactive toolkit for educators — video, scenario-based practice, and an AI-powered chatbot that coaches in real time.",
+        story: "We translated StriveTogether's continuous-improvement methodology into an interactive toolkit for educators: video, scenario-based practice, and an AI-powered chatbot that coaches in real time.",
         quote: "Integral Ed does an amazing job of understanding who we are as an organization. They thoughtfully translate our content into interactive courses that take our work to the next level.",
         quoteAttribution: "Heidi Black, VP of Training, StriveTogether",
         since: null
@@ -347,7 +423,7 @@ window.ANNIVERSARY_DATA = {
       {
         name: "EL Education",
         logo: "/assets/images/client-logos/EL_EDUCATION_logo_crimson_preferred%20(4).png",
-        story: "A go-to partner for EL Education's professional-learning products — translating their content into polished, ready-to-use learning experiences their team can lean on.",
+        story: "A go-to partner for EL Education's professional-learning products, translating their content into polished, ready-to-use learning experiences their team can lean on.",
         quote: "You guys are our easy button!",
         quoteAttribution: "Natalie Taylor, Program Team (Professional Learning Products), EL Education",
         since: null
@@ -355,7 +431,7 @@ window.ANNIVERSARY_DATA = {
       {
         name: "KIPP",
         logo: "/assets/images/client-logos/KIPP%20Logo.png",
-        story: "Since 2022, a central partner to KIPP Forward's National Counseling Institute — with Whitney Henderson directing the work: asynchronous modules, newly designed anchor graphics, and live, role-play-rich facilitation built on real student case studies that grow equity-focused, student-centered counseling across KIPP high schools.",
+        story: "Since 2022, a central partner to KIPP Forward's National Counseling Institute, with Whitney Henderson directing the work: asynchronous modules, newly designed anchor graphics, and live, role-play-rich facilitation built on real student case studies that grow equity-focused, student-centered counseling across KIPP high schools.",
         quote: "Integral Ed's responsiveness to our evolving needs, and deep commitment to educational equity have made them an exceptional partner.",
         quoteAttribution: "Sarah Gomez, M.Ed., Interim Senior Director, KIPP Forward",
         since: 2022
@@ -363,7 +439,7 @@ window.ANNIVERSARY_DATA = {
       {
         name: "Danielson Group",
         logo: "/assets/images/client-logos/Danielson%20Group%20-%20Horiz%20Logo_Color-RGB.avif",
-        story: "Since 2020, Integral Ed has been the Danielson Group's insourced eLearning team — led by Tara Williams — carrying them from fully in-person delivery into blended and asynchronous formats: building every one of their e-learning courses, standing up their LMS, and shaping guidance documents downloaded by more than a million educators nationwide.",
+        story: "Since 2020, Integral Ed has been the Danielson Group's insourced eLearning team, led by Tara Williams, carrying them from fully in-person delivery into blended and asynchronous formats: building every one of their e-learning courses, standing up their LMS, and shaping guidance documents downloaded by more than a million educators nationwide.",
         quote: "They have truly been critical partners in our growth and ongoing success.",
         quoteAttribution: "Dr. Lee Kappes, CEO, Danielson Group",
         since: 2020
@@ -396,7 +472,7 @@ window.ANNIVERSARY_DATA = {
   },
 
   /* ---------------------------------------------------------------------------
-   * 6) SERVICE AREAS — today's offerings, shown in the sticky left-nav.
+   * 6) SERVICE AREAS: today's offerings, shown in the sticky left-nav.
    * ------------------------------------------------------------------------- */
   serviceAreas: [
     { name: "eLearning & Blended Learning", href: "/services/elearning/" },

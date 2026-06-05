@@ -1,5 +1,5 @@
 /* =============================================================================
- * 15th Anniversary page — scoped styles
+ * 15th Anniversary page: scoped styles
  * Hybrid treatment: dramatic dark (plum) hero + evolution; light brand sections.
  * Reuses Integral Ed brand tokens from vendor/integralthemes/theme/tokens.css
  * ========================================================================== */
@@ -485,6 +485,24 @@ a.anniv-member:hover .anniv-member-cta { opacity: 1; transform: translateY(0); }
 /* on dark sections, keep names readable */
 .anniv-section--dark .anniv-name, .anniv-hero .anniv-name { color: var(--accent-yellow); border-bottom-color: color-mix(in srgb, var(--accent-yellow) 55%, transparent); }
 .anniv-section--dark .anniv-name:hover, .anniv-hero .anniv-name:hover { color: #fff; border-bottom-color: #fff; }
+
+/* Portfolio refs ([ref:slug]label[/ref] in body copy): same visual rhythm as
+   teammate names but using primary plum + solid underline so the two link
+   types stay distinguishable (names = magenta dotted; portfolio = plum solid). */
+.anniv-portfolio-link {
+  font-weight: 600; color: var(--color-plum, var(--primary)); text-decoration: none;
+  border-bottom: 1.5px solid color-mix(in srgb, var(--color-plum, var(--primary)) 50%, transparent);
+  cursor: pointer; transition: color var(--transition-fast), border-color var(--transition-fast);
+}
+.anniv-portfolio-link:hover, .anniv-portfolio-link:focus-visible {
+  color: var(--accent-magenta); border-bottom-color: var(--accent-magenta); outline: none;
+}
+.anniv-section--dark .anniv-portfolio-link, .anniv-hero .anniv-portfolio-link {
+  color: var(--accent-teal); border-bottom-color: color-mix(in srgb, var(--accent-teal) 55%, transparent);
+}
+.anniv-section--dark .anniv-portfolio-link:hover, .anniv-hero .anniv-portfolio-link:hover {
+  color: #fff; border-bottom-color: #fff;
+}
 
 .anniv-name-pop {
   position: fixed; z-index: 100000; pointer-events: none;

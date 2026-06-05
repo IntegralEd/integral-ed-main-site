@@ -1,5 +1,5 @@
 /* =============================================================================
- * 15th Anniversary page — rendering + interactions
+ * 15th Anniversary page: rendering + interactions
  * Reads window.ANNIVERSARY_DATA (see data/anniversary-data.js) and renders each
  * section. Also wires scroll-spy left-nav, reveal-on-scroll, and counters.
  * Renders gracefully when data is empty (shows a "to be filled in" hint).
@@ -44,20 +44,32 @@
                      .sort(function (a, b) { return b.length - a.length; });
     NAME_RE = aliases.length ? new RegExp('\\b(' + aliases.map(reEsc).join('|') + ')\\b', 'g') : null;
   }
-  // Escape text, THEN wrap any known teammate name in a linked, bold span.
+  // Escape text, THEN wrap any known teammate name in a linked, bold span,
+  // THEN convert any [ref:slug]label[/ref] tokens into portfolio-modal triggers.
+  // The ref pass runs AFTER esc() so the brackets in source data survive
+  // escaping but the label remains rendered.
+  function processRefs(safe) {
+    return safe.replace(/\[ref:([a-zA-Z0-9_-]+)\]([\s\S]*?)\[\/ref\]/g, function (_m, slug, label) {
+      return '<a class="anniv-portfolio-link" href="#" role="button" ' +
+             'data-portfolio-ref="' + esc(slug) + '" ' +
+             'aria-haspopup="dialog">' + label + '</a>';
+    });
+  }
   function linkNames(text) {
     var safe = esc(text);
-    if (!NAME_RE) return safe;
-    return safe.replace(NAME_RE, function (m) {
-      var ref = NAME_MAP[m];
-      if (!ref) return m;
-      var attrs = ' data-name="' + esc(ref.name) + '"' +
-        (ref.img ? ' data-img="' + esc(ref.img) + '"' : '') +
-        (ref.role ? ' data-role="' + esc(ref.role) + '"' : '');
-      return ref.href
-        ? '<a class="anniv-name" href="' + esc(ref.href) + '"' + attrs + '>' + m + '</a>'
-        : '<strong class="anniv-name anniv-name--plain"' + attrs + '>' + m + '</strong>';
-    });
+    if (NAME_RE) {
+      safe = safe.replace(NAME_RE, function (m) {
+        var ref = NAME_MAP[m];
+        if (!ref) return m;
+        var attrs = ' data-name="' + esc(ref.name) + '"' +
+          (ref.img ? ' data-img="' + esc(ref.img) + '"' : '') +
+          (ref.role ? ' data-role="' + esc(ref.role) + '"' : '');
+        return ref.href
+          ? '<a class="anniv-name" href="' + esc(ref.href) + '"' + attrs + '>' + m + '</a>'
+          : '<strong class="anniv-name anniv-name--plain"' + attrs + '>' + m + '</strong>';
+      });
+    }
+    return processRefs(safe);
   }
 
   /* ── Hero meta + counters ─────────────────────────────────────────────── */
@@ -154,7 +166,7 @@
 
     var todayLabel =
       '<text class="anniv-subway-today" x="' + (termX + 16) + '" y="' + (bundleCenter - 4) + '">' + esc(end) + '</text>' +
-      '<text class="anniv-subway-today-sub" x="' + (termX + 16) + '" y="' + (bundleCenter + 13) + '">Today — woven together</text>';
+      '<text class="anniv-subway-today-sub" x="' + (termX + 16) + '" y="' + (bundleCenter + 13) + '">Today, woven together</text>';
 
     return '<div class="anniv-subway-wrap reveal">' +
       '<svg class="anniv-subway" viewBox="0 0 ' + VBW + ' ' + VBH + '" role="img" ' +
@@ -214,7 +226,7 @@
           '<span class="anniv-project-cta">' + ctaLabel + ' &rarr;</span>' +
         '</div>';
       return '<article class="anniv-project anniv-project--link reveal" data-i="' + i + '" ' +
-        'tabindex="0" role="button" aria-haspopup="dialog" aria-label="' + esc(p.title) + ' — open demo">' +
+        'tabindex="0" role="button" aria-haspopup="dialog" aria-label="' + esc(p.title) + ': open demo">' +
         media + body + '</article>';
     }).join('');
   }
@@ -244,9 +256,12 @@
     return overlay;
   }
   var lastFocus = null;
-  function openProjectModal(i) {
-    var p = PROJECTS[i];
-    if (!p) return;
+
+  // Shared fill: works for both project cards and portfolio refs. The two data
+  // shapes match (title/client/year/serviceArea/summary/embedUrl/videoUrl/image/
+  // link/href), so the modal-fill logic is identical.
+  function openItemModal(p) {
+    if (!p || !p.title) return;
     var m = ensureModal();
     lastFocus = document.activeElement;
     var metaBits = [p.year, p.serviceArea, p.client].filter(Boolean).map(esc).join(' · ');
@@ -289,6 +304,12 @@
     var closeBtn = m.querySelector('.anniv-modal-close');
     if (closeBtn) closeBtn.focus();
   }
+  function openProjectModal(i)     { openItemModal(PROJECTS[i]); }
+  function openPortfolioModal(slug) {
+    var p = (D.portfolio || {})[slug];
+    if (!p) { console.warn('[anniversary] unknown portfolio ref:', slug); return; }
+    openItemModal(p);
+  }
   function closeModal() {
     if (!MODAL) return;
     MODAL.classList.remove('is-on');
@@ -303,18 +324,26 @@
   }
   function setupProjectModal() {
     var grid = $('anniv-projects');
-    if (!grid) return;
-    grid.addEventListener('click', function (e) {
-      var card = e.target.closest ? e.target.closest('.anniv-project[data-i]') : null;
-      if (!card) return;
-      openProjectModal(Number(card.getAttribute('data-i')));
-    });
-    grid.addEventListener('keydown', function (e) {
-      if (e.key !== 'Enter' && e.key !== ' ') return;
-      var card = e.target.closest ? e.target.closest('.anniv-project[data-i]') : null;
-      if (!card) return;
+    if (grid) {
+      grid.addEventListener('click', function (e) {
+        var card = e.target.closest ? e.target.closest('.anniv-project[data-i]') : null;
+        if (!card) return;
+        openProjectModal(Number(card.getAttribute('data-i')));
+      });
+      grid.addEventListener('keydown', function (e) {
+        if (e.key !== 'Enter' && e.key !== ' ') return;
+        var card = e.target.closest ? e.target.closest('.anniv-project[data-i]') : null;
+        if (!card) return;
+        e.preventDefault();
+        openProjectModal(Number(card.getAttribute('data-i')));
+      });
+    }
+    // Delegated portfolio-ref links can live in timeline / evolution / anywhere.
+    document.addEventListener('click', function (e) {
+      var link = e.target.closest ? e.target.closest('[data-portfolio-ref]') : null;
+      if (!link) return;
       e.preventDefault();
-      openProjectModal(Number(card.getAttribute('data-i')));
+      openPortfolioModal(link.getAttribute('data-portfolio-ref'));
     });
     document.addEventListener('keydown', function (e) {
       if (e.key === 'Escape' && MODAL && !MODAL.hasAttribute('hidden')) closeModal();
@@ -418,7 +447,7 @@
   }
 
   /* ── Counter animation ────────────────────────────────────────────────── */
-  // The counters live in the hero, which is visible the instant the page loads —
+  // The counters live in the hero, which is visible the instant the page loads,
   // even while the password gate is still covering it. If we animated right away
   // the count-up would finish behind the gate and the user would never see it.
   // So defer the count-up until the page is actually unlocked.
