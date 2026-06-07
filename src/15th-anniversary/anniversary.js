@@ -98,12 +98,21 @@
     var items = (D.timeline || []).filter(function (t) { return t && (t.year || t.title); });
     if (!items.length) { el.innerHTML = empty('Timeline milestones'); return; }
     el.innerHTML = items.map(function (t) {
+      var highlights = (t.highlights || []).filter(function (h) { return h && h.ref; });
+      var chipsHtml = highlights.length
+        ? '<div class="anniv-tl-chips">' + highlights.map(function (h) {
+            return '<a class="svc-chip svc-' + esc(h.svc || 'plum') + '" ' +
+              'href="#" role="button" data-portfolio-ref="' + esc(h.ref) + '" ' +
+              'aria-haspopup="dialog">' + esc(h.label || h.ref) + '</a>';
+          }).join('') + '</div>'
+        : '';
       return '<li class="anniv-tl-item reveal">' +
         '<span class="anniv-tl-dot"></span>' +
         '<span class="anniv-tl-year">' + esc(t.year || '') + '</span>' +
         (t.tag ? '<span class="anniv-tl-tag">' + esc(t.tag) + '</span>' : '') +
         (t.title ? '<h3 class="anniv-tl-title">' + esc(t.title) + '</h3>' : '') +
         (t.body ? '<p class="anniv-tl-body">' + linkNames(t.body) + '</p>' : '') +
+        chipsHtml +
         (t.image ? '<img class="anniv-tl-img" src="' + esc(t.image) + '" alt="' + esc(t.title || '') + '" loading="lazy">' : '') +
         '</li>';
     }).join('');
@@ -215,11 +224,17 @@
       var media = p.image
         ? '<div class="anniv-project-media"><img src="' + esc(p.image) + '" alt="' + esc(p.title) + '" loading="lazy"></div>'
         : '';
-      var metaBits = [p.year, p.serviceArea, p.client].filter(Boolean).map(esc).join(' · ');
+      // Service-area chip uses the shared svc palette; year/client become the
+      // muted meta line below so the chip carries the color story.
+      var svcChip = (p.svc && p.serviceArea)
+        ? '<div class="anniv-project-svc"><span class="svc-chip svc-' + esc(p.svc) + '">' + esc(p.serviceArea) + '</span></div>'
+        : '';
+      var metaBits = [p.year, p.client].filter(Boolean).map(esc).join(' · ');
       var hasDemo = !!(p.embedUrl || p.videoUrl);
       var ctaLabel = hasDemo ? (p.videoUrl ? 'Watch the demo' : 'Open the demo') : 'See the work';
       var body =
         '<div class="anniv-project-body">' +
+          svcChip +
           (metaBits ? '<div class="anniv-project-meta">' + metaBits + '</div>' : '') +
           '<h3 class="anniv-project-title">' + esc(p.title) + '</h3>' +
           (p.summary ? '<p class="anniv-project-summary">' + linkNames(p.summary) + '</p>' : '') +
@@ -437,14 +452,18 @@
     var areas = (D.serviceAreas || []).filter(function (s) { return s && s.name; });
     var rail = $('anniv-rail-services');
     if (rail) {
+      // The rail items also pick up the svc swatch: a small left dot keeps
+      // the legend visible even in the compact sticky nav.
       rail.innerHTML = areas.map(function (s) {
-        return '<li><a href="' + esc(s.href || '#') + '">' + esc(s.name) + '</a></li>';
+        var cls = s.svc ? ' class="svc-' + esc(s.svc) + '"' : '';
+        return '<li' + cls + '><a href="' + esc(s.href || '#') + '">' + esc(s.name) + '</a></li>';
       }).join('');
     }
     var grid = $('anniv-services');
     if (grid) {
       grid.innerHTML = areas.map(function (s) {
-        return '<a class="anniv-service reveal" href="' + esc(s.href || '#') + '">' +
+        var svcCls = s.svc ? ' svc-' + esc(s.svc) : '';
+        return '<a class="anniv-service reveal' + svcCls + '" href="' + esc(s.href || '#') + '">' +
           '<span class="anniv-service-name">' + esc(s.name) + '</span> ' +
           '<span class="anniv-service-arrow">→</span></a>';
       }).join('');

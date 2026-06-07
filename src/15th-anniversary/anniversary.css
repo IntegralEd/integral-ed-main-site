@@ -104,10 +104,19 @@
   text-decoration: none;
   font-size: 0.82rem;
   line-height: 1.3;
-  display: block;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
   padding: 0.28rem 0;
   border-bottom: 1px solid rgba(255, 255, 255, 0.06);
   transition: color var(--transition-fast);
+}
+.anniv-rail-services-list li[class*="svc-"] a::before {
+  content: "";
+  width: 8px; height: 8px;
+  border-radius: 50%;
+  background: var(--svc-c, var(--accent-yellow));
+  flex-shrink: 0;
 }
 .anniv-rail-services-list a:hover { color: var(--accent-yellow); }
 
@@ -258,6 +267,69 @@
 .evo-sky     { --evo-c: #58b0e3; }
 .evo-orange  { --evo-c: #f08a3e; }
 
+/* ── Service palette: one color per service area, reused across blocks.
+   Same values as the evo-* swatches so the timeline, the work cards, and
+   the "What we do today" list all read as one palette. */
+.svc-elearning { --svc-c: var(--accent-yellow); }
+.svc-technical { --svc-c: #f08a3e; }
+.svc-career    { --svc-c: var(--accent-teal); }
+.svc-growth    { --svc-c: var(--accent-blue); }
+.svc-platforms { --svc-c: #58b0e3; }
+.svc-media     { --svc-c: var(--accent-magenta); }
+
+/* ── Shared chip shape used on the timeline (highlights), project cards
+      (service tag), and the services list. Each instance sets --svc-c
+      via one of the .svc-* classes above. */
+.svc-chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  padding: 0.28rem 0.7rem;
+  border-radius: 999px;
+  background: color-mix(in srgb, var(--svc-c, var(--color-plum)) 14%, transparent);
+  color: color-mix(in srgb, var(--svc-c, var(--color-plum)) 78%, #2a1133);
+  border: 1px solid color-mix(in srgb, var(--svc-c, var(--color-plum)) 38%, transparent);
+  font-family: var(--font-display);
+  font-size: 0.74rem;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+  text-decoration: none;
+  transition: background var(--transition-fast), border-color var(--transition-fast), color var(--transition-fast);
+}
+.svc-chip::before {
+  content: "";
+  display: inline-block;
+  width: 7px; height: 7px;
+  border-radius: 50%;
+  background: var(--svc-c, var(--color-plum));
+}
+a.svc-chip, button.svc-chip { cursor: pointer; }
+a.svc-chip:hover, a.svc-chip:focus-visible,
+button.svc-chip:hover, button.svc-chip:focus-visible {
+  background: var(--svc-c, var(--color-plum));
+  color: #fff;
+  border-color: var(--svc-c, var(--color-plum));
+  outline: none;
+}
+a.svc-chip:hover::before, a.svc-chip:focus-visible::before,
+button.svc-chip:hover::before, button.svc-chip:focus-visible::before {
+  background: #fff;
+}
+/* Dark-section variant: chip darkens slightly so the swatch reads against plum bg */
+.anniv-section--dark .svc-chip, .anniv-hero .svc-chip, .anniv-section--cta .svc-chip {
+  background: color-mix(in srgb, var(--svc-c, var(--color-plum)) 22%, transparent);
+  color: #fff;
+  border-color: color-mix(in srgb, var(--svc-c, var(--color-plum)) 60%, transparent);
+}
+
+/* Timeline chip cluster: sits below body, before image */
+.anniv-tl-chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.45rem;
+  margin: 0.7rem 0 0;
+}
+
 .anniv-subway-wrap { overflow-x: auto; margin-bottom: var(--spacing-2xl); -webkit-overflow-scrolling: touch; }
 .anniv-subway { display: block; width: 100%; min-width: 680px; height: auto; overflow: visible; }
 
@@ -312,6 +384,7 @@
 .anniv-project-media { aspect-ratio: 16/9; background: var(--bg-secondary); }
 .anniv-project-media img, .anniv-project-media iframe { width: 100%; height: 100%; object-fit: cover; border: 0; display: block; }
 .anniv-project-body { padding: var(--spacing-md); }
+.anniv-project-svc { margin: 0 0 0.5rem; display: inline-flex; }
 .anniv-project-meta { font-size: 0.72rem; letter-spacing: 0.08em; text-transform: uppercase; color: var(--accent-magenta); }
 .anniv-project-title { margin: 0.3rem 0 0.5rem; font-size: 1.15rem; }
 .anniv-project-summary { margin: 0; color: var(--text-secondary); font-size: 0.95rem; }
@@ -447,6 +520,9 @@ a.anniv-member:hover .anniv-member-cta { opacity: 1; transform: translateY(0); }
   display: block; padding: var(--spacing-md); border-radius: var(--radius-md); text-decoration: none;
   background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.1); color: #fff;
   transition: background var(--transition-fast), transform var(--transition-fast);
+  /* When the anchor also carries a .svc-* class, the left edge becomes the
+     service color so the legend reads at a glance against the dark plum. */
+  border-left: 4px solid var(--svc-c, rgba(255,255,255,0.25));
 }
 .anniv-service:hover { background: rgba(255,255,255,0.1); transform: translateY(-3px); }
 .anniv-service-name { font-weight: 700; }

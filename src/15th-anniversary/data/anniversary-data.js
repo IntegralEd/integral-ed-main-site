@@ -86,28 +86,42 @@ window.ANNIVERSARY_DATA = {
     {
       year: 2016,
       title: "First major postsecondary mentoring project",
-      body: "We deliver our first major postsecondary partnership with national nonprofit iMentor, building the [ref:identityWayfinding]Identity Exploration and Wayfinding[/ref] curriculum that anchors their multigrade mentoring program.",
+      body: "We deliver our first major postsecondary partnership with national nonprofit iMentor, building the curriculum that anchors their multigrade mentoring program.",
+      highlights: [
+        { svc: "career", ref: "identityWayfinding", label: "Identity Exploration & Wayfinding" }
+      ],
       image: "",
       tag: "iMentor"
     },
     {
       year: 2017,
       title: "A breakout year",
-      body: "Creative Director Asha Kelly joins, bringing design and media to our curriculum and print media; we sign our first six-figure contracts; and our NMSI partnership deepens with [ref:apForAll]AP For All Curriculum Materials[/ref], NGSS-aligned modules supporting nationwide AP-access expansion.",
+      body: "Creative Director Asha Kelly joins, bringing design and media to our curriculum and print media; the studio's footprint grows; and our NMSI partnership deepens with NGSS-aligned modules supporting nationwide AP-access expansion.",
+      highlights: [
+        { svc: "elearning", ref: "apForAll", label: "AP For All Curriculum Materials" }
+      ],
       image: "",
       tag: "Milestone"
     },
     {
       year: 2018,
       title: "Our first app & LMS",
-      body: "We build our first app and launch our first learning management system with [ref:ttk]The Teaching Kitchen[/ref], including mobile-adaptive training materials.",
+      body: "We build our first app and launch our first learning management system with The Teaching Kitchen, including mobile-adaptive training materials.",
+      highlights: [
+        { svc: "platforms", ref: "ttk", label: "Mobile Adaptive Training (TTK)" }
+      ],
       image: "",
       tag: "Platforms"
     },
     {
       year: 2019,
       title: "eLearning & STEM take off",
-      body: "Nadia Zaid joins and we launch our first eLearning project for Early Learning Indiana, [ref:leadPaint]Lead Paint Awareness for Indiana ECE Providers[/ref]; Cara Johnson joins, bringing a fresh take on [ref:ngssScience]NGSS pedagogy[/ref] and building out our STEM specialization with [ref:nano]Nano: Virtual Reality Science Labs[/ref]; and our PLTW work deepens professional-development alignment.",
+      body: "Nadia Zaid joins and we launch our first eLearning project for Early Learning Indiana; Cara Johnson joins, bringing a fresh take on NGSS pedagogy and building out our STEM specialization; and our PLTW work deepens professional-development alignment.",
+      highlights: [
+        { svc: "elearning", ref: "leadPaint",   label: "Lead Paint Awareness (ELI)" },
+        { svc: "elearning", ref: "nano",        label: "Nano: VR Science Labs" },
+        { svc: "elearning", ref: "ngssScience", label: "NGSS pedagogy primer" }
+      ],
       image: "",
       tag: "eLearning"
     },
@@ -128,7 +142,11 @@ window.ANNIVERSARY_DATA = {
     {
       year: 2022,
       title: "Chat-based learning and the KIPP Forward partnership",
-      body: "We begin our partnership with KIPP Forward, designing the [ref:kippIntro]Introduction to KIPP Forward[/ref] course for high-school counselors. We also start experimenting with chat-based interviews and agentic feedback to tailor last-mile customization and personalization, including the [ref:careerIkigai]Career Ikigai personalized pathway tool[/ref].",
+      body: "We begin our partnership with KIPP Forward, designing an introduction course for high-school counselors. We also start experimenting with chat-based interviews and agentic feedback to tailor last-mile customization and personalization.",
+      highlights: [
+        { svc: "elearning", ref: "kippIntro",    label: "Introduction to KIPP Forward" },
+        { svc: "career",    ref: "careerIkigai", label: "Career Ikigai pathway tool" }
+      ],
       image: "",
       tag: "KIPP / Agentic"
     },
@@ -142,14 +160,21 @@ window.ANNIVERSARY_DATA = {
     {
       year: 2024,
       title: "Agentic learning meets custom platforms",
-      body: "The StriveTogether Continuous Improvement Toolkit ships with scenario-based interactions and an AI-powered chatbot: learning that responds. The [ref:premiumPortal]Premium Portal[/ref] for Popped! also goes live, delivering tiered free and premium media to parents of kids with dyslexia on a custom subscription platform.",
+      body: "The StriveTogether Continuous Improvement Toolkit ships with scenario-based interactions and an AI-powered chatbot: learning that responds. Premium Portal for Popped! also goes live, delivering tiered free and premium media to parents of kids with dyslexia on a custom subscription platform.",
+      highlights: [
+        { svc: "platforms", ref: "premiumPortal", label: "Premium Portal (Popped!)" }
+      ],
       image: "",
       tag: "AI / Platforms"
     },
     {
       year: 2025,
       title: "Technical capacity meets storytelling",
-      body: "Our Technical Capacity & Storytelling practice comes online, pairing design systems, branded portals, and field-facing publications with SME interviews and narrative craft. Two examples: the [ref:bmoreGetItDocumented]B'more for Healthy Babies Get It Documented[/ref] digital hub for technical capacity, and the [ref:biasAwarenessECE]Raising Awareness of Bias in Early Childhood Education[/ref] mixed-media video series for Buncombe Partnership for Children for storytelling.",
+      body: "Our Technical Capacity & Storytelling practice comes online, pairing design systems, branded portals, and field-facing publications with SME interviews and narrative craft.",
+      highlights: [
+        { svc: "technical", ref: "bmoreGetItDocumented", label: "B'more Get It Documented" },
+        { svc: "media",     ref: "biasAwarenessECE",     label: "Raising Awareness of Bias in ECE" }
+      ],
       image: "",
       tag: "Technical Capacity & Storytelling"
     },
@@ -250,6 +275,7 @@ window.ANNIVERSARY_DATA = {
       client: "StriveTogether",
       year: 2024,
       serviceArea: "eLearning & Blended Learning",
+      svc: "elearning",
       summary: "A flagship blend: broadcast-quality video, scenario-based interactions, and an AI-powered chatbot that coaches educators through continuous-improvement cycles. The toolkit translates StriveTogether's methodology into learning that responds.",
       image: "",                         // /assets/images/work/...
       href: "/services/elearning/",      // TODO: swap to live e-learning demo / case-study URL
@@ -262,6 +288,7 @@ window.ANNIVERSARY_DATA = {
       client: "Greenwood Leadership Academy",
       year: null,                        // CONFIRM year if known
       serviceArea: "eLearning & Blended Learning",
+      svc: "elearning",
       summary: "We partnered with Greenwood Leadership Academy, a Pre-K through 5th grade school of the Tulsa Public Schools. We helped to create a blended history project consisting of a multi-year learning journey for Pre-K through Grade 5 that connects scholars to the history and pride of their community. By leveraging storytelling, blended learning strategies, and innovative media tools, the Black Wall Street Multi-Year Curriculum stands as a model for culturally responsive education, empowering both students and teachers to explore and honor their community's past.",
       image: "",
       href: "/services/elearning/",
@@ -274,6 +301,7 @@ window.ANNIVERSARY_DATA = {
       client: "AFS",
       year: null,                        // CONFIRM year
       serviceArea: "Career Connected Learning",
+      svc: "career",
       summary: "A gamified, exploration-based learning experience that sends learners hunting for the energy concepts hidden in the world around them, turning a technical subject into hands-on, curiosity-driven discovery.",
       image: "",
       href: "/services/career-pathways/", // TODO: swap to live demo URL
@@ -286,6 +314,7 @@ window.ANNIVERSARY_DATA = {
       client: "KIPP",
       year: 2022,                        // partnership began 2022 (per KIPP Forward)
       serviceArea: "Career Connected Learning",
+      svc: "career",
       summary: "Since 2022, the design partner behind KIPP Forward's National Counseling Institute: asynchronous training modules, newly designed anchor graphics, and live facilitation rooted in role plays and real student case studies. The work grows equity-focused, student-centered counseling across KIPP high schools, and has since scaled into a regional train-the-trainer model.",
       image: "",
       href: "/services/career-pathways/", // TODO: swap to live case-study URL
@@ -327,6 +356,7 @@ window.ANNIVERSARY_DATA = {
       client: "Lenox Hill Neighborhood House",
       year: 2018,
       serviceArea: "eLearning & Blended Learning",
+      svc: "platforms",
       summary: "We partnered with Lenox Hill Neighborhood House, a nonprofit that provides an extensive array of effective and integrated human services. We helped design and develop a mobile app to support cooks and kitchen staff to learn “farm to institution” cooking from the Teaching Chefs of The Teaching Kitchen. Our team attended live trainings, filmed cooking demos and produced this mixed program as an app and web-accessible LMS for nonprofits across the nation. This video provides a walkthrough of our eLearning Design for the mobile app.",
       videoUrl: "https://www.youtube.com/embed/1vV-02hOXdI",
       link: ""
@@ -336,6 +366,7 @@ window.ANNIVERSARY_DATA = {
       client: "Early Learning Indiana",
       year: 2019,
       serviceArea: "eLearning & Blended Learning",
+      svc: "elearning",
       summary: "We partnered with Early Learning Indiana, an organization dedicated to providing the highest quality early care and education from infancy to pre-K in Indianapolis and West Lafayette-area centers. We helped Early Learning Indiana with these efforts by creating a scenario-based eLearning for child care facilities in the state of Indiana. Our team produced this scenario-based quiz designed to reduce lead toxicity in children and summatively assess the learner at the end of the quiz.",
       embedUrl: "https://integral-elearning.space/demo/lead_scenario/story.html",
       videoUrl: "",
@@ -346,6 +377,7 @@ window.ANNIVERSARY_DATA = {
       client: "Lighthaus",
       year: 2019,
       serviceArea: "eLearning & Blended Learning",
+      svc: "elearning",
       summary: "We partnered with Lighthaus Inc., a leader in top quality game-powered immersive learning. We helped support curriculum design for Nano, a VR science game with real science in its DNA by Lighthaus Inc.. We were proud to support classroom curriculum design as Lighthaus rigorously tested their beliefs about immersive science learning with innovation grants from the National Institutes of Health and the U.S. Department of Education. As an example of collateral produced through this partnership, our team generated the dynamic video, “NANO Virtual Reality Science”.",
       videoUrl: "https://www.youtube.com/embed/kNpS80n8z6k",
       link: ""
@@ -355,6 +387,7 @@ window.ANNIVERSARY_DATA = {
       client: "NMSI",
       year: 2017,
       serviceArea: "K-12 Academic Curriculum, Educator Training",
+      svc: "elearning",
       summary: "We collaborated with the National Math and Science Initiative (NMSI), a non-profit organization dedicated towards advancing STEM through strengthened STEM educators. Our team worked with subject matter experts to design and develop sets of printable materials. These materials include teacher guidance, student workbooks, pacing guides, and professional development documents for both presenters and participants. As an example of collateral produced through this partnership, our team generated these Instructor-Led Training materials consisting of a presenter handbook, student workbook, and participant workbook.",
       image: "/assets/images/anniversary/nmsi-mockup.png",
       videoUrl: "",
@@ -365,6 +398,7 @@ window.ANNIVERSARY_DATA = {
       client: "iMentor",
       year: 2016,
       serviceArea: "Post-Secondary Ideation",
+      svc: "career",
       summary: "From 2017-2019 we partnered with iMentor to revise and align and rebuild curricula for their national 2-year and 4-year program models, including all curricular content for high-school students and their mentors. Goals and outcomes for this curriculum focused on college-fit, soft-skills, transition from high-school and college success.",
       videoUrl: "https://www.youtube.com/embed/MmePkbDCIWE",
       link: ""
@@ -374,6 +408,7 @@ window.ANNIVERSARY_DATA = {
       client: "Clever Noodle (Popped!)",
       year: 2025,
       serviceArea: "Custom Platform, Digital Transformation",
+      svc: "platforms",
       summary: "Welcome to the Clever Noodle Portal, a tailored platform we designed to support both free and premium experiences for parents. This portal integrates seamlessly with Stripe for secure payment processing and AirTable for efficient data management. It provides a user-friendly interface where parents can access a variety of educational resources and tools. The portal allows for easy tracking of progress and activities, with features that enhance interaction and engagement. Whether opting for the free version or subscribing to premium content, users benefit from a streamlined experience tailored to support educational needs.",
       videoUrl: "https://www.youtube.com/embed/GxXxpQSeyhw",
       link: ""
@@ -383,6 +418,7 @@ window.ANNIVERSARY_DATA = {
       client: "KIPP Forward",
       year: 2022,
       serviceArea: "eLearning & Blended Learning",
+      svc: "elearning",
       summary: "We collaborated with KIPP Forward in their efforts to provide high school students with quality curriculum, guidance with college selection and transition, and access to partners that support students with their college and career journey. As an example of collateral produced through this partnership, we created this website-style course that uses attractive visuals, video, and embedded interactions to increase engagement of learners.",
       embedUrl: "https://integral-elearning.space/demo/intro_kipp_forward_rise/content/index.html",
       videoUrl: "",
@@ -393,6 +429,7 @@ window.ANNIVERSARY_DATA = {
       client: "Integral Ed",
       year: 2022,
       serviceArea: "Chat-Based Learning, Agentic Feedback",
+      svc: "career",
       summary: "Career Ikigai is a chat-based learning experience that guides users through a structured interview to surface interests, strengths, and goals. The system synthesizes responses into personalized pathways, actionable next steps, and a formatted slide output that can be edited and shared with advisors or mentors. Designed for use in counseling, advising, and workforce programs, it can connect to localized job market data and support cohort-level insights through shared outputs and dashboards.",
       embedUrl: "https://career-ikigai.org/",
       videoUrl: "",
@@ -403,6 +440,7 @@ window.ANNIVERSARY_DATA = {
       client: "NMSI / NGSS context",
       year: 2019,
       serviceArea: "Curriculum Development, K-12 STEM",
+      svc: "elearning",
       summary: "Most of us engaging with NGSS curriculum find ourselves wondering, “So, when do students make a hypothesis?” The answer is that sometimes they don’t, and scientists don’t always start from hypotheses either.\n\nWe can credit John Dewey for the scientific method, though maybe he didn’t mean for it to be taught dogmatically for a century. Dewey readily admitted he was a non-scientist. In fact, that may be what made his work so accessible and attractive to high-school teachers, as our public schools massively increased the number of students served, and his articulation became the “scientific method”.\n\nIn a detailed and character-driven book, How We Teach Science: What’s Changed, and Why It Matters, John Rudolph details how this dated approach has undermined public support for science. Rudolph points out that real scientists were never comfortable with teaching only the scientific method. Pretending that all science begins with a testable hypothesis, and follows a consistent set of steps, teachers have oversimplified science, which has had longterm effects on our ability to navigate scientifically complex issues like climate change.\n\nClimate science and evolution require a broader range of observation, reasoning, and inferencing, not an if-then hypothesis. Because of the enduring success of the scientific method, climate and evolution deniers can sound like academic skeptics seeking to frame these complex issues with a simplistic if-then hypothesis and explanation.\n\nThe crosscutting concepts of the NGSS as well as the Science and Engineering Practices (SEPs) are a laudable effort to replace the scientific method with a more nuanced understanding of the many and varied ways science works. NGSS synthesize several trends in science and pedagogy that have been evolving since we started teaching science in the US. In the spirit of John Dewey, here’s a non-scientist’s oversimplified synthesis of how we got here.",
       image: "/assets/images/anniversary/ngss-infographic-2019.png",
       videoUrl: "",
@@ -413,6 +451,7 @@ window.ANNIVERSARY_DATA = {
       client: "B'more for Healthy Babies",
       year: 2025,
       serviceArea: "Technical Capacity, Storytelling, Web + Print Design",
+      svc: "technical",
       summary: "We partnered with B'more for Healthy Babies to create Get It Documented, a digital hub making complex public health data clear and usable for organizations improving maternal and infant health.\n\nOur team conducted over twenty hours of interviews with BHB leaders, synthesizing a decade of lessons into seven designed publications. Each combines storytelling with technical resources to help other communities replicate successful practices.\n\nIntegral Ed also built a branded content portal integrated into BHB's site, providing easy access to reports, media, and archived resources.",
       videoUrl: "",
       link: "https://www.healthybabiesbaltimore.com/hub/home"
@@ -422,6 +461,7 @@ window.ANNIVERSARY_DATA = {
       client: "Buncombe Partnership for Children",
       year: 2023,
       serviceArea: "Video Storytelling, Educator Training",
+      svc: "media",
       summary: "We joined forces with Buncombe Partnership for Children, an organization dedicated to partnering with local organizations to improve early childhood education, early care, literacy opportunities, family support, and more. We helped produce a three-part video series for Early Care and Education (ECE) providers to prompt discussion about racial biases within early childhood care centers in Asheville, N.C.\n\nWe conducted interviews on Zoom, working from low-fidelity video and audio recordings. Our approach blends mixed media and illustration, designed to foster a sense of identification and generalization without casting blame.",
       videoUrl: "https://www.youtube.com/embed/videoseries?list=PLAR-tdNHAf2ag6w7MPqxCgc419GgcK3aB",
       link: "https://www.youtube.com/playlist?list=PLAR-tdNHAf2ag6w7MPqxCgc419GgcK3aB"
@@ -544,12 +584,12 @@ window.ANNIVERSARY_DATA = {
    * 6) SERVICE AREAS: today's offerings, shown in the sticky left-nav.
    * ------------------------------------------------------------------------- */
   serviceAreas: [
-    { name: "eLearning & Blended Learning", href: "/services/elearning/" },
-    { name: "Technical Assistance",         href: "/services/capacity/" },
-    { name: "Career Connected Learning",    href: "/services/career-pathways/" },
-    { name: "Growth Strategy",              href: "/services/strategy-and-growth/" },
-    { name: "LMS & Platforms",              href: "/services/platforms/" },
-    { name: "Media & Communications",       href: "/services/media-and-communications/" }
+    { name: "eLearning & Blended Learning", href: "/services/elearning/",            svc: "elearning" },
+    { name: "Technical Assistance",         href: "/services/capacity/",             svc: "technical" },
+    { name: "Career Connected Learning",    href: "/services/career-pathways/",      svc: "career" },
+    { name: "Growth Strategy",              href: "/services/strategy-and-growth/",  svc: "growth" },
+    { name: "LMS & Platforms",              href: "/services/platforms/",            svc: "platforms" },
+    { name: "Media & Communications",       href: "/services/media-and-communications/", svc: "media" }
   ]
 
 };
