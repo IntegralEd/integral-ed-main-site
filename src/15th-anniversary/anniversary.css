@@ -333,6 +333,11 @@ html.anniv-modal-open { overflow: hidden; }
   padding: clamp(0.8rem, 3vw, 2.2rem);
   opacity: 0; transition: opacity 0.2s ease;
 }
+/* The base rule sets display:flex, which overrides the user-agent
+   [hidden] { display: none }. Without this rule the overlay stays
+   inset:0 fixed even when hidden, swallowing clicks on the page below
+   so subsequent ref-links / project cards stop responding. */
+.anniv-modal[hidden] { display: none; }
 .anniv-modal.is-on { opacity: 1; }
 .anniv-modal-backdrop { position: absolute; inset: 0; background: rgba(20, 10, 28, 0.66); backdrop-filter: blur(3px); }
 .anniv-modal-card {
@@ -353,6 +358,10 @@ html.anniv-modal-open { overflow: hidden; }
 .anniv-modal-media { aspect-ratio: 16/9; background: var(--bg-secondary); border-radius: var(--radius-md); overflow: hidden; margin-bottom: 1.1rem; }
 .anniv-modal-media[hidden] { display: none; }
 .anniv-modal-media img, .anniv-modal-media iframe { width: 100%; height: 100%; object-fit: cover; border: 0; display: block; }
+/* When the media is a still image (infographics, mockups), let the natural
+   aspect ratio decide. Cropping a tall infographic to 16:9 hides the point. */
+.anniv-modal-media:has(img) { aspect-ratio: auto; background: transparent; }
+.anniv-modal-media:has(img) img { height: auto; max-height: 70vh; object-fit: contain; }
 .anniv-modal-body { color: var(--text-secondary); font-size: 1rem; line-height: 1.6; }
 .anniv-modal-body p { margin: 0 0 0.8rem; }
 .anniv-modal-actions { margin-top: 1.2rem; }

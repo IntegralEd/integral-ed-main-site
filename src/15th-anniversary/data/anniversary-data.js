@@ -107,7 +107,7 @@ window.ANNIVERSARY_DATA = {
     {
       year: 2019,
       title: "eLearning & STEM take off",
-      body: "Nadia Zaid joins and we launch our first eLearning project for Early Learning Indiana, [ref:leadPaint]Lead Paint Awareness for Indiana ECE Providers[/ref]; Cara Johnson joins and builds out our STEM specialization, including [ref:nano]Nano: Virtual Reality Science Labs[/ref]; and our PLTW work deepens professional-development alignment.",
+      body: "Nadia Zaid joins and we launch our first eLearning project for Early Learning Indiana, [ref:leadPaint]Lead Paint Awareness for Indiana ECE Providers[/ref]; Cara Johnson joins, bringing a fresh take on [ref:ngssScience]NGSS pedagogy[/ref] and building out our STEM specialization with [ref:nano]Nano: Virtual Reality Science Labs[/ref]; and our PLTW work deepens professional-development alignment.",
       image: "",
       tag: "eLearning"
     },
@@ -126,9 +126,16 @@ window.ANNIVERSARY_DATA = {
       tag: "Growth"
     },
     {
+      year: 2022,
+      title: "Chat-based learning and the KIPP Forward partnership",
+      body: "We begin our partnership with KIPP Forward, designing the [ref:kippIntro]Introduction to KIPP Forward[/ref] course for high-school counselors. We also start experimenting with chat-based interviews and agentic feedback to tailor last-mile customization and personalization, including the [ref:careerIkigai]Career Ikigai personalized pathway tool[/ref].",
+      image: "",
+      tag: "KIPP / Agentic"
+    },
+    {
       year: 2023,
       title: "Mastering the blend",
-      body: "A wave of new teammates joins as we hit our stride pairing live facilitation with self-paced, media-rich modules.",
+      body: "Mastering the blend is about designing materials for live facilitation and making the most of async modules to prepare and extend live sessions, bringing them closer to on-the-ground application.",
       image: "",
       tag: "Growth"
     },
@@ -340,6 +347,7 @@ window.ANNIVERSARY_DATA = {
       year: 2017,
       serviceArea: "K-12 Academic Curriculum, Educator Training",
       summary: "We collaborated with the National Math and Science Initiative (NMSI), a non-profit organization dedicated towards advancing STEM through strengthened STEM educators. Our team worked with subject matter experts to design and develop sets of printable materials. These materials include teacher guidance, student workbooks, pacing guides, and professional development documents for both presenters and participants. As an example of collateral produced through this partnership, our team generated these Instructor-Led Training materials consisting of a presenter handbook, student workbook, and participant workbook.",
+      image: "/assets/images/anniversary/nmsi-mockup.png",
       videoUrl: "",
       link: ""
     },
@@ -359,6 +367,36 @@ window.ANNIVERSARY_DATA = {
       serviceArea: "Custom Platform, Digital Transformation",
       summary: "Welcome to the Clever Noodle Portal, a tailored platform we designed to support both free and premium experiences for parents. This portal integrates seamlessly with Stripe for secure payment processing and AirTable for efficient data management. It provides a user-friendly interface where parents can access a variety of educational resources and tools. The portal allows for easy tracking of progress and activities, with features that enhance interaction and engagement. Whether opting for the free version or subscribing to premium content, users benefit from a streamlined experience tailored to support educational needs.",
       videoUrl: "https://www.youtube.com/embed/GxXxpQSeyhw",
+      link: ""
+    },
+    kippIntro: {
+      title: "Introduction to KIPP Forward",
+      client: "KIPP Forward",
+      year: 2022,
+      serviceArea: "eLearning & Blended Learning",
+      summary: "We collaborated with KIPP Forward in their efforts to provide high school students with quality curriculum, guidance with college selection and transition, and access to partners that support students with their college and career journey. As an example of collateral produced through this partnership, we created this website-style course that uses attractive visuals, video, and embedded interactions to increase engagement of learners.",
+      embedUrl: "https://integral-elearning.space/demo/intro_kipp_forward_rise/content/index.html",
+      videoUrl: "",
+      link: ""
+    },
+    careerIkigai: {
+      title: "Career Ikigai: Personalized Pathway Tool",
+      client: "Integral Ed",
+      year: 2022,
+      serviceArea: "Chat-Based Learning, Agentic Feedback",
+      summary: "Career Ikigai is a chat-based learning experience that guides users through a structured interview to surface interests, strengths, and goals. The system synthesizes responses into personalized pathways, actionable next steps, and a formatted slide output that can be edited and shared with advisors or mentors. Designed for use in counseling, advising, and workforce programs, it can connect to localized job market data and support cohort-level insights through shared outputs and dashboards.",
+      embedUrl: "",                      // TODO: paste the chat-based launch URL (integralelearning.com / integral-elearning.space)
+      videoUrl: "",
+      link: ""
+    },
+    ngssScience: {
+      title: "Update your hypothesis about science pedagogy",
+      client: "NMSI / NGSS context",
+      year: 2019,
+      serviceArea: "Curriculum Development, K-12 STEM",
+      summary: "Most of us engaging with NGSS curriculum find ourselves wondering, “So, when do students make a hypothesis?” The answer is that sometimes they don’t, and scientists don’t always start from hypotheses either.\n\nWe can credit John Dewey for the scientific method, though maybe he didn’t mean for it to be taught dogmatically for a century. Dewey readily admitted he was a non-scientist. In fact, that may be what made his work so accessible and attractive to high-school teachers, as our public schools massively increased the number of students served, and his articulation became the “scientific method”.\n\nIn a detailed and character-driven book, How We Teach Science: What’s Changed, and Why It Matters, John Rudolph details how this dated approach has undermined public support for science. Rudolph points out that real scientists were never comfortable with teaching only the scientific method. Pretending that all science begins with a testable hypothesis, and follows a consistent set of steps, teachers have oversimplified science, which has had longterm effects on our ability to navigate scientifically complex issues like climate change.\n\nClimate science and evolution require a broader range of observation, reasoning, and inferencing, not an if-then hypothesis. Because of the enduring success of the scientific method, climate and evolution deniers can sound like academic skeptics seeking to frame these complex issues with a simplistic if-then hypothesis and explanation.\n\nThe crosscutting concepts of the NGSS as well as the Science and Engineering Practices (SEPs) are a laudable effort to replace the scientific method with a more nuanced understanding of the many and varied ways science works. NGSS synthesize several trends in science and pedagogy that have been evolving since we started teaching science in the US. In the spirit of John Dewey, here’s a non-scientist’s oversimplified synthesis of how we got here.",
+      image: "/assets/images/anniversary/ngss-infographic-2019.png",
+      videoUrl: "",
       link: ""
     }
   },

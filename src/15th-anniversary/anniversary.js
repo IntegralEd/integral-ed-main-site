@@ -285,8 +285,13 @@
       mediaEl.hidden = true;
     }
 
-    m.querySelector('.anniv-modal-body').innerHTML =
-      p.summary ? '<p>' + linkNames(p.summary) + '</p>' : '';
+    // Body: split on blank lines so long summaries render as paragraphs.
+    m.querySelector('.anniv-modal-body').innerHTML = p.summary
+      ? p.summary.split(/\n\s*\n/).map(function (para) {
+          var trimmed = para.replace(/\n+/g, ' ').trim();
+          return trimmed ? '<p>' + linkNames(trimmed) + '</p>' : '';
+        }).join('')
+      : '';
 
     var dest = p.link || p.href || '';
     var actions = '';
