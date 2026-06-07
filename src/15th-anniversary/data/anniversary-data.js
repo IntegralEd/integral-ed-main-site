@@ -394,9 +394,9 @@ window.ANNIVERSARY_DATA = {
       year: 2022,
       serviceArea: "Chat-Based Learning, Agentic Feedback",
       summary: "Career Ikigai is a chat-based learning experience that guides users through a structured interview to surface interests, strengths, and goals. The system synthesizes responses into personalized pathways, actionable next steps, and a formatted slide output that can be edited and shared with advisors or mentors. Designed for use in counseling, advising, and workforce programs, it can connect to localized job market data and support cohort-level insights through shared outputs and dashboards.",
-      embedUrl: "",                      // TODO: paste the chat-based launch URL (integralelearning.com / integral-elearning.space)
+      embedUrl: "https://career-ikigai.org/",
       videoUrl: "",
-      link: ""
+      link: "https://career-ikigai.org/"
     },
     ngssScience: {
       title: "Update your hypothesis about science pedagogy",
