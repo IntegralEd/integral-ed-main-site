@@ -134,10 +134,10 @@ window.ANNIVERSARY_DATA = {
     },
     {
       year: 2023,
-      title: "Mastering the blend",
-      body: "Mastering the blend is about designing materials for live facilitation and making the most of async modules to prepare and extend live sessions, bringing them closer to on-the-ground application.",
+      title: "Mastering the blend, expanding video storytelling",
+      body: "Mastering the blend is about designing materials for live facilitation and making the most of async modules to prepare and extend live sessions, bringing them closer to on-the-ground application. We also expand our video storytelling craft: the [ref:biasAwarenessECE]Raising Awareness of Bias in Early Childhood Education[/ref] mixed-media series for Buncombe Partnership for Children translates Zoom-quality source footage into a three-part conversation starter that fosters identification and generalization without casting blame.",
       image: "",
-      tag: "Growth"
+      tag: "Video Storytelling"
     },
     {
       year: 2024,
@@ -416,6 +416,15 @@ window.ANNIVERSARY_DATA = {
       summary: "We partnered with B'more for Healthy Babies to create Get It Documented, a digital hub making complex public health data clear and usable for organizations improving maternal and infant health.\n\nOur team conducted over twenty hours of interviews with BHB leaders, synthesizing a decade of lessons into seven designed publications. Each combines storytelling with technical resources to help other communities replicate successful practices.\n\nIntegral Ed also built a branded content portal integrated into BHB's site, providing easy access to reports, media, and archived resources.",
       videoUrl: "",
       link: "https://www.healthybabiesbaltimore.com/hub/home"
+    },
+    biasAwarenessECE: {
+      title: "Raising Awareness of Bias in Early Childhood Education",
+      client: "Buncombe Partnership for Children",
+      year: 2023,
+      serviceArea: "Video Storytelling, Educator Training",
+      summary: "We joined forces with Buncombe Partnership for Children, an organization dedicated to partnering with local organizations to improve early childhood education, early care, literacy opportunities, family support, and more. We helped produce a three-part video series for Early Care and Education (ECE) providers to prompt discussion about racial biases within early childhood care centers in Asheville, N.C.\n\nWe conducted interviews on Zoom, working from low-fidelity video and audio recordings. Our approach blends mixed media and illustration, designed to foster a sense of identification and generalization without casting blame.",
+      videoUrl: "https://www.youtube.com/embed/videoseries?list=PLAR-tdNHAf2ag6w7MPqxCgc419GgcK3aB",
+      link: "https://www.youtube.com/playlist?list=PLAR-tdNHAf2ag6w7MPqxCgc419GgcK3aB"
     }
   },
 
