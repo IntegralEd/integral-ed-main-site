@@ -134,22 +134,22 @@ window.ANNIVERSARY_DATA = {
     },
     {
       year: 2023,
-      title: "Mastering the blend, expanding video storytelling",
-      body: "Mastering the blend is about designing materials for live facilitation and making the most of async modules to prepare and extend live sessions, bringing them closer to on-the-ground application. We also expand our video storytelling craft: the [ref:biasAwarenessECE]Raising Awareness of Bias in Early Childhood Education[/ref] mixed-media series for Buncombe Partnership for Children translates Zoom-quality source footage into a three-part conversation starter that fosters identification and generalization without casting blame.",
+      title: "Mastering the blend",
+      body: "Mastering the blend is about designing materials for live facilitation and making the most of async modules to prepare and extend live sessions, bringing them closer to on-the-ground application.",
       image: "",
-      tag: "Video Storytelling"
+      tag: "Growth"
     },
     {
       year: 2024,
-      title: "Learning gets agentic",
-      body: "The StriveTogether Continuous Improvement Toolkit ships with scenario-based interactions and an AI-powered chatbot: learning that responds.",
+      title: "Agentic learning meets custom platforms",
+      body: "The StriveTogether Continuous Improvement Toolkit ships with scenario-based interactions and an AI-powered chatbot: learning that responds. The [ref:premiumPortal]Premium Portal[/ref] for Popped! also goes live, delivering tiered free and premium media to parents of kids with dyslexia on a custom subscription platform.",
       image: "",
-      tag: "AI / Agentic"
+      tag: "AI / Platforms"
     },
     {
       year: 2025,
       title: "Technical capacity meets storytelling",
-      body: "Our Technical Capacity & Storytelling practice comes online: pairing design systems, branded portals, and field-facing publications with SME interviews and narrative craft, beginning with the [ref:bmoreGetItDocumented]B'more for Healthy Babies Get It Documented[/ref] digital hub. The [ref:premiumPortal]Premium Portal[/ref] for Popped! also ships in this year, delivering tiered free and premium media to parents of kids with dyslexia.",
+      body: "Our Technical Capacity & Storytelling practice comes online, pairing design systems, branded portals, and field-facing publications with SME interviews and narrative craft. Two examples: the [ref:bmoreGetItDocumented]B'more for Healthy Babies Get It Documented[/ref] digital hub for technical capacity, and the [ref:biasAwarenessECE]Raising Awareness of Bias in Early Childhood Education[/ref] mixed-media video series for Buncombe Partnership for Children for storytelling.",
       image: "",
       tag: "Technical Capacity & Storytelling"
     },
