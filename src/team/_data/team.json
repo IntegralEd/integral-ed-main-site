@@ -108,6 +108,18 @@
     "tenureN": 8
   },
   {
+    "slug": "emilykiefer",
+    "firstName": "Emily",
+    "lastName": "Kiefer",
+    "fullName": "Emily Kiefer",
+    "roleLevel": "Contributor",
+    "title": "Curriculum Associate",
+    "photo": "/assets/team/EmilyK.png",
+    "bio": "Our newest teammate, joined the curriculum team in 2026.",
+    "quote": "",
+    "tenureN": 0
+  },
+  {
     "slug": "davidmalbin",
     "firstName": "David",
     "lastName": "Malbin",

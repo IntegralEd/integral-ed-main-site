@@ -148,10 +148,10 @@ window.ANNIVERSARY_DATA = {
     },
     {
       year: 2025,
-      title: "Apps, dashboards & custom platforms",
-      body: "We add app design for data dashboards, custom LMS builds, and agentic feedback: software that wraps around the learning. The [ref:premiumPortal]Premium Portal[/ref] for Popped! delivers tiered free and premium media to parents of kids with dyslexia.",
+      title: "Technical capacity meets storytelling",
+      body: "Our Technical Capacity & Storytelling practice comes online: pairing design systems, branded portals, and field-facing publications with SME interviews and narrative craft, beginning with the [ref:bmoreGetItDocumented]B'more for Healthy Babies Get It Documented[/ref] digital hub. The [ref:premiumPortal]Premium Portal[/ref] for Popped! also ships in this year, delivering tiered free and premium media to parents of kids with dyslexia.",
       image: "",
-      tag: "Platforms"
+      tag: "Technical Capacity & Storytelling"
     },
     {
       year: 2026,
@@ -208,21 +208,30 @@ window.ANNIVERSARY_DATA = {
     },
     {
       id: "agentic",
-      year: 2024,
-      stage: "Agentic feedback",
-      tagline: "Chatbots & AI-assisted learning.",
-      whatWeCouldDo: "Add AI-powered feedback and conversation so learning responds in real time.",
-      proof: "The StriveTogether CI Toolkit ships with an AI-powered chatbot.",
+      year: 2023,
+      stage: "Chat interactions and agentic feedback",
+      tagline: "Chat-based interviews, AI-assisted learning.",
+      whatWeCouldDo: "Add chat-based interviews and AI-powered feedback so learning responds in real time and tailors to each learner.",
+      proof: "Career Ikigai personalized pathway tool; the StriveTogether CI Toolkit later ships with an AI-powered chatbot.",
       color: "plum"
     },
     {
       id: "apps",
-      year: 2025,
+      year: 2024,
       stage: "Apps & custom platforms",
       tagline: "Dashboards, custom LMS, agentic feedback.",
       whatWeCouldDo: "Design custom apps, data dashboards, and bespoke LMS builds, with agentic feedback wrapped around the learning.",
       proof: "App design for data dashboards, custom LMS, and agentic feedback join the toolkit.",
       color: "sky"
+    },
+    {
+      id: "techCapacity",
+      year: 2025,
+      stage: "Technical Capacity and Storytelling",
+      tagline: "TA, design systems, and narrative for the field.",
+      whatWeCouldDo: "Pair technical assistance with brand-grade storytelling: design systems, branded portals, print + web ecosystems, and field-facing publications that turn partner expertise into shareable practice.",
+      proof: "B'more for Healthy Babies “Get It Documented” digital hub: SME interviews synthesized into seven branded publications + a content portal integrated into BHB's site.",
+      color: "orange"
     }
   ],
 
@@ -249,16 +258,16 @@ window.ANNIVERSARY_DATA = {
       link: ""                           // optional: case study URL
     },
     {
-      title: "Black Wall Street History Experience",
-      client: "GLA",                     // CONFIRM full client name
-      year: null,                        // CONFIRM year
+      title: "Black Wall Street Multi-Year Curriculum",
+      client: "Greenwood Leadership Academy",
+      year: null,                        // CONFIRM year if known
       serviceArea: "eLearning & Blended Learning",
-      summary: "An interactive history experience bringing the story of Tulsa's Greenwood District, “Black Wall Street,” to life for learners: archival media, narrative, and exploration that turns history into something you move through, not just read.",
+      summary: "We partnered with Greenwood Leadership Academy, a Pre-K through 5th grade school of the Tulsa Public Schools. We helped to create a blended history project consisting of a multi-year learning journey for Pre-K through Grade 5 that connects scholars to the history and pride of their community. By leveraging storytelling, blended learning strategies, and innovative media tools, the Black Wall Street Multi-Year Curriculum stands as a model for culturally responsive education, empowering both students and teachers to explore and honor their community's past.",
       image: "",
-      href: "/services/elearning/",      // TODO: swap to live demo URL
+      href: "/services/elearning/",
       embedUrl: "",
-      videoUrl: "",                      // TODO: paste YouTube embed URL when ready
-      link: ""
+      videoUrl: "https://www.youtube.com/embed/L6ieouQDqbs",
+      link: "https://sites.google.com/integral-ed.com/glablackwallstreet/home"
     },
     {
       title: "Energy Scavenger Hunt",
@@ -398,6 +407,15 @@ window.ANNIVERSARY_DATA = {
       image: "/assets/images/anniversary/ngss-infographic-2019.png",
       videoUrl: "",
       link: ""
+    },
+    bmoreGetItDocumented: {
+      title: "B'more for Healthy Babies: Get It Documented",
+      client: "B'more for Healthy Babies",
+      year: 2025,
+      serviceArea: "Technical Capacity, Storytelling, Web + Print Design",
+      summary: "We partnered with B'more for Healthy Babies to create Get It Documented, a digital hub making complex public health data clear and usable for organizations improving maternal and infant health.\n\nOur team conducted over twenty hours of interviews with BHB leaders, synthesizing a decade of lessons into seven designed publications. Each combines storytelling with technical resources to help other communities replicate successful practices.\n\nIntegral Ed also built a branded content portal integrated into BHB's site, providing easy access to reports, media, and archived resources.",
+      videoUrl: "",
+      link: "https://www.healthybabiesbaltimore.com/hub/home"
     }
   },
 
@@ -445,7 +463,7 @@ window.ANNIVERSARY_DATA = {
       { name: "Luciana Santimaria",  role: "Senior Storyline Developer",                       dept: "eLearning / LMS",      since: 2024, image: "/assets/team/lucianasantimaria.jpg",  href: "/team/lucianasantimaria/",  bio: "" },
       { name: "Chelsea George",      role: "Curriculum Associate",                             dept: "eLearning / LMS",      since: 2024, image: "/assets/team/chelseageorge.png",      href: "/team/chelseageorge/",      bio: "" },
       { name: "Maddie Murphy",       role: "Curriculum Associate",                             dept: "eLearning / LMS",      since: 2024, image: "/assets/team/maddiemurphy.jpg",       href: "/team/maddiemurphy/",       bio: "Joined in 2024; roots with the Three Affiliated Tribes of North Dakota." },
-      { name: "Emily Kiefer",        role: "Curriculum Associate",                             dept: "Instructional Design", since: 2026, image: "",                                   href: "/team/",                    bio: "Our newest teammate." }
+      { name: "Emily Kiefer",        role: "Curriculum Associate",                             dept: "Instructional Design", since: 2026, image: "/assets/team/EmilyK.png",            href: "/team/emilykiefer/",        bio: "Our newest teammate." }
     ]
   },
 

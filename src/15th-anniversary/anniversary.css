@@ -256,6 +256,7 @@
 .evo-magenta { --evo-c: var(--accent-magenta); }
 .evo-plum    { --evo-c: var(--primary-light, #b066bd); }
 .evo-sky     { --evo-c: #58b0e3; }
+.evo-orange  { --evo-c: #f08a3e; }
 
 .anniv-subway-wrap { overflow-x: auto; margin-bottom: var(--spacing-2xl); -webkit-overflow-scrolling: touch; }
 .anniv-subway { display: block; width: 100%; min-width: 680px; height: auto; overflow: visible; }
