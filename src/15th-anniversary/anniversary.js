@@ -92,27 +92,48 @@
   }
 
   /* ── Timeline ─────────────────────────────────────────────────────────── */
+  function renderChipStrip(highlights) {
+    var hs = (highlights || []).filter(function (h) { return h && h.ref; });
+    if (!hs.length) return '';
+    return '<div class="anniv-tl-chips">' + hs.map(function (h) {
+      return '<a class="svc-chip svc-' + esc(h.svc || 'plum') + '" ' +
+        'href="#" role="button" data-portfolio-ref="' + esc(h.ref) + '" ' +
+        'aria-haspopup="dialog">' + esc(h.label || h.ref) + '</a>';
+    }).join('') + '</div>';
+  }
   function renderTimeline() {
     var el = $('anniv-timeline');
     if (!el) return;
     var items = (D.timeline || []).filter(function (t) { return t && (t.year || t.title); });
     if (!items.length) { el.innerHTML = empty('Timeline milestones'); return; }
     el.innerHTML = items.map(function (t) {
-      var highlights = (t.highlights || []).filter(function (h) { return h && h.ref; });
-      var chipsHtml = highlights.length
-        ? '<div class="anniv-tl-chips">' + highlights.map(function (h) {
-            return '<a class="svc-chip svc-' + esc(h.svc || 'plum') + '" ' +
-              'href="#" role="button" data-portfolio-ref="' + esc(h.ref) + '" ' +
-              'aria-haspopup="dialog">' + esc(h.label || h.ref) + '</a>';
-          }).join('') + '</div>'
-        : '';
-      return '<li class="anniv-tl-item reveal">' +
+      var events = (t.events || []).filter(function (e) { return e && (e.theme || e.body); });
+      var bodyBlock;
+      if (events.length) {
+        // Split year: stacked sub-events, each with its own theme + dot + chips.
+        bodyBlock =
+          (t.body ? '<p class="anniv-tl-body anniv-tl-intro">' + linkNames(t.body) + '</p>' : '') +
+          '<ol class="anniv-tl-events" role="list">' + events.map(function (ev) {
+            var themeCls = ev.svc ? ' svc-' + esc(ev.svc) : '';
+            return '<li class="anniv-tl-event' + themeCls + '">' +
+              '<span class="anniv-tl-event-dot" aria-hidden="true"></span>' +
+              (ev.theme ? '<h4 class="anniv-tl-event-theme">' + esc(ev.theme) + '</h4>' : '') +
+              (ev.body ? '<p class="anniv-tl-event-body">' + linkNames(ev.body) + '</p>' : '') +
+              renderChipStrip(ev.highlights) +
+              '</li>';
+          }).join('') + '</ol>';
+      } else {
+        // Single-event year: unchanged shape.
+        bodyBlock =
+          (t.body ? '<p class="anniv-tl-body">' + linkNames(t.body) + '</p>' : '') +
+          renderChipStrip(t.highlights);
+      }
+      return '<li class="anniv-tl-item reveal' + (events.length ? ' anniv-tl-item--split' : '') + '">' +
         '<span class="anniv-tl-dot"></span>' +
         '<span class="anniv-tl-year">' + esc(t.year || '') + '</span>' +
         (t.tag ? '<span class="anniv-tl-tag">' + esc(t.tag) + '</span>' : '') +
         (t.title ? '<h3 class="anniv-tl-title">' + esc(t.title) + '</h3>' : '') +
-        (t.body ? '<p class="anniv-tl-body">' + linkNames(t.body) + '</p>' : '') +
-        chipsHtml +
+        bodyBlock +
         (t.image ? '<img class="anniv-tl-img" src="' + esc(t.image) + '" alt="' + esc(t.title || '') + '" loading="lazy">' : '') +
         '</li>';
     }).join('');

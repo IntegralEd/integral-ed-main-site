@@ -140,15 +140,31 @@ window.ANNIVERSARY_DATA = {
       tag: "Growth"
     },
     {
+      // Multi-theme years use events[] so each strand renders as its own
+      // sub-event under the shared year header. theme + svc drive the
+      // colored dot + label; highlights[] is per-event.
       year: 2022,
-      title: "Chat-based learning and the KIPP Forward partnership",
-      body: "We begin our partnership with KIPP Forward, designing an introduction course for high-school counselors. We also start experimenting with chat-based interviews and agentic feedback to tailor last-mile customization and personalization.",
-      highlights: [
-        { svc: "elearning", ref: "kippIntro",    label: "Introduction to KIPP Forward" },
-        { svc: "career",    ref: "careerIkigai", label: "Career Ikigai pathway tool" }
+      title: "Two new directions",
+      tag: "KIPP / Agentic",
+      events: [
+        {
+          theme: "KIPP Forward partnership begins",
+          svc: "career",
+          body: "We begin our partnership with KIPP Forward, designing an introduction course for high-school counselors.",
+          highlights: [
+            { svc: "career", ref: "kippIntro", label: "Introduction to KIPP Forward" }
+          ]
+        },
+        {
+          theme: "Chat-based learning takes shape",
+          svc: "career",
+          body: "We start experimenting with chat-based interviews and agentic feedback to tailor last-mile customization and personalization.",
+          highlights: [
+            { svc: "career", ref: "careerIkigai", label: "Career Ikigai pathway tool" }
+          ]
+        }
       ],
-      image: "",
-      tag: "KIPP / Agentic"
+      image: ""
     },
     {
       year: 2023,
@@ -160,23 +176,50 @@ window.ANNIVERSARY_DATA = {
     {
       year: 2024,
       title: "Agentic learning meets custom platforms",
-      body: "The StriveTogether Continuous Improvement Toolkit ships with scenario-based interactions and an AI-powered chatbot: learning that responds. Premium Portal for Popped! also goes live, delivering tiered free and premium media to parents of kids with dyslexia on a custom subscription platform.",
-      highlights: [
-        { svc: "platforms", ref: "premiumPortal", label: "Premium Portal (Popped!)" }
+      tag: "AI / Platforms",
+      events: [
+        {
+          theme: "Agentic learning",
+          svc: "elearning",
+          body: "The StriveTogether Continuous Improvement Toolkit ships with scenario-based interactions and an AI-powered chatbot: learning that responds.",
+          // StriveTogether toolkit lives in projects[]; see the "Work we're
+          // proud of" section for the openable modal.
+          highlights: []
+        },
+        {
+          theme: "Custom platforms",
+          svc: "platforms",
+          body: "Premium Portal for Popped! goes live, delivering tiered free and premium media to parents of kids with dyslexia on a custom subscription platform.",
+          highlights: [
+            { svc: "platforms", ref: "premiumPortal", label: "Premium Portal (Popped!)" }
+          ]
+        }
       ],
-      image: "",
-      tag: "AI / Platforms"
+      image: ""
     },
     {
       year: 2025,
       title: "Technical capacity meets storytelling",
-      body: "Our Technical Capacity & Storytelling practice comes online, pairing design systems, branded portals, and field-facing publications with SME interviews and narrative craft.",
-      highlights: [
-        { svc: "technical", ref: "bmoreGetItDocumented", label: "B'more Get It Documented" },
-        { svc: "media",     ref: "biasAwarenessECE",     label: "Raising Awareness of Bias in ECE" }
+      tag: "Technical Capacity & Storytelling",
+      events: [
+        {
+          theme: "Technical capacity",
+          svc: "technical",
+          body: "Pairing design systems, branded portals, and field-facing publications with SME interviews so partner expertise becomes shareable practice.",
+          highlights: [
+            { svc: "technical", ref: "bmoreGetItDocumented", label: "B'more Get It Documented" }
+          ]
+        },
+        {
+          theme: "Storytelling",
+          svc: "media",
+          body: "Mixed-media video series that translate Zoom-quality source footage into conversation starters the field can use right away.",
+          highlights: [
+            { svc: "media", ref: "biasAwarenessECE", label: "Raising Awareness of Bias in ECE" }
+          ]
+        }
       ],
-      image: "",
-      tag: "Technical Capacity & Storytelling"
+      image: ""
     },
     {
       year: 2026,
