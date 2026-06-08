@@ -69,8 +69,8 @@ Note    : This page is shown to clients on our biz-dev list (clients can see
 
   [Four counters, side by side, each a big number that animates up:]
     15    Years growing together
-    180+  Engagements delivered
-    100+  Partner organizations
+    250+  Projects delivered
+    75    Partner organizations
     21    Teammates today
 
 
@@ -333,12 +333,12 @@ Note    : This page is shown to clients on our biz-dev list (clients can see
   interactions, and an AI-powered chatbot that coaches educators through
   continuous-improvement cycles. The toolkit translates StriveTogether's
   methodology into learning that responds.
-  Media: TO ADD - YouTube embed URL
+  Media: YouTube embed NX34X3OjS9s
 
 
   ── CARD 2
   Service chip: eLearning & Blended Learning   (yellow)
-  Meta:  Greenwood Leadership Academy   [year: CONFIRM]
+  Meta:  2022 · Greenwood Leadership Academy
   Title: Black Wall Street Multi-Year Curriculum
   Summary: We partnered with Greenwood Leadership Academy, a Pre-K through
   5th grade school of the Tulsa Public Schools. We helped to create a
@@ -348,19 +348,20 @@ Note    : This page is shown to clients on our biz-dev list (clients can see
   and innovative media tools, the Black Wall Street Multi-Year Curriculum
   stands as a model for culturally responsive education, empowering both
   students and teachers to explore and honor their community's past.
-  Media: YouTube embed L6ieouQDqbs (active)
+  Media: YouTube embed L6ieouQDqbs
   Link out: Google Sites curriculum hub
             https://sites.google.com/integral-ed.com/glablackwallstreet/home
 
 
   ── CARD 3
   Service chip: Career Connected Learning   (teal)
-  Meta:  AFS   [year: CONFIRM]
+  Meta:  2021 · AFS
   Title: Energy Scavenger Hunt
   Summary: A gamified, exploration-based learning experience that sends
   learners hunting for the energy concepts hidden in the world around them,
   turning a technical subject into hands-on, curiosity-driven discovery.
-  Media: TO ADD - YouTube embed URL
+  Media: Storyline launch at
+         integral-elearning.space/demo/energy_scavenger_hunt/story.html
 
 
   ── CARD 4
@@ -373,7 +374,7 @@ Note    : This page is shown to clients on our biz-dev list (clients can see
   studies. The work grows equity-focused, student-centered counseling across
   KIPP high schools, and has since scaled into a regional train-the-trainer
   model.
-  Media: TO ADD - YouTube embed URL
+  Media: YouTube embed 49_VAHyZv2E
 
   [Optional 5th card: Nano STEM highlight - stubbed in the data, needs
    client/year/summary + a demo URL.]
@@ -683,16 +684,22 @@ PORTFOLIO MODALS  ·  what opens when a timeline chip is clicked
 ===============================================================================
 OPEN QUESTIONS FOR THE TEAM
 ===============================================================================
-  1. Work cards still missing YouTube embed URLs for StriveTogether,
-     Energy Scavenger Hunt, and KIPP Forward NCI. Black Wall Street has
-     its video + Google Sites link wired.
-  2. Black Wall Street: confirm the year (year is still TBD in the data).
-  3. Energy Scavenger Hunt: confirm the year.
-  4. Counters at top: confirm the rounded figures (180+ engagements,
-     100+ partner organizations) read the way we want.
-  5. Should the Nano STEM project be added as a 5th Work card (or stay
+  RESOLVED 2026-06-08 (this snapshot)
+  --
+  · All four Work card media URLs landed:
+      StriveTogether        YouTube NX34X3OjS9s
+      Black Wall Street     YouTube L6ieouQDqbs + Google Sites curriculum
+      Energy Scavenger Hunt Storyline launch
+      KIPP Forward NCI      YouTube 49_VAHyZv2E
+  · Black Wall Street year confirmed: 2022
+  · Energy Scavenger Hunt year confirmed: 2021
+  · Counters updated to 250+ Projects delivered / 75 Partner organizations
+
+  STILL OPEN
+  --
+  1. Should the Nano STEM project be added as a 5th Work card (or stay
      just a chip in 2019)?
-  6. Career Ikigai modal embeds career-ikigai.org as an iframe. If that
+  2. Career Ikigai modal embeds career-ikigai.org as an iframe. If that
      site sends X-Frame-Options DENY or restrictive frame-ancestors, the
      iframe will be blank; the "View the full case study" button is the
      fallback. Confirm whether the inline embed works.

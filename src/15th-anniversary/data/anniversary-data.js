@@ -38,8 +38,8 @@ window.ANNIVERSARY_DATA = {
     // Big numbers that count up on load. label is shown under the number.
     counters: [
       { value: 15,  suffix: "",  label: "Years growing together" },
-      { value: 180, suffix: "+", label: "Engagements delivered" },   // REVIEW: rounded, no $ shown
-      { value: 100, suffix: "+", label: "Partner organizations" },   // REVIEW: rounded
+      { value: 250, suffix: "+", label: "Projects delivered" },
+      { value: 75,  suffix: "",  label: "Partner organizations" },
       { value: 21,  suffix: "",  label: "Teammates today" }
     ]
   },
@@ -320,16 +320,16 @@ window.ANNIVERSARY_DATA = {
       serviceArea: "eLearning & Blended Learning",
       svc: "elearning",
       summary: "A flagship blend: broadcast-quality video, scenario-based interactions, and an AI-powered chatbot that coaches educators through continuous-improvement cycles. The toolkit translates StriveTogether's methodology into learning that responds.",
-      image: "",                         // /assets/images/work/...
-      href: "/services/elearning/",      // TODO: swap to live e-learning demo / case-study URL
-      embedUrl: "",                      // optional: inline e-learning demo to embed
-      videoUrl: "",                      // TODO: paste YouTube embed URL when ready
-      link: ""                           // optional: case study URL
+      image: "",
+      href: "/services/elearning/",
+      embedUrl: "",
+      videoUrl: "https://www.youtube.com/embed/NX34X3OjS9s",
+      link: ""
     },
     {
       title: "Black Wall Street Multi-Year Curriculum",
       client: "Greenwood Leadership Academy",
-      year: null,                        // CONFIRM year if known
+      year: 2022,
       serviceArea: "eLearning & Blended Learning",
       svc: "elearning",
       summary: "We partnered with Greenwood Leadership Academy, a Pre-K through 5th grade school of the Tulsa Public Schools. We helped to create a blended history project consisting of a multi-year learning journey for Pre-K through Grade 5 that connects scholars to the history and pride of their community. By leveraging storytelling, blended learning strategies, and innovative media tools, the Black Wall Street Multi-Year Curriculum stands as a model for culturally responsive education, empowering both students and teachers to explore and honor their community's past.",
@@ -342,14 +342,14 @@ window.ANNIVERSARY_DATA = {
     {
       title: "Energy Scavenger Hunt",
       client: "AFS",
-      year: null,                        // CONFIRM year
+      year: 2021,
       serviceArea: "Career Connected Learning",
       svc: "career",
       summary: "A gamified, exploration-based learning experience that sends learners hunting for the energy concepts hidden in the world around them, turning a technical subject into hands-on, curiosity-driven discovery.",
       image: "",
-      href: "/services/career-pathways/", // TODO: swap to live demo URL
-      embedUrl: "",
-      videoUrl: "",                      // TODO: paste YouTube embed URL when ready
+      href: "/services/career-pathways/",
+      embedUrl: "https://integral-elearning.space/demo/energy_scavenger_hunt/story.html",
+      videoUrl: "",
       link: ""
     },
     {
@@ -360,9 +360,9 @@ window.ANNIVERSARY_DATA = {
       svc: "career",
       summary: "Since 2022, the design partner behind KIPP Forward's National Counseling Institute: asynchronous training modules, newly designed anchor graphics, and live facilitation rooted in role plays and real student case studies. The work grows equity-focused, student-centered counseling across KIPP high schools, and has since scaled into a regional train-the-trainer model.",
       image: "",
-      href: "/services/career-pathways/", // TODO: swap to live case-study URL
+      href: "/services/career-pathways/",
       embedUrl: "",
-      videoUrl: "",                      // TODO: paste YouTube embed URL when ready
+      videoUrl: "https://www.youtube.com/embed/49_VAHyZv2E",
       link: ""
     }
     // READY TO ADD: the "Nano" STEM highlight (from Cara's STEM work).
