@@ -1,736 +1,891 @@
-===============================================================================
-INTEGRAL ED  ·  15TH ANNIVERSARY PAGE  ·  CONTENT + UX REVIEW
-                                                  Snapshot: 2026-06-08
-===============================================================================
-Purpose : One readable place for the team to review every word on the page and
-          understand the layout/UX of each section, so you can give input on
-          copy and format.
-Legend  : [SQUARE BRACKETS] = description of the section, its layout, and how
-          it behaves (the UX). Plain text = the actual copy that appears on
-          the page.
-Source  : Generated from src/15th-anniversary/data/anniversary-data.js +
-          src/15th-anniversary/index.html  +  anniversary.css/.js
-Note    : This page is shown to clients on our biz-dev list (clients can see
-          each other), so it intentionally carries NO dollar figures.
--------------------------------------------------------------------------------
+# Integral Ed · 15th Anniversary Page · Content + UX Review
+
+Snapshot: **2026-06-08**
+
+**Purpose.** One readable place for the team to review every word on the
+page and understand the layout/UX of each section.
+
+**Legend.**
+- `[Square brackets]` describe the section, layout, and behavior (UX).
+- Plain text is the actual copy that appears on the page.
+
+**Source.** Generated from src/15th-anniversary/data/anniversary-data.js,
+index.html, anniversary.css, anniversary.js.
+
+**Note.** This page is shown to clients on our biz-dev list (clients can
+see each other), so it intentionally carries no dollar figures.
 
 
-[GATE  ·  appears before anything else. A centered card over a dark screen
- with a big "15" mark, a password field, and an Enter button. Soft privacy
- only (the URL is unindexed but discoverable).]
+# Gate
 
-  A private preview
-  We've been putting together something to celebrate 15 years. Enter the
-  password to take an early look.
-  [password field]  [Enter button]
+[Appears before anything else. A centered card over a dark screen with a
+big "15" mark, a password field, and an Enter button. Soft privacy only:
+the URL is unindexed but discoverable.]
 
-
-[LEFT RAIL  ·  sticky vertical nav down the left side, present on every
- section. A "15 / YEARS · 2011-2026" brand mark at top, then a numbered
- section list that highlights as you scroll, then a short "what we do today"
- service list. Each service item now carries a small colored dot in the
- service's brand color (eLearning yellow, Career teal, Media magenta, etc.)
- so the color legend reads at a glance even in the compact rail.]
-
-  15  ·  YEARS · 2011-2026
-  00  Welcome
-  01  History
-  02  Evolution
-  03  Our Work
-  04  The Team
-  05  Clients
-  06  Today
-
-  What we do today
-   · eLearning & Blended Learning        (yellow)
-   · Technical Assistance                (orange)
-   · Career Connected Learning           (teal)
-   · Growth Strategy                     (blue)
-   · LMS & Platforms                     (sky)
-   · Media & Communications              (magenta)
+A private preview
+We've been putting together something to celebrate 15 years. Enter the
+password to take an early look.
+[password field] [Enter button]
 
 
-===============================================================================
-00  ·  INTRO / HERO
-===============================================================================
+# Left Rail
+
+[Sticky vertical nav down the left side, present on every section. A
+"15 · YEARS · 2011-2026" brand mark at top, then a numbered section list
+that highlights as you scroll, then a short "what we do today" service
+list. Each service item carries a small colored dot in that service's
+brand color so the color legend reads at a glance.]
+
+**15 · YEARS · 2011-2026**
+
+- 00 Welcome
+- 01 History
+- 02 Evolution
+- 03 Our Work
+- 04 The Team
+- 05 Clients
+- 06 Today
+
+**What we do today**
+
+- eLearning & Blended Learning (yellow)
+- Technical Assistance (orange)
+- Career Connected Learning (teal)
+- Growth Strategy (blue)
+- LMS & Platforms (sky)
+- Media & Communications (magenta)
+
+
+# 00 · Intro / Hero
+
 [Full-height dark hero with soft colored glow blobs. Eyebrow, a large
- headline, a one-line subhead, then a row of four big numbers that COUNT UP
- from zero. The counters now re-animate every time the hero re-enters the
- viewport (e.g., when scrolling back to the top), so the count-up isn't a
- one-shot effect. A downward scroll cue at the bottom.]
+headline, a one-line subhead, then a row of four big numbers that
+COUNT UP from zero. The counters re-animate every time the hero
+re-enters the viewport (e.g., scrolling back to the top), so the
+count-up isn't a one-shot effect. A downward scroll cue at the bottom.]
 
-  Eyebrow:    2011-2026
-
-  Headline:   Fifteen years helping organizations learn, adapt, and grow.
-
-  Subhead:    From a founder with a laptop to a 21-person studio building
-              blended, media-rich, agentic learning. Here's a look back at
-              the road we've traveled since 2011.
+**Eyebrow.** 2011-2026
 
-  [Four counters, side by side, each a big number that animates up:]
-    15    Years growing together
-    250+  Projects delivered
-    75    Partner organizations
-    21    Teammates today
+**Headline.** Fifteen years helping organizations learn, adapt, and grow.
 
+**Subhead.** From a founder with a laptop to a 21-person studio building
+blended, media-rich, agentic learning. Here's a look back at the road
+we've traveled since 2011.
 
-===============================================================================
-01  ·  HISTORY  (the year-by-year timeline)
-===============================================================================
-[Light section. Section header + lede, then a vertical TIMELINE: each year
- has a dot on a vertical line, a year, a category pill (tag), a bold title,
- and a sentence or two of prose. Teammate names appear BOLD and link to
- their team profile, with a photo preview on hover.
+**Counters** (each animates up):
 
- NEW shape elements:
-   · COLORED CHIPS  ·  Below each entry's body sits a strip of pill chips,
-     one per portfolio item. Each chip wears its service color (eLearning =
-     yellow, Career = teal, Platforms = sky, etc.) and is clickable to open
-     that project's modal preview (see "Portfolio modals" at the end).
-   · SPLIT-YEAR EVENTS  ·  Years with two distinct themes (2022, 2024, 2025)
-     are rendered as STACKED SUB-EVENTS under the same year header. Each
-     sub-event has its own small color dot on a short vertical sub-rail,
-     a theme label in the event color, body copy, and its own chip(s).]
+- **15** Years growing together
+- **250+** Projects delivered
+- **75** Partner organizations
+- **21** Teammates today
 
-  Header: How it started, and how it grew
-  Lede:   From one laptop in 2011 to a full-service studio: the turning
-          points along the way.
 
+# 01 · History (the year-by-year timeline)
 
-  ── 2011  [pill: Founding]
-  Integral Ed begins
-  David Malbin opens the doors as a one-person analytics shop, helping
-  education organizations make sense of their data.
+[Light section. Section header + lede, then a vertical TIMELINE: each
+year has a dot on a vertical line, a year, a category pill (tag), a
+bold title, and a sentence or two of prose. Teammate names appear bold
+and link to their team profile, with a photo preview on hover.
 
+Two interactive elements layered in:
 
-  ── 2013  [pill: Assessment]
-  Partnering with CMOs
-  We begin working with charter management organizations on
-  assessment-driven learning, data-driven instruction, and assessment
-  reporting.
+- **Colored chips.** Below each entry's body sits a strip of pill chips,
+  one per portfolio item. Each chip wears its service color (eLearning
+  yellow, Career teal, Platforms sky, etc.) and is clickable to open
+  that project's modal preview (see "Portfolio modals" at the end).
+- **Split-year sub-events.** Years with two distinct themes (2019,
+  2022, 2024, 2025) are rendered as STACKED SUB-EVENTS under the
+  shared year header. Each sub-event has its own small color dot on
+  a short vertical sub-rail, a theme label in the event color, body
+  copy, and its own chip(s).]
 
+**Header.** How it started, and how it grew
 
-  ── 2014  [pill: First hire]
-  Curriculum takes root
-  Ava Millstone joins to lead curriculum, and the work grows from analysis
-  into building the slides, guides, and facilitator materials our partners
-  teach from.
+**Lede.** From one laptop in 2011 to a full-service studio: the
+turning points along the way.
 
 
-  ── 2015  [pill: Team]
-  The team grows
-  Alicia Chipman joins, expanding our curriculum-design capacity, and April
-  Graham joins, growing our postsecondary ideation and access work.
+## **2011** · pill: Founding
 
+**Integral Ed begins**
 
-  ── 2016  [pill: iMentor]
-  First major postsecondary mentoring project
-  We deliver our first major postsecondary partnership with national
-  nonprofit iMentor, building the curriculum that anchors their multigrade
-  mentoring program.
-  CHIP:  Identity Exploration & Wayfinding   (teal · career)
+David Malbin opens the doors as a one-person analytics shop, helping
+education organizations make sense of their data.
 
 
-  ── 2017  [pill: Milestone]
-  A breakout year
-  Creative Director Asha Kelly joins, bringing design and media to our
-  curriculum and print media; the studio's footprint grows; and our NMSI
-  partnership deepens with NGSS-aligned modules supporting nationwide
-  AP-access expansion.
-  CHIP:  AP For All Curriculum Materials   (yellow · eLearning)
+## **2013** · pill: Assessment
 
+**Partnering with CMOs**
 
-  ── 2018  [pill: Platforms]
-  Our first app & LMS
-  We build our first app and launch our first learning management system
-  with The Teaching Kitchen, including mobile-adaptive training materials.
-  CHIP:  Mobile Adaptive Training (TTK)   (sky · platforms)
+We begin working with charter management organizations on
+assessment-driven learning, data-driven instruction, and assessment
+reporting.
 
 
-  ── 2019  [pill: eLearning / STEM]  ── SPLIT YEAR ──
-  eLearning & STEM take off
+## **2014** · pill: First hire
 
-    · eLearning practice begins   (yellow · eLearning)
-      Nadia Zaid joins and we launch our first eLearning project for
-      Early Learning Indiana.
-      CHIP:  Lead Paint Awareness (ELI)   (yellow · eLearning)
+**Curriculum takes root**
 
-    · STEM specialization   (yellow · eLearning)
-      Cara Johnson joins, bringing a fresh take on NGSS pedagogy and
-      building out our STEM specialization; our PLTW work deepens
-      professional-development alignment in parallel.
-      CHIPS:  Nano: VR Science Labs        (yellow · eLearning)
-              NGSS pedagogy primer         (yellow · eLearning)
-              PLTW Launch 3rd Grade STEM   (yellow · eLearning)
+Ava Millstone joins to lead curriculum, and the work grows from
+analysis into building the slides, guides, and facilitator materials
+our partners teach from.
 
 
-  ── 2020  [pill: COVID pivot]
-  The crisis turn to LMS
-  When the world went remote, we helped partners stand up learning
-  management systems and move whole programs online, fast, as Erin McIntee
-  joins, bringing expert, complex Storyline development.
+## **2015** · pill: Team
 
+**The team grows**
 
-  ── 2021  [pill: Growth]
-  Media & adult learning
-  Michaela Bradley joins and we build out in-house media production, while
-  Morgan Taveras brings adult-learning expertise and character-driven
-  design.
+Alicia Chipman joins, expanding our curriculum-design capacity, and
+April Graham joins, growing our postsecondary ideation and access work.
 
 
-  ── 2022  [pill: KIPP / Agentic]  ── SPLIT YEAR ──
-  Two new directions
+## **2016** · pill: iMentor
 
-    · KIPP Forward partnership begins   (teal · career)
-      We begin our partnership with KIPP Forward, designing an introduction
-      course for high-school counselors.
-      CHIP:  Introduction to KIPP Forward   (teal · career)
+**First major postsecondary mentoring project**
 
-    · Chat-based learning takes shape   (teal · career)
-      We start experimenting with chat-based interviews and agentic feedback
-      to tailor last-mile customization and personalization.
-      CHIP:  Career Ikigai pathway tool   (teal · career)
+We deliver our first major postsecondary partnership with national
+nonprofit iMentor, building the curriculum that anchors their
+multigrade mentoring program.
 
+Chip: Identity Exploration & Wayfinding (teal · career)
 
-  ── 2023  [pill: Growth]
-  Mastering the blend
-  Mastering the blend is about designing materials for live facilitation
-  and making the most of async modules to prepare and extend live sessions,
-  bringing them closer to on-the-ground application.
 
+## **2017** · pill: Milestone
 
-  ── 2024  [pill: AI / Platforms]  ── SPLIT YEAR ──
-  Agentic learning meets custom platforms
+**A breakout year**
 
-    · Agentic learning   (yellow · eLearning)
-      The StriveTogether Continuous Improvement Toolkit ships with
-      scenario-based interactions and an AI-powered chatbot: learning that
-      responds.
-      [No chip on this sub-event: the StriveTogether toolkit lives in the
-       "Work we're proud of" cards in section 03.]
+Creative Director Asha Kelly joins, bringing design and media to our
+curriculum and print media; the studio's footprint grows; and our
+NMSI partnership deepens with NGSS-aligned modules supporting
+nationwide AP-access expansion.
 
-    · Custom platforms   (sky · platforms)
-      Premium Portal for Popped! goes live, delivering tiered free and
-      premium media to parents of kids with dyslexia on a custom
-      subscription platform.
-      CHIP:  Premium Portal (Popped!)   (sky · platforms)
+Chip: AP For All Curriculum Materials (yellow · eLearning)
 
 
-  ── 2025  [pill: Technical Capacity & Storytelling]  ── SPLIT YEAR ──
-  Technical capacity meets storytelling
+## **2018** · pill: Platforms
 
-    · Technical capacity   (orange · technical)
-      Pairing design systems, branded portals, and field-facing publications
-      with SME interviews so partner expertise becomes shareable practice.
-      CHIP:  B'more Get It Documented   (orange · technical)
-
-    · Storytelling   (magenta · media)
-      Mixed-media video series that translate Zoom-quality source footage
-      into conversation starters the field can use right away.
-      CHIP:  Raising Awareness of Bias in ECE   (magenta · media)
-
-
-  ── 2026  [pill: Today]
-  Fifteen years on
-  A 21-person studio spanning instructional design, eLearning, media,
-  platforms, and strategy, still growing together.
-
-
-===============================================================================
-02  ·  EVOLUTION  ("subway map" of capabilities, year by year)
-===============================================================================
-[Dark section. The centerpiece is a SUBWAY-MAP diagram: each capability is a
- colored "line" that starts at the year we added it and runs to today, with
- the lines converging on the right to show how the streams now weave
- together. The lines draw themselves in as you scroll; hovering one thickens
- its stroke (the rest stay full-color, no dimming).
-
- Below the map is a legend  ·  one card per capability with its year, name,
- tagline, what it let us do, and the proof/teammate behind it. The legend
- cards are VIBRANT BY DEFAULT (each carries a tinted gradient in its stream
- color, no longer muted). On hover the card lifts and the "proof" detail
- slides in from below. On touch devices the proof is always visible.]
-
-  Header: Each year, a new thing we could do
-  Lede:   Our capabilities stacked, never replaced. Hover or scroll through
-          the layers.
-
-
-  ── 2011  ·  Data & analysis            [color: blue]
-  Tagline: One person, one laptop.
-  What we could do: Turn messy program data into clear, decision-ready
-  insight.
-  Proof (hover to reveal): The founding service: analytics for
-  mission-driven education orgs.
-
-
-  ── 2014  ·  Curriculum & facilitation  [color: teal]
-  Tagline: Slides, guides, facilitator kits.
-  What we could do: Design the curriculum and facilitator materials
-  partners teach from.
-  Proof (hover to reveal): Ava Millstone joins to lead curriculum and
-  learning design.
-
-
-  ── 2017  ·  Media & print              [color: magenta]
-  Tagline: Design, video, print media.
-  What we could do: Bring design, motion, and print-media craft to every
-  learning experience.
-  Proof (hover to reveal): Creative Director Asha Kelly joins; Michaela
-  Bradley later builds out in-house media production.
-
-
-  ── 2019  ·  eLearning & STEM           [color: yellow]
-  Tagline: Interactive, blended, at scale.
-  What we could do: Build interactive, self-paced modules, including
-  STEM-specialized experiences, that scale beyond the room.
-  Proof (hover to reveal): Nadia Zaid joins for our first eLearning build
-  with Early Learning Indiana; Cara Johnson grows our STEM specialization
-  with Nano.
-
-
-  ── 2023  ·  Chat interactions and agentic feedback   [color: plum]
-  Tagline: Chat-based interviews, AI-assisted learning.
-  What we could do: Add chat-based interviews and AI-powered feedback so
-  learning responds in real time and tailors to each learner.
-  Proof (hover to reveal): Career Ikigai personalized pathway tool; the
-  StriveTogether CI Toolkit later ships with an AI-powered chatbot.
-
-
-  ── 2024  ·  Apps & custom platforms    [color: sky]
-  Tagline: Dashboards, custom LMS, agentic feedback.
-  What we could do: Design custom apps, data dashboards, and bespoke LMS
-  builds, with agentic feedback wrapped around the learning.
-  Proof (hover to reveal): App design for data dashboards, custom LMS, and
-  agentic feedback join the toolkit.
-
-
-  ── 2025  ·  Technical Capacity and Storytelling   [color: orange]  NEW
-  Tagline: TA, design systems, and narrative for the field.
-  What we could do: Pair technical assistance with brand-grade storytelling:
-  design systems, branded portals, print + web ecosystems, and field-facing
-  publications that turn partner expertise into shareable practice.
-  Proof (hover to reveal): B'more for Healthy Babies "Get It Documented"
-  digital hub: SME interviews synthesized into seven branded publications
-  plus a content portal integrated into BHB's site.
-
-
-===============================================================================
-03  ·  OUR WORK
-===============================================================================
-[Light section. A grid of WORK CARDS. Each card now leads with a SERVICE
- CHIP in the same color palette as the timeline (eLearning yellow, Career
- teal, etc.). Below the chip: muted "year · client" meta, the title, and
- a short summary, with a "See the work / Open the demo / Watch the demo"
- call to action. Clicking a card opens a MODAL overlay: it embeds a live
- demo/video when we have one, otherwise shows the write-up plus a button
- out to related work.]
-
-  Header: Work we're proud of
-  Lede:   A few projects that capture the craft, the impact, and the
-          partnerships.
-
-
-  ── CARD 1
-  Service chip: eLearning & Blended Learning   (yellow)
-  Meta:  2024 · StriveTogether
-  Title: Continuous Improvement Toolkit for Educators
-  Summary: A flagship blend: broadcast-quality video, scenario-based
-  interactions, and an AI-powered chatbot that coaches educators through
-  continuous-improvement cycles. The toolkit translates StriveTogether's
-  methodology into learning that responds.
-  Media: YouTube embed NX34X3OjS9s
-
-
-  ── CARD 2
-  Service chip: eLearning & Blended Learning   (yellow)
-  Meta:  2022 · Greenwood Leadership Academy
-  Title: Black Wall Street Multi-Year Curriculum
-  Summary: We partnered with Greenwood Leadership Academy, a Pre-K through
-  5th grade school of the Tulsa Public Schools. We helped to create a
-  blended history project consisting of a multi-year learning journey for
-  Pre-K through Grade 5 that connects scholars to the history and pride of
-  their community. By leveraging storytelling, blended learning strategies,
-  and innovative media tools, the Black Wall Street Multi-Year Curriculum
-  stands as a model for culturally responsive education, empowering both
-  students and teachers to explore and honor their community's past.
-  Media: YouTube embed L6ieouQDqbs
-  Link out: Google Sites curriculum hub
-            https://sites.google.com/integral-ed.com/glablackwallstreet/home
-
-
-  ── CARD 3
-  Service chip: Career Connected Learning   (teal)
-  Meta:  2021 · AFS
-  Title: Energy Scavenger Hunt
-  Summary: A gamified, exploration-based learning experience that sends
-  learners hunting for the energy concepts hidden in the world around them,
-  turning a technical subject into hands-on, curiosity-driven discovery.
-  Media: Storyline launch at
-         integral-elearning.space/demo/energy_scavenger_hunt/story.html
-
-
-  ── CARD 4
-  Service chip: Career Connected Learning   (teal)
-  Meta:  2022 · KIPP
-  Title: KIPP Forward: National Counseling Institute
-  Summary: Since 2022, the design partner behind KIPP Forward's National
-  Counseling Institute: asynchronous training modules, newly designed anchor
-  graphics, and live facilitation rooted in role plays and real student case
-  studies. The work grows equity-focused, student-centered counseling across
-  KIPP high schools, and has since scaled into a regional train-the-trainer
-  model.
-  Media: YouTube embed 49_VAHyZv2E
-
-  [Optional 5th card: Nano STEM highlight - stubbed in the data, needs
-   client/year/summary + a demo URL.]
-
-
-===============================================================================
-04  ·  THE TEAM
-===============================================================================
-[Light section. First a TENURE CHART: a horizontal bar per year showing how
- the team grew (the bars animate to width on scroll). Then a GRID of
- teammate cards: photo, a tenure badge ("9 yrs" / "NEW"), name, and role;
- each card links to that person's /team/ profile and reveals a "View
- profile" cue on hover.]
-
-  Header: The people behind the work
-  Lede:   Long-tenured, multi-disciplinary, and growing.
-
-  [Headcount by year (drives the chart): 2011:1, 2014:2, 2015:4, 2016:5,
-   2017:6, 2018:7, 2019:9, 2020:10, 2021:12, 2022:14, 2023:17, 2024:20,
-   2026:21]
-
-  [Current roster shown as cards (name - role - since):]
-   - David Malbin        Founder                                       (2011)
-   - Ava Millstone       Senior Director of Curriculum                 (2014)
-   - April Graham        Instructional Designer                        (2015)
-   - Alicia Chipman      Project Director                              (2015)
-   - Tara Williams       Senior Director of Partnerships               (2016)
-   - Asha Kelly          Creative Director                             (2017)
-   - Jody Walls          Head of Accounting                            (2018)
-   - Cara Johnson        Project Director, STEM Learning & Innovation  (2019)
-   - Nadia Zaid          Senior Director of eLearning                  (2019)
-   - Erin McIntee        Senior eLearning Developer / ID               (2020)
-   - Morgan Taveras      Director of Integrated Adult Learning         (2021)
-   - Michaela Bradley    Senior Video Editor                           (2021)
-   - Whitney Henderson   Senior Advisor                                (2022)
-   - Dinky Cruz-Cada     Storyline Developer                           (2022)
-   - Shanna Schlossberg  Content Specialist                            (2023)
-   - Jo Barnett          Senior Content Specialist                     (2023)
-   - Diane Takata Powell Senior Advisor                                (2023)
-   - Luciana Santimaria  Senior Storyline Developer                    (2024)
-   - Chelsea George      Curriculum Associate                          (2024)
-   - Maddie Murphy       Curriculum Associate                          (2024)
-   - Emily Kiefer        Curriculum Associate                  (2026, newest)
-
-
-===============================================================================
-05  ·  CLIENTS  (testimonials + logo wall)
-===============================================================================
-[Light section. The featured testimonials now sit in a 2x2 GRID (stacks
- to one column under 820px). Each card is differentiated by its OWN
- service color so the four read as visually distinct rather than a uniform
- wall. Each card carries:
-   · a 6px top color band in the per-client svc color
-   · an oversized decorative quote mark in that color, low-opacity
-   · the quote in larger non-italic body weight
-   · attribution where the speaker's NAME is auto-bolded by splitting on
-     the first comma in the source string
-   · a divider-separated "what we did together" story below
-   · the client logo at the bottom-left
-
- Below the featured cards is the LOGO WALL of all client organizations.]
-
-  Header: Who we've grown alongside
-  Lede:   Fifteen years of partnerships across education, workforce, and
-          the nonprofit sector.
-
-
-  ── FEATURED 1  ·  StriveTogether                              [yellow band]
-  Quote: "Integral Ed does an amazing job of understanding who we are as
-  an organization. They thoughtfully translate our content into interactive
-  courses that take our work to the next level."
-  Attribution: Heidi Black, VP of Training, StriveTogether
-  Story: We translated StriveTogether's continuous-improvement methodology
-  into an interactive toolkit for educators: video, scenario-based practice,
-  and an AI-powered chatbot that coaches in real time.
-
-
-  ── FEATURED 2  ·  EL Education                               [magenta band]
-  Quote: "You guys are our easy button!"
-  Attribution: Natalie Taylor, Program Team (Professional Learning
-  Products), EL Education
-  Story: A go-to partner for EL Education's professional-learning products,
-  translating their content into polished, ready-to-use learning experiences
-  their team can lean on.
-
-
-  ── FEATURED 3  ·  KIPP                                        [teal band]
-  Quote: "Integral Ed's responsiveness to our evolving needs, and deep
-  commitment to educational equity have made them an exceptional partner."
-  Attribution: Sarah Gomez, M.Ed., Interim Senior Director, KIPP Forward
-  Story: Since 2022, a central partner to KIPP Forward's National
-  Counseling Institute, with Whitney Henderson directing the work:
-  asynchronous modules, newly designed anchor graphics, and live,
-  role-play-rich facilitation built on real student case studies that grow
-  equity-focused, student-centered counseling across KIPP high schools.
-
-
-  ── FEATURED 4  ·  Danielson Group                              [sky band]
-  Quote: "They have truly been critical partners in our growth and ongoing
-  success."
-  Attribution: Dr. Lee Kappes, CEO, Danielson Group
-  Story: Since 2020, Integral Ed has been the Danielson Group's insourced
-  eLearning team, led by Tara Williams, carrying them from fully in-person
-  delivery into blended and asynchronous formats: building every one of
-  their e-learning courses, standing up their LMS, and shaping guidance
-  documents downloaded by more than a million educators nationwide.
-
-
-  [LOGO WALL  ·  all client logos shown in a grayscale grid that colors on
-   hover:]
-   AFS · BHB · CLEE · Danielson Group · Dreamscape Learn · Edmentum · EIF ·
-   EL Education · Formation Ventures · Hope · iMentor · KIPP · Lenox Hill
-   Neighborhood House · Project Lead the Way · MMCO · NMSI · STRIVE ·
-   StriveTogether · The Tell · UnboundEd · Veritas Prep
-
-
-===============================================================================
-06  ·  TODAY  (closing / call to action)
-===============================================================================
+**Our first app & LMS**
+
+We build our first app and launch our first learning management system
+with The Teaching Kitchen, including mobile-adaptive training materials.
+
+Chip: Mobile Adaptive Training - TTK (sky · platforms)
+
+
+## **2019** · pill: eLearning / STEM · split year
+
+**eLearning & STEM take off**
+
+▸ **eLearning practice begins** (yellow · eLearning)
+   Nadia Zaid joins and we launch our first eLearning project for
+   Early Learning Indiana.
+   Chip: Lead Paint Awareness - ELI (yellow · eLearning)
+
+▸ **STEM specialization** (yellow · eLearning)
+   Cara Johnson joins, bringing a fresh take on NGSS pedagogy and
+   building out our STEM specialization; our PLTW work deepens
+   professional-development alignment in parallel.
+   Chips: Nano - VR Science Labs (yellow · eLearning)
+          NGSS pedagogy primer (yellow · eLearning)
+          PLTW Launch 3rd Grade STEM (yellow · eLearning)
+
+
+## **2020** · pill: COVID pivot
+
+**The crisis turn to LMS**
+
+When the world went remote, we helped partners stand up learning
+management systems and move whole programs online, fast, as Erin
+McIntee joins, bringing expert, complex Storyline development.
+
+
+## **2021** · pill: Growth
+
+**Media & adult learning**
+
+Michaela Bradley joins and we build out in-house media production,
+while Morgan Taveras brings adult-learning expertise and
+character-driven design.
+
+
+## **2022** · pill: KIPP / Agentic · split year
+
+**Two new directions**
+
+▸ **KIPP Forward partnership begins** (teal · career)
+   We begin our partnership with KIPP Forward, designing an
+   introduction course for high-school counselors.
+   Chip: Introduction to KIPP Forward (teal · career)
+
+▸ **Chat-based learning takes shape** (teal · career)
+   We start experimenting with chat-based interviews and agentic
+   feedback to tailor last-mile customization and personalization.
+   Chip: Career Ikigai pathway tool (teal · career)
+
+
+## **2023** · pill: Growth
+
+**Mastering the blend**
+
+Mastering the blend is about designing materials for live facilitation
+and making the most of async modules to prepare and extend live
+sessions, bringing them closer to on-the-ground application.
+
+
+## **2024** · pill: AI / Platforms · split year
+
+**Agentic learning meets custom platforms**
+
+▸ **Agentic learning** (yellow · eLearning)
+   The StriveTogether Continuous Improvement Toolkit ships with
+   scenario-based interactions and an AI-powered chatbot: learning
+   that responds.
+   (No chip on this sub-event: the StriveTogether toolkit lives in the
+   "Work we're proud of" cards in section 03.)
+
+▸ **Custom platforms** (sky · platforms)
+   Premium Portal for Popped! goes live, delivering tiered free and
+   premium media to parents of kids with dyslexia on a custom
+   subscription platform.
+   Chip: Premium Portal - Popped! (sky · platforms)
+
+
+## **2025** · pill: Technical Capacity & Storytelling · split year
+
+**Technical capacity meets storytelling**
+
+▸ **Technical capacity** (orange · technical)
+   Pairing design systems, branded portals, and field-facing
+   publications with SME interviews so partner expertise becomes
+   shareable practice.
+   Chip: B'more Get It Documented (orange · technical)
+
+▸ **Storytelling** (magenta · media)
+   Mixed-media video series that translate Zoom-quality source footage
+   into conversation starters the field can use right away.
+   Chip: Raising Awareness of Bias in ECE (magenta · media)
+
+
+## **2026** · pill: Today
+
+**Fifteen years on**
+
+A 21-person studio spanning instructional design, eLearning, media,
+platforms, and strategy, still growing together.
+
+
+# 02 · Evolution (the "subway map" of capabilities)
+
+[Dark section. The centerpiece is a SUBWAY-MAP diagram: each capability
+is a colored "line" that starts at the year we added it and runs to
+today, with lines converging on the right to show how the streams now
+weave together. The lines draw themselves in as you scroll; hovering one
+thickens its stroke (no dimming of the rest).
+
+Below the map is a legend, one card per capability. Cards are vibrant
+by default (each carries a tinted gradient in its stream color, no
+longer muted). On hover, the card lifts and the "proof" detail slides
+in from below. On touch devices the proof is always visible.]
+
+**Header.** Each year, a new thing we could do
+
+**Lede.** Our capabilities stacked, never replaced. Hover or scroll
+through the layers.
+
+
+## **2011** · Data & analysis (blue)
+
+**Tagline.** One person, one laptop.
+
+**What we could do.** Turn messy program data into clear,
+decision-ready insight.
+
+**Proof** (hover to reveal). The founding service: analytics for
+mission-driven education orgs.
+
+
+## **2014** · Curriculum & facilitation (teal)
+
+**Tagline.** Slides, guides, facilitator kits.
+
+**What we could do.** Design the curriculum and facilitator materials
+partners teach from.
+
+**Proof** (hover to reveal). Ava Millstone joins to lead curriculum
+and learning design.
+
+
+## **2017** · Media & print (magenta)
+
+**Tagline.** Design, video, print media.
+
+**What we could do.** Bring design, motion, and print-media craft to
+every learning experience.
+
+**Proof** (hover to reveal). Creative Director Asha Kelly joins;
+Michaela Bradley later builds out in-house media production.
+
+
+## **2019** · eLearning & STEM (yellow)
+
+**Tagline.** Interactive, blended, at scale.
+
+**What we could do.** Build interactive, self-paced modules, including
+STEM-specialized experiences, that scale beyond the room.
+
+**Proof** (hover to reveal). Nadia Zaid joins for our first eLearning
+build with Early Learning Indiana; Cara Johnson grows our STEM
+specialization with Nano.
+
+
+## **2023** · Chat interactions and agentic feedback (plum)
+
+**Tagline.** Chat-based interviews, AI-assisted learning.
+
+**What we could do.** Add chat-based interviews and AI-powered feedback
+so learning responds in real time and tailors to each learner.
+
+**Proof** (hover to reveal). Career Ikigai personalized pathway tool;
+the StriveTogether CI Toolkit later ships with an AI-powered chatbot.
+
+
+## **2024** · Apps & custom platforms (sky)
+
+**Tagline.** Dashboards, custom LMS, agentic feedback.
+
+**What we could do.** Design custom apps, data dashboards, and bespoke
+LMS builds, with agentic feedback wrapped around the learning.
+
+**Proof** (hover to reveal). App design for data dashboards, custom
+LMS, and agentic feedback join the toolkit.
+
+
+## **2025** · Technical Capacity and Storytelling (orange) · new
+
+**Tagline.** TA, design systems, and narrative for the field.
+
+**What we could do.** Pair technical assistance with brand-grade
+storytelling: design systems, branded portals, print + web ecosystems,
+and field-facing publications that turn partner expertise into
+shareable practice.
+
+**Proof** (hover to reveal). B'more for Healthy Babies "Get It
+Documented" digital hub: SME interviews synthesized into seven branded
+publications plus a content portal integrated into BHB's site.
+
+
+# 03 · Our Work
+
+[Light section. A grid of WORK CARDS. Each card leads with a SERVICE
+CHIP in the same color palette as the timeline. Below the chip: muted
+"year · client" meta, the title, a short summary, and a "See the work
+/ Open the demo / Watch the demo" call to action. Clicking a card
+opens a MODAL overlay that embeds the live demo/video where we have
+one.]
+
+**Header.** Work we're proud of
+
+**Lede.** A few projects that capture the craft, the impact, and the
+partnerships.
+
+
+## Card 1 · Continuous Improvement Toolkit for Educators
+
+**Service.** eLearning & Blended Learning (yellow)
+
+**Meta.** 2024 · StriveTogether
+
+**Summary.** A flagship blend: broadcast-quality video, scenario-based
+interactions, and an AI-powered chatbot that coaches educators through
+continuous-improvement cycles. The toolkit translates StriveTogether's
+methodology into learning that responds.
+
+**Media.** YouTube embed NX34X3OjS9s
+
+
+## Card 2 · Black Wall Street Multi-Year Curriculum
+
+**Service.** eLearning & Blended Learning (yellow)
+
+**Meta.** 2022 · Greenwood Leadership Academy
+
+**Summary.** We partnered with Greenwood Leadership Academy, a Pre-K
+through 5th grade school of the Tulsa Public Schools. We helped to
+create a blended history project consisting of a multi-year learning
+journey for Pre-K through Grade 5 that connects scholars to the
+history and pride of their community. By leveraging storytelling,
+blended learning strategies, and innovative media tools, the Black
+Wall Street Multi-Year Curriculum stands as a model for culturally
+responsive education, empowering both students and teachers to
+explore and honor their community's past.
+
+**Media.** YouTube embed L6ieouQDqbs
+
+**Link out.** Google Sites curriculum hub:
+https://sites.google.com/integral-ed.com/glablackwallstreet/home
+
+
+## Card 3 · Energy Scavenger Hunt
+
+**Service.** Career Connected Learning (teal)
+
+**Meta.** 2021 · AFS
+
+**Summary.** A gamified, exploration-based learning experience that
+sends learners hunting for the energy concepts hidden in the world
+around them, turning a technical subject into hands-on,
+curiosity-driven discovery.
+
+**Media.** Storyline launch at
+integral-elearning.space/demo/energy_scavenger_hunt/story.html
+
+
+## Card 4 · KIPP Forward: National Counseling Institute
+
+**Service.** Career Connected Learning (teal)
+
+**Meta.** 2022 · KIPP
+
+**Summary.** Since 2022, the design partner behind KIPP Forward's
+National Counseling Institute: asynchronous training modules, newly
+designed anchor graphics, and live facilitation rooted in role plays
+and real student case studies. The work grows equity-focused,
+student-centered counseling across KIPP high schools, and has since
+scaled into a regional train-the-trainer model.
+
+**Media.** YouTube embed 49_VAHyZv2E
+
+
+# 04 · The Team
+
+[Light section. First a TENURE CHART: a horizontal bar per year showing
+how the team grew (bars animate to width on scroll). Then a GRID of
+teammate cards: photo, a tenure badge ("9 yrs" / "NEW"), name, and
+role; each card links to that person's /team/ profile and reveals a
+"View profile" cue on hover.]
+
+**Header.** The people behind the work
+
+**Lede.** Long-tenured, multi-disciplinary, and growing.
+
+
+## Headcount over time
+
+(drives the chart): **2011** 1 · **2014** 2 · **2015** 4 · **2016** 5 ·
+**2017** 6 · **2018** 7 · **2019** 9 · **2020** 10 · **2021** 12 ·
+**2022** 14 · **2023** 17 · **2024** 20 · **2026** 21
+
+
+## Current roster
+
+Each row: name, role, since-year.
+
+- David Malbin · Founder · **2011**
+- Ava Millstone · Senior Director of Curriculum · **2014**
+- April Graham · Instructional Designer · **2015**
+- Alicia Chipman · Project Director · **2015**
+- Tara Williams · Senior Director of Partnerships · **2016**
+- Asha Kelly · Creative Director · **2017**
+- Jody Walls · Head of Accounting · **2018**
+- Cara Johnson · Project Director, STEM Learning & Innovation · **2019**
+- Nadia Zaid · Senior Director of eLearning · **2019**
+- Erin McIntee · Senior eLearning Developer / ID · **2020**
+- Morgan Taveras · Director of Integrated Adult Learning · **2021**
+- Michaela Bradley · Senior Video Editor · **2021**
+- Whitney Henderson · Senior Advisor · **2022**
+- Dinky Cruz-Cada · Storyline Developer · **2022**
+- Shanna Schlossberg · Content Specialist · **2023**
+- Jo Barnett · Senior Content Specialist · **2023**
+- Diane Takata Powell · Senior Advisor · **2023**
+- Luciana Santimaria · Senior Storyline Developer · **2024**
+- Chelsea George · Curriculum Associate · **2024**
+- Maddie Murphy · Curriculum Associate · **2024**
+- Emily Kiefer · Curriculum Associate · **2026, newest**
+
+
+# 05 · Clients (testimonials + logo wall)
+
+[Light section. The featured testimonials sit in a 2x2 GRID (stacks
+to one column under 820px). Each card is differentiated by its OWN
+service color so the four read as visually distinct. Each card
+carries:
+
+- a 6px top color band in the per-client service color
+- an oversized decorative quote mark in that color, low-opacity
+- the quote in larger non-italic body weight
+- attribution where the speaker's NAME is auto-bolded by splitting on
+  the first comma in the source string
+- a divider-separated "what we did together" story below
+- the client logo at the bottom-left
+
+Below the featured cards is the LOGO WALL of all client organizations,
+grayscale, coloring on hover.]
+
+**Header.** Who we've grown alongside
+
+**Lede.** Fifteen years of partnerships across education, workforce,
+and the nonprofit sector.
+
+
+## Featured 1 · StriveTogether (yellow band)
+
+**Quote.** "Integral Ed does an amazing job of understanding who we
+are as an organization. They thoughtfully translate our content into
+interactive courses that take our work to the next level."
+
+**Attribution.** Heidi Black, VP of Training, StriveTogether
+
+**Story.** We translated StriveTogether's continuous-improvement
+methodology into an interactive toolkit for educators: video,
+scenario-based practice, and an AI-powered chatbot that coaches in
+real time.
+
+
+## Featured 2 · EL Education (magenta band)
+
+**Quote.** "You guys are our easy button!"
+
+**Attribution.** Natalie Taylor, Program Team (Professional Learning
+Products), EL Education
+
+**Story.** A go-to partner for EL Education's professional-learning
+products, translating their content into polished, ready-to-use
+learning experiences their team can lean on.
+
+
+## Featured 3 · KIPP (teal band)
+
+**Quote.** "Integral Ed's responsiveness to our evolving needs, and
+deep commitment to educational equity have made them an exceptional
+partner."
+
+**Attribution.** Sarah Gomez, M.Ed., Interim Senior Director, KIPP
+Forward
+
+**Story.** Since 2022, a central partner to KIPP Forward's National
+Counseling Institute, with Whitney Henderson directing the work:
+asynchronous modules, newly designed anchor graphics, and live,
+role-play-rich facilitation built on real student case studies that
+grow equity-focused, student-centered counseling across KIPP high
+schools.
+
+
+## Featured 4 · Danielson Group (sky band)
+
+**Quote.** "They have truly been critical partners in our growth and
+ongoing success."
+
+**Attribution.** Dr. Lee Kappes, CEO, Danielson Group
+
+**Story.** Since 2020, Integral Ed has been the Danielson Group's
+insourced eLearning team, led by Tara Williams, carrying them from
+fully in-person delivery into blended and asynchronous formats:
+building every one of their e-learning courses, standing up their
+LMS, and shaping guidance documents downloaded by more than a million
+educators nationwide.
+
+
+## Logo wall (grayscale, colors on hover)
+
+AFS, BHB, CLEE, Danielson Group, Dreamscape Learn, Edmentum, EIF,
+EL Education, Formation Ventures, Hope, iMentor, KIPP, Lenox Hill
+Neighborhood House, Project Lead the Way, MMCO, NMSI, STRIVE,
+StriveTogether, The Tell, UnboundEd, Veritas Prep.
+
+
+# 06 · Today (closing / call to action)
+
 [Dark plum closing section. Section header + lede, a grid of the six
- service areas. Each service card now carries a 4px LEFT BORDER in its
- brand color, so the legend the rest of the page uses is anchored visually
- here. Then a CTA box with a closing line and a button to contact the team.]
+service areas. Each service card carries a 4px LEFT BORDER in its
+brand color, anchoring the legend the rest of the page uses. Then a
+CTA box with a closing line and a button to contact the team.]
 
-  Header: What we do today
-  Lede:   Six related service areas: one partner, one point of contact.
+**Header.** What we do today
 
-  [Service links, with brand color left-border swatches:]
-   · eLearning & Blended Learning   (yellow)   -> /services/elearning/
-   · Technical Assistance           (orange)   -> /services/capacity/
-   · Career Connected Learning      (teal)     -> /services/career-pathways/
-   · Growth Strategy                (blue)     -> /services/strategy-and-growth/
-   · LMS & Platforms                (sky)      -> /services/platforms/
-   · Media & Communications         (magenta)  -> /services/media-and-communications/
-
-  [CTA box:]
-  Here's to the next fifteen.
-  Bring us the project you're trying to move forward. We'll help you find
-  the right starting point.
-  [Button: Talk With Our Team  ->  /contact/]
+**Lede.** Six related service areas: one partner, one point of
+contact.
 
 
-===============================================================================
-PORTFOLIO MODALS  ·  what opens when a timeline chip is clicked
-===============================================================================
+## Service links (with brand-color left-border swatches)
+
+- eLearning & Blended Learning (yellow) → /services/elearning/
+- Technical Assistance (orange) → /services/capacity/
+- Career Connected Learning (teal) → /services/career-pathways/
+- Growth Strategy (blue) → /services/strategy-and-growth/
+- LMS & Platforms (sky) → /services/platforms/
+- Media & Communications (magenta) → /services/media-and-communications/
+
+
+## CTA box
+
+**Here's to the next fifteen.**
+
+Bring us the project you're trying to move forward. We'll help you
+find the right starting point.
+
+Button: Talk With Our Team → /contact/
+
+
+# Portfolio Modals (what opens when a timeline chip is clicked)
+
 [Every colored chip in the timeline opens a portfolio MODAL with the
- project's title, client, year, service area, a description, and (where
- we have it) an embedded YouTube video or Storyline launch. The same
- modal is shared with the project cards in section 03.
-
- If you find a missing video URL or a description that needs tightening,
- the source of truth is the portfolio block at the bottom of
- anniversary-data.js.]
+project's title, client, year, service area, a description, and where
+we have it an embedded YouTube video or Storyline launch. The same
+modal is shared with the project cards in section 03.]
 
 
-  ── identityWayfinding   (teal · career)
-  Title:  Identity Exploration and Wayfinding
-  Client: iMentor   ·  2016  ·  Post-Secondary Ideation
-  Description: From 2017-2019 we partnered with iMentor to revise and align
-  and rebuild curricula for their national 2-year and 4-year program
-  models, including all curricular content for high-school students and
-  their mentors. Goals and outcomes for this curriculum focused on
-  college-fit, soft-skills, transition from high-school and college
-  success.
-  Media: YouTube embed MmePkbDCIWE
+## identityWayfinding (teal · career)
+
+**Title.** Identity Exploration and Wayfinding
+
+**Client / Year / Service.** iMentor · **2016** · Post-Secondary
+Ideation
+
+**Description.** From 2017-2019 we partnered with iMentor to revise
+and align and rebuild curricula for their national 2-year and 4-year
+program models, including all curricular content for high-school
+students and their mentors. Goals and outcomes for this curriculum
+focused on college-fit, soft-skills, transition from high-school and
+college success.
+
+**Media.** YouTube embed MmePkbDCIWE
 
 
-  ── apForAll   (yellow · eLearning)
-  Title:  AP For All Curriculum Materials
-  Client: NMSI   ·  2017  ·  K-12 Academic Curriculum, Educator Training
-  Description: We collaborated with the National Math and Science
-  Initiative (NMSI), a non-profit organization dedicated towards advancing
-  STEM through strengthened STEM educators. Our team worked with subject
-  matter experts to design and develop sets of printable materials. These
-  materials include teacher guidance, student workbooks, pacing guides,
-  and professional development documents for both presenters and
-  participants. As an example of collateral produced through this
-  partnership, our team generated these Instructor-Led Training materials
-  consisting of a presenter handbook, student workbook, and participant
-  workbook.
-  Media: NMSI Mockup graphic (no video)
+## apForAll (yellow · eLearning)
+
+**Title.** AP For All Curriculum Materials
+
+**Client / Year / Service.** NMSI · **2017** · K-12 Academic
+Curriculum, Educator Training
+
+**Description.** We collaborated with the National Math and Science
+Initiative (NMSI), a non-profit organization dedicated towards
+advancing STEM through strengthened STEM educators. Our team worked
+with subject matter experts to design and develop sets of printable
+materials. These materials include teacher guidance, student
+workbooks, pacing guides, and professional development documents for
+both presenters and participants.
+
+**Media.** NMSI Mockup graphic (no video).
 
 
-  ── ttk   (sky · platforms)
-  Title:  Mobile Adaptive Training from The Teaching Kitchen
-  Client: Lenox Hill Neighborhood House   ·  2018  ·  eLearning & Blended Learning
-  Description: We partnered with Lenox Hill Neighborhood House, a
-  nonprofit that provides an extensive array of effective and integrated
-  human services. We helped design and develop a mobile app to support
-  cooks and kitchen staff to learn "farm to institution" cooking from the
-  Teaching Chefs of The Teaching Kitchen. Our team attended live
-  trainings, filmed cooking demos and produced this mixed program as an
-  app and web-accessible LMS for nonprofits across the nation. This video
-  provides a walkthrough of our eLearning Design for the mobile app.
-  Media: YouTube embed 1vV-02hOXdI
+## ttk (sky · platforms)
+
+**Title.** Mobile Adaptive Training from The Teaching Kitchen
+
+**Client / Year / Service.** Lenox Hill Neighborhood House · **2018**
+· eLearning & Blended Learning
+
+**Description.** We partnered with Lenox Hill Neighborhood House, a
+nonprofit that provides an extensive array of effective and integrated
+human services. We helped design and develop a mobile app to support
+cooks and kitchen staff to learn "farm to institution" cooking from
+the Teaching Chefs of The Teaching Kitchen. Our team attended live
+trainings, filmed cooking demos and produced this mixed program as an
+app and web-accessible LMS for nonprofits across the nation.
+
+**Media.** YouTube embed 1vV-02hOXdI
 
 
-  ── leadPaint   (yellow · eLearning)
-  Title:  Lead Paint Awareness for Indiana ECE Providers
-  Client: Early Learning Indiana   ·  2019  ·  eLearning & Blended Learning
-  Description: We partnered with Early Learning Indiana, an organization
-  dedicated to providing the highest quality early care and education
-  from infancy to pre-K in Indianapolis and West Lafayette-area centers.
-  We helped Early Learning Indiana with these efforts by creating a
-  scenario-based eLearning for child care facilities in the state of
-  Indiana. Our team produced this scenario-based quiz designed to reduce
-  lead toxicity in children and summatively assess the learner at the
-  end of the quiz.
-  Media: Storyline embed at integral-elearning.space/demo/lead_scenario/story.html
+## leadPaint (yellow · eLearning)
+
+**Title.** Lead Paint Awareness for Indiana ECE Providers
+
+**Client / Year / Service.** Early Learning Indiana · **2019** ·
+eLearning & Blended Learning
+
+**Description.** We partnered with Early Learning Indiana, an
+organization dedicated to providing the highest quality early care
+and education from infancy to pre-K in Indianapolis and West
+Lafayette-area centers. We helped Early Learning Indiana with these
+efforts by creating a scenario-based eLearning for child care
+facilities in the state of Indiana. Our team produced this
+scenario-based quiz designed to reduce lead toxicity in children and
+summatively assess the learner at the end of the quiz.
+
+**Media.** Storyline embed at
+integral-elearning.space/demo/lead_scenario/story.html
 
 
-  ── nano   (yellow · eLearning)
-  Title:  Nano: Virtual Reality Science Labs
-  Client: Lighthaus   ·  2019  ·  eLearning & Blended Learning
-  Description: We partnered with Lighthaus Inc., a leader in top quality
-  game-powered immersive learning. We helped support curriculum design
-  for Nano, a VR science game with real science in its DNA by Lighthaus
-  Inc. We were proud to support classroom curriculum design as Lighthaus
-  rigorously tested their beliefs about immersive science learning with
-  innovation grants from the National Institutes of Health and the U.S.
-  Department of Education. As an example of collateral produced through
-  this partnership, our team generated the dynamic video, "NANO Virtual
-  Reality Science".
-  Media: YouTube embed kNpS80n8z6k
+## nano (yellow · eLearning)
+
+**Title.** Nano: Virtual Reality Science Labs
+
+**Client / Year / Service.** Lighthaus · **2019** · eLearning &
+Blended Learning
+
+**Description.** We partnered with Lighthaus Inc., a leader in top
+quality game-powered immersive learning. We helped support curriculum
+design for Nano, a VR science game with real science in its DNA by
+Lighthaus Inc. We were proud to support classroom curriculum design
+as Lighthaus rigorously tested their beliefs about immersive science
+learning with innovation grants from the National Institutes of
+Health and the U.S. Department of Education.
+
+**Media.** YouTube embed kNpS80n8z6k
 
 
-  ── ngssScience   (yellow · eLearning)
-  Title:  Update your hypothesis about science pedagogy
-  Client: NMSI / NGSS context   ·  2019  ·  Curriculum Development, K-12 STEM
-  Description: A multi-paragraph essay reflecting on the limits of the
-  scientific method as a single frame for NGSS curriculum, drawing on
-  John Rudolph's "How We Teach Science" to argue for crosscutting concepts
-  and Science and Engineering Practices.
-  Media: NGSS Infographic 2019
+## ngssScience (yellow · eLearning)
+
+**Title.** Update your hypothesis about science pedagogy
+
+**Client / Year / Service.** NMSI / NGSS context · **2019** ·
+Curriculum Development, K-12 STEM
+
+**Description.** A multi-paragraph essay reflecting on the limits of
+the scientific method as a single frame for NGSS curriculum, drawing
+on John Rudolph's "How We Teach Science" to argue for crosscutting
+concepts and Science and Engineering Practices.
+
+**Media.** NGSS Infographic 2019.
 
 
-  ── kippIntro   (teal · career)
-  Title:  Introduction to KIPP Forward
-  Client: KIPP Forward   ·  2022  ·  eLearning & Blended Learning
-  Description: We collaborated with KIPP Forward in their efforts to
-  provide high school students with quality curriculum, guidance with
-  college selection and transition, and access to partners that support
-  students with their college and career journey. As an example of
-  collateral produced through this partnership, we created this
-  website-style course that uses attractive visuals, video, and embedded
-  interaction to increase engagement of learners.
-  Media: Articulate Rise embed at
-         integral-elearning.space/demo/intro_kipp_forward_rise/content/
+## pltw (yellow · eLearning)
+
+**Title.** PLTW Launch: 3rd Grade STEM Module
+
+**Client / Year / Service.** Project Lead the Way · **2019** · K-12
+Academic Curriculum, NGSS, Teacher Professional Development
+
+**Description.** PLTW is a nonprofit that provides transformative,
+real-world experiences for students from Pre-K through high school.
+We partnered with PLTW on their ambitious goal to bring their
+elementary Launch curriculum into full coverage with the NGSS,
+designing a new 3rd grade STEM module taught in classrooms across the
+country. The inquiry-based module comprises 10 hours of instructional
+content aligned to the NGSS plus teacher professional development;
+six more modules are now in development. Every lesson incorporates
+hands-on, experiential learning. Modules use the Engineering Design
+Process, and PD resources help teachers set up labs and activities
+with confidence.
+
+**Media.** PLTW logo as preview (no demo material). Modal CTA reads
+"Visit PLTW" and opens https://www.pltw.org/ in a new tab.
 
 
-  ── careerIkigai   (teal · career)
-  Title:  Career Ikigai: Personalized Pathway Tool
-  Client: Integral Ed   ·  2022  ·  Chat-Based Learning, Agentic Feedback
-  Description: Career Ikigai is a chat-based learning experience that
-  guides users through a structured interview to surface interests,
-  strengths, and goals. The system synthesizes responses into personalized
-  pathways, actionable next steps, and a formatted slide output that can
-  be edited and shared with advisors or mentors. Designed for use in
-  counseling, advising, and workforce programs, it can connect to
-  localized job market data and support cohort-level insights through
-  shared outputs and dashboards.
-  Media: Cover image (career-ikigai-cover.png) instead of iframe; the
-         modal CTA is a "Launch Career Ikigai" button that opens
-         https://career-ikigai.org/ in a new tab.
+## kippIntro (teal · career)
+
+**Title.** Introduction to KIPP Forward
+
+**Client / Year / Service.** KIPP Forward · **2022** · eLearning &
+Blended Learning
+
+**Description.** We collaborated with KIPP Forward in their efforts
+to provide high school students with quality curriculum, guidance
+with college selection and transition, and access to partners that
+support students with their college and career journey. As an example
+of collateral produced through this partnership, we created this
+website-style course that uses attractive visuals, video, and
+embedded interaction to increase engagement of learners.
+
+**Media.** Articulate Rise embed at
+integral-elearning.space/demo/intro_kipp_forward_rise/content/
 
 
-  ── premiumPortal   (sky · platforms)
-  Title:  Premium Portal: Free and Premium Media for Parents of Kids with Dyslexia
-  Client: Clever Noodle (Popped!)   ·  2025  ·  Custom Platform, Digital Transformation
-  Description: Welcome to the Clever Noodle Portal, a tailored platform
-  we designed to support both free and premium experiences for parents.
-  This portal integrates seamlessly with Stripe for secure payment
-  processing and AirTable for efficient data management. It provides a
-  user-friendly interface where parents can access a variety of
-  educational resources and tools.
-  Media: YouTube embed GxXxpQSeyhw
+## careerIkigai (teal · career)
+
+**Title.** Career Ikigai: Personalized Pathway Tool
+
+**Client / Year / Service.** Integral Ed · **2022** · Chat-Based
+Learning, Agentic Feedback
+
+**Description.** Career Ikigai is a chat-based learning experience
+that guides users through a structured interview to surface
+interests, strengths, and goals. The system synthesizes responses
+into personalized pathways, actionable next steps, and a formatted
+slide output that can be edited and shared with advisors or mentors.
+Designed for use in counseling, advising, and workforce programs, it
+can connect to localized job market data and support cohort-level
+insights through shared outputs and dashboards.
+
+**Media.** Cover image (career-ikigai-cover.png) inside the modal;
+CTA is a "Launch Career Ikigai" button that opens
+https://career-ikigai.org/ in a new tab.
 
 
-  ── bmoreGetItDocumented   (orange · technical)
-  Title:  B'more for Healthy Babies: Get It Documented
-  Client: B'more for Healthy Babies   ·  2025  ·  Technical Capacity, Storytelling
-  Description: We partnered with B'more for Healthy Babies to create Get
-  It Documented, a digital hub making complex public health data clear
-  and usable for organizations improving maternal and infant health. Our
-  team conducted over twenty hours of interviews with BHB leaders,
-  synthesizing a decade of lessons into seven designed publications. Each
-  combines storytelling with technical resources to help other communities
-  replicate successful practices. Integral Ed also built a branded content
-  portal integrated into BHB's site.
-  Media: No video; link out to https://www.healthybabiesbaltimore.com/hub/home
+## biasAwarenessECE (magenta · media)
+
+**Title.** Raising Awareness of Bias in Early Childhood Education
+
+**Client / Year / Service.** Buncombe Partnership for Children ·
+**2023** · Video Storytelling
+
+**Description.** We joined forces with Buncombe Partnership for
+Children, an organization dedicated to partnering with local
+organizations to improve early childhood education, early care,
+literacy opportunities, family support, and more. We helped produce
+a three-part video series for Early Care and Education (ECE)
+providers to prompt discussion about racial biases within early
+childhood care centers in Asheville, N.C. We conducted interviews on
+Zoom, working from low-fidelity video and audio recordings. Our
+approach blends mixed media and illustration, designed to foster a
+sense of identification and generalization without casting blame.
+
+**Media.** YouTube playlist embed
+(videoseries?list=PLAR-tdNHAf2ag6w7MPqxCgc419GgcK3aB)
 
 
-  ── pltw   (yellow · eLearning)
-  Title:  PLTW Launch: 3rd Grade STEM Module
-  Client: Project Lead the Way   ·  2019  ·  K-12 Academic Curriculum, NGSS,
-          Teacher Professional Development
-  Description: PLTW is a nonprofit that provides transformative, real-world
-  experiences for students from Pre-K through high school. We partnered with
-  PLTW on their ambitious goal to bring their elementary Launch curriculum
-  into full coverage with the NGSS, designing a new 3rd grade STEM module
-  taught in classrooms across the country. The inquiry-based module
-  comprises 10 hours of instructional content aligned to the NGSS plus
-  teacher professional development; six more modules are now in development.
-  Every lesson incorporates hands-on, experiential learning. Modules use
-  the Engineering Design Process, and PD resources help teachers set up
-  labs and activities with confidence.
-  Media: PLTW logo (no demo material available). Modal CTA reads "Visit
-         PLTW" and opens https://www.pltw.org/ in a new tab.
+## premiumPortal (sky · platforms)
+
+**Title.** Premium Portal: Free and Premium Media for Parents of
+Kids with Dyslexia
+
+**Client / Year / Service.** Clever Noodle (Popped!) · **2025** ·
+Custom Platform, Digital Transformation
+
+**Description.** Welcome to the Clever Noodle Portal, a tailored
+platform we designed to support both free and premium experiences
+for parents. This portal integrates seamlessly with Stripe for
+secure payment processing and AirTable for efficient data
+management. It provides a user-friendly interface where parents can
+access a variety of educational resources and tools.
+
+**Media.** YouTube embed GxXxpQSeyhw
 
 
-  ── biasAwarenessECE   (magenta · media)
-  Title:  Raising Awareness of Bias in Early Childhood Education
-  Client: Buncombe Partnership for Children   ·  2023  ·  Video Storytelling
-  Description: We joined forces with Buncombe Partnership for Children,
-  an organization dedicated to partnering with local organizations to
-  improve early childhood education, early care, literacy opportunities,
-  family support, and more. We helped produce a three-part video series
-  for Early Care and Education (ECE) providers to prompt discussion about
-  racial biases within early childhood care centers in Asheville, N.C.
-  We conducted interviews on Zoom, working from low-fidelity video and
-  audio recordings. Our approach blends mixed media and illustration,
-  designed to foster a sense of identification and generalization without
-  casting blame.
-  Media: YouTube playlist embed (videoseries?list=PLAR-tdNHAf2ag6w7MPqxCgc419GgcK3aB)
+## bmoreGetItDocumented (orange · technical)
+
+**Title.** B'more for Healthy Babies: Get It Documented
+
+**Client / Year / Service.** B'more for Healthy Babies · **2025** ·
+Technical Capacity, Storytelling
+
+**Description.** We partnered with B'more for Healthy Babies to
+create Get It Documented, a digital hub making complex public health
+data clear and usable for organizations improving maternal and infant
+health. Our team conducted over twenty hours of interviews with BHB
+leaders, synthesizing a decade of lessons into seven designed
+publications. Each combines storytelling with technical resources to
+help other communities replicate successful practices. Integral Ed
+also built a branded content portal integrated into BHB's site.
+
+**Media.** No video; link out to
+https://www.healthybabiesbaltimore.com/hub/home
 
 
-===============================================================================
-OPEN QUESTIONS FOR THE TEAM
-===============================================================================
-  RESOLVED 2026-06-08 (this snapshot)
-  --
-  · All four Work card media URLs landed:
-      StriveTogether        YouTube NX34X3OjS9s
-      Black Wall Street     YouTube L6ieouQDqbs + Google Sites curriculum
-      Energy Scavenger Hunt Storyline launch
-      KIPP Forward NCI      YouTube 49_VAHyZv2E
-  · Black Wall Street year confirmed: 2022
-  · Energy Scavenger Hunt year confirmed: 2021
-  · Counters updated to 250+ Projects delivered / 75 Partner organizations
+# Open Questions
 
-  RESOLVED 2026-06-08 (later, this snapshot)
-  --
-  · Nano stays as a chip in 2019 (no 5th Work card).
-  · Career Ikigai now shows the cover image inside the modal instead of
-    an iframe; the action button reads "Launch Career Ikigai" and opens
-    https://career-ikigai.org/ in a new tab.
-  · 2019 split into two sub-events (eLearning practice begins, STEM
-    specialization) matching the 2022 / 2024 / 2025 pattern.
+## Resolved this snapshot (2026-06-08)
 
-  STILL OPEN
-  --
-  (none at this snapshot)
-===============================================================================
+- All four Work card media URLs landed: StriveTogether (YouTube
+  NX34X3OjS9s), Black Wall Street (YouTube L6ieouQDqbs + Google Sites
+  curriculum), Energy Scavenger Hunt (Storyline launch), KIPP
+  Forward NCI (YouTube 49_VAHyZv2E).
+- Black Wall Street year confirmed: **2022**.
+- Energy Scavenger Hunt year confirmed: **2021**.
+- Counters updated to **250+** Projects delivered, **75** Partner
+  organizations.
+- Nano stays as a chip in 2019 only (no 5th Work card).
+- Career Ikigai modal now shows the cover image instead of an iframe;
+  CTA reads "Launch Career Ikigai" and opens
+  https://career-ikigai.org/ in a new tab.
+- 2019 split into two sub-events ("eLearning practice begins", "STEM
+  specialization"), matching the 2022 / 2024 / 2025 pattern.
+- PLTW Launch 3rd Grade STEM added as a portfolio modal (logo as
+  preview, "Visit PLTW" launch button).
+- /team page is now the canonical gallery (Softr embed removed);
+  /team-2026 redirects to /team as a safety net.
+
+## Still open
+
+(none at this snapshot)

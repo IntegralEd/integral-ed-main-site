@@ -1,5 +1,5 @@
 /*
- * team.js — gallery interactions
+ * team.js: gallery interactions
  *   • Card click → hydrate modal from <template> + open popout-frame
  *   • Copy-link button (card + modal + standalone page) → vanity URL
  *   • Search input → live filter on name + title
@@ -11,7 +11,7 @@
 
   var SITE_ORIGIN = window.location.origin;
   var grid0 = document.getElementById('team-grid');
-  var TEAM_BASE = (grid0 && grid0.getAttribute('data-team-base')) || '/team-2026/';
+  var TEAM_BASE = (grid0 && grid0.getAttribute('data-team-base')) || '/team/';
 
   function vanityUrl(slug) { return SITE_ORIGIN + TEAM_BASE + slug + '/'; }
 
@@ -79,7 +79,7 @@
   // popout-frame.js handles closing via .popout-close click + esc; tap into close to clear URL
   if (modal) {
     modal.addEventListener('click', function (e) {
-      if (e.target === modal) closeMember(); // backdrop click — popout-frame.js may also close
+      if (e.target === modal) closeMember(); // backdrop click; popout-frame.js may also close
     });
     var closeBtn = modal.querySelector('.popout-close');
     if (closeBtn) closeBtn.addEventListener('click', closeMember);
