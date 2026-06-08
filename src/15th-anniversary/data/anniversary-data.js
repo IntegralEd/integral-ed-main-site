@@ -520,9 +520,12 @@ window.ANNIVERSARY_DATA = {
    * 5) CLIENTS: featured stories + the full logo set.
    * ------------------------------------------------------------------------- */
   clients: {
+    // svc drives the per-card color in the 2x2 testimonial grid: each client
+    // gets a distinct hue so the four cards read as differentiated at a glance.
     featured: [
       {
         name: "StriveTogether",
+        svc: "elearning",
         logo: "/assets/images/client-logos/StriveTogether-Brandmark-w-tag-RGB-Grey-orange-1%20(1).png",
         story: "We translated StriveTogether's continuous-improvement methodology into an interactive toolkit for educators: video, scenario-based practice, and an AI-powered chatbot that coaches in real time.",
         quote: "Integral Ed does an amazing job of understanding who we are as an organization. They thoughtfully translate our content into interactive courses that take our work to the next level.",
@@ -531,6 +534,7 @@ window.ANNIVERSARY_DATA = {
       },
       {
         name: "EL Education",
+        svc: "media",
         logo: "/assets/images/client-logos/EL_EDUCATION_logo_crimson_preferred%20(4).png",
         story: "A go-to partner for EL Education's professional-learning products, translating their content into polished, ready-to-use learning experiences their team can lean on.",
         quote: "You guys are our easy button!",
@@ -539,6 +543,7 @@ window.ANNIVERSARY_DATA = {
       },
       {
         name: "KIPP",
+        svc: "career",
         logo: "/assets/images/client-logos/KIPP%20Logo.png",
         story: "Since 2022, a central partner to KIPP Forward's National Counseling Institute, with Whitney Henderson directing the work: asynchronous modules, newly designed anchor graphics, and live, role-play-rich facilitation built on real student case studies that grow equity-focused, student-centered counseling across KIPP high schools.",
         quote: "Integral Ed's responsiveness to our evolving needs, and deep commitment to educational equity have made them an exceptional partner.",
@@ -547,6 +552,7 @@ window.ANNIVERSARY_DATA = {
       },
       {
         name: "Danielson Group",
+        svc: "platforms",
         logo: "/assets/images/client-logos/Danielson%20Group%20-%20Horiz%20Logo_Color-RGB.avif",
         story: "Since 2020, Integral Ed has been the Danielson Group's insourced eLearning team, led by Tara Williams, carrying them from fully in-person delivery into blended and asynchronous formats: building every one of their e-learning courses, standing up their LMS, and shaping guidance documents downloaded by more than a million educators nationwide.",
         quote: "They have truly been critical partners in our growth and ongoing success.",

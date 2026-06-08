@@ -423,19 +423,35 @@
   }
 
   /* ── Clients ──────────────────────────────────────────────────────────── */
+  // Bold the first comma-separated chunk of an attribution string ("Heidi
+  // Black" in "Heidi Black, VP of Training, StriveTogether") and leave the
+  // role + org as muted runtime text. Keeps the data clean (one string).
+  function formatAttribution(s) {
+    if (!s) return '';
+    var i = s.indexOf(',');
+    if (i < 0) return '<strong>' + esc(s) + '</strong>';
+    return '<strong>' + esc(s.slice(0, i)) + '</strong>' + esc(s.slice(i));
+  }
   function renderClients() {
     var c = D.clients || {};
     var feat = $('anniv-clients-featured');
     if (feat) {
       var fs = (c.featured || []).filter(function (f) { return f && (f.name || f.logo); });
       feat.innerHTML = fs.map(function (f) {
-        return '<div class="anniv-client-card reveal">' +
-          (f.logo ? '<img class="anniv-client-logo" src="' + esc(f.logo) + '" alt="' + esc(f.name || '') + '" loading="lazy">' : '') +
-          (f.story ? '<p class="anniv-client-story">' + linkNames(f.story) + '</p>' : '') +
-          (f.quote ? '<blockquote class="anniv-client-quote">' + esc(f.quote) +
-            (f.quoteAttribution ? '<cite>' + esc(f.quoteAttribution) + '</cite>' : '') +
-            '</blockquote>' : '') +
-          '</div>';
+        var svcCls = f.svc ? ' svc-' + esc(f.svc) : '';
+        return '<article class="anniv-client-card reveal' + svcCls + '">' +
+          '<span class="anniv-client-mark" aria-hidden="true">&ldquo;</span>' +
+          (f.quote ? '<blockquote class="anniv-client-quote">' + esc(f.quote) + '</blockquote>' : '') +
+          (f.quoteAttribution
+            ? '<p class="anniv-client-attribution">' + formatAttribution(f.quoteAttribution) + '</p>'
+            : '') +
+          (f.story
+            ? '<p class="anniv-client-story">' + linkNames(f.story) + '</p>'
+            : '') +
+          (f.logo
+            ? '<img class="anniv-client-logo" src="' + esc(f.logo) + '" alt="' + esc(f.name || '') + '" loading="lazy">'
+            : (f.name ? '<span class="anniv-client-name">' + esc(f.name) + '</span>' : '')) +
+          '</article>';
       }).join('');
     }
     var wall = $('anniv-logos');

@@ -498,16 +498,116 @@ a.anniv-member:hover .anniv-member-cta { opacity: 1; transform: translateY(0); }
 .anniv-member-name { display: block; font-weight: 700; font-size: 0.95rem; line-height: 1.2; }
 .anniv-member-role { display: block; color: var(--text-tertiary); font-size: 0.78rem; margin-top: 0.15rem; line-height: 1.3; }
 
-/* ── Clients ────────────────────────────────────────────────────────────── */
-.anniv-clients-featured { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: var(--spacing-lg); margin-bottom: var(--spacing-2xl); }
-.anniv-client-card { padding: var(--spacing-lg); border: 1px solid var(--border-light); border-radius: var(--radius-lg); background: var(--bg-primary); }
-.anniv-client-logo { display: block; max-height: 52px; max-width: 180px; object-fit: contain; margin-bottom: 1rem; }
-.anniv-client-story { margin: 0 0 1rem; color: var(--text-secondary); font-size: 0.97rem; }
-.anniv-client-quote {
-  margin: 0; padding: 0.2rem 0 0 1rem; border-left: 3px solid var(--accent-magenta);
-  font-size: 1.05rem; font-style: italic; line-height: 1.55; color: var(--text-primary);
+/* ── Clients: 2x2 testimonial grid ──────────────────────────────────────
+   Each card carries its own svc-* class so a top color band + decorative
+   quote mark take on that client's hue. Distinct color per card makes the
+   four feel differentiated at a glance instead of a uniform wall. */
+.anniv-clients-featured {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: var(--spacing-xl);
+  max-width: 1100px;
+  margin: var(--spacing-xl) auto var(--spacing-2xl);
 }
-.anniv-client-quote cite { display: block; margin-top: 0.7rem; font-style: normal; font-size: 0.82rem; font-weight: 700; color: var(--color-plum); }
+
+.anniv-client-card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 0.9rem;
+  padding: 2rem 2rem 1.6rem;
+  background: var(--bg-primary);
+  border: 1px solid var(--border-light);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-sm);
+  overflow: hidden;
+  transition: transform var(--transition-base), box-shadow var(--transition-base);
+}
+.anniv-client-card:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-lg);
+}
+
+/* Top color band picks up --svc-c from the per-card svc-* class */
+.anniv-client-card::before {
+  content: "";
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 6px;
+  background: var(--svc-c, var(--color-plum));
+}
+
+/* Decorative oversized quote mark, low-opacity in the svc color */
+.anniv-client-mark {
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 4.5rem;
+  line-height: 0.7;
+  color: var(--svc-c, var(--color-plum));
+  opacity: 0.28;
+  margin: 0.4rem 0 -0.6rem;
+  user-select: none;
+}
+
+.anniv-client-quote {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 1.15rem;
+  font-weight: 500;
+  line-height: 1.5;
+  color: var(--text-primary);
+  font-style: normal;
+}
+
+.anniv-client-attribution {
+  margin: 0;
+  font-size: 0.86rem;
+  color: var(--text-tertiary);
+  line-height: 1.5;
+}
+.anniv-client-attribution strong {
+  display: inline;
+  color: var(--text-primary);
+  font-weight: 700;
+}
+
+.anniv-client-story {
+  margin: 0;
+  padding-top: 1rem;
+  border-top: 1px solid var(--border-light);
+  font-size: 0.9rem;
+  line-height: 1.6;
+  color: var(--text-secondary);
+}
+
+.anniv-client-logo {
+  display: block;
+  max-height: 36px;
+  max-width: 160px;
+  width: auto;
+  object-fit: contain;
+  margin-top: auto;
+  align-self: flex-start;
+  opacity: 0.85;
+}
+
+.anniv-client-name {
+  margin-top: auto;
+  font-family: var(--font-display);
+  font-weight: 700;
+  color: var(--svc-c, var(--color-plum));
+}
+
+/* Stack to a single column at narrower widths so each testimonial keeps
+   the same proportional balance as on desktop. */
+@media (max-width: 820px) {
+  .anniv-clients-featured {
+    grid-template-columns: 1fr;
+    gap: var(--spacing-lg);
+  }
+  .anniv-client-card { padding: 1.6rem 1.6rem 1.3rem; }
+  .anniv-client-mark { font-size: 3.6rem; }
+}
 .anniv-logos { display: grid; grid-template-columns: repeat(auto-fill, minmax(130px, 1fr)); gap: var(--spacing-lg); align-items: center; justify-items: center; }
 .anniv-logos img { max-width: 130px; max-height: 56px; object-fit: contain; filter: grayscale(1); opacity: 0.7; transition: filter var(--transition-base), opacity var(--transition-base); }
 .anniv-logos img:hover { filter: grayscale(0); opacity: 1; }
