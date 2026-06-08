@@ -503,17 +503,22 @@
   }
   function animateCounter(el) {
     whenUnlocked(function () {
+      // Cancel any in-flight animation on this counter so re-entry triggers a
+      // fresh count-up from zero, even mid-roll.
+      if (el._rafId) cancelAnimationFrame(el._rafId);
       var target = Number(el.getAttribute('data-target') || 0);
       var suffix = el.getAttribute('data-suffix') || '';
+      el.textContent = '0' + suffix;
       var dur = 1600, start = null;
       function tick(ts) {
         if (start == null) start = ts;
         var t = Math.min((ts - start) / dur, 1);
         var eased = 1 - Math.pow(1 - t, 3);
         el.textContent = Math.round(eased * target).toLocaleString() + suffix;
-        if (t < 1) requestAnimationFrame(tick);
+        if (t < 1) el._rafId = requestAnimationFrame(tick);
+        else el._rafId = null;
       }
-      requestAnimationFrame(tick);
+      el._rafId = requestAnimationFrame(tick);
     });
   }
 
@@ -535,9 +540,13 @@
     }, { rootMargin: '0px 0px -10% 0px', threshold: 0.1 });
     revealEls.forEach(function (e) { io.observe(e); });
 
+    // Don't unobserve so the counters re-animate every time they re-enter
+    // the viewport (e.g. when scrolling back up to the hero). animateCounter
+    // resets to 0 + cancels any in-flight RAF so re-entries always restart
+    // cleanly.
     var cio = new IntersectionObserver(function (entries) {
       entries.forEach(function (en) {
-        if (en.isIntersecting) { animateCounter(en.target); cio.unobserve(en.target); }
+        if (en.isIntersecting) animateCounter(en.target);
       });
     }, { threshold: 0.4 });
     counters.forEach(function (c) { cio.observe(c); });

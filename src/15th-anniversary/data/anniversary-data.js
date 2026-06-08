@@ -34,7 +34,7 @@ window.ANNIVERSARY_DATA = {
     anniversaryYear: 2026,
     eyebrow: "2011-2026",
     headline: "Fifteen years helping organizations learn, adapt, and grow.",
-    subhead: "From one analyst with a laptop to a 21-person studio building blended, media-rich, AI-assisted learning. Here's the road we've traveled together.",
+    subhead: "From a founder with a laptop to a 21-person studio building blended, media-rich, agentic learning. Here's a look back at the road we've traveled since 2011.",
     // Big numbers that count up on load. label is shown under the number.
     counters: [
       { value: 15,  suffix: "",  label: "Years growing together" },
