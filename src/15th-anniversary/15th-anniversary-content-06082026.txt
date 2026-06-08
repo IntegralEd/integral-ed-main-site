@@ -147,15 +147,20 @@ Note    : This page is shown to clients on our biz-dev list (clients can see
   CHIP:  Mobile Adaptive Training (TTK)   (sky · platforms)
 
 
-  ── 2019  [pill: eLearning]
+  ── 2019  [pill: eLearning / STEM]  ── SPLIT YEAR ──
   eLearning & STEM take off
-  Nadia Zaid joins and we launch our first eLearning project for Early
-  Learning Indiana; Cara Johnson joins, bringing a fresh take on NGSS
-  pedagogy and building out our STEM specialization; and our PLTW work
-  deepens professional-development alignment.
-  CHIPS:  Lead Paint Awareness (ELI)        (yellow · eLearning)
-          Nano: VR Science Labs             (yellow · eLearning)
-          NGSS pedagogy primer              (yellow · eLearning)
+
+    · eLearning practice begins   (yellow · eLearning)
+      Nadia Zaid joins and we launch our first eLearning project for
+      Early Learning Indiana.
+      CHIP:  Lead Paint Awareness (ELI)   (yellow · eLearning)
+
+    · STEM specialization   (yellow · eLearning)
+      Cara Johnson joins, bringing a fresh take on NGSS pedagogy and
+      building out our STEM specialization; our PLTW work deepens
+      professional-development alignment in parallel.
+      CHIPS:  Nano: VR Science Labs       (yellow · eLearning)
+              NGSS pedagogy primer        (yellow · eLearning)
 
 
   ── 2020  [pill: COVID pivot]
@@ -636,7 +641,9 @@ PORTFOLIO MODALS  ·  what opens when a timeline chip is clicked
   counseling, advising, and workforce programs, it can connect to
   localized job market data and support cohort-level insights through
   shared outputs and dashboards.
-  Media: Live embed of https://career-ikigai.org/
+  Media: Cover image (career-ikigai-cover.png) instead of iframe; the
+         modal CTA is a "Launch Career Ikigai" button that opens
+         https://career-ikigai.org/ in a new tab.
 
 
   ── premiumPortal   (sky · platforms)
@@ -695,12 +702,16 @@ OPEN QUESTIONS FOR THE TEAM
   · Energy Scavenger Hunt year confirmed: 2021
   · Counters updated to 250+ Projects delivered / 75 Partner organizations
 
+  RESOLVED 2026-06-08 (later, this snapshot)
+  --
+  · Nano stays as a chip in 2019 (no 5th Work card).
+  · Career Ikigai now shows the cover image inside the modal instead of
+    an iframe; the action button reads "Launch Career Ikigai" and opens
+    https://career-ikigai.org/ in a new tab.
+  · 2019 split into two sub-events (eLearning practice begins, STEM
+    specialization) matching the 2022 / 2024 / 2025 pattern.
+
   STILL OPEN
   --
-  1. Should the Nano STEM project be added as a 5th Work card (or stay
-     just a chip in 2019)?
-  2. Career Ikigai modal embeds career-ikigai.org as an iframe. If that
-     site sends X-Frame-Options DENY or restrictive frame-ancestors, the
-     iframe will be blank; the "View the full case study" button is the
-     fallback. Confirm whether the inline embed works.
+  (none at this snapshot)
 ===============================================================================

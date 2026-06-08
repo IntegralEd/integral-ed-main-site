@@ -116,14 +116,27 @@ window.ANNIVERSARY_DATA = {
     {
       year: 2019,
       title: "eLearning & STEM take off",
-      body: "Nadia Zaid joins and we launch our first eLearning project for Early Learning Indiana; Cara Johnson joins, bringing a fresh take on NGSS pedagogy and building out our STEM specialization; and our PLTW work deepens professional-development alignment.",
-      highlights: [
-        { svc: "elearning", ref: "leadPaint",   label: "Lead Paint Awareness (ELI)" },
-        { svc: "elearning", ref: "nano",        label: "Nano: VR Science Labs" },
-        { svc: "elearning", ref: "ngssScience", label: "NGSS pedagogy primer" }
+      tag: "eLearning / STEM",
+      events: [
+        {
+          theme: "eLearning practice begins",
+          svc: "elearning",
+          body: "Nadia Zaid joins and we launch our first eLearning project for Early Learning Indiana.",
+          highlights: [
+            { svc: "elearning", ref: "leadPaint", label: "Lead Paint Awareness (ELI)" }
+          ]
+        },
+        {
+          theme: "STEM specialization",
+          svc: "elearning",
+          body: "Cara Johnson joins, bringing a fresh take on NGSS pedagogy and building out our STEM specialization; our PLTW work deepens professional-development alignment in parallel.",
+          highlights: [
+            { svc: "elearning", ref: "nano",        label: "Nano: VR Science Labs" },
+            { svc: "elearning", ref: "ngssScience", label: "NGSS pedagogy primer" }
+          ]
+        }
       ],
-      image: "",
-      tag: "eLearning"
+      image: ""
     },
     {
       year: 2020,
@@ -474,9 +487,14 @@ window.ANNIVERSARY_DATA = {
       serviceArea: "Chat-Based Learning, Agentic Feedback",
       svc: "career",
       summary: "Career Ikigai is a chat-based learning experience that guides users through a structured interview to surface interests, strengths, and goals. The system synthesizes responses into personalized pathways, actionable next steps, and a formatted slide output that can be edited and shared with advisors or mentors. Designed for use in counseling, advising, and workforce programs, it can connect to localized job market data and support cohort-level insights through shared outputs and dashboards.",
-      embedUrl: "https://career-ikigai.org/",
+      // Iframe-embedding career-ikigai.org gave the wrong aspect ratio inside
+      // the modal; switched to cover image + launch button so the live app
+      // opens in its own tab where it has room to breathe.
+      image: "/assets/images/anniversary/career-ikigai-cover.png",
+      embedUrl: "",
       videoUrl: "",
-      link: "https://career-ikigai.org/"
+      link: "https://career-ikigai.org/",
+      linkLabel: "Launch Career Ikigai"
     },
     ngssScience: {
       title: "Update your hypothesis about science pedagogy",

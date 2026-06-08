@@ -334,8 +334,10 @@
     if (dest) {
       var external = /^https?:/i.test(dest);
       var tgt = external ? ' target="_blank" rel="noopener"' : '';
-      var label = (p.link ? 'View the full case study' : 'Explore related work');
-      actions = '<a class="anniv-modal-btn" href="' + esc(dest) + '"' + tgt + '>' + label + ' &rarr;</a>';
+      // Per-item override via p.linkLabel; otherwise pick a default based on
+      // whether this is a case-study link (p.link) or a related-work fallback.
+      var label = p.linkLabel || (p.link ? 'View the full case study' : 'Explore related work');
+      actions = '<a class="anniv-modal-btn" href="' + esc(dest) + '"' + tgt + '>' + esc(label) + ' &rarr;</a>';
     }
     m.querySelector('.anniv-modal-actions').innerHTML = actions;
 
