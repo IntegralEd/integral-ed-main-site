@@ -159,8 +159,9 @@ Note    : This page is shown to clients on our biz-dev list (clients can see
       Cara Johnson joins, bringing a fresh take on NGSS pedagogy and
       building out our STEM specialization; our PLTW work deepens
       professional-development alignment in parallel.
-      CHIPS:  Nano: VR Science Labs       (yellow · eLearning)
-              NGSS pedagogy primer        (yellow · eLearning)
+      CHIPS:  Nano: VR Science Labs        (yellow · eLearning)
+              NGSS pedagogy primer         (yellow · eLearning)
+              PLTW Launch 3rd Grade STEM   (yellow · eLearning)
 
 
   ── 2020  [pill: COVID pivot]
@@ -670,6 +671,24 @@ PORTFOLIO MODALS  ·  what opens when a timeline chip is clicked
   replicate successful practices. Integral Ed also built a branded content
   portal integrated into BHB's site.
   Media: No video; link out to https://www.healthybabiesbaltimore.com/hub/home
+
+
+  ── pltw   (yellow · eLearning)
+  Title:  PLTW Launch: 3rd Grade STEM Module
+  Client: Project Lead the Way   ·  2019  ·  K-12 Academic Curriculum, NGSS,
+          Teacher Professional Development
+  Description: PLTW is a nonprofit that provides transformative, real-world
+  experiences for students from Pre-K through high school. We partnered with
+  PLTW on their ambitious goal to bring their elementary Launch curriculum
+  into full coverage with the NGSS, designing a new 3rd grade STEM module
+  taught in classrooms across the country. The inquiry-based module
+  comprises 10 hours of instructional content aligned to the NGSS plus
+  teacher professional development; six more modules are now in development.
+  Every lesson incorporates hands-on, experiential learning. Modules use
+  the Engineering Design Process, and PD resources help teachers set up
+  labs and activities with confidence.
+  Media: PLTW logo (no demo material available). Modal CTA reads "Visit
+         PLTW" and opens https://www.pltw.org/ in a new tab.
 
 
   ── biasAwarenessECE   (magenta · media)

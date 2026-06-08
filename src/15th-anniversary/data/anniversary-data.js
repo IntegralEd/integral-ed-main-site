@@ -132,7 +132,8 @@ window.ANNIVERSARY_DATA = {
           body: "Cara Johnson joins, bringing a fresh take on NGSS pedagogy and building out our STEM specialization; our PLTW work deepens professional-development alignment in parallel.",
           highlights: [
             { svc: "elearning", ref: "nano",        label: "Nano: VR Science Labs" },
-            { svc: "elearning", ref: "ngssScience", label: "NGSS pedagogy primer" }
+            { svc: "elearning", ref: "ngssScience", label: "NGSS pedagogy primer" },
+            { svc: "elearning", ref: "pltw",        label: "PLTW Launch 3rd Grade STEM" }
           ]
         }
       ],
@@ -526,6 +527,20 @@ window.ANNIVERSARY_DATA = {
       summary: "We joined forces with Buncombe Partnership for Children, an organization dedicated to partnering with local organizations to improve early childhood education, early care, literacy opportunities, family support, and more. We helped produce a three-part video series for Early Care and Education (ECE) providers to prompt discussion about racial biases within early childhood care centers in Asheville, N.C.\n\nWe conducted interviews on Zoom, working from low-fidelity video and audio recordings. Our approach blends mixed media and illustration, designed to foster a sense of identification and generalization without casting blame.",
       videoUrl: "https://www.youtube.com/embed/videoseries?list=PLAR-tdNHAf2ag6w7MPqxCgc419GgcK3aB",
       link: "https://www.youtube.com/playlist?list=PLAR-tdNHAf2ag6w7MPqxCgc419GgcK3aB"
+    },
+    pltw: {
+      title: "PLTW Launch: 3rd Grade STEM Module",
+      client: "Project Lead the Way",
+      year: 2019,
+      serviceArea: "K-12 Academic Curriculum, NGSS, Teacher Professional Development",
+      svc: "elearning",
+      summary: "PLTW is a nonprofit that provides transformative, real-world experiences for students from Pre-K through high school. We partnered with PLTW on their ambitious goal to bring their elementary Launch curriculum into full coverage with the NGSS, designing a new 3rd grade STEM module taught in classrooms across the country. The inquiry-based module comprises 10 hours of instructional content aligned to the NGSS plus teacher professional development; six more modules are now in development.\n\nEvery lesson incorporates hands-on, experiential learning designed to inspire a lifelong interest in math and science. Modules use the Engineering Design Process, and the accompanying PD resources help teachers build a deeper understanding and set up labs and activities with confidence.",
+      // No demo media to share for this project, so the partner's logo
+      // doubles as the preview card art.
+      image: "/assets/images/anniversary/pltw-logo.svg",
+      videoUrl: "",
+      link: "https://www.pltw.org/",
+      linkLabel: "Visit PLTW"
     }
   },
 

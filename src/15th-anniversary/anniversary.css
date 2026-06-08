@@ -535,6 +535,18 @@ html.anniv-modal-open { overflow: hidden; }
    aspect ratio decide. Cropping a tall infographic to 16:9 hides the point. */
 .anniv-modal-media:has(img) { aspect-ratio: auto; background: transparent; }
 .anniv-modal-media:has(img) img { height: auto; max-height: 70vh; object-fit: contain; }
+/* Logos and small cover marks (SVG) are usually transparent and small, so
+   give them a tinted background and a comfortable bounding box rather than
+   letting them render at their intrinsic 1-inch size. */
+.anniv-modal-media:has(img[src$=".svg"]) {
+  background: var(--bg-tertiary, #f5f5f5);
+  padding: 2.4rem 1.5rem;
+}
+.anniv-modal-media:has(img[src$=".svg"]) img {
+  max-height: 160px;
+  max-width: 360px;
+  margin: 0 auto;
+}
 .anniv-modal-body { color: var(--text-secondary); font-size: 1rem; line-height: 1.6; }
 .anniv-modal-body p { margin: 0 0 0.8rem; }
 .anniv-modal-actions { margin-top: 1.2rem; }
