@@ -128,7 +128,10 @@
           (t.body ? '<p class="anniv-tl-body">' + linkNames(t.body) + '</p>' : '') +
           renderChipStrip(t.highlights);
       }
-      return '<li class="anniv-tl-item reveal' + (events.length ? ' anniv-tl-item--split' : '') + '">' +
+      var cls = 'anniv-tl-item reveal' +
+        (events.length ? ' anniv-tl-item--split' : '') +
+        (t.celebrate ? ' anniv-tl-item--celebrate' : '');
+      return '<li class="' + cls + '">' +
         '<span class="anniv-tl-dot"></span>' +
         '<span class="anniv-tl-year">' + esc(t.year || '') + '</span>' +
         (t.tag ? '<span class="anniv-tl-tag">' + esc(t.tag) + '</span>' : '') +
@@ -137,6 +140,40 @@
         (t.image ? '<img class="anniv-tl-img" src="' + esc(t.image) + '" alt="' + esc(t.title || '') + '" loading="lazy">' : '') +
         '</li>';
     }).join('');
+  }
+
+  /* ── Confetti: brand-color burst when a "celebrate" entry scrolls in ───── */
+  var CONFETTI_COLORS = ['#600b68', '#b8357b', '#ffbc50', '#4dadb3', '#4d72ac', '#58b0e3', '#f08a3e'];
+  function fireConfetti(host) {
+    var reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    if (reduce) return;
+    var burst = document.createElement('div');
+    burst.className = 'anniv-confetti';
+    burst.setAttribute('aria-hidden', 'true');
+    for (var i = 0; i < 48; i++) {
+      var piece = document.createElement('i');
+      var color = CONFETTI_COLORS[i % CONFETTI_COLORS.length];
+      piece.style.setProperty('--c', color);
+      piece.style.setProperty('--x', (Math.random() * 100) + '%');
+      piece.style.setProperty('--r', (Math.random() * 720 - 360) + 'deg');
+      piece.style.setProperty('--d', (Math.random() * 0.7) + 's');
+      piece.style.setProperty('--s', (0.6 + Math.random() * 0.8).toFixed(2));
+      burst.appendChild(piece);
+    }
+    host.appendChild(burst);
+    // Remove after the longest animation ends so re-entry can fire again.
+    setTimeout(function () { if (burst.parentNode) burst.parentNode.removeChild(burst); }, 3400);
+  }
+  function setupCelebrate() {
+    var items = document.querySelectorAll('.anniv-tl-item--celebrate');
+    if (!items.length) return;
+    if (!('IntersectionObserver' in window)) return;
+    var io = new IntersectionObserver(function (entries) {
+      entries.forEach(function (en) {
+        if (en.isIntersecting) fireConfetti(en.target);
+      });
+    }, { threshold: 0.5 });
+    Array.prototype.forEach.call(items, function (el) { io.observe(el); });
   }
 
   /* ── Evolution: "subway map" weave + detail legend ────────────────────────
@@ -184,7 +221,7 @@
       if (cX < oX + 12) cX = oX + 12;
       var d = 'M ' + oX + ' ' + oY + ' H ' + cX +
               ' C ' + (cX + 54) + ' ' + oY + ' ' + (termX - 64) + ' ' + bY + ' ' + termX + ' ' + bY;
-      return '<g class="anniv-subway-line ' + color + '">' +
+      return '<g class="anniv-subway-line ' + color + '" data-evo-id="' + esc(s.id || i) + '">' +
         '<title>' + esc(s.stage) + ' · since ' + esc(s.year) + '</title>' +
         '<path class="anniv-subway-path" d="' + d + '"/>' +
         '<circle class="anniv-subway-stop" cx="' + oX + '" cy="' + oY + '" r="7"/>' +
@@ -212,9 +249,9 @@
     var stages = (D.evolution || []).filter(function (s) { return s && s.stage; });
     if (!stages.length) { el.innerHTML = empty('Evolution stages'); return; }
 
-    var legend = '<div class="anniv-evo-list">' + stages.map(function (s) {
+    var legend = '<div class="anniv-evo-list">' + stages.map(function (s, i) {
       var color = 'evo-' + (s.color || 'plum');
-      return '<div class="anniv-evo-row reveal ' + color + '">' +
+      return '<div class="anniv-evo-row reveal ' + color + '" data-evo-id="' + esc(s.id || i) + '">' +
         '<span class="anniv-evo-swatch" aria-hidden="true"></span>' +
         '<div class="anniv-evo-rowmain">' +
           '<div class="anniv-evo-top">' +
@@ -228,7 +265,29 @@
         '</div>';
     }).join('') + '</div>';
 
-    el.innerHTML = buildSubway(stages) + legend;
+    var hint = '<p class="anniv-evo-hint">Hover a stream on the map, or a card below, to spotlight the capability and the proof behind it.</p>';
+    el.innerHTML = buildSubway(stages) + hint + legend;
+  }
+
+  /* ── Evolution hover sync: map line <-> legend card (per Ava's UX note,
+   * hovering the lines should visibly connect to the detail cards). ─────── */
+  function setupEvoSync() {
+    var wrap = $('anniv-evolution');
+    if (!wrap) return;
+    function pair(id) {
+      return wrap.querySelectorAll('[data-evo-id="' + id + '"]');
+    }
+    function bind(el) {
+      var id = el.getAttribute('data-evo-id');
+      if (!id) return;
+      el.addEventListener('mouseenter', function () {
+        Array.prototype.forEach.call(pair(id), function (n) { n.classList.add('is-spotlit'); });
+      });
+      el.addEventListener('mouseleave', function () {
+        Array.prototype.forEach.call(pair(id), function (n) { n.classList.remove('is-spotlit'); });
+      });
+    }
+    Array.prototype.forEach.call(wrap.querySelectorAll('[data-evo-id]'), bind);
   }
 
   /* ── Projects ─────────────────────────────────────────────────────────── */
@@ -682,7 +741,9 @@
     setupScrollSpy();
     setupNamePreviews();
     setupSubway();
+    setupEvoSync();
     setupProjectModal();
+    setupCelebrate();
   }
 
   if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', init);

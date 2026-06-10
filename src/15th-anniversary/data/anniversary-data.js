@@ -34,7 +34,7 @@ window.ANNIVERSARY_DATA = {
     anniversaryYear: 2026,
     eyebrow: "2011-2026",
     headline: "Fifteen years helping organizations learn, adapt, and grow.",
-    subhead: "From a founder with a laptop to a 21-person studio building blended, media-rich, agentic learning. Here's a look back at the road we've traveled since 2011.",
+    subhead: "From a founder with a laptop to a 21-person studio building blended, media-rich, AI-powered learning. Here's a look back at the road we've traveled since 2011.",
     // Big numbers that count up on load. label is shown under the number.
     counters: [
       { value: 15,  suffix: "",  label: "Years growing together" },
@@ -86,7 +86,7 @@ window.ANNIVERSARY_DATA = {
     {
       year: 2016,
       title: "First major postsecondary mentoring project",
-      body: "We deliver our first major postsecondary partnership with national nonprofit iMentor, building the curriculum that anchors their multigrade mentoring program.",
+      body: "We deliver our first major postsecondary partnership with national nonprofit iMentor, building the curriculum that anchors their multigrade mentoring program. Tara Williams joins, going on to lead our partnerships practice.",
       highlights: [
         { svc: "career", ref: "identityWayfinding", label: "Identity Exploration & Wayfinding" }
       ],
@@ -106,7 +106,7 @@ window.ANNIVERSARY_DATA = {
     {
       year: 2018,
       title: "Our first app & LMS",
-      body: "We build our first app and launch our first learning management system with The Teaching Kitchen, including mobile-adaptive training materials.",
+      body: "We build our first app and launch our first learning management system with The Teaching Kitchen, including mobile-adaptive training materials. Jody Walls joins, anchoring our back office.",
       highlights: [
         { svc: "platforms", ref: "ttk", label: "Mobile Adaptive Training (TTK)" }
       ],
@@ -142,14 +142,36 @@ window.ANNIVERSARY_DATA = {
     {
       year: 2020,
       title: "The crisis turn to LMS",
-      body: "When the world went remote, we helped partners stand up learning management systems and move whole programs online, fast, as Erin McIntee joins, bringing expert, complex Storyline development.",
-      image: "",
-      tag: "COVID pivot"
+      tag: "COVID pivot",
+      body: "Erin McIntee joins, bringing expert, complex Storyline development.",
+      events: [
+        {
+          theme: "Whole programs move online",
+          svc: "platforms",
+          body: "When the world went remote, we helped partners stand up learning management systems and move whole programs online, fast.",
+          highlights: []
+        },
+        {
+          theme: "Workforce development goes asynchronous",
+          svc: "career",
+          body: "We support STRIVE International in taking their whole Future Leaders curriculum asynchronous, including the Active Career Exploration (ACE) workshop, deepening a workforce development practice that spans partners like Towards Employment before and after the pandemic.",
+          highlights: [
+            { svc: "career", ref: "striveACE",          label: "STRIVE Future Leaders / ACE" },
+            { svc: "career", ref: "uncoveringBarriers", label: "Uncovering Workforce Barriers" }
+          ]
+        }
+      ],
+      image: ""
     },
     {
       year: 2021,
       title: "Media & adult learning",
       body: "Michaela Bradley joins and we build out in-house media production, while Morgan Taveras brings adult-learning expertise and character-driven design.",
+      // The Bias Awareness series is a 2023 ship, but it's the best showcase
+      // of the media-production craft this year is about (per Ava's note).
+      highlights: [
+        { svc: "media", ref: "biasAwarenessECE", label: "Video storytelling: Bias Awareness in ECE" }
+      ],
       image: "",
       tag: "Growth"
     },
@@ -159,12 +181,13 @@ window.ANNIVERSARY_DATA = {
       // colored dot + label; highlights[] is per-event.
       year: 2022,
       title: "Two new directions",
-      tag: "KIPP / Agentic",
+      tag: "KIPP / AI",
+      body: "Whitney Henderson and Dinky Cruz-Cada join the team.",
       events: [
         {
           theme: "KIPP Forward partnership begins",
           svc: "career",
-          body: "We begin our partnership with KIPP Forward, designing an introduction course for high-school counselors.",
+          body: "We begin our partnership with KIPP Forward, designing an introduction course for high-school counselors, with Whitney Henderson directing the work.",
           highlights: [
             { svc: "career", ref: "kippIntro", label: "Introduction to KIPP Forward" }
           ]
@@ -172,7 +195,7 @@ window.ANNIVERSARY_DATA = {
         {
           theme: "Chat-based learning takes shape",
           svc: "career",
-          body: "We start experimenting with chat-based interviews and agentic feedback to tailor last-mile customization and personalization.",
+          body: "We start experimenting with chat-based interviews and AI-powered feedback to tailor last-mile customization and personalization.",
           highlights: [
             { svc: "career", ref: "careerIkigai", label: "Career Ikigai pathway tool" }
           ]
@@ -183,19 +206,25 @@ window.ANNIVERSARY_DATA = {
     {
       year: 2023,
       title: "Mastering the blend",
-      body: "Mastering the blend is about designing materials for live facilitation and making the most of async modules to prepare and extend live sessions, bringing them closer to on-the-ground application.",
+      // AVA-TO-DRAFT: ground this entry in the StriveTogether partnership.
+      // Mention how many hybrid courses we've developed for them and their
+      // learners, show an example, and link to the (free) training hub.
+      // Ava offered to draft; sources: June update in watercooler, the
+      // stepback presentation.
+      body: "Mastering the blend is about designing materials for live facilitation and making the most of async modules to prepare and extend live sessions, bringing them closer to on-the-ground application. Shanna Schlossberg, Jo Barnett, and Diane Takata Powell join the team.",
       image: "",
       tag: "Growth"
     },
     {
       year: 2024,
-      title: "Agentic learning meets custom platforms",
+      title: "AI-powered learning meets custom platforms",
       tag: "AI / Platforms",
+      body: "Luciana Santimaria, Chelsea George, and Maddie Murphy join the team.",
       events: [
         {
-          theme: "Agentic learning",
+          theme: "AI-powered learning",
           svc: "elearning",
-          body: "The StriveTogether Continuous Improvement Toolkit ships with scenario-based interactions and an AI-powered chatbot: learning that responds.",
+          body: "The StriveTogether Continuous Improvement Toolkit launches with scenario-based interactions and an AI-powered chatbot: learning that responds.",
           // StriveTogether toolkit lives in projects[]; see the "Work we're
           // proud of" section for the openable modal.
           highlights: []
@@ -213,13 +242,13 @@ window.ANNIVERSARY_DATA = {
     },
     {
       year: 2025,
-      title: "Technical capacity meets storytelling",
-      tag: "Technical Capacity & Storytelling",
+      title: "Technical assistance meets storytelling",
+      tag: "Technical Assistance & Storytelling",
       events: [
         {
-          theme: "Technical capacity",
+          theme: "Technical assistance",
           svc: "technical",
-          body: "Pairing design systems, branded portals, and field-facing publications with SME interviews so partner expertise becomes shareable practice.",
+          body: "Pairing design systems, branded portals, and field-facing publications with subject matter expert interviews so expertise becomes shareable practice.",
           highlights: [
             { svc: "technical", ref: "bmoreGetItDocumented", label: "B'more Get It Documented" }
           ]
@@ -238,9 +267,11 @@ window.ANNIVERSARY_DATA = {
     {
       year: 2026,
       title: "Fifteen years on",
-      body: "A 21-person studio spanning instructional design, eLearning, media, platforms, and strategy, still growing together.",
+      body: "Emily Kiefer joins as our newest teammate, and a 21-person studio spanning instructional design, eLearning, media, platforms, and strategy is still growing together.",
       image: "",
-      tag: "Today"
+      tag: "Today",
+      // Fires a brand-color confetti burst when this entry scrolls into view.
+      celebrate: true
     }
   ],
 
@@ -291,28 +322,28 @@ window.ANNIVERSARY_DATA = {
     {
       id: "agentic",
       year: 2023,
-      stage: "Chat interactions and agentic feedback",
+      stage: "Chat interactions and AI-powered feedback",
       tagline: "Chat-based interviews, AI-assisted learning.",
       whatWeCouldDo: "Add chat-based interviews and AI-powered feedback so learning responds in real time and tailors to each learner.",
-      proof: "Career Ikigai personalized pathway tool; the StriveTogether CI Toolkit later ships with an AI-powered chatbot.",
+      proof: "Career Ikigai personalized pathway tool; the StriveTogether CI Toolkit later launches with an AI-powered chatbot.",
       color: "plum"
     },
     {
       id: "apps",
       year: 2024,
       stage: "Apps & custom platforms",
-      tagline: "Dashboards, custom LMS, agentic feedback.",
-      whatWeCouldDo: "Design custom apps, data dashboards, and bespoke LMS builds, with agentic feedback wrapped around the learning.",
-      proof: "App design for data dashboards, custom LMS, and agentic feedback join the toolkit.",
+      tagline: "Dashboards, custom LMS, AI-powered feedback.",
+      whatWeCouldDo: "Design custom apps, data dashboards, and bespoke LMS builds, with AI-powered feedback wrapped around the learning.",
+      proof: "App design for data dashboards, custom LMS, and AI-powered feedback join the toolkit.",
       color: "sky"
     },
     {
       id: "techCapacity",
       year: 2025,
-      stage: "Technical Capacity and Storytelling",
+      stage: "Technical Assistance and Storytelling",
       tagline: "TA, design systems, and narrative for the field.",
-      whatWeCouldDo: "Pair technical assistance with brand-grade storytelling: design systems, branded portals, print + web ecosystems, and field-facing publications that turn partner expertise into shareable practice.",
-      proof: "B'more for Healthy Babies “Get It Documented” digital hub: SME interviews synthesized into seven branded publications + a content portal integrated into BHB's site.",
+      whatWeCouldDo: "Pair technical assistance with brand-grade storytelling: design systems, branded portals, print + web ecosystems, and field-facing publications that turn subject matter expertise into shareable practice.",
+      proof: "B'more for Healthy Babies “Get It Documented” digital hub: subject matter expert interviews synthesized into seven branded publications + a content portal integrated into BHB's site.",
       color: "orange"
     }
   ],
@@ -485,7 +516,7 @@ window.ANNIVERSARY_DATA = {
       title: "Career Ikigai: Personalized Pathway Tool",
       client: "Integral Ed",
       year: 2022,
-      serviceArea: "Chat-Based Learning, Agentic Feedback",
+      serviceArea: "Chat-Based Learning, AI-Powered Feedback",
       svc: "career",
       summary: "Career Ikigai is a chat-based learning experience that guides users through a structured interview to surface interests, strengths, and goals. The system synthesizes responses into personalized pathways, actionable next steps, and a formatted slide output that can be edited and shared with advisors or mentors. Designed for use in counseling, advising, and workforce programs, it can connect to localized job market data and support cohort-level insights through shared outputs and dashboards.",
       // Iframe-embedding career-ikigai.org gave the wrong aspect ratio inside
@@ -527,6 +558,28 @@ window.ANNIVERSARY_DATA = {
       summary: "We joined forces with Buncombe Partnership for Children, an organization dedicated to partnering with local organizations to improve early childhood education, early care, literacy opportunities, family support, and more. We helped produce a three-part video series for Early Care and Education (ECE) providers to prompt discussion about racial biases within early childhood care centers in Asheville, N.C.\n\nWe conducted interviews on Zoom, working from low-fidelity video and audio recordings. Our approach blends mixed media and illustration, designed to foster a sense of identification and generalization without casting blame.",
       videoUrl: "https://www.youtube.com/embed/videoseries?list=PLAR-tdNHAf2ag6w7MPqxCgc419GgcK3aB",
       link: "https://www.youtube.com/playlist?list=PLAR-tdNHAf2ag6w7MPqxCgc419GgcK3aB"
+    },
+    striveACE: {
+      title: "Professional Development for STRIVE's ACE Workshop",
+      client: "STRIVE International",
+      year: 2020,
+      serviceArea: "Workforce Development, Professional Learning",
+      svc: "career",
+      summary: "We helped STRIVE, a nonprofit agency dedicated to job training and career development for those facing our biggest societal barriers. We worked to help expand their Future Leaders program, which is designed to provide knowledge on workforce training, career exploration, and work experience to young adults.\n\nWe also worked to expand STRIVE's Active Career Exploration (ACE) program, a workshop designed for Future Leaders students. Through collaboration with STRIVE's internal subject matter experts we developed courses for both experienced and new staff working in their Future Leaders and ACE Workshop programs. This sample course was created using Articulate Rise for rapid development.",
+      embedUrl: "https://integral-elearning.space/demo/culture_of_ace_workshop/content/index.html",
+      videoUrl: "",
+      link: ""
+    },
+    uncoveringBarriers: {
+      title: "Uncovering Barriers",
+      client: "Towards Employment",
+      year: null,
+      serviceArea: "Workforce Development, Employer Partnerships",
+      svc: "career",
+      summary: "We collaborated with Towards Employment, an organization dedicated to getting more people into good careers with family-sustaining wages and opportunities to advance skills. We designed and developed this scenario interaction to give learners an opportunity to practice uncovering workforce barriers by participating in a real-life scenario and receiving authentic feedback.",
+      embedUrl: "https://integral-elearning.space/demo/scenario_uncovering_barriers/story.html",
+      videoUrl: "",
+      link: ""
     },
     pltw: {
       title: "PLTW Launch: 3rd Grade STEM Module",
@@ -603,7 +656,10 @@ window.ANNIVERSARY_DATA = {
         name: "StriveTogether",
         svc: "elearning",
         logo: "/assets/images/client-logos/StriveTogether-Brandmark-w-tag-RGB-Grey-orange-1%20(1).png",
-        story: "We translated StriveTogether's continuous-improvement methodology into an interactive toolkit for educators: video, scenario-based practice, and an AI-powered chatbot that coaches in real time.",
+        // AVA-TO-DRAFT: broaden beyond the toolkit to the many courses and
+        // learning types we've built for ST (per Ava's note; sources: June
+        // watercooler update, the stepback presentation).
+        story: "With Ava Millstone leading the work, we translated StriveTogether's continuous-improvement methodology into an interactive toolkit for educators: video, scenario-based practice, and an AI-powered chatbot that coaches in real time.",
         quote: "Integral Ed does an amazing job of understanding who we are as an organization. They thoughtfully translate our content into interactive courses that take our work to the next level.",
         quoteAttribution: "Heidi Black, VP of Training, StriveTogether",
         since: null
@@ -612,7 +668,7 @@ window.ANNIVERSARY_DATA = {
         name: "EL Education",
         svc: "media",
         logo: "/assets/images/client-logos/EL_EDUCATION_logo_crimson_preferred%20(4).png",
-        story: "A go-to partner for EL Education's professional-learning products, translating their content into polished, ready-to-use learning experiences their team can lean on.",
+        story: "A go-to partner for EL Education's professional-learning products, with Tara Williams leading the work: translating their content into polished, ready-to-use learning experiences their team can lean on.",
         quote: "You guys are our easy button!",
         quoteAttribution: "Natalie Taylor, Program Team (Professional Learning Products), EL Education",
         since: null

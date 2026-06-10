@@ -1,6 +1,6 @@
 # Integral Ed · 15th Anniversary Page · Content + UX Review
 
-Snapshot: **2026-06-08**
+Snapshot: **2026-06-10** (incorporates Ava + Asha's June 9 comment round)
 
 **Purpose.** One readable place for the team to review every word on the
 page and understand the layout/UX of each section.
@@ -69,8 +69,9 @@ count-up isn't a one-shot effect. A downward scroll cue at the bottom.]
 **Headline.** Fifteen years helping organizations learn, adapt, and grow.
 
 **Subhead.** From a founder with a laptop to a 21-person studio building
-blended, media-rich, agentic learning. Here's a look back at the road
+blended, media-rich, AI-powered learning. Here's a look back at the road
 we've traveled since 2011.
+(Per Ava + Asha: "agentic" swapped for "AI-powered" page-wide.)
 
 **Counters** (each animates up):
 
@@ -145,7 +146,8 @@ April Graham joins, growing our postsecondary ideation and access work.
 
 We deliver our first major postsecondary partnership with national
 nonprofit iMentor, building the curriculum that anchors their
-multigrade mentoring program.
+multigrade mentoring program. Tara Williams joins, going on to lead
+our partnerships practice.
 
 Chip: Identity Exploration & Wayfinding (teal · career)
 
@@ -168,6 +170,7 @@ Chip: AP For All Curriculum Materials (yellow · eLearning)
 
 We build our first app and launch our first learning management system
 with The Teaching Kitchen, including mobile-adaptive training materials.
+Jody Walls joins, anchoring our back office.
 
 Chip: Mobile Adaptive Training - TTK (sky · platforms)
 
@@ -190,13 +193,24 @@ Chip: Mobile Adaptive Training - TTK (sky · platforms)
           PLTW Launch 3rd Grade STEM (yellow · eLearning)
 
 
-## **2020** · pill: COVID pivot
+## **2020** · pill: COVID pivot · split year
 
 **The crisis turn to LMS**
 
-When the world went remote, we helped partners stand up learning
-management systems and move whole programs online, fast, as Erin
-McIntee joins, bringing expert, complex Storyline development.
+Erin McIntee joins, bringing expert, complex Storyline development.
+
+▸ **Whole programs move online** (sky · platforms)
+   When the world went remote, we helped partners stand up learning
+   management systems and move whole programs online, fast.
+
+▸ **Workforce development goes asynchronous** (teal · career)
+   We support STRIVE International in taking their whole Future Leaders
+   curriculum asynchronous, including the Active Career Exploration
+   (ACE) workshop, deepening a workforce development practice that
+   spans partners like Towards Employment before and after the
+   pandemic.
+   Chips: STRIVE Future Leaders / ACE (teal · career)
+          Uncovering Workforce Barriers (teal · career)
 
 
 ## **2021** · pill: Growth
@@ -207,18 +221,25 @@ Michaela Bradley joins and we build out in-house media production,
 while Morgan Taveras brings adult-learning expertise and
 character-driven design.
 
+Chip: Video storytelling: Bias Awareness in ECE (magenta · media)
+(Per Ava: showcase one of Mica's videos here even though the Buncombe
+series shipped in 2023; the modal shows the true year.)
 
-## **2022** · pill: KIPP / Agentic · split year
+
+## **2022** · pill: KIPP / AI · split year
 
 **Two new directions**
 
+Whitney Henderson and Dinky Cruz-Cada join the team.
+
 ▸ **KIPP Forward partnership begins** (teal · career)
    We begin our partnership with KIPP Forward, designing an
-   introduction course for high-school counselors.
+   introduction course for high-school counselors, with Whitney
+   Henderson directing the work.
    Chip: Introduction to KIPP Forward (teal · career)
 
 ▸ **Chat-based learning takes shape** (teal · career)
-   We start experimenting with chat-based interviews and agentic
+   We start experimenting with chat-based interviews and AI-powered
    feedback to tailor last-mile customization and personalization.
    Chip: Career Ikigai pathway tool (teal · career)
 
@@ -229,15 +250,23 @@ character-driven design.
 
 Mastering the blend is about designing materials for live facilitation
 and making the most of async modules to prepare and extend live
-sessions, bringing them closer to on-the-ground application.
+sessions, bringing them closer to on-the-ground application. Shanna
+Schlossberg, Jo Barnett, and Diane Takata Powell join the team.
+
+(AVA TO DRAFT: ground this entry in the StriveTogether partnership.
+How many hybrid courses we've developed for them and their learners,
+show an example, and link to the free training hub. Sources: June
+update in watercooler, the stepback presentation.)
 
 
 ## **2024** · pill: AI / Platforms · split year
 
-**Agentic learning meets custom platforms**
+**AI-powered learning meets custom platforms**
 
-▸ **Agentic learning** (yellow · eLearning)
-   The StriveTogether Continuous Improvement Toolkit ships with
+Luciana Santimaria, Chelsea George, and Maddie Murphy join the team.
+
+▸ **AI-powered learning** (yellow · eLearning)
+   The StriveTogether Continuous Improvement Toolkit launches with
    scenario-based interactions and an AI-powered chatbot: learning
    that responds.
    (No chip on this sub-event: the StriveTogether toolkit lives in the
@@ -250,14 +279,14 @@ sessions, bringing them closer to on-the-ground application.
    Chip: Premium Portal - Popped! (sky · platforms)
 
 
-## **2025** · pill: Technical Capacity & Storytelling · split year
+## **2025** · pill: Technical Assistance & Storytelling · split year
 
-**Technical capacity meets storytelling**
+**Technical assistance meets storytelling**
 
-▸ **Technical capacity** (orange · technical)
+▸ **Technical assistance** (orange · technical)
    Pairing design systems, branded portals, and field-facing
-   publications with SME interviews so partner expertise becomes
-   shareable practice.
+   publications with subject matter expert interviews so expertise
+   becomes shareable practice.
    Chip: B'more Get It Documented (orange · technical)
 
 ▸ **Storytelling** (magenta · media)
@@ -270,8 +299,13 @@ sessions, bringing them closer to on-the-ground application.
 
 **Fifteen years on**
 
-A 21-person studio spanning instructional design, eLearning, media,
-platforms, and strategy, still growing together.
+Emily Kiefer joins as our newest teammate, and a 21-person studio
+spanning instructional design, eLearning, media, platforms, and
+strategy is still growing together.
+
+[Celebratory moment per Ava: a brand-color confetti burst fires when
+this entry scrolls into view (skipped for reduced-motion users; can
+replay on re-entry).]
 
 
 # 02 · Evolution (the "subway map" of capabilities)
@@ -285,7 +319,14 @@ thickens its stroke (no dimming of the rest).
 Below the map is a legend, one card per capability. Cards are vibrant
 by default (each carries a tinted gradient in its stream color, no
 longer muted). On hover, the card lifts and the "proof" detail slides
-in from below. On touch devices the proof is always visible.]
+in from below. On touch devices the proof is always visible.
+
+Per Ava's UX note (hovering lines didn't appear to do anything): the
+map and legend are now linked. Hovering a line on the map spotlights
+its legend card (lift + proof reveal), and hovering a card thickens
+and glows its line. A one-line hint sits between the map and the
+cards: "Hover a stream on the map, or a card below, to spotlight the
+capability and the proof behind it."]
 
 **Header.** Each year, a new thing we could do
 
@@ -338,7 +379,7 @@ build with Early Learning Indiana; Cara Johnson grows our STEM
 specialization with Nano.
 
 
-## **2023** · Chat interactions and agentic feedback (plum)
+## **2023** · Chat interactions and AI-powered feedback (plum)
 
 **Tagline.** Chat-based interviews, AI-assisted learning.
 
@@ -346,32 +387,33 @@ specialization with Nano.
 so learning responds in real time and tailors to each learner.
 
 **Proof** (hover to reveal). Career Ikigai personalized pathway tool;
-the StriveTogether CI Toolkit later ships with an AI-powered chatbot.
+the StriveTogether CI Toolkit later launches with an AI-powered chatbot.
 
 
 ## **2024** · Apps & custom platforms (sky)
 
-**Tagline.** Dashboards, custom LMS, agentic feedback.
+**Tagline.** Dashboards, custom LMS, AI-powered feedback.
 
 **What we could do.** Design custom apps, data dashboards, and bespoke
-LMS builds, with agentic feedback wrapped around the learning.
+LMS builds, with AI-powered feedback wrapped around the learning.
 
 **Proof** (hover to reveal). App design for data dashboards, custom
-LMS, and agentic feedback join the toolkit.
+LMS, and AI-powered feedback join the toolkit.
 
 
-## **2025** · Technical Capacity and Storytelling (orange) · new
+## **2025** · Technical Assistance and Storytelling (orange) · new
 
 **Tagline.** TA, design systems, and narrative for the field.
 
 **What we could do.** Pair technical assistance with brand-grade
 storytelling: design systems, branded portals, print + web ecosystems,
-and field-facing publications that turn partner expertise into
+and field-facing publications that turn subject matter expertise into
 shareable practice.
 
 **Proof** (hover to reveal). B'more for Healthy Babies "Get It
-Documented" digital hub: SME interviews synthesized into seven branded
-publications plus a content portal integrated into BHB's site.
+Documented" digital hub: subject matter expert interviews synthesized
+into seven branded publications plus a content portal integrated into
+BHB's site.
 
 
 # 03 · Our Work
@@ -535,10 +577,14 @@ interactive courses that take our work to the next level."
 
 **Attribution.** Heidi Black, VP of Training, StriveTogether
 
-**Story.** We translated StriveTogether's continuous-improvement
-methodology into an interactive toolkit for educators: video,
-scenario-based practice, and an AI-powered chatbot that coaches in
-real time.
+**Story.** With Ava Millstone leading the work, we translated
+StriveTogether's continuous-improvement methodology into an
+interactive toolkit for educators: video, scenario-based practice,
+and an AI-powered chatbot that coaches in real time.
+
+(AVA TO DRAFT: broaden beyond the toolkit to the many courses and
+learning types we've built for ST. Sources: June watercooler update,
+the stepback presentation.)
 
 
 ## Featured 2 · EL Education (magenta band)
@@ -549,8 +595,13 @@ real time.
 Products), EL Education
 
 **Story.** A go-to partner for EL Education's professional-learning
-products, translating their content into polished, ready-to-use
-learning experiences their team can lean on.
+products, with Tara Williams leading the work: translating their
+content into polished, ready-to-use learning experiences their team
+can lean on.
+
+(All four featured stories now name the Integral Ed lead, per Ava's
+consistency note: Ava M for StriveTogether, Tara for EL Education and
+Danielson, Whitney for KIPP.)
 
 
 ## Featured 3 · KIPP (teal band)
@@ -763,6 +814,45 @@ with confidence.
 "Visit PLTW" and opens https://www.pltw.org/ in a new tab.
 
 
+## striveACE (teal · career)
+
+**Title.** Professional Development for STRIVE's ACE Workshop
+
+**Client / Year / Service.** STRIVE International · **2020** ·
+Workforce Development, Professional Learning
+
+**Description.** We helped STRIVE, a nonprofit agency dedicated to job
+training and career development for those facing our biggest societal
+barriers. We worked to help expand their Future Leaders program, which
+provides knowledge on workforce training, career exploration, and work
+experience to young adults. We also worked to expand STRIVE's Active
+Career Exploration (ACE) program, a workshop designed for Future
+Leaders students. Through collaboration with STRIVE's internal subject
+matter experts we developed courses for both experienced and new staff
+working in their Future Leaders and ACE Workshop programs.
+
+**Media.** Articulate Rise embed at
+integral-elearning.space/demo/culture_of_ace_workshop/content/
+
+
+## uncoveringBarriers (teal · career)
+
+**Title.** Uncovering Barriers
+
+**Client / Year / Service.** Towards Employment · Workforce
+Development, Employer Partnerships
+
+**Description.** We collaborated with Towards Employment, an
+organization dedicated to getting more people into good careers with
+family-sustaining wages and opportunities to advance skills. We
+designed and developed this scenario interaction to give learners an
+opportunity to practice uncovering workforce barriers by participating
+in a real-life scenario and receiving authentic feedback.
+
+**Media.** Storyline embed at
+integral-elearning.space/demo/scenario_uncovering_barriers/story.html
+
+
 ## kippIntro (teal · career)
 
 **Title.** Introduction to KIPP Forward
@@ -787,7 +877,7 @@ integral-elearning.space/demo/intro_kipp_forward_rise/content/
 **Title.** Career Ikigai: Personalized Pathway Tool
 
 **Client / Year / Service.** Integral Ed · **2022** · Chat-Based
-Learning, Agentic Feedback
+Learning, AI-Powered Feedback
 
 **Description.** Career Ikigai is a chat-based learning experience
 that guides users through a structured interview to surface
@@ -886,6 +976,45 @@ https://www.healthybabiesbaltimore.com/hub/home
 - /team page is now the canonical gallery (Softr embed removed);
   /team-2026 redirects to /team as a safety net.
 
+## Resolved 2026-06-10 (Ava + Asha's comment round)
+
+- "Agentic" swapped for "AI-powered" everywhere user-facing (hero
+  subhead, 2022 + 2024 timeline, evolution stages, Career Ikigai
+  service area). Per Ava + Asha.
+- "Technical Capacity" renamed "Technical Assistance" across the 2025
+  stage, timeline, and B'more service area, aligning with the service
+  area naming. Per Ava's find/replace suggestion.
+- "ships" replaced with "launches" (2024 timeline, evolution proof).
+- "SME" spelled out as "subject matter expert"; "partner expertise"
+  is now just "expertise" (2025 timeline + evolution).
+- Tara's joining highlighted in 2016; Jody's in 2018.
+- Every teammate with a year or more of tenure now appears in the
+  timeline with their joining year: Whitney + Dinky (2022), Shanna +
+  Jo + Diane (2023), Luciana + Chelsea + Maddie (2024), Emily (2026).
+- 2020 split into two sub-events: "Whole programs move online" and
+  "Workforce development goes asynchronous", the latter highlighting
+  STRIVE International's Future Leaders / ACE work going async, with
+  two new portfolio modals (striveACE, uncoveringBarriers) covering
+  pre/post-COVID workforce development. Per Ava's COVID + workforce
+  notes.
+- 2021 media-production year now carries the Buncombe Bias Awareness
+  video chip as the showcase of Mica's work. Per Ava.
+- 2026 gets the celebratory moment: a brand-color confetti burst when
+  the entry scrolls into view.
+- Evolution map and legend now hover-sync (line spotlights card and
+  vice versa) with a hint line, addressing Ava's "I hovered the lines
+  and nothing happened" UX note.
+- All four featured testimonials now name the Integral Ed lead
+  (Ava M / Tara / Whitney / Tara).
+- Ava's headshot (and eight other oversized team photos) resized from
+  up-to-9378px originals down to 1200px, fixing the pixelated
+  rendering and slimming page weight.
+
 ## Still open
 
-(none at this snapshot)
+1. AVA TO DRAFT: 2023 "Mastering the blend" grounding in the
+   StriveTogether partnership (hybrid course count, an example, link
+   to the free training hub). Placeholder note sits in the data file.
+2. AVA TO DRAFT: broaden the StriveTogether testimonial story beyond
+   the toolkit to the full body of ST work. Placeholder note in the
+   data file.

@@ -300,6 +300,39 @@
   margin-top: 0.55rem;
 }
 
+/* ── Confetti burst on "celebrate" timeline entries (2026) ──────────────── */
+.anniv-tl-item--celebrate { position: relative; }
+.anniv-confetti {
+  position: absolute;
+  inset: -2.5rem 0 0 0;
+  pointer-events: none;
+  overflow: visible;
+  z-index: 3;
+}
+.anniv-confetti i {
+  position: absolute;
+  top: 0;
+  left: var(--x, 50%);
+  width: 9px;
+  height: 14px;
+  background: var(--c, var(--accent-magenta));
+  border-radius: 2px;
+  opacity: 0;
+  transform: translateY(-10px) rotate(0deg) scale(var(--s, 1));
+  animation: anniv-confetti-fall 2.6s cubic-bezier(.25,.46,.45,.94) var(--d, 0s) forwards;
+}
+/* every third piece is a circle, every fourth a thin ribbon */
+.anniv-confetti i:nth-child(3n)  { border-radius: 50%; height: 9px; }
+.anniv-confetti i:nth-child(4n)  { width: 5px; height: 18px; }
+@keyframes anniv-confetti-fall {
+  0%   { opacity: 0; transform: translateY(-12px) rotate(0deg) scale(var(--s, 1)); }
+  8%   { opacity: 1; }
+  100% { opacity: 0; transform: translateY(260px) rotate(var(--r, 360deg)) scale(var(--s, 1)); }
+}
+@media (prefers-reduced-motion: reduce) {
+  .anniv-confetti { display: none; }
+}
+
 /* ── Evolution: subway-map weave ─────────────────────────────────────────── */
 .anniv-evolution { position: relative; z-index: 2; max-width: 1000px; margin: 0 auto; }
 
@@ -402,6 +435,23 @@ button.svc-chip:hover::before, button.svc-chip:focus-visible::before {
    user ask to keep everything vibrant). */
 .anniv-subway-line:hover .anniv-subway-path { stroke-width: 7; }
 
+/* Map line <-> legend card hover sync. Hovering either one spotlights both:
+   the line thickens + glows, the card mimics its hover state (lift + proof
+   reveal handled below alongside the :hover rules). */
+.anniv-subway-line.is-spotlit .anniv-subway-path {
+  stroke-width: 7;
+  filter: drop-shadow(0 0 12px color-mix(in srgb, var(--evo-c) 80%, transparent));
+}
+.anniv-subway-line { cursor: pointer; }
+
+.anniv-evo-hint {
+  text-align: center;
+  font-size: 0.82rem;
+  color: var(--ink-dark-2);
+  margin: -1.4rem auto 1.6rem;
+  max-width: 560px;
+}
+
 /* ── Legend cards: vibrant at rest, proof slides in from below on hover ───
    At rest each card carries a tinted gradient in its stream's color so the
    block reads as colorful, not muted. On hover the card lifts and the
@@ -426,7 +476,8 @@ button.svc-chip:hover::before, button.svc-chip:focus-visible::before {
               box-shadow var(--transition-base);
 }
 .anniv-evo-row:hover,
-.anniv-evo-row:focus-within {
+.anniv-evo-row:focus-within,
+.anniv-evo-row.is-spotlit {
   transform: translateY(-4px);
   border-color: color-mix(in srgb, var(--evo-c) 68%, transparent);
   background:
@@ -457,7 +508,8 @@ button.svc-chip:hover::before, button.svc-chip:focus-visible::before {
               margin-top 0.3s ease;
 }
 .anniv-evo-row:hover .anniv-evo-proof,
-.anniv-evo-row:focus-within .anniv-evo-proof {
+.anniv-evo-row:focus-within .anniv-evo-proof,
+.anniv-evo-row.is-spotlit .anniv-evo-proof {
   max-height: 14rem;
   opacity: 1;
   margin-top: 0.55rem;
