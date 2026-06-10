@@ -177,10 +177,9 @@ window.ANNIVERSARY_DATA = {
       title: "Media & adult learning",
       body: "Michaela Bradley builds out in-house media production, while Morgan Taveras brings adult-learning expertise and character-driven design.",
       joins: ["Morgan Taveras", "Michaela Bradley"],
-      // The Bias Awareness series is a 2023 ship, but it's the best showcase
-      // of the media-production craft this year is about (per Ava's note).
+      // Showcase of Mica's video-production craft (per Ava's note).
       highlights: [
-        { svc: "media", ref: "biasAwarenessECE", label: "Video storytelling: Bias Awareness in ECE" }
+        { svc: "media", ref: "amassVideo", label: "Video production: Amass Splash Video" }
       ],
       image: "",
       tag: "Growth"
@@ -560,6 +559,16 @@ window.ANNIVERSARY_DATA = {
       summary: "We partnered with B'more for Healthy Babies to create Get It Documented, a digital hub making complex public health data clear and usable for organizations improving maternal and infant health.\n\nOur team conducted over twenty hours of interviews with BHB leaders, synthesizing a decade of lessons into seven designed publications. Each combines storytelling with technical resources to help other communities replicate successful practices.\n\nIntegral Ed also built a branded content portal integrated into BHB's site, providing easy access to reports, media, and archived resources.",
       videoUrl: "",
       link: "https://www.healthybabiesbaltimore.com/hub/home"
+    },
+    amassVideo: {
+      title: "Amass Splash Video",
+      client: "Amass",
+      year: 2021,
+      serviceArea: "Video Production, Media & Communications",
+      svc: "media",
+      summary: "We partnered with AMASS, the first end-to-end Wealth Creation Launchpad for Black Americans. We helped to promote AMASS to potential members through a vibrant video. Our team supported the design and development of this social media promotion to support AMASS' efforts to teach wealth generation through knowledge, community, and access.",
+      videoUrl: "https://www.youtube.com/embed/7opeSSBI_bw",
+      link: ""
     },
     biasAwarenessECE: {
       title: "Raising Awareness of Bias in Early Childhood Education",

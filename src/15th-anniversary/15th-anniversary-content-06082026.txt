@@ -237,9 +237,9 @@ New: Erin McIntee
 Michaela Bradley builds out in-house media production, while Morgan
 Taveras brings adult-learning expertise and character-driven design.
 
-Chip: Video storytelling: Bias Awareness in ECE (magenta · media)
-(Per Ava: showcase one of Mica's videos here even though the Buncombe
-series shipped in 2023; the modal shows the true year.)
+Chip: Video production: Amass Splash Video (magenta · media)
+(Showcase of Mica's video craft, per Ava's note. The Bias Awareness
+series remains the 2025 Storytelling chip.)
 
 New: Morgan Taveras, Michaela Bradley
 
@@ -911,6 +911,23 @@ insights through shared outputs and dashboards.
 **Media.** Cover image (career-ikigai-cover.png) inside the modal;
 CTA is a "Launch Career Ikigai" button that opens
 https://career-ikigai.org/ in a new tab.
+
+
+## amassVideo (magenta · media)
+
+**Title.** Amass Splash Video
+
+**Client / Year / Service.** Amass · **2021** · Video Production,
+Media & Communications
+
+**Description.** We partnered with AMASS, the first end-to-end Wealth
+Creation Launchpad for Black Americans. We helped to promote AMASS to
+potential members through a vibrant video. Our team supported the
+design and development of this social media promotion to support
+AMASS' efforts to teach wealth generation through knowledge,
+community, and access.
+
+**Media.** YouTube embed 7opeSSBI_bw
 
 
 ## biasAwarenessECE (magenta · media)
