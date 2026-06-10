@@ -98,7 +98,13 @@ Two interactive elements layered in:
   2022, 2024, 2025) are rendered as STACKED SUB-EVENTS under the
   shared year header. Each sub-event has its own small color dot on
   a short vertical sub-rail, a theme label in the event color, body
-  copy, and its own chip(s).]
+  copy, and its own chip(s).
+- **"New to the team" notes.** Per Ava's consistency ask, every year
+  in which a teammate joined carries the same compact marker at the
+  foot of the entry: a small "+ NEW TO THE TEAM" pill followed by the
+  names. Names are bold-linked with the photo + role hover preview,
+  so every current teammate with a year or more of tenure appears in
+  the timeline the same way. Noted per year below as "New:".]
 
 **Header.** How it started, and how it grew
 
@@ -127,17 +133,21 @@ reporting.
 
 **Curriculum takes root**
 
-Ava Millstone joins to lead curriculum, and the work grows from
+Ava Millstone takes the lead on curriculum, and the work grows from
 analysis into building the slides, guides, and facilitator materials
 our partners teach from.
+
+New: Ava Millstone
 
 
 ## **2015** · pill: Team
 
 **The team grows**
 
-Alicia Chipman joins, expanding our curriculum-design capacity, and
-April Graham joins, growing our postsecondary ideation and access work.
+Alicia Chipman expands our curriculum-design capacity, and April
+Graham grows our postsecondary ideation and access work.
+
+New: Alicia Chipman, April Graham
 
 
 ## **2016** · pill: iMentor
@@ -146,22 +156,25 @@ April Graham joins, growing our postsecondary ideation and access work.
 
 We deliver our first major postsecondary partnership with national
 nonprofit iMentor, building the curriculum that anchors their
-multigrade mentoring program. Tara Williams joins, going on to lead
-our partnerships practice.
+multigrade mentoring program.
 
 Chip: Identity Exploration & Wayfinding (teal · career)
+
+New: Tara Williams
 
 
 ## **2017** · pill: Milestone
 
 **A breakout year**
 
-Creative Director Asha Kelly joins, bringing design and media to our
-curriculum and print media; the studio's footprint grows; and our
+Creative Director Asha Kelly brings design and media craft to our
+curriculum and print work; the studio's footprint grows; and our
 NMSI partnership deepens with NGSS-aligned modules supporting
 nationwide AP-access expansion.
 
 Chip: AP For All Curriculum Materials (yellow · eLearning)
+
+New: Asha Kelly
 
 
 ## **2018** · pill: Platforms
@@ -170,9 +183,10 @@ Chip: AP For All Curriculum Materials (yellow · eLearning)
 
 We build our first app and launch our first learning management system
 with The Teaching Kitchen, including mobile-adaptive training materials.
-Jody Walls joins, anchoring our back office.
 
 Chip: Mobile Adaptive Training - TTK (sky · platforms)
+
+New: Jody Walls
 
 
 ## **2019** · pill: eLearning / STEM · split year
@@ -180,28 +194,29 @@ Chip: Mobile Adaptive Training - TTK (sky · platforms)
 **eLearning & STEM take off**
 
 ▸ **eLearning practice begins** (yellow · eLearning)
-   Nadia Zaid joins and we launch our first eLearning project for
-   Early Learning Indiana.
+   Nadia Zaid leads our first eLearning project, for Early Learning
+   Indiana.
    Chip: Lead Paint Awareness - ELI (yellow · eLearning)
 
 ▸ **STEM specialization** (yellow · eLearning)
-   Cara Johnson joins, bringing a fresh take on NGSS pedagogy and
-   building out our STEM specialization; our PLTW work deepens
+   Cara Johnson brings a fresh take on NGSS pedagogy and builds out
+   our STEM specialization; our PLTW work deepens
    professional-development alignment in parallel.
    Chips: Nano - VR Science Labs (yellow · eLearning)
           NGSS pedagogy primer (yellow · eLearning)
           PLTW Launch 3rd Grade STEM (yellow · eLearning)
+
+New: Nadia Zaid, Cara Johnson
 
 
 ## **2020** · pill: COVID pivot · split year
 
 **The crisis turn to LMS**
 
-Erin McIntee joins, bringing expert, complex Storyline development.
-
 ▸ **Whole programs move online** (sky · platforms)
    When the world went remote, we helped partners stand up learning
-   management systems and move whole programs online, fast.
+   management systems and move whole programs online, fast, with Erin
+   McIntee bringing expert, complex Storyline development.
 
 ▸ **Workforce development goes asynchronous** (teal · career)
    We support STRIVE International in taking their whole Future Leaders
@@ -212,25 +227,26 @@ Erin McIntee joins, bringing expert, complex Storyline development.
    Chips: STRIVE Future Leaders / ACE (teal · career)
           Uncovering Workforce Barriers (teal · career)
 
+New: Erin McIntee
+
 
 ## **2021** · pill: Growth
 
 **Media & adult learning**
 
-Michaela Bradley joins and we build out in-house media production,
-while Morgan Taveras brings adult-learning expertise and
-character-driven design.
+Michaela Bradley builds out in-house media production, while Morgan
+Taveras brings adult-learning expertise and character-driven design.
 
 Chip: Video storytelling: Bias Awareness in ECE (magenta · media)
 (Per Ava: showcase one of Mica's videos here even though the Buncombe
 series shipped in 2023; the modal shows the true year.)
 
+New: Morgan Taveras, Michaela Bradley
+
 
 ## **2022** · pill: KIPP / AI · split year
 
 **Two new directions**
-
-Whitney Henderson and Dinky Cruz-Cada join the team.
 
 ▸ **KIPP Forward partnership begins** (teal · career)
    We begin our partnership with KIPP Forward, designing an
@@ -243,6 +259,8 @@ Whitney Henderson and Dinky Cruz-Cada join the team.
    feedback to tailor last-mile customization and personalization.
    Chip: Career Ikigai pathway tool (teal · career)
 
+New: Whitney Henderson, Dinky Cruz-Cada
+
 
 ## **2023** · pill: Growth
 
@@ -250,8 +268,9 @@ Whitney Henderson and Dinky Cruz-Cada join the team.
 
 Mastering the blend is about designing materials for live facilitation
 and making the most of async modules to prepare and extend live
-sessions, bringing them closer to on-the-ground application. Shanna
-Schlossberg, Jo Barnett, and Diane Takata Powell join the team.
+sessions, bringing them closer to on-the-ground application.
+
+New: Shanna Schlossberg, Jo Barnett, Diane Takata Powell
 
 (AVA TO DRAFT: ground this entry in the StriveTogether partnership.
 How many hybrid courses we've developed for them and their learners,
@@ -262,8 +281,6 @@ update in watercooler, the stepback presentation.)
 ## **2024** · pill: AI / Platforms · split year
 
 **AI-powered learning meets custom platforms**
-
-Luciana Santimaria, Chelsea George, and Maddie Murphy join the team.
 
 ▸ **AI-powered learning** (yellow · eLearning)
    The StriveTogether Continuous Improvement Toolkit launches with
@@ -277,6 +294,8 @@ Luciana Santimaria, Chelsea George, and Maddie Murphy join the team.
    premium media to parents of kids with dyslexia on a custom
    subscription platform.
    Chip: Premium Portal - Popped! (sky · platforms)
+
+New: Luciana Santimaria, Chelsea George, Maddie Murphy
 
 
 ## **2025** · pill: Technical Assistance & Storytelling · split year
@@ -299,9 +318,10 @@ Luciana Santimaria, Chelsea George, and Maddie Murphy join the team.
 
 **Fifteen years on**
 
-Emily Kiefer joins as our newest teammate, and a 21-person studio
-spanning instructional design, eLearning, media, platforms, and
-strategy is still growing together.
+A 21-person studio spanning instructional design, eLearning, media,
+platforms, and strategy, still growing together.
+
+New: Emily Kiefer
 
 [Celebratory moment per Ava: a brand-color confetti burst fires when
 this entry scrolls into view (skipped for reduced-motion users; can
@@ -1010,6 +1030,19 @@ https://www.healthybabiesbaltimore.com/hub/home
   up-to-9378px originals down to 1200px, fixing the pixelated
   rendering and slimming page weight.
 
+## Resolved 2026-06-10 (second pass)
+
+- Every year with a hire now carries the same "New to the team" note
+  (small pill + linked names), so all 21 current teammates appear in
+  the timeline consistently with their joining year. Bolted-on "X
+  joins" sentences trimmed from body prose; role detail lives in the
+  name hover preview.
+- Pixelated headshots root-caused: production builds replace repo
+  photos with Airtable's "large" thumbnail, which Airtable caps at
+  ~512px; at our card sizes on retina screens that upscales visibly.
+  build-team.js now prefers the "full" thumbnail (capped ~3000px), so
+  the next deploy serves sharp photos for everyone.
+
 ## Still open
 
 1. AVA TO DRAFT: 2023 "Mastering the blend" grounding in the
@@ -1018,3 +1051,8 @@ https://www.healthybabiesbaltimore.com/hub/home
 2. AVA TO DRAFT: broaden the StriveTogether testimonial story beyond
    the toolkit to the full body of ST work. Placeholder note in the
    data file.
+3. AVA / ASHA: for best page weight alongside the photo fix, replace
+   the Airtable Proposal_Photo attachment for Ava (currently a
+   9378x6252, 9.7MB file) with a ~1200px export of the original.
+   The pipeline fix makes her photo sharp either way; a right-sized
+   upload keeps the page fast too.

@@ -300,6 +300,33 @@
   margin-top: 0.55rem;
 }
 
+/* ── "New to the team" note: one consistent marker per year with hires ──── */
+.anniv-tl-joins {
+  display: flex;
+  align-items: baseline;
+  flex-wrap: wrap;
+  gap: 0.55rem;
+  margin: 0.8rem 0 0;
+  font-size: 0.92rem;
+}
+.anniv-tl-joins-label {
+  flex: 0 0 auto;
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0.07em;
+  text-transform: uppercase;
+  color: var(--accent-magenta);
+  border: 1px solid color-mix(in srgb, var(--accent-magenta) 40%, transparent);
+  border-radius: 999px;
+  padding: 0.14rem 0.6rem;
+}
+.anniv-tl-joins-label::before {
+  content: "+";
+  margin-right: 0.3rem;
+  font-weight: 800;
+}
+.anniv-tl-joins-names { color: var(--text-secondary); }
+
 /* ── Confetti burst on "celebrate" timeline entries (2026) ──────────────── */
 .anniv-tl-item--celebrate { position: relative; }
 .anniv-confetti {

@@ -103,8 +103,13 @@ async function fetchAirtable() {
 function pickAttachmentUrl(field) {
   if (!Array.isArray(field) || !field.length) return null;
   const a = field[0];
-  // Prefer a moderate thumbnail to keep build fast.  Airtable's "large" is up to ~1000px.
-  return (a.thumbnails && a.thumbnails.large && a.thumbnails.large.url) || a.url;
+  // Prefer "full" (capped ~3000px) over "large" (capped ~512px). The 512px
+  // large thumb upscales visibly on retina displays at our card sizes; that
+  // was the source of the pixelated headshots on the live site. Full keeps
+  // photos sharp; page weight stays sane as long as the Airtable attachments
+  // themselves are reasonably sized (~1200px uploads recommended).
+  const t = a.thumbnails || {};
+  return (t.full && t.full.url) || (t.large && t.large.url) || a.url;
 }
 
 function pickAttachmentExt(field) {

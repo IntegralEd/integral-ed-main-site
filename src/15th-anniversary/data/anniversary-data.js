@@ -69,24 +69,30 @@ window.ANNIVERSARY_DATA = {
       image: "",
       tag: "Assessment"
     },
+    // Every year in which a teammate joined carries a `joins: [...]` list.
+    // The page renders it as a consistent "New to the team" note at the foot
+    // of the entry; names are auto-linked with the role hover preview.
     {
       year: 2014,
       title: "Curriculum takes root",
-      body: "Ava Millstone joins to lead curriculum, and the work grows from analysis into building the slides, guides, and facilitator materials our partners teach from.",
+      body: "Ava Millstone takes the lead on curriculum, and the work grows from analysis into building the slides, guides, and facilitator materials our partners teach from.",
+      joins: ["Ava Millstone"],
       image: "",
       tag: "First hire"
     },
     {
       year: 2015,
       title: "The team grows",
-      body: "Alicia Chipman joins, expanding our curriculum-design capacity, and April Graham joins, growing our postsecondary ideation and access work.",
+      body: "Alicia Chipman expands our curriculum-design capacity, and April Graham grows our postsecondary ideation and access work.",
+      joins: ["Alicia Chipman", "April Graham"],
       image: "",
       tag: "Team"
     },
     {
       year: 2016,
       title: "First major postsecondary mentoring project",
-      body: "We deliver our first major postsecondary partnership with national nonprofit iMentor, building the curriculum that anchors their multigrade mentoring program. Tara Williams joins, going on to lead our partnerships practice.",
+      body: "We deliver our first major postsecondary partnership with national nonprofit iMentor, building the curriculum that anchors their multigrade mentoring program.",
+      joins: ["Tara Williams"],
       highlights: [
         { svc: "career", ref: "identityWayfinding", label: "Identity Exploration & Wayfinding" }
       ],
@@ -96,7 +102,8 @@ window.ANNIVERSARY_DATA = {
     {
       year: 2017,
       title: "A breakout year",
-      body: "Creative Director Asha Kelly joins, bringing design and media to our curriculum and print media; the studio's footprint grows; and our NMSI partnership deepens with NGSS-aligned modules supporting nationwide AP-access expansion.",
+      body: "Creative Director Asha Kelly brings design and media craft to our curriculum and print work; the studio's footprint grows; and our NMSI partnership deepens with NGSS-aligned modules supporting nationwide AP-access expansion.",
+      joins: ["Asha Kelly"],
       highlights: [
         { svc: "elearning", ref: "apForAll", label: "AP For All Curriculum Materials" }
       ],
@@ -106,7 +113,8 @@ window.ANNIVERSARY_DATA = {
     {
       year: 2018,
       title: "Our first app & LMS",
-      body: "We build our first app and launch our first learning management system with The Teaching Kitchen, including mobile-adaptive training materials. Jody Walls joins, anchoring our back office.",
+      body: "We build our first app and launch our first learning management system with The Teaching Kitchen, including mobile-adaptive training materials.",
+      joins: ["Jody Walls"],
       highlights: [
         { svc: "platforms", ref: "ttk", label: "Mobile Adaptive Training (TTK)" }
       ],
@@ -117,11 +125,12 @@ window.ANNIVERSARY_DATA = {
       year: 2019,
       title: "eLearning & STEM take off",
       tag: "eLearning / STEM",
+      joins: ["Nadia Zaid", "Cara Johnson"],
       events: [
         {
           theme: "eLearning practice begins",
           svc: "elearning",
-          body: "Nadia Zaid joins and we launch our first eLearning project for Early Learning Indiana.",
+          body: "Nadia Zaid leads our first eLearning project, for Early Learning Indiana.",
           highlights: [
             { svc: "elearning", ref: "leadPaint", label: "Lead Paint Awareness (ELI)" }
           ]
@@ -129,7 +138,7 @@ window.ANNIVERSARY_DATA = {
         {
           theme: "STEM specialization",
           svc: "elearning",
-          body: "Cara Johnson joins, bringing a fresh take on NGSS pedagogy and building out our STEM specialization; our PLTW work deepens professional-development alignment in parallel.",
+          body: "Cara Johnson brings a fresh take on NGSS pedagogy and builds out our STEM specialization; our PLTW work deepens professional-development alignment in parallel.",
           highlights: [
             { svc: "elearning", ref: "nano",        label: "Nano: VR Science Labs" },
             { svc: "elearning", ref: "ngssScience", label: "NGSS pedagogy primer" },
@@ -143,12 +152,12 @@ window.ANNIVERSARY_DATA = {
       year: 2020,
       title: "The crisis turn to LMS",
       tag: "COVID pivot",
-      body: "Erin McIntee joins, bringing expert, complex Storyline development.",
+      joins: ["Erin McIntee"],
       events: [
         {
           theme: "Whole programs move online",
           svc: "platforms",
-          body: "When the world went remote, we helped partners stand up learning management systems and move whole programs online, fast.",
+          body: "When the world went remote, we helped partners stand up learning management systems and move whole programs online, fast, with Erin McIntee bringing expert, complex Storyline development.",
           highlights: []
         },
         {
@@ -166,7 +175,8 @@ window.ANNIVERSARY_DATA = {
     {
       year: 2021,
       title: "Media & adult learning",
-      body: "Michaela Bradley joins and we build out in-house media production, while Morgan Taveras brings adult-learning expertise and character-driven design.",
+      body: "Michaela Bradley builds out in-house media production, while Morgan Taveras brings adult-learning expertise and character-driven design.",
+      joins: ["Morgan Taveras", "Michaela Bradley"],
       // The Bias Awareness series is a 2023 ship, but it's the best showcase
       // of the media-production craft this year is about (per Ava's note).
       highlights: [
@@ -182,7 +192,7 @@ window.ANNIVERSARY_DATA = {
       year: 2022,
       title: "Two new directions",
       tag: "KIPP / AI",
-      body: "Whitney Henderson and Dinky Cruz-Cada join the team.",
+      joins: ["Whitney Henderson", "Dinky Cruz-Cada"],
       events: [
         {
           theme: "KIPP Forward partnership begins",
@@ -211,7 +221,8 @@ window.ANNIVERSARY_DATA = {
       // learners, show an example, and link to the (free) training hub.
       // Ava offered to draft; sources: June update in watercooler, the
       // stepback presentation.
-      body: "Mastering the blend is about designing materials for live facilitation and making the most of async modules to prepare and extend live sessions, bringing them closer to on-the-ground application. Shanna Schlossberg, Jo Barnett, and Diane Takata Powell join the team.",
+      body: "Mastering the blend is about designing materials for live facilitation and making the most of async modules to prepare and extend live sessions, bringing them closer to on-the-ground application.",
+      joins: ["Shanna Schlossberg", "Jo Barnett", "Diane Takata Powell"],
       image: "",
       tag: "Growth"
     },
@@ -219,7 +230,7 @@ window.ANNIVERSARY_DATA = {
       year: 2024,
       title: "AI-powered learning meets custom platforms",
       tag: "AI / Platforms",
-      body: "Luciana Santimaria, Chelsea George, and Maddie Murphy join the team.",
+      joins: ["Luciana Santimaria", "Chelsea George", "Maddie Murphy"],
       events: [
         {
           theme: "AI-powered learning",
@@ -267,7 +278,8 @@ window.ANNIVERSARY_DATA = {
     {
       year: 2026,
       title: "Fifteen years on",
-      body: "Emily Kiefer joins as our newest teammate, and a 21-person studio spanning instructional design, eLearning, media, platforms, and strategy is still growing together.",
+      body: "A 21-person studio spanning instructional design, eLearning, media, platforms, and strategy, still growing together.",
+      joins: ["Emily Kiefer"],
       image: "",
       tag: "Today",
       // Fires a brand-color confetti burst when this entry scrolls into view.

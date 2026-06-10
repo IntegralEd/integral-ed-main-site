@@ -128,6 +128,15 @@
           (t.body ? '<p class="anniv-tl-body">' + linkNames(t.body) + '</p>' : '') +
           renderChipStrip(t.highlights);
       }
+      // Consistent per-year "New to the team" note (per Ava's consistency
+      // ask): every year with hires gets the same compact marker, with
+      // names auto-linked so the role hover preview carries the detail.
+      var joinsHtml = (t.joins && t.joins.length)
+        ? '<p class="anniv-tl-joins">' +
+            '<span class="anniv-tl-joins-label">New to the team</span>' +
+            '<span class="anniv-tl-joins-names">' + linkNames(t.joins.join(', ')) + '</span>' +
+          '</p>'
+        : '';
       var cls = 'anniv-tl-item reveal' +
         (events.length ? ' anniv-tl-item--split' : '') +
         (t.celebrate ? ' anniv-tl-item--celebrate' : '');
@@ -137,6 +146,7 @@
         (t.tag ? '<span class="anniv-tl-tag">' + esc(t.tag) + '</span>' : '') +
         (t.title ? '<h3 class="anniv-tl-title">' + esc(t.title) + '</h3>' : '') +
         bodyBlock +
+        joinsHtml +
         (t.image ? '<img class="anniv-tl-img" src="' + esc(t.image) + '" alt="' + esc(t.title || '') + '" loading="lazy">' : '') +
         '</li>';
     }).join('');
