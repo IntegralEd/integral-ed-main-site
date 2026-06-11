@@ -91,7 +91,7 @@ window.ANNIVERSARY_DATA = {
     {
       year: 2016,
       title: "First major postsecondary mentoring project",
-      body: "We deliver our first major postsecondary partnership with national nonprofit iMentor, building the curriculum that anchors their multigrade mentoring program.",
+      body: "We deliver our first major postsecondary partnership with national nonprofit iMentor, building the curriculum that anchors their multigrade mentoring program. Tara Williams arrives to build our strategic consultation and partnerships practice, pairing growth strategy with professional learning.",
       joins: ["Tara Williams"],
       highlights: [
         { svc: "career", ref: "identityWayfinding", label: "Identity Exploration & Wayfinding" }
@@ -113,7 +113,7 @@ window.ANNIVERSARY_DATA = {
     {
       year: 2018,
       title: "Our first app & LMS",
-      body: "We build our first app and launch our first learning management system with The Teaching Kitchen, including mobile-adaptive training materials.",
+      body: "We build our first app and launch our first learning management system with The Teaching Kitchen, including mobile-adaptive training materials. Jody Walls brings project management plus human-capital and finance systems experience to our back of house.",
       joins: ["Jody Walls"],
       highlights: [
         { svc: "platforms", ref: "ttk", label: "Mobile Adaptive Training (TTK)" }
@@ -191,6 +191,7 @@ window.ANNIVERSARY_DATA = {
       year: 2022,
       title: "Two new directions",
       tag: "KIPP / AI",
+      body: "Dinky Cruz-Cada adds Storyline development capacity as our eLearning practice grows.",
       joins: ["Whitney Henderson", "Dinky Cruz-Cada"],
       events: [
         {
@@ -220,7 +221,7 @@ window.ANNIVERSARY_DATA = {
       // learners, show an example, and link to the (free) training hub.
       // Ava offered to draft; sources: June update in watercooler, the
       // stepback presentation.
-      body: "Mastering the blend is about designing materials for live facilitation and making the most of async modules to prepare and extend live sessions, bringing them closer to on-the-ground application.",
+      body: "Mastering the blend is about designing materials for live facilitation and making the most of async modules to prepare and extend live sessions, bringing them closer to on-the-ground application. Shanna Schlossberg brings learning theory and SEL and executive-function expertise, Jo Barnett adds instructional and eLearning design capacity, and Diane Takata Powell, a client-turned-teammate from UnboundEd, brings executive leadership in district sales and nonprofit growth strategy, expanding our front-of-funnel marketing and growth capacity.",
       joins: ["Shanna Schlossberg", "Jo Barnett", "Diane Takata Powell"],
       image: "",
       tag: "Growth"
@@ -229,6 +230,7 @@ window.ANNIVERSARY_DATA = {
       year: 2024,
       title: "AI-powered learning meets custom platforms",
       tag: "AI / Platforms",
+      body: "Luciana Santimaria adds Storyline development capacity, Chelsea George adds operational capacity and communications expertise, and Maddie Murphy brings design capacity and a commitment to Indigenous education.",
       joins: ["Luciana Santimaria", "Chelsea George", "Maddie Murphy"],
       events: [
         {
@@ -277,7 +279,7 @@ window.ANNIVERSARY_DATA = {
     {
       year: 2026,
       title: "Fifteen years on",
-      body: "A 21-person studio spanning instructional design, eLearning, media, platforms, and strategy, still growing together.",
+      body: "Emily Kiefer brings STEM curriculum expertise and data-analysis capacity to the curriculum team, and a 21-person studio spanning instructional design, eLearning, media, platforms, and strategy is still growing together.",
       joins: ["Emily Kiefer"],
       image: "",
       tag: "Today",
