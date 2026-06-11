@@ -102,7 +102,7 @@ window.ANNIVERSARY_DATA = {
     {
       year: 2017,
       title: "A breakout year",
-      body: "Creative Director Asha Kelly brings design and media craft to our curriculum and print work; the studio's footprint grows; and our NMSI partnership deepens with NGSS-aligned modules supporting nationwide AP-access expansion.",
+      body: "Creative Director Asha Kelly brings visual storytelling and design craft that makes every project instructionally sound, visually compelling, and accessible; her design systems and templates go on to power dozens of programs for national curriculum publishers. The studio's footprint grows, and our NMSI partnership deepens with NGSS-aligned modules supporting nationwide AP-access expansion.",
       joins: ["Asha Kelly"],
       highlights: [
         { svc: "elearning", ref: "apForAll", label: "AP For All Curriculum Materials" }
@@ -130,7 +130,7 @@ window.ANNIVERSARY_DATA = {
         {
           theme: "eLearning practice begins",
           svc: "elearning",
-          body: "Nadia Zaid leads our first eLearning project, for Early Learning Indiana.",
+          body: "Nadia Zaid leads our first eLearning project, for Early Learning Indiana, and goes on to build our Articulate360 development team, making asynchronous learning a core feature of most projects and championing WCAG AA accessibility across deliverables.",
           highlights: [
             { svc: "elearning", ref: "leadPaint", label: "Lead Paint Awareness (ELI)" }
           ]
@@ -175,7 +175,7 @@ window.ANNIVERSARY_DATA = {
     {
       year: 2021,
       title: "Media & adult learning",
-      body: "Michaela Bradley builds out in-house media production, while Morgan Taveras brings adult-learning expertise and character-driven design.",
+      body: "Michaela Bradley builds out in-house media production, while Morgan Taveras brings adult-learning expertise and character-driven, scenario-based design, going on to design more than twenty blended courses and spearhead our most complex story-driven work.",
       joins: ["Morgan Taveras", "Michaela Bradley"],
       // Showcase of Mica's video-production craft (per Ava's note).
       highlights: [
@@ -216,12 +216,9 @@ window.ANNIVERSARY_DATA = {
     {
       year: 2023,
       title: "Mastering the blend",
-      // AVA-TO-DRAFT: ground this entry in the StriveTogether partnership.
-      // Mention how many hybrid courses we've developed for them and their
-      // learners, show an example, and link to the (free) training hub.
-      // Ava offered to draft; sources: June update in watercooler, the
-      // stepback presentation.
-      body: "Mastering the blend is about designing materials for live facilitation and making the most of async modules to prepare and extend live sessions, bringing them closer to on-the-ground application. Shanna Schlossberg brings learning theory and SEL and executive-function expertise, Jo Barnett adds instructional and eLearning design capacity, and Diane Takata Powell, a client-turned-teammate from UnboundEd, brings executive leadership in district sales and nonprofit growth strategy, expanding our front-of-funnel marketing and growth capacity.",
+      // TODO (Ava): exact hybrid-course count + Training Hub URL when handy;
+      // the hub URL can also go on the StriveTogether project card's `link`.
+      body: "Mastering the blend is about designing materials for live facilitation and making the most of async modules to prepare and extend live sessions, bringing them closer to on-the-ground application. Our StriveTogether partnership anchors this era: a growing catalog of blended courses on their free Training Hub helps community-based nonprofits and educators change systems and achieve equitable outcomes. Shanna Schlossberg brings learning theory and SEL and executive-function expertise, Jo Barnett adds instructional and eLearning design capacity, and Diane Takata Powell, a client-turned-teammate from UnboundEd, brings nearly thirty years of leadership across corporate, education, and nonprofit sectors, crafting marketing plans and growth strategies for clients focused on school districts and LEAs.",
       joins: ["Shanna Schlossberg", "Jo Barnett", "Diane Takata Powell"],
       image: "",
       tag: "Growth"
@@ -230,7 +227,7 @@ window.ANNIVERSARY_DATA = {
       year: 2024,
       title: "AI-powered learning meets custom platforms",
       tag: "AI / Platforms",
-      body: "Luciana Santimaria adds Storyline development capacity, Chelsea George adds operational capacity and communications expertise, and Maddie Murphy brings design capacity and a commitment to Indigenous education.",
+      body: "Luciana Santimaria adds Storyline development capacity, Chelsea George adds operational capacity and communications expertise, and Maddie Murphy, an enrolled member of the Three Affiliated Tribes of North Dakota, brings design capacity and research expertise in Indigenous education and education policy.",
       joins: ["Luciana Santimaria", "Chelsea George", "Maddie Murphy"],
       events: [
         {
@@ -679,10 +676,7 @@ window.ANNIVERSARY_DATA = {
         name: "StriveTogether",
         svc: "elearning",
         logo: "/assets/images/client-logos/StriveTogether-Brandmark-w-tag-RGB-Grey-orange-1%20(1).png",
-        // AVA-TO-DRAFT: broaden beyond the toolkit to the many courses and
-        // learning types we've built for ST (per Ava's note; sources: June
-        // watercooler update, the stepback presentation).
-        story: "With Ava Millstone leading the work, we translated StriveTogether's continuous-improvement methodology into an interactive toolkit for educators: video, scenario-based practice, and an AI-powered chatbot that coaches in real time.",
+        story: "With Ava Millstone leading the work, StriveTogether has trusted Integral Ed to realize a range of offerings on their free Training Hub for community-based nonprofits and educators, helping learners and leaders change systems and achieve equitable outcomes. The flagship: a Continuous Improvement Toolkit that pairs character-driven video and scenario-based practice with an AI-powered chatbot that coaches in real time.",
         quote: "Integral Ed does an amazing job of understanding who we are as an organization. They thoughtfully translate our content into interactive courses that take our work to the next level.",
         quoteAttribution: "Heidi Black, VP of Training, StriveTogether",
         since: null

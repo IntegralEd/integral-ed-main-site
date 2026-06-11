@@ -169,10 +169,12 @@ New: Tara Williams
 
 **A breakout year**
 
-Creative Director Asha Kelly brings design and media craft to our
-curriculum and print work; the studio's footprint grows; and our
-NMSI partnership deepens with NGSS-aligned modules supporting
-nationwide AP-access expansion.
+Creative Director Asha Kelly brings visual storytelling and design
+craft that makes every project instructionally sound, visually
+compelling, and accessible; her design systems and templates go on to
+power dozens of programs for national curriculum publishers. The
+studio's footprint grows, and our NMSI partnership deepens with
+NGSS-aligned modules supporting nationwide AP-access expansion.
 
 Chip: AP For All Curriculum Materials (yellow · eLearning)
 
@@ -199,7 +201,9 @@ New: Jody Walls
 
 ▸ **eLearning practice begins** (yellow · eLearning)
    Nadia Zaid leads our first eLearning project, for Early Learning
-   Indiana.
+   Indiana, and goes on to build our Articulate360 development team,
+   making asynchronous learning a core feature of most projects and
+   championing WCAG AA accessibility across deliverables.
    Chip: Lead Paint Awareness - ELI (yellow · eLearning)
 
 ▸ **STEM specialization** (yellow · eLearning)
@@ -239,7 +243,9 @@ New: Erin McIntee
 **Media & adult learning**
 
 Michaela Bradley builds out in-house media production, while Morgan
-Taveras brings adult-learning expertise and character-driven design.
+Taveras brings adult-learning expertise and character-driven,
+scenario-based design, going on to design more than twenty blended
+courses and spearhead our most complex story-driven work.
 
 Chip: Video production: Amass Splash Video (magenta · media)
 (Showcase of Mica's video craft, per Ava's note. The Bias Awareness
@@ -275,20 +281,23 @@ New: Whitney Henderson, Dinky Cruz-Cada
 
 Mastering the blend is about designing materials for live facilitation
 and making the most of async modules to prepare and extend live
-sessions, bringing them closer to on-the-ground application. Shanna
-Schlossberg brings learning theory and SEL and executive-function
-expertise, Jo Barnett adds instructional and eLearning design
-capacity, and Diane Takata Powell, a client-turned-teammate from
-UnboundEd, brings executive leadership in district sales and nonprofit
-growth strategy, expanding our front-of-funnel marketing and growth
-capacity.
+sessions, bringing them closer to on-the-ground application. Our
+StriveTogether partnership anchors this era: a growing catalog of
+blended courses on their free Training Hub helps community-based
+nonprofits and educators change systems and achieve equitable
+outcomes. Shanna Schlossberg brings learning theory and SEL and
+executive-function expertise, Jo Barnett adds instructional and
+eLearning design capacity, and Diane Takata Powell, a
+client-turned-teammate from UnboundEd, brings nearly thirty years of
+leadership across corporate, education, and nonprofit sectors,
+crafting marketing plans and growth strategies for clients focused on
+school districts and LEAs.
 
 New: Shanna Schlossberg, Jo Barnett, Diane Takata Powell
 
-(AVA TO DRAFT: ground this entry in the StriveTogether partnership.
-How many hybrid courses we've developed for them and their learners,
-show an example, and link to the free training hub. Sources: June
-update in watercooler, the stepback presentation.)
+(Grounded from the December 2024 newsletter. Still handy from Ava:
+exact hybrid-course count and the Training Hub URL, which can also go
+on the StriveTogether project card's link-out button.)
 
 
 ## **2024** · pill: AI / Platforms · split year
@@ -297,8 +306,9 @@ update in watercooler, the stepback presentation.)
 
 Luciana Santimaria adds Storyline development capacity, Chelsea George
 adds operational capacity and communications expertise, and Maddie
-Murphy brings design capacity and a commitment to Indigenous
-education.
+Murphy, an enrolled member of the Three Affiliated Tribes of North
+Dakota, brings design capacity and research expertise in Indigenous
+education and education policy.
 
 ▸ **AI-powered learning** (yellow · eLearning)
    The StriveTogether Continuous Improvement Toolkit launches with
@@ -617,14 +627,16 @@ interactive courses that take our work to the next level."
 
 **Attribution.** Heidi Black, VP of Training, StriveTogether
 
-**Story.** With Ava Millstone leading the work, we translated
-StriveTogether's continuous-improvement methodology into an
-interactive toolkit for educators: video, scenario-based practice,
-and an AI-powered chatbot that coaches in real time.
+**Story.** With Ava Millstone leading the work, StriveTogether has
+trusted Integral Ed to realize a range of offerings on their free
+Training Hub for community-based nonprofits and educators, helping
+learners and leaders change systems and achieve equitable outcomes.
+The flagship: a Continuous Improvement Toolkit that pairs
+character-driven video and scenario-based practice with an AI-powered
+chatbot that coaches in real time.
 
-(AVA TO DRAFT: broaden beyond the toolkit to the many courses and
-learning types we've built for ST. Sources: June watercooler update,
-the stepback presentation.)
+(Broadened from the December 2024 newsletter's Client Spotlight, per
+Ava's note.)
 
 
 ## Featured 2 · EL Education (magenta band)
@@ -1080,16 +1092,33 @@ https://www.healthybabiesbaltimore.com/hub/home
   build-team.js now prefers the "full" thumbnail (capped ~3000px), so
   the next deploy serves sharp photos for everyone.
 
+## Resolved 2026-06-11 (newsletter + LinkedIn enrichment)
+
+- 2023 grounded in the StriveTogether partnership (free Training Hub,
+  "change systems and achieve equitable outcomes" mission) from the
+  December 2024 newsletter; AVA-TO-DRAFT item closed.
+- StriveTogether testimonial broadened beyond the toolkit using the
+  newsletter's Client Spotlight; AVA-TO-DRAFT item closed.
+- Diane's 2023 line rewritten from her newsletter Team Spotlight:
+  nearly 30 years across corporate/education/nonprofit, marketing
+  plans + growth strategies for districts and LEAs. (Revenue figure
+  from the newsletter intentionally omitted per the no-dollar rule.)
+- Maddie's 2024 line corrected per the newsletter: enrolled member of
+  the Three Affiliated Tribes of North Dakota; research expertise in
+  Indigenous education and education policy.
+- Nadia's 2019 line enriched from her LinkedIn spotlight: built the
+  Articulate360 team, async learning core to most projects, WCAG AA
+  accessibility champion.
+- Morgan's 2021 line enriched from her LinkedIn spotlight: 20+
+  blended courses, spearheads our most complex story-driven work.
+- Asha's 2017 line enriched from her LinkedIn spotlight: visual
+  storytelling + design systems powering dozens of programs for
+  national curriculum publishers.
+
 ## Still open
 
-1. AVA TO DRAFT: 2023 "Mastering the blend" grounding in the
-   StriveTogether partnership (hybrid course count, an example, link
-   to the free training hub). Placeholder note sits in the data file.
-2. AVA TO DRAFT: broaden the StriveTogether testimonial story beyond
-   the toolkit to the full body of ST work. Placeholder note in the
-   data file.
-3. AVA / ASHA: for best page weight alongside the photo fix, replace
-   the Airtable Proposal_Photo attachment for Ava (currently a
-   9378x6252, 9.7MB file) with a ~1200px export of the original.
-   The pipeline fix makes her photo sharp either way; a right-sized
-   upload keeps the page fast too.
+1. AVA: exact StriveTogether hybrid-course count + Training Hub URL
+   (slots into the 2023 body and the ST project card's link button).
+2. AVA / ASHA: for best page weight alongside the photo pipeline fix,
+   replace the Airtable Proposal_Photo attachment for Ava (currently
+   9378x6252, 9.7MB) with a ~1200px export of the original.
