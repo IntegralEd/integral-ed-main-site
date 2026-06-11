@@ -413,6 +413,9 @@
 .evo-plum    { --evo-c: var(--primary-light, #b066bd); }
 .evo-sky     { --evo-c: #58b0e3; }
 .evo-orange  { --evo-c: #f08a3e; }
+/* Silver: the founding data stream. Freed up blue for the Growth Strategy
+   & Marketing stream so the map matches the service palette. */
+.evo-silver  { --evo-c: #c9d3e4; }
 
 /* ── Service palette: one color per service area, reused across blocks.
    Same values as the evo-* swatches so the timeline, the work cards, and

@@ -396,7 +396,12 @@ capability and the proof behind it."]
 through the layers.
 
 
-## **2011** · Data & analysis (blue)
+## **2011** · Data & analysis (silver)
+
+(Recolored from blue to silver: blue now belongs to the Growth
+Strategy & Marketing stream below, keeping the map consistent with
+the service palette. The founding analytics stream is not one of
+today's six service areas, so it takes a neutral silver.)
 
 **Tagline.** One person, one laptop.
 
@@ -450,6 +455,18 @@ so learning responds in real time and tailors to each learner.
 
 **Proof** (hover to reveal). Career Ikigai personalized pathway tool;
 the StriveTogether CI Toolkit later launches with an AI-powered chatbot.
+
+
+## **2023** · Growth strategy & marketing (blue) · new
+
+**Tagline.** Market plans, partnerships, front-of-funnel.
+
+**What we could do.** Help clients plan and execute growth: marketing
+plans, sales and partnership team design, and go-to-market strategy
+for districts and LEAs.
+
+**Proof** (hover to reveal). Diane Takata Powell joins, anchoring the
+practice behind our Growth Strategy & Marketing service area.
 
 
 ## **2024** · Apps & custom platforms (sky)
@@ -558,6 +575,27 @@ student-centered counseling across KIPP high schools, and has since
 scaled into a regional train-the-trainer model.
 
 **Media.** YouTube embed 49_VAHyZv2E
+
+
+## Card 5 · Activating Facilitators and their Networks
+
+**Service.** Growth Strategy & Marketing (blue)
+
+**Meta.** UnboundEd   [year: CONFIRM]
+
+**Summary.** We collaborated with UnboundEd, a national nonprofit
+focused on equitable education, to promote their professional
+learning experiences. We helped design UnboundEd's referral program
+with incentives and social media collateral: referral-bonus
+incentives, policies, data tracking, and collateral facilitators can
+post themselves, including image, text, and video templates for
+social media.
+
+**Media.** Loom walkthrough embed (44bc687d8a984f859db7a70eb41f3002)
+
+(Added so the Work block carries a growth-blue card matching the
+2023 timeline sub-event and the Growth Strategy & Marketing service
+area; the project also connects to Diane's UnboundEd story.)
 
 
 # 04 · The Team

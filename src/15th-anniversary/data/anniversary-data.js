@@ -309,11 +309,14 @@ window.ANNIVERSARY_DATA = {
     {
       id: "data",
       year: 2011,
+      // Silver, not blue: the founding analytics stream isn't one of today's
+      // six service areas, and blue now belongs to Growth Strategy &
+      // Marketing so the map matches the timeline + services palette.
       stage: "Data & analysis",
       tagline: "One person, one laptop.",
       whatWeCouldDo: "Turn messy program data into clear, decision-ready insight.",
       proof: "The founding service: analytics for mission-driven education orgs.",
-      color: "blue"
+      color: "silver"
     },
     {
       id: "curriculum",
@@ -350,6 +353,15 @@ window.ANNIVERSARY_DATA = {
       whatWeCouldDo: "Add chat-based interviews and AI-powered feedback so learning responds in real time and tailors to each learner.",
       proof: "Career Ikigai personalized pathway tool; the StriveTogether CI Toolkit later launches with an AI-powered chatbot.",
       color: "plum"
+    },
+    {
+      id: "growth",
+      year: 2023,
+      stage: "Growth strategy & marketing",
+      tagline: "Market plans, partnerships, front-of-funnel.",
+      whatWeCouldDo: "Help clients plan and execute growth: marketing plans, sales and partnership team design, and go-to-market strategy for districts and LEAs.",
+      proof: "Diane Takata Powell joins, anchoring the practice behind our Growth Strategy & Marketing service area.",
+      color: "blue"
     },
     {
       id: "apps",
@@ -431,6 +443,19 @@ window.ANNIVERSARY_DATA = {
       href: "/services/career-pathways/",
       embedUrl: "",
       videoUrl: "https://www.youtube.com/embed/49_VAHyZv2E",
+      link: ""
+    },
+    {
+      title: "Activating Facilitators and their Networks",
+      client: "UnboundEd",
+      year: null,                        // CONFIRM year
+      serviceArea: "Growth Strategy & Marketing",
+      svc: "growth",
+      summary: "We collaborated with UnboundEd, a national nonprofit focused on equitable education, to promote their professional learning experiences. We helped design UnboundEd's referral program with incentives and social media collateral: referral-bonus incentives, policies, data tracking, and collateral facilitators can post themselves, including image, text, and video templates for social media.",
+      image: "",
+      href: "/services/strategy-and-growth/",
+      embedUrl: "",
+      videoUrl: "https://www.loom.com/embed/44bc687d8a984f859db7a70eb41f3002",
       link: ""
     }
     // READY TO ADD: the "Nano" STEM highlight (from Cara's STEM work).
