@@ -132,10 +132,14 @@
       // ask): every year with hires gets the same compact marker, with
       // names auto-linked so the role hover preview carries the detail.
       var joinsHtml = (t.joins && t.joins.length)
-        ? '<p class="anniv-tl-joins">' +
+        ? '<div class="anniv-tl-joins">' +
             '<span class="anniv-tl-joins-label">New to the team</span>' +
-            '<span class="anniv-tl-joins-names">' + linkNames(t.joins.join(', ')) + '</span>' +
-          '</p>'
+            '<span class="anniv-tl-joins-names">' +
+              t.joins.map(function (n) {
+                return '<span class="anniv-tl-join-name">' + linkNames(n) + '</span>';
+              }).join('') +
+            '</span>' +
+          '</div>'
         : '';
       var cls = 'anniv-tl-item reveal' +
         (events.length ? ' anniv-tl-item--split' : '') +

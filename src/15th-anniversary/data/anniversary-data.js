@@ -215,13 +215,26 @@ window.ANNIVERSARY_DATA = {
     },
     {
       year: 2023,
-      title: "Mastering the blend",
+      title: "Mastering the blend, adding growth strategy",
+      tag: "Blend / Growth",
+      joins: ["Shanna Schlossberg", "Jo Barnett", "Diane Takata Powell"],
       // TODO (Ava): exact hybrid-course count + Training Hub URL when handy;
       // the hub URL can also go on the StriveTogether project card's `link`.
-      body: "Mastering the blend is about designing materials for live facilitation and making the most of async modules to prepare and extend live sessions, bringing them closer to on-the-ground application. Our StriveTogether partnership anchors this era: a growing catalog of blended courses on their free Training Hub helps community-based nonprofits and educators change systems and achieve equitable outcomes. Shanna Schlossberg brings learning theory and SEL and executive-function expertise, Jo Barnett adds instructional and eLearning design capacity, and Diane Takata Powell, a client-turned-teammate from UnboundEd, brings nearly thirty years of leadership across corporate, education, and nonprofit sectors, crafting marketing plans and growth strategies for clients focused on school districts and LEAs.",
-      joins: ["Shanna Schlossberg", "Jo Barnett", "Diane Takata Powell"],
-      image: "",
-      tag: "Growth"
+      events: [
+        {
+          theme: "Mastering the blend",
+          svc: "elearning",
+          body: "Mastering the blend is about designing materials for live facilitation and making the most of async modules to prepare and extend live sessions, bringing them closer to on-the-ground application. Our StriveTogether partnership anchors this era: a growing catalog of blended courses on their free Training Hub helps community-based nonprofits and educators change systems and achieve equitable outcomes. Shanna Schlossberg brings learning theory and SEL and executive-function expertise, while Jo Barnett adds instructional and eLearning design capacity.",
+          highlights: []
+        },
+        {
+          theme: "Growth strategy & marketing comes in-house",
+          svc: "growth",
+          body: "Diane Takata Powell, a client-turned-teammate from UnboundEd, brings nearly thirty years of leadership across corporate, education, and nonprofit sectors, crafting marketing plans and growth strategies for clients focused on school districts and LEAs and anchoring the practice behind our Growth Strategy & Marketing service area.",
+          highlights: []
+        }
+      ],
+      image: ""
     },
     {
       year: 2024,
@@ -742,7 +755,7 @@ window.ANNIVERSARY_DATA = {
     { name: "eLearning & Blended Learning", href: "/services/elearning/",            svc: "elearning" },
     { name: "Technical Assistance",         href: "/services/capacity/",             svc: "technical" },
     { name: "Career Connected Learning",    href: "/services/career-pathways/",      svc: "career" },
-    { name: "Growth Strategy",              href: "/services/strategy-and-growth/",  svc: "growth" },
+    { name: "Growth Strategy & Marketing",  href: "/services/strategy-and-growth/",  svc: "growth" },
     { name: "LMS & Platforms",              href: "/services/platforms/",            svc: "platforms" },
     { name: "Media & Communications",       href: "/services/media-and-communications/", svc: "media" }
   ]

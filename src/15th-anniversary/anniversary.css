@@ -300,7 +300,10 @@
   margin-top: 0.55rem;
 }
 
-/* ── "New to the team" note: one consistent marker per year with hires ──── */
+/* ── "New to the team" note: one consistent marker per year with hires.
+   On narrow screens it sits in-flow at the foot of the entry; from 920px
+   up it moves to a RIGHT RAIL that runs parallel to the main timeline
+   column, so hires read as their own track alongside the story. ───────── */
 .anniv-tl-joins {
   display: flex;
   align-items: baseline;
@@ -326,6 +329,39 @@
   font-weight: 800;
 }
 .anniv-tl-joins-names { color: var(--text-secondary); }
+.anniv-tl-join-name { display: inline; }
+.anniv-tl-join-name:not(:last-child)::after { content: ", "; color: var(--text-tertiary); }
+
+@media (min-width: 920px) {
+  /* Widen the timeline to make room for the joins rail. */
+  .anniv-timeline { max-width: 1120px; }
+  .anniv-tl-item {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) 220px;
+    column-gap: var(--spacing-xl);
+  }
+  /* Everything stays in the main column; the joins note moves right and
+     tops-aligns with the entry, forming a parallel track. */
+  .anniv-tl-item > * { grid-column: 1; }
+  .anniv-tl-item > .anniv-tl-joins {
+    grid-column: 2;
+    grid-row: 1 / span 8;
+    align-self: start;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.6rem;
+    margin: 0.4rem 0 0;
+    padding: 0 0 0 1rem;
+    border-left: 2px solid color-mix(in srgb, var(--accent-magenta) 30%, transparent);
+  }
+  .anniv-tl-item > .anniv-tl-joins .anniv-tl-joins-names {
+    display: flex;
+    flex-direction: column;
+    gap: 0.4rem;
+  }
+  .anniv-tl-item > .anniv-tl-joins .anniv-tl-join-name { display: block; }
+  .anniv-tl-item > .anniv-tl-joins .anniv-tl-join-name::after { content: none; }
+}
 
 /* ── Confetti burst on "celebrate" timeline entries (2026) ──────────────── */
 .anniv-tl-item--celebrate { position: relative; }

@@ -51,7 +51,7 @@ brand color so the color legend reads at a glance.]
 - eLearning & Blended Learning (yellow)
 - Technical Assistance (orange)
 - Career Connected Learning (teal)
-- Growth Strategy (blue)
+- Growth Strategy & Marketing (blue)
 - LMS & Platforms (sky)
 - Media & Communications (magenta)
 
@@ -99,12 +99,14 @@ Two interactive elements layered in:
   shared year header. Each sub-event has its own small color dot on
   a short vertical sub-rail, a theme label in the event color, body
   copy, and its own chip(s).
-- **"New to the team" notes.** Per Ava's consistency ask, every year
-  in which a teammate joined carries the same compact marker at the
-  foot of the entry: a small "+ NEW TO THE TEAM" pill followed by the
-  names. Names are bold-linked with the photo + role hover preview,
-  so every current teammate with a year or more of tenure appears in
-  the timeline the same way. Noted per year below as "New:".]
+- **"New to the team" rail.** Per Ava's consistency ask, every year
+  in which a teammate joined carries the same marker: a small
+  "+ NEW TO THE TEAM" pill followed by the names. On desktop widths
+  (920px+) these notes form a RIGHT RAIL running parallel to the main
+  timeline column, with names stacked vertically, so hires read as
+  their own track alongside the story. On narrow screens the note
+  sits in-flow at the foot of the entry. Names are bold-linked with
+  the photo + role hover preview. Noted per year below as "New:".]
 
 **Header.** How it started, and how it grew
 
@@ -275,29 +277,36 @@ practice grows.
 New: Whitney Henderson, Dinky Cruz-Cada
 
 
-## **2023** · pill: Growth
+## **2023** · pill: Blend / Growth · split year
 
-**Mastering the blend**
+**Mastering the blend, adding growth strategy**
 
-Mastering the blend is about designing materials for live facilitation
-and making the most of async modules to prepare and extend live
-sessions, bringing them closer to on-the-ground application. Our
-StriveTogether partnership anchors this era: a growing catalog of
-blended courses on their free Training Hub helps community-based
-nonprofits and educators change systems and achieve equitable
-outcomes. Shanna Schlossberg brings learning theory and SEL and
-executive-function expertise, Jo Barnett adds instructional and
-eLearning design capacity, and Diane Takata Powell, a
-client-turned-teammate from UnboundEd, brings nearly thirty years of
-leadership across corporate, education, and nonprofit sectors,
-crafting marketing plans and growth strategies for clients focused on
-school districts and LEAs.
+▸ **Mastering the blend** (yellow · eLearning)
+   Mastering the blend is about designing materials for live
+   facilitation and making the most of async modules to prepare and
+   extend live sessions, bringing them closer to on-the-ground
+   application. Our StriveTogether partnership anchors this era: a
+   growing catalog of blended courses on their free Training Hub
+   helps community-based nonprofits and educators change systems and
+   achieve equitable outcomes. Shanna Schlossberg brings learning
+   theory and SEL and executive-function expertise, while Jo Barnett
+   adds instructional and eLearning design capacity.
+
+▸ **Growth strategy & marketing comes in-house** (blue · growth)
+   Diane Takata Powell, a client-turned-teammate from UnboundEd,
+   brings nearly thirty years of leadership across corporate,
+   education, and nonprofit sectors, crafting marketing plans and
+   growth strategies for clients focused on school districts and
+   LEAs and anchoring the practice behind our Growth Strategy &
+   Marketing service area.
 
 New: Shanna Schlossberg, Jo Barnett, Diane Takata Powell
 
 (Grounded from the December 2024 newsletter. Still handy from Ava:
 exact hybrid-course count and the Training Hub URL, which can also go
-on the StriveTogether project card's link-out button.)
+on the StriveTogether project card's link-out button. The growth
+sub-event color-codes to the same blue as the Growth Strategy &
+Marketing service area, aligned with edugrowthstrategy.com.)
 
 
 ## **2024** · pill: AI / Platforms · split year
@@ -714,7 +723,8 @@ contact.
 - eLearning & Blended Learning (yellow) → /services/elearning/
 - Technical Assistance (orange) → /services/capacity/
 - Career Connected Learning (teal) → /services/career-pathways/
-- Growth Strategy (blue) → /services/strategy-and-growth/
+- Growth Strategy & Marketing (blue) → /services/strategy-and-growth/
+  (microsite: edugrowthstrategy.com)
 - LMS & Platforms (sky) → /services/platforms/
 - Media & Communications (magenta) → /services/media-and-communications/
 
