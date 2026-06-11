@@ -332,25 +332,31 @@
 .anniv-tl-join-name { display: inline; }
 .anniv-tl-join-name:not(:last-child)::after { content: ", "; color: var(--text-tertiary); }
 
-@media (min-width: 920px) {
-  /* Widen the timeline to make room for the joins rail. */
+/* Desktop: the joins note becomes an absolutely-positioned right gutter.
+   IMPORTANT: do NOT grid/flex the .anniv-tl-item itself. Its children
+   (year, tag pill, title) rely on normal inline flow; turning them into
+   grid items stretches the pill full-width and breaks the dot geometry.
+   The item is already position: relative, so an absolute gutter keeps the
+   main column's layout untouched at every width. Breakpoint at 1024px so
+   tablets keep the in-flow note; the rail only engages where the main
+   column still gets comfortable reading width. */
+@media (min-width: 1024px) {
   .anniv-timeline { max-width: 1120px; }
-  .anniv-tl-item {
-    display: grid;
-    grid-template-columns: minmax(0, 1fr) 220px;
-    column-gap: var(--spacing-xl);
-  }
-  /* Everything stays in the main column; the joins note moves right and
-     tops-aligns with the entry, forming a parallel track. */
-  .anniv-tl-item > * { grid-column: 1; }
+  /* Reserve the gutter on every entry so the main column width is uniform
+     down the whole timeline, with or without hires. */
+  .anniv-tl-item { padding-right: 264px; }
+  /* Guard: an entry with a short body but several hires must stay tall
+     enough that its rail note can't bleed into the next entry. */
+  .anniv-tl-item:has(> .anniv-tl-joins) { min-height: 9.5rem; }
   .anniv-tl-item > .anniv-tl-joins {
-    grid-column: 2;
-    grid-row: 1 / span 8;
-    align-self: start;
+    position: absolute;
+    top: 0.3rem;
+    right: 0;
+    width: 220px;
     flex-direction: column;
     align-items: flex-start;
     gap: 0.6rem;
-    margin: 0.4rem 0 0;
+    margin: 0;
     padding: 0 0 0 1rem;
     border-left: 2px solid color-mix(in srgb, var(--accent-magenta) 30%, transparent);
   }

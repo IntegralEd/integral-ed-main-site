@@ -102,10 +102,13 @@ Two interactive elements layered in:
 - **"New to the team" rail.** Per Ava's consistency ask, every year
   in which a teammate joined carries the same marker: a small
   "+ NEW TO THE TEAM" pill followed by the names. On desktop widths
-  (920px+) these notes form a RIGHT RAIL running parallel to the main
-  timeline column, with names stacked vertically, so hires read as
-  their own track alongside the story. On narrow screens the note
-  sits in-flow at the foot of the entry. Names are bold-linked with
+  (1024px+) these notes form a RIGHT RAIL running parallel to the
+  main timeline column, with names stacked vertically, so hires read
+  as their own track alongside the story. The rail is an overlay
+  gutter, so the main column's layout (year, pill, title, body) is
+  identical to the mobile rendering at every width. On screens under
+  1024px (phones and tablets) the note sits in-flow at the foot of
+  the entry with comma-separated names. Names are bold-linked with
   the photo + role hover preview. Noted per year below as "New:".]
 
 **Header.** How it started, and how it grew
