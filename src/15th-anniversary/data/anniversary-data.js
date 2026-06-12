@@ -413,7 +413,7 @@ window.ANNIVERSARY_DATA = {
       year: 2022,
       serviceArea: "eLearning & Blended Learning",
       svc: "elearning",
-      summary: "We partnered with Greenwood Leadership Academy, a Pre-K through 5th grade school of the Tulsa Public Schools. We helped to create a blended history project consisting of a multi-year learning journey for Pre-K through Grade 5 that connects scholars to the history and pride of their community. By leveraging storytelling, blended learning strategies, and innovative media tools, the Black Wall Street Multi-Year Curriculum stands as a model for culturally responsive education, empowering both students and teachers to explore and honor their community's past.",
+      summary: "We partnered with Greenwood Leadership Academy, a Pre-K through 5th grade school of the Tulsa Public Schools. We helped to create a blended history project consisting of a multi-year learning journey for Pre-K through Grade 5 that connects scholars to the history and pride of their community.",
       image: "",
       href: "/services/elearning/",
       embedUrl: "",
