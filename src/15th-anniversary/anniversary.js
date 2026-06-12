@@ -740,6 +740,33 @@
     io.observe(wrap);
   }
 
+  /* ── Feedback pill (PREVIEW ONLY) ─────────────────────────────────────────
+   * Same Tickets-form launch as the WorkBase timesheet pages (see
+   * WorkBase/Reference/softr-feedback-pill.html). Opens the feedback form
+   * in a new tab with the CURRENT SECTION's URL appended as ?URL=, so the
+   * form's hidden URL field records exactly which section the reviewer was
+   * on (scroll-spy provides the active anchor). Remove this whole block +
+   * the .anniv-feedback CSS when the page goes fully public. */
+  var FEEDBACK_FORM_URL = 'https://workbase.preview.softr.app/feedback-ticket';
+  function setupFeedbackPill() {
+    var pill = document.createElement('a');
+    pill.className = 'anniv-feedback';
+    pill.href = FEEDBACK_FORM_URL;
+    pill.target = '_blank';
+    pill.rel = 'noopener';
+    pill.setAttribute('aria-label', 'Give feedback on this section (opens a new tab)');
+    pill.title = 'Opens a new tab and records the section you are viewing';
+    pill.innerHTML = '<span aria-hidden="true">&#128172;</span><span>Feedback</span>';
+    document.body.appendChild(pill);
+    pill.addEventListener('click', function (e) {
+      e.preventDefault();
+      var active = document.querySelector('.anniv-rail-nav li.active a');
+      var hash = active ? active.getAttribute('href') : (location.hash || '');
+      var sectionUrl = location.origin + location.pathname + (hash || '');
+      window.open(FEEDBACK_FORM_URL + '?URL=' + encodeURIComponent(sectionUrl), '_blank', 'noopener');
+    });
+  }
+
   /* ── Init ─────────────────────────────────────────────────────────────── */
   function init() {
     buildNameIndex();
@@ -758,6 +785,7 @@
     setupEvoSync();
     setupProjectModal();
     setupCelebrate();
+    setupFeedbackPill();
   }
 
   if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', init);

@@ -1192,6 +1192,19 @@ into BHB's site.
   storytelling + design systems powering dozens of programs for
   national curriculum publishers.
 
+## Preview-only page furniture (2026-06-12)
+
+- **Feedback pill.** A plum "Feedback" pill sits fixed bottom-right
+  (hidden until the password gate unlocks). Clicking opens the same
+  Tickets feedback form used on the WorkBase timesheet pages in a new
+  tab, passing the CURRENT SECTION's URL (?URL=...#evolution etc.,
+  from the scroll-spy) so each ticket records exactly which section
+  the reviewer was looking at. Remove setupFeedbackPill() +
+  .anniv-feedback CSS when the page goes public.
+- **Chat widget suppressed** on this page only (cleaner long-scroll
+  UX) via a new @no-widget build marker; the widget still appears
+  everywhere else on the site.
+
 ## Still open
 
 1. AVA: exact StriveTogether hybrid-course count + Training Hub URL

@@ -57,7 +57,14 @@ function processHtml(content, navHtml, footerHtml, analyticsHtml, widgetHtml, si
     const siteNameScript = `<script>window.IE_SITE_NAME = '${siteSlug}';</script>`;
     content = content.replace('</head>', `${siteNameScript}\n${analyticsHtml}\n</head>`);
   }
-  if (widgetHtml)   content = content.replace('</body>', `${widgetHtml}\n</body>`);
+  // Pages can opt out of the chat widget with a <!-- @no-widget --> marker
+  // anywhere in their HTML (e.g. the 15th-anniversary preview, where the
+  // widget crowds the long-scroll UX). The marker is stripped either way.
+  if (content.includes('<!-- @no-widget -->')) {
+    content = content.replace('<!-- @no-widget -->', '');
+  } else if (widgetHtml) {
+    content = content.replace('</body>', `${widgetHtml}\n</body>`);
+  }
   return content;
 }
 
