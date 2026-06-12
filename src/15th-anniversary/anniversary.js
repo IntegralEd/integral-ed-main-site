@@ -740,30 +740,41 @@
     io.observe(wrap);
   }
 
-  /* ── Feedback pill (PREVIEW ONLY) ─────────────────────────────────────────
-   * Same Tickets-form launch as the WorkBase timesheet pages (see
-   * WorkBase/Reference/softr-feedback-pill.html). Opens the feedback form
-   * in a new tab with the CURRENT SECTION's URL appended as ?URL=, so the
-   * form's hidden URL field records exactly which section the reviewer was
-   * on (scroll-spy provides the active anchor). Remove this whole block +
-   * the .anniv-feedback CSS when the page goes fully public. */
-  var FEEDBACK_FORM_URL = 'https://workbase.preview.softr.app/feedback-ticket';
+  /* ── Per-section feedback pills (PREVIEW ONLY) ────────────────────────────
+   * Pattern ported from NextGenSW (docs/PILL_COMMENT_INTEGRATION.md): every
+   * section[id] gets a small pill in its bottom-right corner. Clicking opens
+   * the WorkBase Tickets form in a NEW TAB with ?Section=<id>&URL=<full url
+   * including #section>, so the form's hidden URL field records exactly
+   * where the reviewer clicked. Tickets land in the WorkBase app (not the
+   * NextGenSW app). Unlike NextGenSW we don't require an iframe: this page
+   * has its own password gate, which is the access control (pills are
+   * hidden via CSS until html.anniv-locked clears). Remove this block +
+   * the .anniv-feedback-sec CSS when the page goes fully public. */
+  var FEEDBACK_FORM_URL = 'https://workbase.softr.app/feedback-ticket';
+  function buildFeedbackUrl(sectionId) {
+    var url = location.origin + location.pathname + '#' + sectionId;
+    return FEEDBACK_FORM_URL +
+      '?Section=' + encodeURIComponent(sectionId) +
+      '&URL=' + encodeURIComponent(url);
+  }
   function setupFeedbackPill() {
-    var pill = document.createElement('a');
-    pill.className = 'anniv-feedback';
-    pill.href = FEEDBACK_FORM_URL;
-    pill.target = '_blank';
-    pill.rel = 'noopener';
-    pill.setAttribute('aria-label', 'Give feedback on this section (opens a new tab)');
-    pill.title = 'Opens a new tab and records the section you are viewing';
-    pill.innerHTML = '<span aria-hidden="true">&#128172;</span><span>Feedback</span>';
-    document.body.appendChild(pill);
-    pill.addEventListener('click', function (e) {
+    var sections = document.querySelectorAll('.anniv-main section[id]');
+    Array.prototype.forEach.call(sections, function (sec) {
+      if (sec.querySelector('.anniv-feedback-sec')) return;
+      var btn = document.createElement('button');
+      btn.type = 'button';
+      btn.className = 'anniv-feedback-sec';
+      btn.dataset.section = sec.id;
+      btn.setAttribute('aria-label', 'Give feedback on the ' + sec.id + ' section (opens a new tab)');
+      btn.title = 'Opens a new tab and records this section in the ticket';
+      btn.innerHTML = '<span aria-hidden="true">&#128172;</span><span class="anniv-feedback-sec-label">Feedback</span>';
+      sec.appendChild(btn);
+    });
+    document.addEventListener('click', function (e) {
+      var b = e.target.closest ? e.target.closest('.anniv-feedback-sec') : null;
+      if (!b) return;
       e.preventDefault();
-      var active = document.querySelector('.anniv-rail-nav li.active a');
-      var hash = active ? active.getAttribute('href') : (location.hash || '');
-      var sectionUrl = location.origin + location.pathname + (hash || '');
-      window.open(FEEDBACK_FORM_URL + '?URL=' + encodeURIComponent(sectionUrl), '_blank', 'noopener');
+      window.open(buildFeedbackUrl(b.dataset.section || ''), '_blank', 'noopener');
     });
   }
 

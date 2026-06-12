@@ -1194,13 +1194,17 @@ into BHB's site.
 
 ## Preview-only page furniture (2026-06-12)
 
-- **Feedback pill.** A plum "Feedback" pill sits fixed bottom-right
-  (hidden until the password gate unlocks). Clicking opens the same
-  Tickets feedback form used on the WorkBase timesheet pages in a new
-  tab, passing the CURRENT SECTION's URL (?URL=...#evolution etc.,
-  from the scroll-spy) so each ticket records exactly which section
-  the reviewer was looking at. Remove setupFeedbackPill() +
-  .anniv-feedback CSS when the page goes public.
+- **Per-section feedback pills.** Every section (Welcome, History,
+  Evolution, Our Work, The Team, Clients, Today) carries its own small
+  plum "Feedback" pill in the bottom-right corner, dimmed until hover
+  (the NextGenSW pill-comment pattern, restyled to brand). Clicking
+  opens the WorkBase Tickets form (workbase.softr.app/feedback-ticket)
+  in a new tab with ?Section=<id>&URL=<full url including #section>,
+  so each ticket records exactly which section the reviewer clicked
+  from. Tickets land in the WorkBase app. Pills are hidden until the
+  password gate unlocks; on phones the pill collapses to just the
+  speech-bubble icon. Remove setupFeedbackPill() + .anniv-feedback-sec
+  CSS when the page goes public.
 - **Chat widget suppressed** on this page only (cleaner long-scroll
   UX) via a new @no-widget build marker; the widget still appears
   everywhere else on the site.

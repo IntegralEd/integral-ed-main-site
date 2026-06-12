@@ -369,40 +369,45 @@
   .anniv-tl-item > .anniv-tl-joins .anniv-tl-join-name::after { content: none; }
 }
 
-/* ── Feedback pill (PREVIEW ONLY; remove with setupFeedbackPill) ─────────
-   Sits bottom-right where the chat widget would normally be (the widget
-   is suppressed on this page via the @no-widget build marker). Below the
-   modal z-index so open modals cover it. */
-.anniv-feedback {
-  position: fixed;
-  right: 1.4rem;
-  bottom: 1.4rem;
-  z-index: 900;
+/* ── Per-section feedback pills (PREVIEW ONLY; see setupFeedbackPill) ────
+   NextGenSW pill-comment pattern, restyled to brand plum. One pill per
+   section[id], bottom-right inside the section, dimmed until hover so
+   they don't compete with content. Hidden behind the password gate. */
+.anniv-main section[id] { position: relative; }
+.anniv-feedback-sec {
+  position: absolute;
+  bottom: 14px;
+  right: 14px;
+  z-index: 20;
   display: inline-flex;
   align-items: center;
-  gap: 0.55rem;
-  padding: 0.85rem 1.5rem;
-  border-radius: 999px;
+  gap: 0.4rem;
+  padding: 0.5rem 0.85rem;
   background: var(--color-plum);
   color: #fff;
+  border: 0;
+  border-radius: 999px;
   font-family: var(--font-display);
-  font-size: 1rem;
-  font-weight: 700;
-  letter-spacing: 0.01em;
-  text-decoration: none;
-  box-shadow: 0 4px 14px rgba(96, 11, 104, 0.28);
-  transition: background var(--transition-fast), transform 50ms ease, box-shadow var(--transition-fast);
+  font-size: 0.78rem;
+  font-weight: 600;
+  line-height: 1;
+  cursor: pointer;
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.25);
+  opacity: 0.55;
+  transition: opacity var(--transition-fast), transform 50ms ease, background var(--transition-fast);
 }
-.anniv-feedback:hover {
+.anniv-feedback-sec:hover {
+  opacity: 1;
   background: var(--primary-dark, #4a0852);
-  box-shadow: 0 6px 18px rgba(96, 11, 104, 0.36);
 }
-.anniv-feedback:active { transform: translateY(1px); }
-.anniv-feedback:focus-visible { outline: 2px solid var(--accent-yellow); outline-offset: 3px; }
-/* Hide behind the password gate; gate.js removes .anniv-locked on unlock */
-html.anniv-locked .anniv-feedback { display: none; }
-@media (max-width: 640px) {
-  .anniv-feedback { right: 1rem; bottom: 1rem; padding: 0.7rem 1.15rem; font-size: 0.9rem; }
+.anniv-feedback-sec:active { transform: translateY(1px); }
+.anniv-feedback-sec:focus-visible { outline: 2px solid var(--accent-yellow); outline-offset: 3px; opacity: 1; }
+.anniv-feedback-sec-label { white-space: nowrap; }
+/* Hidden behind the password gate; gate.js removes .anniv-locked on unlock */
+html.anniv-locked .anniv-feedback-sec { display: none; }
+@media (max-width: 540px) {
+  .anniv-feedback-sec { bottom: 10px; right: 10px; padding: 0.4rem 0.6rem; }
+  .anniv-feedback-sec-label { display: none; }
 }
 
 /* ── Confetti burst on "celebrate" timeline entries (2026) ──────────────── */
