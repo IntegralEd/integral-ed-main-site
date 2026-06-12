@@ -227,9 +227,10 @@ New: Nadia Zaid, Cara Johnson
 **The crisis turn to LMS**
 
 ▸ **Whole programs move online** (sky · platforms)
-   When the world went remote, we helped partners stand up learning
-   management systems and move whole programs online, fast, with Erin
-   McIntee bringing expert, complex Storyline development.
+   When the world went remote, we supported partners including The
+   Danielson Group to select and deploy a Learning Management System
+   (LMS) and begin delivering professional development as eLearning,
+   with Erin McIntee bringing expert, complex Storyline development.
 
 ▸ **Workforce development goes asynchronous** (teal · career)
    We support STRIVE International in taking their whole Future Leaders
@@ -282,7 +283,7 @@ New: Whitney Henderson, Dinky Cruz-Cada
 
 ## **2023** · pill: Blend / Growth · split year
 
-**Mastering the blend, adding growth strategy**
+**Expertise in growth strategy and mastering blended media**
 
 ▸ **Mastering the blend** (yellow · eLearning)
    Mastering the blend is about designing materials for live
@@ -294,6 +295,7 @@ New: Whitney Henderson, Dinky Cruz-Cada
    achieve equitable outcomes. Shanna Schlossberg brings learning
    theory and SEL and executive-function expertise, while Jo Barnett
    adds instructional and eLearning design capacity.
+   Chip: ST Continuous Improvement Toolkit (yellow · eLearning)
 
 ▸ **Growth strategy & marketing comes in-house** (blue · growth)
    Diane Takata Powell, a client-turned-teammate from UnboundEd,
@@ -318,8 +320,7 @@ Marketing service area, aligned with edugrowthstrategy.com.)
 
 Luciana Santimaria adds Storyline development capacity, Chelsea George
 adds operational capacity and communications expertise, and Maddie
-Murphy, an enrolled member of the Three Affiliated Tribes of North
-Dakota, brings design capacity and research expertise in Indigenous
+Murphy brings design capacity and research expertise in Indigenous
 education and education policy.
 
 ▸ **AI-powered learning** (yellow · eLearning)
@@ -346,7 +347,7 @@ New: Luciana Santimaria, Chelsea George, Maddie Murphy
    Pairing design systems, branded portals, and field-facing
    publications with subject matter expert interviews so expertise
    becomes shareable practice.
-   Chip: B'more Get It Documented (orange · technical)
+   Chip: Baltimore Healthy Babies (orange · technical)
 
 ▸ **Storytelling** (magenta · media)
    Mixed-media video series that translate Zoom-quality source footage
@@ -358,12 +359,18 @@ New: Luciana Santimaria, Chelsea George, Maddie Murphy
 
 **Fifteen years on**
 
-Emily Kiefer brings STEM curriculum expertise and data-analysis
-capacity to the curriculum team, and a 21-person studio spanning
-instructional design, eLearning, media, platforms, and strategy is
-still growing together.
+We keep learning and growing: a team that collaborates and learns
+together, doing work we love with organizations we value. Today we
+offer a set of connected services rooted in deep expertise, sound
+judgment, and long-term collaboration, as a team and with our
+partners. Scroll on to see how those services have evolved and
+blended to meet our clients' evolving needs.
 
 New: Emily Kiefer
+(Emily stays in the rail only; her STEM curriculum + data-analysis
+highlight moved into her team-page bio. The body focuses on the team
+and the connected services, leading the reader into the Evolution
+section below.)
 
 [Celebratory moment per Ava: a brand-color confetti burst fires when
 this entry scrolls into view (skipped for reduced-motion users; can
@@ -1053,24 +1060,45 @@ access a variety of educational resources and tools.
 **Media.** YouTube embed GxXxpQSeyhw
 
 
+## stToolkit (yellow · eLearning)
+
+**Title.** StriveTogether Continuous Improvement Toolkit
+
+**Client / Year / Service.** StriveTogether · **2023** · eLearning &
+Blended Learning
+
+**Description.** Our team supports self-directed learning for
+place-based partnerships to apply theory to their local context. This
+course on StriveTogether's free Training Hub, How to Scale the Impact
+of a Place-Based Partnership, blends video, scenario practice, and
+reflection so community partnerships can put continuous-improvement
+principles to work where they live.
+
+**Media.** Live iframe of the course page at
+strivetogether.org/courses/how-to-scale-the-impact-of-a-place-based-
+partnership; CTA "Open the course on StriveTogether's Training Hub"
+opens it in a new tab.
+
+
 ## bmoreGetItDocumented (orange · technical)
 
-**Title.** B'more for Healthy Babies: Get It Documented
+**Title.** Baltimore Healthy Babies
 
 **Client / Year / Service.** B'more for Healthy Babies · **2025** ·
-Technical Capacity, Storytelling
+Technical Assistance, Storytelling
 
-**Description.** We partnered with B'more for Healthy Babies to
-create Get It Documented, a digital hub making complex public health
-data clear and usable for organizations improving maternal and infant
-health. Our team conducted over twenty hours of interviews with BHB
-leaders, synthesizing a decade of lessons into seven designed
-publications. Each combines storytelling with technical resources to
-help other communities replicate successful practices. Integral Ed
-also built a branded content portal integrated into BHB's site.
+**Description.** This is the web resource we designed for B'more for
+Healthy Babies to house the topic-area PDFs we developed from subject
+matter expert interviews: more than twenty hours of conversations
+with BHB leaders, synthesized into seven designed publications that
+make complex public health data clear and usable for organizations
+improving maternal and infant health. Each publication combines
+storytelling with technical resources to help other communities
+replicate successful practices, and the branded portal integrates
+into BHB's site.
 
-**Media.** No video; link out to
-https://www.healthybabiesbaltimore.com/hub/home
+**Media.** Live iframe of healthybabiesbaltimore.com/hub/home; CTA
+"Visit the Baltimore Healthy Babies hub" opens it in a new tab.
 
 
 # Open Questions

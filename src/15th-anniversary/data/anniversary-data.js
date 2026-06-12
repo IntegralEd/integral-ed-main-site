@@ -157,7 +157,7 @@ window.ANNIVERSARY_DATA = {
         {
           theme: "Whole programs move online",
           svc: "platforms",
-          body: "When the world went remote, we helped partners stand up learning management systems and move whole programs online, fast, with Erin McIntee bringing expert, complex Storyline development.",
+          body: "When the world went remote, we supported partners including The Danielson Group to select and deploy a Learning Management System (LMS) and begin delivering professional development as eLearning, with Erin McIntee bringing expert, complex Storyline development.",
           highlights: []
         },
         {
@@ -215,17 +215,18 @@ window.ANNIVERSARY_DATA = {
     },
     {
       year: 2023,
-      title: "Mastering the blend, adding growth strategy",
+      title: "Expertise in growth strategy and mastering blended media",
       tag: "Blend / Growth",
       joins: ["Shanna Schlossberg", "Jo Barnett", "Diane Takata Powell"],
-      // TODO (Ava): exact hybrid-course count + Training Hub URL when handy;
-      // the hub URL can also go on the StriveTogether project card's `link`.
+      // TODO (Ava): exact hybrid-course count when handy.
       events: [
         {
           theme: "Mastering the blend",
           svc: "elearning",
           body: "Mastering the blend is about designing materials for live facilitation and making the most of async modules to prepare and extend live sessions, bringing them closer to on-the-ground application. Our StriveTogether partnership anchors this era: a growing catalog of blended courses on their free Training Hub helps community-based nonprofits and educators change systems and achieve equitable outcomes. Shanna Schlossberg brings learning theory and SEL and executive-function expertise, while Jo Barnett adds instructional and eLearning design capacity.",
-          highlights: []
+          highlights: [
+            { svc: "elearning", ref: "stToolkit", label: "ST Continuous Improvement Toolkit" }
+          ]
         },
         {
           theme: "Growth strategy & marketing comes in-house",
@@ -240,7 +241,7 @@ window.ANNIVERSARY_DATA = {
       year: 2024,
       title: "AI-powered learning meets custom platforms",
       tag: "AI / Platforms",
-      body: "Luciana Santimaria adds Storyline development capacity, Chelsea George adds operational capacity and communications expertise, and Maddie Murphy, an enrolled member of the Three Affiliated Tribes of North Dakota, brings design capacity and research expertise in Indigenous education and education policy.",
+      body: "Luciana Santimaria adds Storyline development capacity, Chelsea George adds operational capacity and communications expertise, and Maddie Murphy brings design capacity and research expertise in Indigenous education and education policy.",
       joins: ["Luciana Santimaria", "Chelsea George", "Maddie Murphy"],
       events: [
         {
@@ -272,7 +273,7 @@ window.ANNIVERSARY_DATA = {
           svc: "technical",
           body: "Pairing design systems, branded portals, and field-facing publications with subject matter expert interviews so expertise becomes shareable practice.",
           highlights: [
-            { svc: "technical", ref: "bmoreGetItDocumented", label: "B'more Get It Documented" }
+            { svc: "technical", ref: "bmoreGetItDocumented", label: "Baltimore Healthy Babies" }
           ]
         },
         {
@@ -289,7 +290,7 @@ window.ANNIVERSARY_DATA = {
     {
       year: 2026,
       title: "Fifteen years on",
-      body: "Emily Kiefer brings STEM curriculum expertise and data-analysis capacity to the curriculum team, and a 21-person studio spanning instructional design, eLearning, media, platforms, and strategy is still growing together.",
+      body: "We keep learning and growing: a team that collaborates and learns together, doing work we love with organizations we value. Today we offer a set of connected services rooted in deep expertise, sound judgment, and long-term collaboration, as a team and with our partners. Scroll on to see how those services have evolved and blended to meet our clients' evolving needs.",
       joins: ["Emily Kiefer"],
       image: "",
       tag: "Today",
@@ -378,7 +379,7 @@ window.ANNIVERSARY_DATA = {
       stage: "Technical Assistance and Storytelling",
       tagline: "TA, design systems, and narrative for the field.",
       whatWeCouldDo: "Pair technical assistance with brand-grade storytelling: design systems, branded portals, print + web ecosystems, and field-facing publications that turn subject matter expertise into shareable practice.",
-      proof: "B'more for Healthy Babies “Get It Documented” digital hub: subject matter expert interviews synthesized into seven branded publications + a content portal integrated into BHB's site.",
+      proof: "The Baltimore Healthy Babies hub: subject matter expert interviews synthesized into seven branded publications + a content portal integrated into BHB's site.",
       color: "orange"
     }
   ],
@@ -587,15 +588,29 @@ window.ANNIVERSARY_DATA = {
       videoUrl: "",
       link: ""
     },
+    stToolkit: {
+      title: "StriveTogether Continuous Improvement Toolkit",
+      client: "StriveTogether",
+      year: 2023,
+      serviceArea: "eLearning & Blended Learning",
+      svc: "elearning",
+      summary: "Our team supports self-directed learning for place-based partnerships to apply theory to their local context. This course on StriveTogether's free Training Hub, How to Scale the Impact of a Place-Based Partnership, blends video, scenario practice, and reflection so community partnerships can put continuous-improvement principles to work where they live.",
+      embedUrl: "https://strivetogether.org/courses/how-to-scale-the-impact-of-a-place-based-partnership/",
+      videoUrl: "",
+      link: "https://strivetogether.org/courses/how-to-scale-the-impact-of-a-place-based-partnership/",
+      linkLabel: "Open the course on StriveTogether's Training Hub"
+    },
     bmoreGetItDocumented: {
-      title: "B'more for Healthy Babies: Get It Documented",
+      title: "Baltimore Healthy Babies",
       client: "B'more for Healthy Babies",
       year: 2025,
-      serviceArea: "Technical Capacity, Storytelling, Web + Print Design",
+      serviceArea: "Technical Assistance, Storytelling, Web + Print Design",
       svc: "technical",
-      summary: "We partnered with B'more for Healthy Babies to create Get It Documented, a digital hub making complex public health data clear and usable for organizations improving maternal and infant health.\n\nOur team conducted over twenty hours of interviews with BHB leaders, synthesizing a decade of lessons into seven designed publications. Each combines storytelling with technical resources to help other communities replicate successful practices.\n\nIntegral Ed also built a branded content portal integrated into BHB's site, providing easy access to reports, media, and archived resources.",
+      summary: "This is the web resource we designed for B'more for Healthy Babies to house the topic-area PDFs we developed from subject matter expert interviews: more than twenty hours of conversations with BHB leaders, synthesized into seven designed publications that make complex public health data clear and usable for organizations improving maternal and infant health.\n\nEach publication combines storytelling with technical resources to help other communities replicate successful practices, and the branded portal integrates into BHB's site for easy access to reports, media, and archived resources.",
+      embedUrl: "https://www.healthybabiesbaltimore.com/hub/home",
       videoUrl: "",
-      link: "https://www.healthybabiesbaltimore.com/hub/home"
+      link: "https://www.healthybabiesbaltimore.com/hub/home",
+      linkLabel: "Visit the Baltimore Healthy Babies hub"
     },
     amassVideo: {
       title: "Amass Splash Video",
