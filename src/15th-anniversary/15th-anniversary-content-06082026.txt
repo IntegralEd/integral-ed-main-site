@@ -594,7 +594,9 @@ incentives, policies, data tracking, and collateral facilitators can
 post themselves, including image, text, and video templates for
 social media.
 
-**Media.** Loom walkthrough embed (44bc687d8a984f859db7a70eb41f3002)
+**Media.** Static slide image from the program collateral ("Templates
+for Sharing with Your Network", Standards Institute). The Loom
+walkthrough was dropped as too rough for the page.
 
 (Added so the Work block carries a growth-blue card matching the
 2023 timeline sub-event and the Growth Strategy & Marketing service
