@@ -453,9 +453,10 @@ window.ANNIVERSARY_DATA = {
       serviceArea: "Growth Strategy & Marketing",
       svc: "growth",
       summary: "We collaborated with UnboundEd, a national nonprofit focused on equitable education, to promote their professional learning experiences. We helped design UnboundEd's referral program with incentives and social media collateral: referral-bonus incentives, policies, data tracking, and collateral facilitators can post themselves, including image, text, and video templates for social media.",
-      // Static slide from the program collateral; the Loom walkthrough was
-      // too rough for the page.
-      image: "/assets/images/anniversary/unbounded-facilitator-program.png",
+      // modalImage (not image): keeps the card a clean text card like the
+      // others; the slide only appears in the click-through modal. The Loom
+      // walkthrough was too rough, so this static slide replaced it.
+      modalImage: "/assets/images/anniversary/unbounded-facilitator-program.png",
       href: "/services/strategy-and-growth/",
       embedUrl: "",
       videoUrl: "",

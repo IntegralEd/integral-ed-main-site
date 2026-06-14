@@ -279,8 +279,7 @@
         '</div>';
     }).join('') + '</div>';
 
-    var hint = '<p class="anniv-evo-hint">Hover a stream on the map, or a card below, to spotlight the capability and the proof behind it.</p>';
-    el.innerHTML = buildSubway(stages) + hint + legend;
+    el.innerHTML = buildSubway(stages) + legend;
   }
 
   /* ── Evolution hover sync: map line <-> legend card (per Ava's UX note,
@@ -386,8 +385,10 @@
       mediaEl.innerHTML = '<iframe src="' + esc(p.videoUrl) + '" title="' + esc(p.title) +
         '" loading="lazy" allow="autoplay; fullscreen" allowfullscreen></iframe>';
       mediaEl.hidden = false;
-    } else if (p.image) {
-      mediaEl.innerHTML = '<img src="' + esc(p.image) + '" alt="' + esc(p.title) + '">';
+    } else if (p.image || p.modalImage) {
+      // modalImage shows in the modal only (the card never renders it), for
+      // projects where we want a clean text card but a visual in the popup.
+      mediaEl.innerHTML = '<img src="' + esc(p.image || p.modalImage) + '" alt="' + esc(p.title) + '">';
       mediaEl.hidden = false;
     } else {
       mediaEl.innerHTML = '';
@@ -765,9 +766,11 @@
       btn.type = 'button';
       btn.className = 'anniv-feedback-sec';
       btn.dataset.section = sec.id;
-      btn.setAttribute('aria-label', 'Give feedback on the ' + sec.id + ' section (opens a new tab)');
-      btn.title = 'Opens a new tab and records this section in the ticket';
-      btn.innerHTML = '<span aria-hidden="true">&#128172;</span><span class="anniv-feedback-sec-label">Feedback</span>';
+      btn.setAttribute('aria-label', 'Enter comments on the ' + sec.id + ' section (opens a new tab)');
+      btn.title = 'Enter comments, click to open a new tab';
+      btn.innerHTML = '<span aria-hidden="true">&#128172;</span>' +
+        '<span class="anniv-feedback-sec-label">Feedback</span>' +
+        '<span class="anniv-feedback-sec-hint">Enter comments, click to open a new tab</span>';
       sec.appendChild(btn);
     });
     document.addEventListener('click', function (e) {

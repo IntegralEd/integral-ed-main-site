@@ -393,9 +393,7 @@ in from below. On touch devices the proof is always visible.
 Per Ava's UX note (hovering lines didn't appear to do anything): the
 map and legend are now linked. Hovering a line on the map spotlights
 its legend card (lift + proof reveal), and hovering a card thickens
-and glows its line. A one-line hint sits between the map and the
-cards: "Hover a stream on the map, or a card below, to spotlight the
-capability and the proof behind it."]
+and glows its line.]
 
 **Header.** Each year, a new thing we could do
 
@@ -594,8 +592,10 @@ incentives, policies, data tracking, and collateral facilitators can
 post themselves, including image, text, and video templates for
 social media.
 
-**Media.** Static slide image from the program collateral ("Templates
-for Sharing with Your Network", Standards Institute). The Loom
+**Media.** MODAL ONLY: a static slide from the program collateral
+("Templates for Sharing with Your Network", Standards Institute). The
+card itself shows no thumbnail, matching the other text-only cards;
+the slide appears only in the click-through modal. The Loom
 walkthrough was dropped as too rough for the page.
 
 (Added so the Work block carries a growth-blue card matching the
@@ -1195,16 +1195,20 @@ into BHB's site.
 ## Preview-only page furniture (2026-06-12)
 
 - **Per-section feedback pills.** Every section (Welcome, History,
-  Evolution, Our Work, The Team, Clients, Today) carries its own small
-  plum "Feedback" pill in the bottom-right corner, dimmed until hover
-  (the NextGenSW pill-comment pattern, restyled to brand). Clicking
-  opens the WorkBase Tickets form (workbase.softr.app/feedback-ticket)
-  in a new tab with ?Section=<id>&URL=<full url including #section>,
-  so each ticket records exactly which section the reviewer clicked
-  from. Tickets land in the WorkBase app. Pills are hidden until the
+  Evolution, Our Work, The Team, Clients, Today) carries its own
+  "Feedback" pill in the bottom-right corner (the NextGenSW
+  pill-comment pattern). DELIBERATELY GARISH: lime green that pulses
+  to draw the eye and flips to hot magenta on hover, so reviewers
+  never read it as final UI. On hover the pill expands to spell out
+  "Enter comments, click to open a new tab." Clicking opens the
+  WorkBase Tickets form (workbase.softr.app/feedback-ticket) in a new
+  tab with ?Section=<id>&URL=<full url including #section>, so each
+  ticket records exactly which section the reviewer clicked from.
+  Tickets land in the WorkBase app. Pills are hidden until the
   password gate unlocks; on phones the pill collapses to just the
   speech-bubble icon. Remove setupFeedbackPill() + .anniv-feedback-sec
-  CSS when the page goes public.
+  CSS (and the @no-widget marker if the widget should return) when the
+  page goes public.
 - **Chat widget suppressed** on this page only (cleaner long-scroll
   UX) via a new @no-widget build marker; the widget still appears
   everywhere else on the site.
