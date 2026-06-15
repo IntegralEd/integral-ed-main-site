@@ -1,0 +1,94 @@
+<!--
+  ============================================================================
+  15th Anniversary — paste-ready HTML email
+  ============================================================================
+  Email-safe (table layout, inline styles, Outlook-friendly). Use it two ways:
+
+  CONSTANT CONTACT
+    Build > start from a "Custom Code" / "Code Your Own" email, then paste the
+    <table> block below (everything inside the BEGIN/END markers). Or, in the
+    drag-and-drop editor, add an Image block + a Button block and reuse the URLs
+    and copy here. Constant Contact appends its own click-tracking params; the
+    utm_* below still pass through to GA4, so attribution works in both.
+
+  GMAIL (david@integral-ed.com, to personal contacts)
+    Gmail won't let you paste raw HTML tables cleanly. Instead:
+      1. Insert photo (the camera/landscape icon) > by URL >
+         https://www.integral-ed.com/assets/email/anniv-hero.gif
+         (Gmail shows and loops animated GIFs.)
+      2. Click the inserted image, set a link to the PAGE_URL below.
+      3. Add a line of text + a text link. Keep the whole email short —
+         Gmail clips messages over ~102KB.
+
+  PLACEHOLDERS — replace before sending:
+    PAGE_URL  desktop/page link with channel UTM. Use one of:
+      Constant Contact:
+        https://www.integral-ed.com/15th-anniversary/?utm_source=constantcontact&utm_medium=email&utm_campaign=15yr
+      Gmail:
+        https://www.integral-ed.com/15th-anniversary/?utm_source=gmail&utm_medium=personal&utm_campaign=15yr
+    GIF_URL   https://www.integral-ed.com/assets/email/anniv-hero.gif
+              (host the recorded GIF there, or swap to your CC library URL)
+
+  NOTE: the page is currently behind the soft password gate. For a public
+  campaign, lift the gate first (remove the gate markup/script in
+  src/15th-anniversary/index.html) so recipients land directly on the page.
+
+  ===== BEGIN EMAIL BODY ====================================================
+-->
+<table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="background:#1c0420;margin:0;padding:0;">
+  <tr>
+    <td align="center" style="padding:28px 16px;">
+      <table role="presentation" width="600" cellpadding="0" cellspacing="0" style="width:600px;max-width:600px;background:#1c0420;font-family:'Helvetica Neue',Helvetica,Arial,sans-serif;">
+        <!-- Eyebrow -->
+        <tr>
+          <td align="center" style="padding:8px 24px 0;color:#ffbc50;font-size:12px;letter-spacing:3px;">
+            2011&ndash;2026
+          </td>
+        </tr>
+        <!-- Hero GIF, linked to the page -->
+        <tr>
+          <td align="center" style="padding:16px 12px 8px;">
+            <a href="PAGE_URL" target="_blank" style="text-decoration:none;">
+              <img src="GIF_URL" width="576" alt="Integral Ed — fifteen years helping organizations learn, adapt, and grow"
+                   style="display:block;width:576px;max-width:100%;height:auto;border:0;border-radius:12px;" />
+            </a>
+          </td>
+        </tr>
+        <!-- Headline -->
+        <tr>
+          <td align="center" style="padding:14px 28px 6px;color:#ffffff;font-size:24px;line-height:1.25;font-weight:800;">
+            Fifteen years helping organizations learn, adapt, and grow
+          </td>
+        </tr>
+        <!-- Copy -->
+        <tr>
+          <td align="center" style="padding:6px 32px 20px;color:#c9b6d2;font-size:15px;line-height:1.6;">
+            From a founder with a laptop to a 21-person studio. Take a look back at the road we&rsquo;ve traveled since 2011, and the connected services we offer today.
+          </td>
+        </tr>
+        <!-- Bulletproof CTA button -->
+        <tr>
+          <td align="center" style="padding:4px 24px 28px;">
+            <table role="presentation" cellpadding="0" cellspacing="0">
+              <tr>
+                <td align="center" bgcolor="#600b68" style="border-radius:999px;">
+                  <a href="PAGE_URL" target="_blank"
+                     style="display:inline-block;padding:14px 30px;font-family:'Helvetica Neue',Helvetica,Arial,sans-serif;font-size:16px;font-weight:700;color:#ffffff;text-decoration:none;border-radius:999px;">
+                    See our story &rarr;
+                  </a>
+                </td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+        <!-- Footer -->
+        <tr>
+          <td align="center" style="padding:0 28px 24px;color:#8d7a98;font-size:12px;line-height:1.5;">
+            Integral Ed &middot; Full-service learning and media design for mission-driven organizations.
+          </td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+<!-- ===== END EMAIL BODY ==================================================== -->
