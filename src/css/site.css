@@ -58,6 +58,47 @@
   color: white !important;
 }
 
+/* Keep the hamburger nav up to desktop width. The vendor theme switches
+   to the full horizontal nav at 768px, which crowds on landscape phones
+   and small tablets (769-1024px). This mirrors the vendor's mobile-nav
+   rules and extends them to 1024px, so the slide-in panel + hamburger
+   stay until a true desktop width. site.css loads after the vendor
+   theme, so these win by source order. */
+@media (max-width: 1024px) {
+  .nav-toggle { display: flex; }
+  .nav-links {
+    position: fixed;
+    top: 0;
+    right: -100%;
+    width: 80%;
+    max-width: 360px;
+    height: 100vh;
+    background: var(--bg-primary);
+    flex-direction: column;
+    justify-content: center;
+    gap: var(--spacing-xl);
+    box-shadow: -5px 0 15px rgba(0, 0, 0, 0.1);
+    transition: right var(--transition-base);
+    z-index: 1000;
+  }
+  .nav-links.active { right: 0; }
+  .nav-links .nav-link { font-size: 1.25rem; font-weight: 500; }
+  /* Service Areas submenu: show inline inside the panel rather than as a
+     hover flyout, which doesn't work on touch. */
+  .nav-dropdown-menu {
+    position: static;
+    transform: none;
+    display: block;
+    box-shadow: none;
+    border: 0;
+    background: transparent;
+    min-width: 0;
+    padding: 0.25rem 0 0;
+    margin: 0;
+  }
+  .nav-dropdown-menu li a { font-size: 1rem; padding: 0.35rem 0; }
+}
+
 /* ── Brand headline ─────────────────────────────────────────────────────── */
 .brand-headline {
   padding: calc(90px + 72px) 32px 72px;

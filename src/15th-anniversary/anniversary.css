@@ -568,6 +568,16 @@ button.svc-chip:hover::before, button.svc-chip:focus-visible::before {
 .anniv-subway-wrap { overflow-x: auto; margin-bottom: var(--spacing-2xl); -webkit-overflow-scrolling: touch; }
 .anniv-subway { display: block; width: 100%; min-width: 680px; height: auto; overflow: visible; }
 
+/* In portrait / narrow widths the map is narrower than its 680px min and
+   ends up scrolling or clipped, reading "off." The legend cards below
+   carry every stream's full detail (year, stage, what we could do, proof),
+   so hide the map there and let the legend stand. Landscape phones and up
+   (>=680px) keep the map. */
+@media (max-width: 680px) {
+  .anniv-subway-wrap { display: none; }
+  .anniv-evo-list { margin-top: 0.5rem; }
+}
+
 .anniv-subway-axis { stroke: rgba(255,255,255,0.18); stroke-width: 1.5; }
 .anniv-subway-grid { stroke: rgba(255,255,255,0.06); stroke-width: 1; }
 .anniv-subway-tick { fill: var(--ink-dark-2); font-family: var(--font-mono, monospace); font-size: 13px; text-anchor: middle; }
