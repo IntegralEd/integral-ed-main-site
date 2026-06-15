@@ -372,6 +372,7 @@
     if (!p || !p.title) return;
     var m = ensureModal();
     lastFocus = document.activeElement;
+    track('anniv_project_open', { item: p.title, item_client: p.client || '', item_svc: p.svc || '', section: activeSection() });
     var metaBits = [p.year, p.serviceArea, p.client].filter(Boolean).map(esc).join(' · ');
     m.querySelector('.anniv-modal-meta').innerHTML = metaBits;
     m.querySelector('.anniv-modal-title').textContent = p.title;
@@ -421,6 +422,38 @@
     var closeBtn = m.querySelector('.anniv-modal-close');
     if (closeBtn) closeBtn.focus();
   }
+  /* ── Analytics (GA4) ──────────────────────────────────────────────────────
+   * The shared analytics partial already fires the inbound page_view (with
+   * UTM attribution) and a cross-domain linker for the integral-ed family.
+   * These add explicit engagement + OUTBOUND events for this campaign page,
+   * so leaving to YouTube/StriveTogether/PLTW/Loom/etc. is captured even if
+   * GA4 enhanced-measurement outbound clicks aren't enabled. */
+  function track(name, params) {
+    try { if (typeof window.gtag === 'function') window.gtag('event', name, params || {}); } catch (e) {}
+  }
+  function activeSection() {
+    var a = document.querySelector('.anniv-rail-nav li.active a');
+    return a ? a.getAttribute('href').replace('#', '') : '';
+  }
+  function setupAnalytics() {
+    // Capture-phase so the event records before a target=_blank tab steals focus.
+    document.addEventListener('click', function (e) {
+      var a = e.target.closest ? e.target.closest('a[href]') : null;
+      if (!a) return;
+      var href = a.getAttribute('href') || '';
+      if (!/^https?:\/\//i.test(href)) return;            // relative/internal: skip
+      var host;
+      try { host = new URL(href, location.href).hostname; } catch (_e) { return; }
+      if (host === location.hostname) return;             // same-site: skip
+      track('anniv_outbound', {
+        link_url: href,
+        link_domain: host,
+        link_text: (a.textContent || '').trim().slice(0, 80),
+        section: activeSection()
+      });
+    }, true);
+  }
+
   function openProjectModal(i)     { openItemModal(PROJECTS[i]); }
   function openPortfolioModal(slug) {
     var p = (D.portfolio || {})[slug];
@@ -799,6 +832,7 @@
     setupEvoSync();
     setupProjectModal();
     setupCelebrate();
+    setupAnalytics();
     setupFeedbackPill();
   }
 
