@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>15th Anniversary — Email GIF capture rig</title>
+<!--
+  PURPOSE
+  Local-only capture stage for turning the anniversary hero count-up and the
+  evolution "subway map" draw-in into GIFs for HTML email. NOT deployed (lives
+  in tools/, never copied into dist/). Open it straight from disk:
+
+      open tools/anniversary-email-capture.html        (or drag into a browser)
+
+  It loads the REAL anniversary.css + the REAL anniversary-data.js and inlines
+  the EXACT buildSubway() geometry, so what you record matches the live page.
+
+  HOW TO MAKE THE GIF
+  1. Pick a stage below. Each capture frame has a dashed outline at the exact
+     pixel size to record (the readout shows it). Use a region screen recorder
+     (CleanShot/Kap on macOS, ShareX on Windows) to grab JUST that frame.
+  2. Each stage LOOPS: it holds the finished state ~2.5s, resets, animates ~4s,
+     holds again. START your recording during a "hold" and stop at the next
+     "hold" so the GIF's FIRST frame is the finished, legible state — Outlook
+     (Windows) shows only frame 1, so it must read correctly frozen.
+  3. Convert the recording to GIF. With gifski (brew install gifski):
+        gifski --fps 18 --width 600 -o anniv-hero.gif recording.mov
+     or ffmpeg:
+        ffmpeg -i recording.mov -vf "fps=18,scale=600:-1:flags=lanczos,split[s0][s1];[s0]palettegen[p];[s1][p]paletteuse" anniv-hero.gif
+  4. Email best practices: keep it <= ~1MB, ~600px wide, loop forever. In the
+     email, give the <img> a width + meaningful alt, and link the whole image
+     to https://integral-ed.com/15th-anniversary/?utm_source=email&utm_medium=...
+-->
+<link rel="stylesheet" href="../vendor/integralthemes/theme/tokens.css">
+<link rel="stylesheet" href="../src/15th-anniversary/anniversary.css">
+<style>
+  body {
+    margin: 0; background: #0e0413; color: #f4eef6;
+    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    padding: 2rem; display: flex; flex-direction: column; gap: 2.5rem;
+  }
+  h1 { font-size: 1.1rem; font-weight: 700; margin: 0 0 0.2rem; }
+  .rig-note { font-size: 0.8rem; color: #b9a6c4; max-width: 760px; line-height: 1.5; }
+  .rig-controls { display: flex; gap: 0.6rem; flex-wrap: wrap; margin: 0.4rem 0 0; }
+  .rig-controls button {
+    font: 600 0.85rem/1 inherit; padding: 0.5rem 1rem; border-radius: 999px;
+    border: 1px solid #b8357b; background: #18112b; color: #fff; cursor: pointer;
+  }
+  .rig-controls button:hover { background: #b8357b; }
+  .stage { display: flex; flex-direction: column; gap: 0.5rem; }
+  .stage-head { font-size: 0.78rem; letter-spacing: 0.08em; text-transform: uppercase; color: #ffbc50; }
+  .stage-dim { font-family: monospace; font-size: 0.75rem; color: #8d7a98; }
+  /* The capture frame: a fixed-size box on brand plum with a dashed guide.
+     Record the INSIDE of the dashed outline. */
+  .capframe {
+    position: relative;
+    background: radial-gradient(130% 120% at 50% -10%, #3a0a42, #1c0420 70%);
+    outline: 2px dashed rgba(255,255,255,0.25); outline-offset: 0;
+    overflow: hidden;
+  }
+  .capframe.hero  { width: 640px; height: 440px; }
+  .capframe.subway{ width: 760px; height: 460px; }
+
+  /* Hero stage content (mirrors the page hero, trimmed for email) */
+  .cap-hero-inner { position: absolute; inset: 0; display: flex; flex-direction: column;
+    align-items: center; justify-content: center; text-align: center; padding: 1.5rem 2rem; z-index: 2; }
+  .cap-eyebrow { font-family: monospace; letter-spacing: 0.3em; font-size: 0.72rem; color: #ffbc50; margin: 0 0 0.8rem; }
+  .cap-title { font-size: 2rem; line-height: 1.08; font-weight: 800; color: #fff; margin: 0 0 1.4rem; max-width: 100%; }
+  .cap-counters { display: grid; grid-template-columns: repeat(2, minmax(0,1fr)); gap: 1rem 1.6rem; max-width: 420px; }
+  .cap-counter-num { font-family: 'Helvetica Neue',Helvetica,Arial,sans-serif; font-size: 2.6rem; font-weight: 800;
+    background: linear-gradient(120deg, #ffbc50, #b8357b); -webkit-background-clip: text; background-clip: text; color: transparent; line-height: 1; }
+  .cap-counter-label { display: block; margin-top: 0.35rem; font-size: 0.74rem; letter-spacing: 0.05em; color: #c9b6d2; }
+
+  /* Subway stage: reuse the real .anniv-subway-* classes via anniversary.css.
+     We add a dark wrapper so the dark-section vars apply. */
+  .capframe.subway .anniv-subway-wrap { margin: 0; padding: 1.4rem 1.6rem; overflow: visible; }
+  .capframe.subway .anniv-subway { min-width: 0; }
+</style>
+</head>
+<body>
+
+  <div>
+    <h1>15th Anniversary — Email GIF capture rig</h1>
+    <p class="rig-note">
+      Local tool, not part of the site. Record the inside of each dashed frame, then convert to GIF
+      (see the comment at the top of this file for exact gifski / ffmpeg commands and email tips).
+      Both stages loop: they hold the finished state, reset, animate, and hold again — start recording
+      on a hold so your GIF's first frame is the finished state (Outlook shows only frame 1).
+    </p>
+    <div class="rig-controls">
+      <button id="replay">Replay both now</button>
+      <button id="toggle-loop">Pause looping</button>
+    </div>
+  </div>
+
+  <!-- HERO STAGE -->
+  <div class="stage anniv-body">
+    <div class="stage-head">Stage 1 · Hero count-up</div>
+    <div class="stage-dim" id="hero-dim"></div>
+    <div class="capframe hero" id="hero-frame">
+      <div class="anniv-hero-bgfx" aria-hidden="true">
+        <div class="glow-blob blob-plum"></div>
+        <div class="glow-blob blob-magenta"></div>
+        <div class="glow-blob blob-teal"></div>
+      </div>
+      <div class="cap-hero-inner">
+        <p class="cap-eyebrow" id="cap-eyebrow"></p>
+        <h2 class="cap-title" id="cap-title"></h2>
+        <div class="cap-counters" id="cap-counters"></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- SUBWAY STAGE -->
+  <div class="stage anniv-body">
+    <div class="stage-head">Stage 2 · Evolution subway map draw-in</div>
+    <div class="stage-dim" id="subway-dim"></div>
+    <div class="capframe subway anniv-section--dark" id="subway-frame">
+      <div id="cap-subway"></div>
+    </div>
+  </div>
+
+<script src="../src/15th-anniversary/data/anniversary-data.js"></script>
+<script>
+(function () {
+  'use strict';
+  var D = window.ANNIVERSARY_DATA || {};
+  function esc(s){ return String(s==null?'':s).replace(/[&<>"']/g,function(c){return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c];}); }
+
+  // ── EXACT copy of buildSubway() from anniversary.js (keep in sync) ───────
+  function buildSubway(stages) {
+    var start = (D.meta && D.meta.foundedYear) || stages[0].year || 2011;
+    var end   = (D.meta && D.meta.anniversaryYear) ||
+                stages.reduce(function (m, s) { return Math.max(m, Number(s.year || 0)); }, start);
+    if (end <= start) end = start + 1;
+    var VBW = 1000, padL = 156, padR = 150, top = 58, rowH = 62;
+    var n = stages.length;
+    var mapBottom = top + (n - 1) * rowH;
+    var axisY = mapBottom + 58;
+    var VBH = axisY + 34;
+    var spanX = VBW - padL - padR;
+    function xOf(y) { var t = (Number(y) - start) / (end - start); t = Math.max(0, Math.min(1, t)); return padL + t * spanX; }
+    var termX = xOf(end);
+    var bundleCenter = top + (n - 1) * rowH / 2;
+    var baseConvergeX = padL + spanX * 0.64;
+    var ticks = [];
+    for (var y = start; y <= end; y += 3) ticks.push(y);
+    if (ticks[ticks.length - 1] !== end) ticks.push(end);
+    var grid = ticks.map(function (ty) { var x = xOf(ty);
+      return '<line class="anniv-subway-grid" x1="'+x+'" y1="'+(top-26)+'" x2="'+x+'" y2="'+axisY+'"/>'+
+             '<text class="anniv-subway-tick" x="'+x+'" y="'+(axisY+22)+'">'+esc(ty)+'</text>'; }).join('');
+    var lines = stages.map(function (s, i) {
+      var color = 'evo-' + (s.color || 'plum');
+      var oX = xOf(s.year), oY = top + i * rowH;
+      var bY = bundleCenter + (i - (n - 1) / 2) * 13;
+      var cX = Math.max(oX + 26, baseConvergeX);
+      if (cX > termX - 70) cX = termX - 70;
+      if (cX < oX + 12) cX = oX + 12;
+      var d = 'M '+oX+' '+oY+' H '+cX+' C '+(cX+54)+' '+oY+' '+(termX-64)+' '+bY+' '+termX+' '+bY;
+      return '<g class="anniv-subway-line '+color+'">'+
+        '<path class="anniv-subway-path" d="'+d+'"/>'+
+        '<circle class="anniv-subway-stop" cx="'+oX+'" cy="'+oY+'" r="7"/>'+
+        '<circle class="anniv-subway-term" cx="'+termX+'" cy="'+bY+'" r="4.5"/>'+
+        '<text class="anniv-subway-label" x="'+(oX-16)+'" y="'+(oY-3)+'" text-anchor="end">'+esc(s.stage)+'</text>'+
+        '<text class="anniv-subway-yr" x="'+(oX-16)+'" y="'+(oY+13)+'" text-anchor="end">'+esc(s.year)+'</text>'+
+        '</g>'; }).join('');
+    var todayLabel =
+      '<text class="anniv-subway-today" x="'+(termX+16)+'" y="'+(bundleCenter-4)+'">'+esc(end)+'</text>'+
+      '<text class="anniv-subway-today-sub" x="'+(termX+16)+'" y="'+(bundleCenter+13)+'">Today, woven together</text>';
+    return '<div class="anniv-subway-wrap is-drawn">'+
+      '<svg class="anniv-subway" viewBox="0 0 '+VBW+' '+VBH+'" role="img">'+
+      '<line class="anniv-subway-axis" x1="'+padL+'" y1="'+axisY+'" x2="'+termX+'" y2="'+axisY+'"/>'+
+      grid + lines + todayLabel + '</svg></div>';
+  }
+
+  // ── Render hero text + counters ──────────────────────────────────────────
+  var m = D.meta || {};
+  document.getElementById('cap-eyebrow').textContent = m.eyebrow || '';
+  document.getElementById('cap-title').textContent = m.headline || '';
+  var counters = (m.counters || []).filter(function (c) { return c && c.label; });
+  document.getElementById('cap-counters').innerHTML = counters.map(function (c) {
+    return '<div><span class="cap-counter-num" data-target="'+Number(c.value||0)+'" data-suffix="'+esc(c.suffix||'')+'">0</span>'+
+           '<span class="cap-counter-label">'+esc(c.label)+'</span></div>';
+  }).join('');
+
+  // ── Render subway ────────────────────────────────────────────────────────
+  var stages = (D.evolution || []).filter(function (s) { return s && s.stage; });
+  document.getElementById('cap-subway').innerHTML = buildSubway(stages);
+
+  // Report exact capture dimensions
+  function dim(frameId, outId) {
+    var f = document.getElementById(frameId);
+    document.getElementById(outId).textContent = 'Record this frame at ' + f.offsetWidth + ' × ' + f.offsetHeight + ' px (record at 2× for retina, downscale to 600px wide in the encoder).';
+  }
+  dim('hero-frame', 'hero-dim'); dim('subway-frame', 'subway-dim');
+
+  // ── Animations ───────────────────────────────────────────────────────────
+  var rafs = [];
+  function clearRafs(){ rafs.forEach(function(id){ cancelAnimationFrame(id); }); rafs = []; }
+
+  function runCounters() {
+    var nums = document.querySelectorAll('.cap-counter-num');
+    Array.prototype.forEach.call(nums, function (el) {
+      var target = Number(el.getAttribute('data-target')||0), suffix = el.getAttribute('data-suffix')||'';
+      el.textContent = '0' + suffix;
+      var dur = 1700, startT = null;
+      function tick(ts){ if(startT==null)startT=ts; var t=Math.min((ts-startT)/dur,1); var e=1-Math.pow(1-t,3);
+        el.textContent = Math.round(e*target).toLocaleString()+suffix; if(t<1) rafs.push(requestAnimationFrame(tick)); }
+      rafs.push(requestAnimationFrame(tick));
+    });
+  }
+
+  var paths = document.querySelectorAll('#cap-subway .anniv-subway-path');
+  function primeSubway() {
+    Array.prototype.forEach.call(paths, function (p, i) {
+      var len = 0; try { len = p.getTotalLength(); } catch(e){ len = 0; }
+      if (len) { p.style.transition='none'; p.style.strokeDasharray=len; p.style.strokeDashoffset=len; }
+    });
+  }
+  function drawSubway() {
+    Array.prototype.forEach.call(paths, function (p, i) {
+      var len = 0; try { len = p.getTotalLength(); } catch(e){ len = 0; }
+      if (!len) return;
+      p.style.transition='none'; p.style.strokeDasharray=len; p.style.strokeDashoffset=len;
+      // force reflow then animate
+      void p.getBoundingClientRect();
+      p.style.transition='stroke-dashoffset 1.5s cubic-bezier(.4,0,.2,1) '+(i*0.18)+'s';
+      p.style.strokeDashoffset='0';
+    });
+  }
+
+  function playOnce() {
+    clearRafs();
+    primeSubway();
+    runCounters();
+    drawSubway();
+  }
+
+  // Loop: hold ~2.5s, reset+animate, repeat. Holding the finished state means
+  // a recording started during a hold begins on the legible final frame.
+  var looping = true, loopTimer = null;
+  function loop() {
+    playOnce();
+    loopTimer = setTimeout(function(){ if (looping) loop(); }, 6500);  // ~4s animate + ~2.5s hold
+  }
+  document.getElementById('replay').addEventListener('click', function(){ playOnce(); });
+  document.getElementById('toggle-loop').addEventListener('click', function(){
+    looping = !looping; this.textContent = looping ? 'Pause looping' : 'Resume looping';
+    if (looping) loop(); else if (loopTimer) clearTimeout(loopTimer);
+  });
+
+  loop();
+})();
+</script>
+</body>
+</html>
