@@ -12,6 +12,10 @@
   --plum-950: #1c0420;
   --plum-900: #2a0730;
   --plum-800: #3a0a42;
+  /* clip (not hidden) stops any wide child (e.g. the subway map's
+     min-width SVG) from forcing horizontal page scroll, WITHOUT breaking
+     the sticky rail the way overflow:hidden would. */
+  overflow-x: clip;
 }
 
 /* ── Layout ─────────────────────────────────────────────────────────────── */
@@ -165,7 +169,12 @@
   scroll-margin-top: var(--nav-offset);
   overflow: hidden;
 }
-.anniv-hero-content { position: relative; z-index: 2; max-width: 900px; }
+/* width:100% is essential: as a centered flex item (.anniv-hero uses
+   align-items:center) with only max-width set, this box would otherwise
+   size to its max-content (the unwrapped headline ~900px) and overflow
+   narrow viewports. width:100% caps it to the available width so the
+   headline, subhead, and counters all wrap to the phone. */
+.anniv-hero-content { position: relative; z-index: 2; width: 100%; max-width: 900px; }
 .anniv-eyebrow {
   font-family: var(--font-mono, monospace);
   letter-spacing: 0.3em;
@@ -174,11 +183,13 @@
   margin: 0 0 1rem;
 }
 .anniv-hero-title {
-  font-size: clamp(2.2rem, 5.5vw, 4.4rem);
-  line-height: 1.05;
+  font-size: clamp(2rem, 5.5vw, 4.4rem);
+  line-height: 1.07;
   margin: 0 0 1.2rem;
   color: #fff;
   font-weight: 800;
+  overflow-wrap: break-word;
+  hyphens: auto;
 }
 .grad-magenta { color: var(--accent-magenta); }
 .grad-yellow  { color: var(--accent-yellow); }
@@ -951,6 +962,19 @@ a.anniv-member:hover .anniv-member-cta { opacity: 1; transform: translateY(0); }
   .anniv-rail-15 { font-size: 2.2rem; }
   .anniv-rail-nav { display: flex; flex-wrap: wrap; gap: 0.2rem; }
   .anniv-rail-services { display: none; }
+}
+
+/* Phone polish: tighten the hero so the headline + counters breathe and
+   the four counters settle into a clean 2x2. */
+@media (max-width: 600px) {
+  .anniv-hero { padding: var(--spacing-2xl) 1.25rem; min-height: auto; }
+  .anniv-hero-sub { font-size: 1.02rem; margin-bottom: 1.8rem; }
+  .anniv-counters {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: var(--spacing-md) var(--spacing-sm);
+    max-width: 420px;
+  }
+  .anniv-counter-label { font-size: 0.78rem; }
 }
 
 @media (prefers-reduced-motion: reduce) {
