@@ -36,18 +36,6 @@
     "tenureN": 10
   },
   {
-    "slug": "dinkycruzcada",
-    "firstName": "Dinky",
-    "lastName": "Cruz-Cada",
-    "fullName": "Dinky Cruz-Cada",
-    "roleLevel": "Contributor",
-    "title": "Storyline Developer",
-    "photo": "/assets/team/dinkycruzcada.jpg",
-    "bio": "Dinky is an Instructional Designer/eLearning developer with 9 years of experience in creating online courses for clients in various fields.",
-    "quote": "\"A little nonsense now and then, is cherished by the wisest men.\" \n##### *— Roald Dahl*",
-    "tenureN": 4
-  },
-  {
     "slug": "chelseageorge",
     "firstName": "Chelsea",
     "lastName": "George",

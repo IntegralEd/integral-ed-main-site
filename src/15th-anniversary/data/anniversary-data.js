@@ -34,14 +34,31 @@ window.ANNIVERSARY_DATA = {
     anniversaryYear: 2026,
     eyebrow: "2011-2026",
     headline: "Fifteen years helping organizations learn, adapt, and grow.",
-    subhead: "From a founder with a laptop to a 21-person studio building blended, media-rich, AI-powered learning. Here's a look back at the road we've traveled since 2011.",
+    subhead: "From a founder with a laptop to a 20+ person studio building blended, media-rich, AI-powered learning. Here's a look back at the road we've traveled since 2011.",
     // Big numbers that count up on load. label is shown under the number.
     counters: [
       { value: 15,  suffix: "",  label: "Years growing together" },
       { value: 250, suffix: "+", label: "Projects delivered" },
       { value: 75,  suffix: "",  label: "Partner organizations" },
-      { value: 21,  suffix: "",  label: "Teammates today" }
+      { value: 20,  suffix: "+", label: "Teammates today" }   // "20+" stays accurate as headcount drifts
     ]
+  },
+
+  /* ---------------------------------------------------------------------------
+   * 0b) "SO WHAT": a grounding intro shown between the counters and the
+   *     timeline, so visitors know why they're reading the story.
+   * ------------------------------------------------------------------------- */
+  soWhat: {
+    paragraphs: [
+      "We are grateful for your support. Almost all of Integral Ed's growth and success has come from referrals and word of mouth. We don't advertise. We have grown by serving the same clients as trusted partners for the last 15 years. As our capacities have grown, we can serve clients better and meet more of their learning, growth, and strategic needs.",
+      "If you're visiting this page, you are part of the reason Integral Ed has survived, thrived, and grown since 2011. We want to tell you that story and help you understand what we are capable of today."
+    ],
+    objectivesIntro: "In “learning objectives” lingo, if you click through this page, we hope you'll be able to:",
+    objectives: [
+      "understand how we grew",
+      "explain what we do"
+    ],
+    cta: "Let's get into it!"
   },
 
   /* ---------------------------------------------------------------------------
@@ -130,7 +147,7 @@ window.ANNIVERSARY_DATA = {
         {
           theme: "eLearning practice begins",
           svc: "elearning",
-          body: "Nadia Zaid leads our first eLearning project, for Early Learning Indiana, and goes on to build our Articulate360 development team, making asynchronous learning a core feature of most projects and championing WCAG AA accessibility across deliverables.",
+          body: "Nadia Zaid leads our first eLearning project, for Early Learning Indiana, and goes on to build our Articulate360 development team, making compelling, learner-centered asynchronous learning a core feature of most projects and championing WCAG AA accessibility across deliverables.",
           highlights: [
             { svc: "elearning", ref: "leadPaint", label: "Lead Paint Awareness (ELI)" }
           ]
@@ -191,8 +208,8 @@ window.ANNIVERSARY_DATA = {
       year: 2022,
       title: "Two new directions",
       tag: "KIPP / AI",
-      body: "Dinky Cruz-Cada adds Storyline development capacity as our eLearning practice grows.",
-      joins: ["Whitney Henderson", "Dinky Cruz-Cada"],
+      body: "We add Storyline development capacity as our eLearning practice grows.",
+      joins: ["Whitney Henderson"],
       events: [
         {
           theme: "KIPP Forward partnership begins",
@@ -692,7 +709,7 @@ window.ANNIVERSARY_DATA = {
       { year: 2022, total: 14 },
       { year: 2023, total: 17 },
       { year: 2024, total: 20 },
-      { year: 2026, total: 21 }
+      { year: 2026, total: 20 }
     ],
     // image + href are sourced from the live team directory (src/team/_data/team.json):
     //   photo  = /assets/team/<slug>.<jpg|png>     vanity = /team/<slug>/
@@ -710,7 +727,6 @@ window.ANNIVERSARY_DATA = {
       { name: "Morgan Taveras",      role: "Director of Integrated Adult Learning",            dept: "Instructional Design", since: 2021, image: "/assets/team/morgantaveras.jpg",      href: "/team/morgantaveras/",      bio: "Known for character-driven, story-first learning design." },
       { name: "Michaela Bradley",    role: "Senior Video Editor",                              dept: "UX / Media Design",    since: 2021, image: "/assets/team/michaelabradley.jpg",    href: "/team/michaelabradley/",    bio: "" },
       { name: "Whitney Henderson",   role: "Senior Advisor",                                   dept: "Project Director",     since: 2022, image: "/assets/team/whitneyhenderson.jpg",   href: "/team/whitneyhenderson/",   bio: "" },
-      { name: "Dinky Cruz-Cada",     role: "Storyline Developer",                              dept: "eLearning / LMS",      since: 2022, image: "/assets/team/dinkycruzcada.jpg",      href: "/team/dinkycruzcada/",      bio: "" },
       { name: "Shanna Schlossberg",  role: "Content Specialist",                               dept: "UX / Media Design",    since: 2023, image: "/assets/team/shannaschlossberg.jpg",  href: "/team/shannaschlossberg/",  bio: "" },
       { name: "Jo Barnett",          role: "Senior Content Specialist",                        dept: "UX / Media Design",    since: 2023, image: "/assets/team/jobarnett.png",          href: "/team/jobarnett/",          bio: "" },
       { name: "Diane Takata Powell",  role: "Senior Advisor",                                   dept: "Project Director",     since: 2023, image: "/assets/team/dianetakatapowell.jpg",  href: "/team/dianetakatapowell/",  bio: "A client-turned-teammate from UnboundEd." },

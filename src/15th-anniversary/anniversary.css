@@ -154,6 +154,38 @@
 }
 .anniv-lede { font-size: 1.08rem; color: var(--text-tertiary); margin: 0; }
 
+/* ── "So what" intro band ───────────────────────────────────────────────── */
+.anniv-sowhat { padding-top: var(--spacing-2xl); padding-bottom: var(--spacing-2xl); }
+.anniv-sowhat-inner { max-width: 760px; margin: 0 auto; text-align: center; }
+.anniv-sowhat-inner .anniv-kicker { display: inline-block; margin-bottom: var(--spacing-md); }
+.anniv-sowhat-p {
+  font-size: 1.18rem; line-height: 1.7; color: var(--text-secondary);
+  margin: 0 0 1.1rem;
+}
+.anniv-sowhat-p:first-of-type { font-size: 1.3rem; color: var(--text-primary); }
+.anniv-sowhat-objintro { margin: 1.4rem 0 0.8rem; font-weight: 600; color: var(--text-primary); }
+.anniv-sowhat-obj {
+  list-style: none; padding: 0; margin: 0 auto 1.6rem; max-width: 460px;
+  display: grid; gap: 0.6rem; text-align: left;
+}
+.anniv-sowhat-obj li {
+  display: flex; align-items: center; gap: 0.7rem;
+  font-size: 1.05rem; color: var(--text-secondary);
+}
+.anniv-sowhat-obj-mark {
+  flex: 0 0 auto; width: 1.7rem; height: 1.7rem; border-radius: 50%;
+  display: inline-flex; align-items: center; justify-content: center;
+  background: color-mix(in srgb, var(--color-plum) 14%, transparent);
+  color: var(--color-plum); font-weight: 800; font-style: italic;
+}
+.anniv-sowhat-cta {
+  display: inline-flex; align-items: center; gap: 0.4rem; margin-top: 0.4rem;
+  padding: 0.85rem 1.5rem; border-radius: 999px;
+  background: var(--color-plum); color: #fff; font-weight: 700; font-size: 1.05rem;
+  text-decoration: none; transition: transform .15s ease, background .15s ease;
+}
+.anniv-sowhat-cta:hover { background: color-mix(in srgb, var(--color-plum) 84%, #000); transform: translateY(-1px); }
+
 /* ── Hero (intro) ───────────────────────────────────────────────────────── */
 .anniv-hero {
   position: relative;

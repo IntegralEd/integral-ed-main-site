@@ -91,6 +91,31 @@
     }).join('');
   }
 
+  /* ── "So what" intro band ─────────────────────────────────────────────── */
+  function renderSoWhat() {
+    var el = $('anniv-sowhat');
+    if (!el) return;
+    var s = D.soWhat || {};
+    var paras = (s.paragraphs || []).filter(Boolean);
+    var objs  = (s.objectives || []).filter(Boolean);
+    if (!paras.length && !objs.length) { el.innerHTML = ''; return; }
+    var html = '<span class="anniv-kicker">Why this page</span>';
+    html += paras.map(function (p) { return '<p class="anniv-sowhat-p">' + linkNames(p) + '</p>'; }).join('');
+    if (objs.length) {
+      if (s.objectivesIntro) html += '<p class="anniv-sowhat-objintro">' + esc(s.objectivesIntro) + '</p>';
+      html += '<ul class="anniv-sowhat-obj">' + objs.map(function (o, i) {
+        var letter = String.fromCharCode(97 + (i % 26)); // a, b, c…
+        return '<li><span class="anniv-sowhat-obj-mark">' + letter + '</span>' +
+          '<span>' + linkNames(o) + '</span></li>';
+      }).join('') + '</ul>';
+    }
+    if (s.cta) {
+      html += '<a class="anniv-sowhat-cta" href="#history">' + esc(s.cta) +
+        ' <span aria-hidden="true">&rarr;</span></a>';
+    }
+    el.innerHTML = html;
+  }
+
   /* ── Timeline ─────────────────────────────────────────────────────────── */
   function renderChipStrip(highlights) {
     var hs = (highlights || []).filter(function (h) { return h && h.ref; });
@@ -818,6 +843,7 @@
   function init() {
     buildNameIndex();
     renderHero();
+    renderSoWhat();
     renderTimeline();
     renderEvolution();
     renderProjects();
