@@ -853,20 +853,46 @@
    * v1 steps section by section; finer sub-steps (timeline years, evolution
    * layers one at a time) are a planned enhancement. */
   function setupTour() {
-    var STOPS = [
-      { id: 'intro',     title: 'Welcome',       caption: 'Fifteen years, by the numbers.' },
-      { id: 'welcome',   title: 'Why this page', caption: 'A quick note on why we built this.' },
-      { id: 'history',   title: 'History',       caption: 'How we started and grew, year by year.' },
-      { id: 'evolution', title: 'Evolution',     caption: 'Each capability we added, and kept.' },
-      { id: 'work',      title: 'Our Work',      caption: 'A few projects we are proud of.' },
-      { id: 'team',      title: 'The Team',      caption: 'The people behind the work.' },
-      { id: 'clients',   title: 'Clients',       caption: 'Who we have grown alongside.' },
-      { id: 'today',     title: 'Today',         caption: 'What we do now, and where to start.' }
-    ].filter(function (s) { return document.getElementById(s.id); });
-    if (!STOPS.length) return;
-
     var reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-    var idx = 0, on = false;
+    var idx = 0, on = false, STEPS = null;
+
+    // Bite-sized steps: section overviews, then a step per timeline YEAR,
+    // per evolution SERVICE line, and per WORK project. Built from the rendered
+    // DOM so it always matches the data.
+    function txt(el, sel) { var n = el && el.querySelector(sel); return n ? n.textContent.trim() : ''; }
+    function buildSteps() {
+      var out = [];
+      function sec(id, title, caption) {
+        var el = document.getElementById(id);
+        if (el) out.push({ el: el, section: el, kind: 'section', title: title, caption: caption });
+      }
+      function each(sectionId, sel, kind, getTitle, getCaption) {
+        var section = document.getElementById(sectionId);
+        if (!section) return;
+        Array.prototype.forEach.call(section.querySelectorAll(sel), function (el) {
+          out.push({
+            el: el, section: section, kind: kind,
+            title: getTitle(el), caption: getCaption(el),
+            evoId: el.getAttribute('data-evo-id') || null
+          });
+        });
+      }
+      sec('intro',   'Welcome',       'Fifteen years, by the numbers.');
+      sec('welcome', 'Why this page', 'Why we built this.');
+      each('history', '.anniv-tl-item', 'year',
+        function (el) { return txt(el, '.anniv-tl-year') || 'History'; },
+        function (el) { return txt(el, '.anniv-tl-title'); });
+      each('evolution', '.anniv-evo-row', 'service',
+        function (el) { return txt(el, '.anniv-evo-stage') || 'Capability'; },
+        function (el) { return txt(el, '.anniv-evo-tagline'); });
+      each('work', '.anniv-project', 'work',
+        function (el) { return txt(el, '.anniv-project-title') || 'Project'; },
+        function (el) { return txt(el, '.anniv-project-meta'); });
+      sec('team',    'The Team', 'The people behind the work.');
+      sec('clients', 'Clients',  'Who we have grown alongside.');
+      sec('today',   'Today',    'What we do now, and where to start.');
+      return out;
+    }
 
     var bar = document.createElement('div');
     bar.className = 'anniv-tour';
@@ -892,25 +918,37 @@
     var btnPrev = bar.querySelector('.anniv-tour-prev');
     var btnNext = bar.querySelector('.anniv-tour-next');
 
-    function focusSection(i) {
-      STOPS.forEach(function (s, j) {
-        var el = document.getElementById(s.id);
-        if (el) el.classList.toggle('is-tour-focus', j === i);
-      });
+    function clearSpot() {
+      Array.prototype.forEach.call(document.querySelectorAll('.is-tour-spot'),
+        function (n) { n.classList.remove('is-tour-spot'); });
+      Array.prototype.forEach.call(document.querySelectorAll('.anniv-main > section.is-tour-focus'),
+        function (n) { n.classList.remove('is-tour-focus'); });
+      Array.prototype.forEach.call(document.querySelectorAll('.anniv-subway-line.is-spotlit, .anniv-evo-row.is-spotlit'),
+        function (n) { n.classList.remove('is-spotlit'); });
+    }
+    function spotlight(step) {
+      clearSpot();
+      if (step.section) step.section.classList.add('is-tour-focus');
+      if (step.el !== step.section) step.el.classList.add('is-tour-spot');
+      if (step.evoId) {
+        Array.prototype.forEach.call(document.querySelectorAll('[data-evo-id="' + step.evoId + '"]'),
+          function (n) { n.classList.add('is-spotlit'); });
+      }
     }
     function render() {
-      var s = STOPS[idx];
-      elStep.textContent  = (idx + 1) + ' / ' + STOPS.length;
+      var s = STEPS[idx];
+      elStep.textContent  = (idx + 1) + ' / ' + STEPS.length;
       elTitle.textContent = s.title;
       elCap.textContent   = s.caption;
       btnPrev.disabled    = (idx === 0);
-      btnNext.textContent = (idx === STOPS.length - 1) ? 'Finish' : 'Next →';
-      focusSection(idx);
+      btnNext.textContent = (idx === STEPS.length - 1) ? 'Finish' : 'Next →';
     }
     function go(i) {
-      idx = Math.max(0, Math.min(STOPS.length - 1, i));
-      var el = document.getElementById(STOPS[idx].id);
-      if (el) el.scrollIntoView({ behavior: reduce ? 'auto' : 'smooth', block: 'start' });
+      idx = Math.max(0, Math.min(STEPS.length - 1, i));
+      var step = STEPS[idx];
+      spotlight(step);
+      var block = (step.kind === 'section') ? 'start' : 'center';
+      try { step.el.scrollIntoView({ behavior: reduce ? 'auto' : 'smooth', block: block }); } catch (e) {}
       render();
     }
     function setModeParam(active) {
@@ -922,6 +960,8 @@
     }
     function start(at) {
       if (on) return;
+      if (!STEPS) STEPS = buildSteps();
+      if (!STEPS.length) return;
       on = true;
       document.documentElement.classList.add('anniv-tour-on');
       bar.removeAttribute('hidden');
@@ -933,20 +973,20 @@
       on = false;
       document.documentElement.classList.remove('anniv-tour-on');
       bar.setAttribute('hidden', '');
-      focusSection(-1);
+      clearSpot();
       setModeParam(false);
     }
 
     bar.addEventListener('click', function (e) {
       var act = e.target.getAttribute && e.target.getAttribute('data-act');
-      if (act === 'next') { idx === STOPS.length - 1 ? stop() : go(idx + 1); }
+      if (act === 'next') { idx === STEPS.length - 1 ? stop() : go(idx + 1); }
       else if (act === 'prev') go(idx - 1);
       else if (act === 'exit') stop();
     });
     document.addEventListener('keydown', function (e) {
       if (!on) return;
       if (e.key === 'Escape') stop();
-      else if (e.key === 'ArrowRight') { e.preventDefault(); idx === STOPS.length - 1 ? stop() : go(idx + 1); }
+      else if (e.key === 'ArrowRight') { e.preventDefault(); idx === STEPS.length - 1 ? stop() : go(idx + 1); }
       else if (e.key === 'ArrowLeft')  { e.preventDefault(); go(idx - 1); }
     });
 

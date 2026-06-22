@@ -1194,6 +1194,17 @@ html.anniv-locked .anniv-gate {
 .anniv-tour-on .anniv-main > section { transition: opacity 0.4s ease; }
 .anniv-tour-on .anniv-main > section:not(.is-tour-focus) { opacity: 0.4; }
 
+/* Tour: ring the focused bite-sized item (a year / service / project) */
+.anniv-tl-item.is-tour-spot,
+.anniv-project.is-tour-spot,
+.anniv-evo-row.is-tour-spot {
+  outline: 3px solid var(--accent-yellow);
+  outline-offset: 8px;
+  border-radius: 16px;
+  transition: outline-color 0.2s ease, outline-offset 0.2s ease;
+}
+.anniv-tl-item.is-tour-spot { outline-offset: 12px; }
+
 .anniv-tour { position: fixed; left: 0; right: 0; bottom: 0; z-index: 900; display: flex; justify-content: center; pointer-events: none; }
 .anniv-tour[hidden] { display: none; }
 .anniv-tour-bar {
