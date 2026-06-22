@@ -912,6 +912,10 @@
       '</div>';
     document.body.appendChild(bar);
 
+    var backdrop = document.createElement('div');
+    backdrop.className = 'anniv-tour-backdrop';
+    document.body.appendChild(backdrop);
+
     var elStep  = bar.querySelector('.anniv-tour-step');
     var elTitle = bar.querySelector('.anniv-tour-title');
     var elCap   = bar.querySelector('.anniv-tour-caption');
@@ -928,6 +932,8 @@
     }
     function spotlight(step) {
       clearSpot();
+      // backdrop "stage" only for the bite-sized item steps, not section overviews
+      document.documentElement.classList.toggle('anniv-tour-spot', step.kind !== 'section');
       if (step.section) step.section.classList.add('is-tour-focus');
       if (step.el !== step.section) step.el.classList.add('is-tour-spot');
       if (step.evoId) {
@@ -971,7 +977,7 @@
     function stop() {
       if (!on) return;
       on = false;
-      document.documentElement.classList.remove('anniv-tour-on');
+      document.documentElement.classList.remove('anniv-tour-on', 'anniv-tour-spot');
       bar.setAttribute('hidden', '');
       clearSpot();
       setModeParam(false);

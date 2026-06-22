@@ -1190,20 +1190,50 @@ html.anniv-locked .anniv-gate {
 .anniv-tour-start-ico { font-size: 0.72em; }
 .anniv-hero-or { font-size: 0.85rem; color: var(--ink-dark-2); letter-spacing: 0.02em; }
 
-/* ── Guided tour: section spotlight + control bar ───────────────────────── */
-.anniv-tour-on .anniv-main > section { transition: opacity 0.4s ease; }
-.anniv-tour-on .anniv-main > section:not(.is-tour-focus) { opacity: 0.4; }
+/* ── Guided tour: spotlight "stage" + control bar ───────────────────────────
+   On item steps the page recedes behind a dimmed/blurred backdrop and the
+   focused bite-sized piece (a year / service / project) is lifted forward and
+   scaled up, like advancing an e-learning slide. */
+.anniv-tour-backdrop {
+  position: fixed; inset: 0; z-index: 800; pointer-events: none;
+  background: radial-gradient(120% 120% at 50% 38%, rgba(20,4,26,0.66), rgba(10,2,14,0.9));
+  opacity: 0; transition: opacity 0.4s ease;
+  -webkit-backdrop-filter: blur(2.5px); backdrop-filter: blur(2.5px);
+}
+html.anniv-tour-spot .anniv-tour-backdrop { opacity: 1; }
 
-/* Tour: ring the focused bite-sized item (a year / service / project) */
+/* let the focused section's content escape its clip so the lifted card and
+   its shadow are not cut off */
+.anniv-tour-on .anniv-main > section.is-tour-focus { overflow: visible; }
+
+/* the focused piece: raised above the backdrop, scaled, elevated like a card */
+.is-tour-spot {
+  position: relative; z-index: 850;
+  transition: transform 0.4s cubic-bezier(.2,.85,.25,1), box-shadow 0.4s ease, background 0.4s ease;
+}
 .anniv-tl-item.is-tour-spot,
 .anniv-project.is-tour-spot,
 .anniv-evo-row.is-tour-spot {
-  outline: 3px solid var(--accent-yellow);
-  outline-offset: 8px;
-  border-radius: 16px;
-  transition: outline-color 0.2s ease, outline-offset 0.2s ease;
+  border-radius: 18px;
+  box-shadow: 0 36px 90px rgba(0,0,0,0.55), 0 0 0 1px rgba(255,255,255,0.05);
 }
-.anniv-tl-item.is-tour-spot { outline-offset: 12px; }
+/* timeline year: keep its dot-gutter + joins-rail spacing intact; just lift it
+   onto a white card so it reads on the dimmed stage. A little top/bottom breathing
+   room via a transparent ring is added with the box-shadow inset. */
+.anniv-tl-item.is-tour-spot {
+  transform: scale(1.045);
+  background: var(--bg-primary, #fff);
+  box-shadow: 0 36px 90px rgba(0,0,0,0.55), 0 0 0 1rem var(--bg-primary, #fff);
+}
+.anniv-project.is-tour-spot { transform: scale(1.06); }
+.anniv-evo-row.is-tour-spot {
+  transform: scale(1.04);
+  background: color-mix(in srgb, var(--evo-c) 26%, #14040f);
+}
+@media (prefers-reduced-motion: reduce) {
+  .is-tour-spot { transition: none; transform: none; }
+  .anniv-tour-backdrop { transition: none; }
+}
 
 .anniv-tour { position: fixed; left: 0; right: 0; bottom: 0; z-index: 900; display: flex; justify-content: center; pointer-events: none; }
 .anniv-tour[hidden] { display: none; }
