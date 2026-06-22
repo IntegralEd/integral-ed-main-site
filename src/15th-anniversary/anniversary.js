@@ -959,6 +959,29 @@
     } catch (e) {}
   }
 
+  /* ── Mobile rail: collapse the section nav into a menu icon ──────────────── */
+  function setupRailMenu() {
+    var rail   = $('anniv-rail');
+    var toggle = $('anniv-rail-toggle');
+    var panel  = $('anniv-rail-panel');
+    if (!rail || !toggle) return;
+    function setOpen(open) {
+      rail.classList.toggle('is-open', open);
+      toggle.setAttribute('aria-expanded', open ? 'true' : 'false');
+      toggle.setAttribute('aria-label', open ? 'Close sections menu' : 'Open sections menu');
+    }
+    toggle.addEventListener('click', function () { setOpen(!rail.classList.contains('is-open')); });
+    if (panel) panel.addEventListener('click', function (e) {
+      if (e.target.closest && e.target.closest('a')) setOpen(false);   // chose a section
+    });
+    document.addEventListener('keydown', function (e) {
+      if (e.key === 'Escape' && rail.classList.contains('is-open')) setOpen(false);
+    });
+    document.addEventListener('click', function (e) {
+      if (rail.classList.contains('is-open') && !rail.contains(e.target)) setOpen(false);
+    });
+  }
+
   function init() {
     buildNameIndex();
     renderHero();
@@ -979,6 +1002,7 @@
     setupCelebrate();
     setupAnalytics();
     setupFeedbackPill();
+    setupRailMenu();
     setupTour();
   }
 

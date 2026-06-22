@@ -55,8 +55,8 @@ window.ANNIVERSARY_DATA = {
     ],
     objectivesIntro: "In “learning objectives” lingo, if you click through this page, we hope you'll be able to:",
     objectives: [
-      "understand how we grew",
-      "explain what we do"
+      "understand how Integral Ed grew",
+      "explain what Integral Ed does"
     ],
     cta: "Let's get into it!"
   },

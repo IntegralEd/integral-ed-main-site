@@ -47,30 +47,39 @@
   <div class="anniv-layout">
 
     <!-- ── Sticky left-nav (scroll-spy) ─────────────────────────────── -->
-    <aside class="anniv-rail" aria-label="Page sections">
+    <aside class="anniv-rail" id="anniv-rail" aria-label="Page sections">
       <div class="anniv-rail-inner">
-        <a href="#intro" class="anniv-rail-brand" aria-label="15th anniversary, top">
-          <span class="anniv-rail-15">15</span>
-          <span class="anniv-rail-15-sub">YEARS · 2011–2026</span>
-        </a>
+        <div class="anniv-rail-top">
+          <a href="#intro" class="anniv-rail-brand" aria-label="15th anniversary, top">
+            <span class="anniv-rail-15">15</span>
+            <span class="anniv-rail-15-sub">YEARS · 2011–2026</span>
+          </a>
+          <button type="button" class="anniv-rail-toggle" id="anniv-rail-toggle"
+                  aria-expanded="false" aria-controls="anniv-rail-panel" aria-label="Open sections menu">
+            <span class="anniv-rail-toggle-bars" aria-hidden="true"><span></span><span></span><span></span></span>
+            <span class="anniv-rail-toggle-lbl">Sections</span>
+          </button>
+        </div>
 
-        <nav aria-label="Sections">
-          <ol class="anniv-rail-nav">
-            <li><a href="#intro"><span class="num">00</span><span class="lbl">Welcome</span></a></li>
-            <li><a href="#history"><span class="num">01</span><span class="lbl">History</span></a></li>
-            <li><a href="#evolution"><span class="num">02</span><span class="lbl">Evolution</span></a></li>
-            <li><a href="#work"><span class="num">03</span><span class="lbl">Our Work</span></a></li>
-            <li><a href="#team"><span class="num">04</span><span class="lbl">The Team</span></a></li>
-            <li><a href="#clients"><span class="num">05</span><span class="lbl">Clients</span></a></li>
-            <li><a href="#today"><span class="num">06</span><span class="lbl">Today</span></a></li>
-          </ol>
-        </nav>
+        <div class="anniv-rail-panel" id="anniv-rail-panel">
+          <nav aria-label="Sections">
+            <ol class="anniv-rail-nav">
+              <li><a href="#intro"><span class="num">00</span><span class="lbl">Welcome</span></a></li>
+              <li><a href="#history"><span class="num">01</span><span class="lbl">History</span></a></li>
+              <li><a href="#evolution"><span class="num">02</span><span class="lbl">Evolution</span></a></li>
+              <li><a href="#work"><span class="num">03</span><span class="lbl">Our Work</span></a></li>
+              <li><a href="#team"><span class="num">04</span><span class="lbl">The Team</span></a></li>
+              <li><a href="#clients"><span class="num">05</span><span class="lbl">Clients</span></a></li>
+              <li><a href="#today"><span class="num">06</span><span class="lbl">Today</span></a></li>
+            </ol>
+          </nav>
 
-        <div class="anniv-rail-services">
-          <h2 class="anniv-rail-services-h">What we do today</h2>
-          <ul class="anniv-rail-services-list" id="anniv-rail-services" role="list">
-            <!-- populated from anniversary-data.js (serviceAreas) -->
-          </ul>
+          <div class="anniv-rail-services">
+            <h2 class="anniv-rail-services-h">What we do today</h2>
+            <ul class="anniv-rail-services-list" id="anniv-rail-services" role="list">
+              <!-- populated from anniversary-data.js (serviceAreas) -->
+            </ul>
+          </div>
         </div>
       </div>
     </aside>

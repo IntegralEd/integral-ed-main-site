@@ -47,6 +47,13 @@
   overflow-y: auto;
 }
 
+/* On desktop the brand + (hidden) toggle flow as part of the rail column,
+   and the panel is always open. The mobile breakpoint flips this to a
+   collapsed menu. */
+.anniv-rail-top { display: contents; }
+.anniv-rail-toggle { display: none; }
+.anniv-rail-panel { display: flex; flex-direction: column; gap: var(--spacing-lg); }
+
 .anniv-rail-brand { display: block; text-decoration: none; color: inherit; }
 .anniv-rail-15 {
   display: block;
@@ -1011,13 +1018,55 @@ a.anniv-member:hover .anniv-member-cta { opacity: 1; transform: translateY(0); }
 }
 
 /* ── Responsive ─────────────────────────────────────────────────────────── */
+/* Below 880px the sticky left rail collapses into a compact bar with a
+   hamburger menu icon; tapping it drops down the section nav + services. */
 @media (max-width: 880px) {
   .anniv-layout { grid-template-columns: 1fr; }
-  .anniv-rail { position: static; height: auto; border-right: 0; border-bottom: 1px solid rgba(255,255,255,0.08); }
-  .anniv-rail-inner { position: static; max-height: none; flex-direction: row; flex-wrap: wrap; align-items: center; gap: var(--spacing-md); }
-  .anniv-rail-15 { font-size: 2.2rem; }
-  .anniv-rail-nav { display: flex; flex-wrap: wrap; gap: 0.2rem; }
-  .anniv-rail-services { display: none; }
+  .anniv-rail {
+    position: sticky; top: var(--nav-offset); z-index: 60;
+    height: auto; border-right: 0; border-bottom: 1px solid rgba(255,255,255,0.1);
+  }
+  .anniv-rail-inner {
+    position: static; max-height: none; overflow: visible;
+    flex-direction: column; gap: 0; padding: 0.55rem clamp(1rem, 4vw, 2rem);
+  }
+  .anniv-rail-top {
+    display: flex; align-items: center; justify-content: space-between; gap: 1rem;
+  }
+  .anniv-rail-brand { display: flex; align-items: baseline; gap: 0.55rem; }
+  .anniv-rail-15 { font-size: 1.7rem; }
+  .anniv-rail-15-sub { margin-top: 0; }
+
+  .anniv-rail-toggle {
+    display: inline-flex; align-items: center; gap: 0.5rem;
+    background: rgba(255,255,255,0.08); color: var(--ink-dark);
+    border: 1px solid rgba(255,255,255,0.2); border-radius: 999px;
+    padding: 0.45rem 0.85rem; font-size: 0.8rem; font-weight: 700;
+    letter-spacing: 0.04em; cursor: pointer; transition: background var(--transition-fast);
+  }
+  .anniv-rail-toggle:hover { background: rgba(255,255,255,0.14); }
+  .anniv-rail-toggle-bars { display: inline-flex; flex-direction: column; justify-content: center; gap: 3px; width: 16px; height: 12px; }
+  .anniv-rail-toggle-bars span { display: block; height: 2px; width: 100%; background: currentColor; border-radius: 2px; transition: transform .2s ease, opacity .2s ease; }
+  .anniv-rail.is-open .anniv-rail-toggle-bars span:nth-child(1) { transform: translateY(5px) rotate(45deg); }
+  .anniv-rail.is-open .anniv-rail-toggle-bars span:nth-child(2) { opacity: 0; }
+  .anniv-rail.is-open .anniv-rail-toggle-bars span:nth-child(3) { transform: translateY(-5px) rotate(-45deg); }
+
+  .anniv-rail-panel {
+    position: absolute; left: 0; right: 0; top: 100%;
+    background: linear-gradient(180deg, var(--plum-900), var(--plum-950));
+    border-bottom: 1px solid rgba(255,255,255,0.12);
+    box-shadow: 0 16px 40px rgba(0,0,0,0.45);
+    gap: 0; padding: 0 clamp(1rem, 4vw, 2rem);
+    max-height: 0; overflow: hidden;
+    transition: max-height .28s ease, padding .28s ease;
+  }
+  .anniv-rail.is-open .anniv-rail-panel {
+    max-height: 78vh; overflow-y: auto;
+    padding: 0.7rem clamp(1rem, 4vw, 2rem) 1.1rem;
+  }
+  .anniv-rail-nav { display: block; }
+  .anniv-rail-nav a { padding: 0.7rem 0.6rem; }
+  .anniv-rail-services { display: block; margin-top: 1rem; }
 }
 
 /* Phone polish: tighten the hero so the headline + counters breathe and
