@@ -103,10 +103,16 @@
     html += paras.map(function (p) { return '<p class="anniv-sowhat-p">' + linkNames(p) + '</p>'; }).join('');
     if (objs.length) {
       if (s.objectivesIntro) html += '<p class="anniv-sowhat-objintro">' + esc(s.objectivesIntro) + '</p>';
-      html += '<ul class="anniv-sowhat-obj">' + objs.map(function (o, i) {
-        var letter = String.fromCharCode(97 + (i % 26)); // a, b, c…
-        return '<li><span class="anniv-sowhat-obj-mark">' + letter + '</span>' +
-          '<span>' + linkNames(o) + '</span></li>';
+      // Storyline-style checkboxes: tickable, with a check that pops in.
+      html += '<ul class="anniv-sowhat-obj">' + objs.map(function (o) {
+        return '<li><label class="anniv-check">' +
+          '<input type="checkbox" class="anniv-check-input">' +
+          '<span class="anniv-check-box" aria-hidden="true">' +
+            '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.4" ' +
+            'stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>' +
+          '</span>' +
+          '<span class="anniv-check-label">' + linkNames(o) + '</span>' +
+          '</label></li>';
       }).join('') + '</ul>';
     }
     if (s.cta) {
@@ -840,6 +846,119 @@
   }
 
   /* ── Init ─────────────────────────────────────────────────────────────── */
+  /* ── Guided "click-through" tour (mode=tour) ──────────────────────────────
+   * An optional paginated walkthrough. Activated by the hero "Take the tour"
+   * button or by ?mode=tour in the URL. Non-trapping: the left-rail nav and
+   * free scroll still work; Esc or "Exit tour" returns to normal browsing.
+   * v1 steps section by section; finer sub-steps (timeline years, evolution
+   * layers one at a time) are a planned enhancement. */
+  function setupTour() {
+    var STOPS = [
+      { id: 'intro',     title: 'Welcome',       caption: 'Fifteen years, by the numbers.' },
+      { id: 'welcome',   title: 'Why this page', caption: 'A quick note on why we built this.' },
+      { id: 'history',   title: 'History',       caption: 'How we started and grew, year by year.' },
+      { id: 'evolution', title: 'Evolution',     caption: 'Each capability we added, and kept.' },
+      { id: 'work',      title: 'Our Work',      caption: 'A few projects we are proud of.' },
+      { id: 'team',      title: 'The Team',      caption: 'The people behind the work.' },
+      { id: 'clients',   title: 'Clients',       caption: 'Who we have grown alongside.' },
+      { id: 'today',     title: 'Today',         caption: 'What we do now, and where to start.' }
+    ].filter(function (s) { return document.getElementById(s.id); });
+    if (!STOPS.length) return;
+
+    var reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    var idx = 0, on = false;
+
+    var bar = document.createElement('div');
+    bar.className = 'anniv-tour';
+    bar.setAttribute('hidden', '');
+    bar.innerHTML =
+      '<div class="anniv-tour-bar" role="region" aria-label="Guided tour">' +
+        '<button type="button" class="anniv-tour-exit" data-act="exit">Exit tour</button>' +
+        '<div class="anniv-tour-info">' +
+          '<span class="anniv-tour-step"></span>' +
+          '<span class="anniv-tour-title"></span>' +
+          '<span class="anniv-tour-caption"></span>' +
+        '</div>' +
+        '<div class="anniv-tour-nav">' +
+          '<button type="button" class="anniv-tour-prev" data-act="prev" aria-label="Previous step">&larr;</button>' +
+          '<button type="button" class="anniv-tour-next" data-act="next">Next &rarr;</button>' +
+        '</div>' +
+      '</div>';
+    document.body.appendChild(bar);
+
+    var elStep  = bar.querySelector('.anniv-tour-step');
+    var elTitle = bar.querySelector('.anniv-tour-title');
+    var elCap   = bar.querySelector('.anniv-tour-caption');
+    var btnPrev = bar.querySelector('.anniv-tour-prev');
+    var btnNext = bar.querySelector('.anniv-tour-next');
+
+    function focusSection(i) {
+      STOPS.forEach(function (s, j) {
+        var el = document.getElementById(s.id);
+        if (el) el.classList.toggle('is-tour-focus', j === i);
+      });
+    }
+    function render() {
+      var s = STOPS[idx];
+      elStep.textContent  = (idx + 1) + ' / ' + STOPS.length;
+      elTitle.textContent = s.title;
+      elCap.textContent   = s.caption;
+      btnPrev.disabled    = (idx === 0);
+      btnNext.textContent = (idx === STOPS.length - 1) ? 'Finish' : 'Next →';
+      focusSection(idx);
+    }
+    function go(i) {
+      idx = Math.max(0, Math.min(STOPS.length - 1, i));
+      var el = document.getElementById(STOPS[idx].id);
+      if (el) el.scrollIntoView({ behavior: reduce ? 'auto' : 'smooth', block: 'start' });
+      render();
+    }
+    function setModeParam(active) {
+      try {
+        var url = new URL(window.location.href);
+        if (active) url.searchParams.set('mode', 'tour'); else url.searchParams.delete('mode');
+        window.history.replaceState(null, '', url);
+      } catch (e) {}
+    }
+    function start(at) {
+      if (on) return;
+      on = true;
+      document.documentElement.classList.add('anniv-tour-on');
+      bar.removeAttribute('hidden');
+      setModeParam(true);
+      go(typeof at === 'number' ? at : 0);
+    }
+    function stop() {
+      if (!on) return;
+      on = false;
+      document.documentElement.classList.remove('anniv-tour-on');
+      bar.setAttribute('hidden', '');
+      focusSection(-1);
+      setModeParam(false);
+    }
+
+    bar.addEventListener('click', function (e) {
+      var act = e.target.getAttribute && e.target.getAttribute('data-act');
+      if (act === 'next') { idx === STOPS.length - 1 ? stop() : go(idx + 1); }
+      else if (act === 'prev') go(idx - 1);
+      else if (act === 'exit') stop();
+    });
+    document.addEventListener('keydown', function (e) {
+      if (!on) return;
+      if (e.key === 'Escape') stop();
+      else if (e.key === 'ArrowRight') { e.preventDefault(); idx === STOPS.length - 1 ? stop() : go(idx + 1); }
+      else if (e.key === 'ArrowLeft')  { e.preventDefault(); go(idx - 1); }
+    });
+
+    var startBtn = $('anniv-tour-start');
+    if (startBtn) startBtn.addEventListener('click', function () { start(0); });
+
+    // Auto-start if the URL asks for it (?mode=tour).
+    try {
+      if (new URL(window.location.href).searchParams.get('mode') === 'tour') start(0);
+    } catch (e) {}
+  }
+
   function init() {
     buildNameIndex();
     renderHero();
@@ -860,6 +979,7 @@
     setupCelebrate();
     setupAnalytics();
     setupFeedbackPill();
+    setupTour();
   }
 
   if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', init);
