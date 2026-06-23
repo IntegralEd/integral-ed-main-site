@@ -463,7 +463,7 @@ window.ANNIVERSARY_DATA = {
       year: 2022,                        // partnership began 2022 (per KIPP Forward)
       serviceArea: "Career Connected Learning",
       svc: "career",
-      summary: "Since 2022, the design partner behind KIPP Forward's National Counseling Institute: asynchronous training modules, newly designed anchor graphics, and live facilitation rooted in role plays and real student case studies. The work grows equity-focused, student-centered counseling across KIPP high schools, and has since scaled into a regional train-the-trainer model.",
+      summary: "Since 2022, we've been the design partner behind KIPP Forward's National Counseling Institute: asynchronous training modules, newly designed anchor graphics, and live facilitation rooted in role plays and real student case studies. The work grows equity-focused, student-centered counseling across KIPP high schools, and has since scaled into a regional train-the-trainer model.",
       image: "",
       href: "/services/career-pathways/",
       embedUrl: "",
