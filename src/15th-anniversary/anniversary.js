@@ -1213,6 +1213,16 @@
     var startBtn = $('anniv-tour-start');
     if (startBtn) startBtn.addEventListener('click', function () { start(0); });
 
+    // Any [data-tour-start] element launches the tour (e.g. the closing
+    // "View as Tour" link).
+    document.addEventListener('click', function (e) {
+      var t = e.target.closest && e.target.closest('[data-tour-start]');
+      if (t) { e.preventDefault(); start(0); }
+    });
+    // Closing CTA's "Spread the word" reuses the share action.
+    var spreadBtn = document.querySelector('.anniv-cta-box [data-act="spread"]');
+    if (spreadBtn) spreadBtn.addEventListener('click', function () { shareTour(spreadBtn); });
+
     // Auto-start if the URL asks for it (?mode=tour).
     try {
       if (new URL(window.location.href).searchParams.get('mode') === 'tour') start(0);

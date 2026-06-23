@@ -1037,9 +1037,22 @@ a.anniv-member:hover .anniv-member-cta { opacity: 1; transform: translateY(0); }
 .anniv-service:hover { background: rgba(255,255,255,0.1); transform: translateY(-3px); }
 .anniv-service-name { font-weight: 700; }
 .anniv-service-arrow { color: var(--accent-yellow); }
-.anniv-cta-box { text-align: center; max-width: 600px; margin: 0 auto; }
-.anniv-cta-box h3 { font-size: 1.8rem; color: #fff; margin: 0 0 0.6rem; }
-.anniv-cta-box p { color: var(--ink-dark-2); margin: 0 0 1.4rem; }
+/* Closing CTA: the scroll-mode twin of the tour finale card (white card on the
+   dark Today section), so both endings read the same. */
+.anniv-cta-box {
+  text-align: center; max-width: 620px; margin: 0 auto;
+  background: var(--bg-primary); border-radius: var(--radius-lg);
+  box-shadow: 0 30px 80px rgba(0,0,0,0.4); padding: clamp(1.8rem, 4vw, 2.8rem);
+}
+.anniv-cta-kicker { font-family: var(--font-mono, monospace); font-size: 0.72rem; letter-spacing: 0.2em; text-transform: uppercase; color: var(--accent-magenta); margin: 0; }
+.anniv-cta-box h3 { font-size: clamp(1.6rem, 4vw, 2.2rem); color: var(--text-primary); margin: 0.45rem 0 0.6rem; }
+.anniv-cta-sub { color: var(--text-secondary); margin: 0 auto 1.5rem; max-width: 44ch; }
+.anniv-cta-actions { display: flex; flex-wrap: wrap; gap: 0.7rem; justify-content: center; }
+.anniv-cta-tourlink {
+  display: inline-block; margin-top: 1.25rem; background: none; border: 0; padding: 0;
+  color: var(--text-tertiary); font-size: 0.85rem; font-family: inherit; cursor: pointer; text-decoration: underline;
+}
+.anniv-cta-tourlink:hover { color: var(--text-primary); }
 
 /* ── Reveal-on-scroll ───────────────────────────────────────────────────── */
 .reveal { opacity: 0; transform: translateY(24px); transition: opacity 0.7s ease, transform 0.7s ease; }
