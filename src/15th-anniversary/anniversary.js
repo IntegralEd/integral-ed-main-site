@@ -65,7 +65,7 @@
           (ref.img ? ' data-img="' + esc(ref.img) + '"' : '') +
           (ref.role ? ' data-role="' + esc(ref.role) + '"' : '');
         return ref.href
-          ? '<a class="anniv-name" href="' + esc(ref.href) + '"' + attrs + '>' + m + '</a>'
+          ? '<a class="anniv-name" href="' + esc(ref.href) + '" target="_blank" rel="noopener"' + attrs + '>' + m + '</a>'
           : '<strong class="anniv-name anniv-name--plain"' + attrs + '>' + m + '</strong>';
       });
     }
@@ -409,10 +409,14 @@
     m.querySelector('.anniv-modal-title').textContent = p.title;
 
     var mediaEl = m.querySelector('.anniv-modal-media');
+    var cardEl  = m.querySelector('.anniv-modal-card');
+    // live web/Storyline embeds need a bigger frame than 16:9 video/images
+    if (cardEl) cardEl.classList.remove('anniv-modal-card--demo');
     if (p.embedUrl) {
       mediaEl.innerHTML = '<iframe src="' + esc(p.embedUrl) + '" title="' + esc(p.title) +
         '" loading="lazy" allowfullscreen></iframe>';
       mediaEl.hidden = false;
+      if (cardEl) cardEl.classList.add('anniv-modal-card--demo');
     } else if (p.videoUrl) {
       mediaEl.innerHTML = '<iframe src="' + esc(p.videoUrl) + '" title="' + esc(p.title) +
         '" loading="lazy" allow="autoplay; fullscreen" allowfullscreen></iframe>';
@@ -578,7 +582,7 @@
       var hasLink = m.href && m.href !== '/team/';
       var cls = 'anniv-member reveal' + (m.image ? '' : ' anniv-member--noimg');
       return hasLink
-        ? '<a class="' + cls + '" href="' + esc(m.href) + '" style="--d:' + (i * 30) + 'ms">' + inner + '</a>'
+        ? '<a class="' + cls + '" href="' + esc(m.href) + '" target="_blank" rel="noopener" style="--d:' + (i * 30) + 'ms">' + inner + '</a>'
         : '<div class="' + cls + '" style="--d:' + (i * 30) + 'ms">' + inner + '</div>';
     }).join('');
   }

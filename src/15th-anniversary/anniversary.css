@@ -784,6 +784,12 @@ html.anniv-modal-open { overflow: hidden; }
   transform: translateY(14px) scale(0.985); transition: transform 0.2s ease;
 }
 .anniv-modal.is-on .anniv-modal-card { transform: none; }
+/* live demo embeds (Storyline stories, web apps) need a bigger frame than a
+   16:9 video, or their fixed-size player scrolls/clips (e.g. Uncovering Barriers,
+   Career Ikigai). Widen the card and give the iframe a tall box. */
+.anniv-modal-card--demo { width: min(1080px, 100%); }
+.anniv-modal-card--demo .anniv-modal-media { aspect-ratio: auto; height: min(74vh, 720px); }
+.anniv-modal-card--demo .anniv-modal-media iframe { object-fit: fill; }
 .anniv-modal-close {
   position: absolute; top: 0.6rem; right: 0.6rem; width: 2.2rem; height: 2.2rem; border: 0; cursor: pointer;
   background: var(--bg-secondary); border-radius: 50%; font-size: 1.5rem; line-height: 1; color: var(--text-secondary);
@@ -1225,7 +1231,10 @@ html.anniv-tour-spot .anniv-tour-backdrop { opacity: 1; }
   background: var(--bg-primary, #fff);
   box-shadow: 0 36px 90px rgba(0,0,0,0.55), 0 0 0 1rem var(--bg-primary, #fff);
 }
-.anniv-project.is-tour-spot { transform: scale(1.06); }
+.anniv-project.is-tour-spot {
+  transform: scale(1.14);
+  box-shadow: 0 44px 110px rgba(0,0,0,0.6), 0 0 0 1px rgba(255,255,255,0.06);
+}
 .anniv-evo-row.is-tour-spot {
   transform: scale(1.04);
   background: color-mix(in srgb, var(--evo-c) 26%, #14040f);
@@ -1234,12 +1243,15 @@ html.anniv-tour-spot .anniv-tour-backdrop { opacity: 1; }
 /* Evolution steps feature the subway map: lift it onto a dark panel and, on a
    service step, dim every line except the one this step is about. */
 .anniv-subway-wrap.is-tour-spot {
-  background: rgba(18, 3, 24, 0.92);
+  background:
+    radial-gradient(120% 120% at 30% 0%, rgba(74, 20, 86, 0.97), rgba(36, 8, 44, 0.97));
+  border: 1px solid rgba(255,255,255,0.12);
   border-radius: 18px;
-  padding: 1.1rem 1.3rem;
-  box-shadow: 0 36px 90px rgba(0,0,0,0.55), 0 0 0 1px rgba(255,255,255,0.06);
+  padding: 1.2rem 1.4rem;
+  box-shadow: 0 36px 90px rgba(0,0,0,0.55), inset 0 0 60px rgba(255,255,255,0.04);
 }
-html.anniv-tour-spot .anniv-subway-wrap.is-tour-spot .anniv-subway-line:not(.is-spotlit) { opacity: 0.2; }
+/* keep the other lines as faint context (not invisible) and pop the active one */
+html.anniv-tour-spot .anniv-subway-wrap.is-tour-spot .anniv-subway-line:not(.is-spotlit) { opacity: 0.42; }
 html.anniv-tour-spot .anniv-subway-wrap.is-tour-spot .anniv-subway-line.is-spotlit { opacity: 1; }
 @media (prefers-reduced-motion: reduce) {
   .is-tour-spot { transition: none; transform: none; }

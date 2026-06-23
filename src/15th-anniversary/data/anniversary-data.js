@@ -107,8 +107,8 @@ window.ANNIVERSARY_DATA = {
     },
     {
       year: 2016,
-      title: "First major postsecondary mentoring project",
-      body: "We deliver our first major postsecondary partnership with national nonprofit iMentor, building the curriculum that anchors their multigrade mentoring program. Tara Williams arrives to build our strategic consultation and partnerships practice, pairing growth strategy with professional learning.",
+      title: "Our first postsecondary contract",
+      body: "We sign our first major postsecondary contract, with national nonprofit iMentor, to rebuild the curriculum that anchors their multigrade mentoring program. Tara Williams arrives to build our strategic consultation and partnerships practice, pairing growth strategy with professional learning.",
       joins: ["Tara Williams"],
       highlights: [
         { svc: "career", ref: "identityWayfinding", label: "Identity Exploration & Wayfinding" }
@@ -119,7 +119,7 @@ window.ANNIVERSARY_DATA = {
     {
       year: 2017,
       title: "A breakout year",
-      body: "Creative Director Asha Kelly brings visual storytelling and design craft that makes every project instructionally sound, visually compelling, and accessible; her design systems and templates go on to power dozens of programs for national curriculum publishers. The studio's footprint grows, and our NMSI partnership deepens with NGSS-aligned modules supporting nationwide AP-access expansion.",
+      body: "We deliver the iMentor postsecondary curriculum, rebuilding their multigrade program materials for high-school students and their mentors. Creative Director Asha Kelly brings visual storytelling and design craft that makes every project instructionally sound, visually compelling, and accessible; her design systems and templates go on to power dozens of programs for national curriculum publishers. The studio's footprint grows, and our NMSI partnership deepens with NGSS-aligned modules supporting nationwide AP-access expansion.",
       joins: ["Asha Kelly"],
       highlights: [
         { svc: "elearning", ref: "apForAll", label: "AP For All Curriculum Materials" }
@@ -249,7 +249,10 @@ window.ANNIVERSARY_DATA = {
           theme: "Growth strategy & marketing comes in-house",
           svc: "growth",
           body: "Diane Takata Powell, a client-turned-teammate from UnboundEd, brings nearly thirty years of leadership across corporate, education, and nonprofit sectors, crafting marketing plans and growth strategies for clients focused on school districts and LEAs and anchoring the practice behind our Growth Strategy & Marketing service area.",
-          highlights: []
+          highlights: [
+            { svc: "growth", ref: "catalogK12PD",   label: "Catalog for K-12 Teacher PD" },
+            { svc: "growth", ref: "salesSheetK12PD", label: "Sales Sheet for K-12 Teacher PD" }
+          ]
         }
       ],
       image: ""
@@ -264,10 +267,10 @@ window.ANNIVERSARY_DATA = {
         {
           theme: "AI-powered learning",
           svc: "elearning",
-          body: "The StriveTogether Continuous Improvement Toolkit launches with scenario-based interactions and an AI-powered chatbot: learning that responds.",
-          // StriveTogether toolkit lives in projects[]; see the "Work we're
-          // proud of" section for the openable modal.
-          highlights: []
+          body: "For StriveTogether's network of nonprofit leaders, we design and author an interactive Storyline module with an embedded AI chatbot that guides each leader to draft and refine a concise value proposition, with real-time, context-aware feedback: learning that responds.",
+          highlights: [
+            { svc: "elearning", ref: "valuePropChatbot", label: "Value Prop Module with Chatbot" }
+          ]
         },
         {
           theme: "Custom platforms",
@@ -588,11 +591,11 @@ window.ANNIVERSARY_DATA = {
       serviceArea: "Chat-Based Learning, AI-Powered Feedback",
       svc: "career",
       summary: "Career Ikigai is a chat-based learning experience that guides users through a structured interview to surface interests, strengths, and goals. The system synthesizes responses into personalized pathways, actionable next steps, and a formatted slide output that can be edited and shared with advisors or mentors. Designed for use in counseling, advising, and workforce programs, it can connect to localized job market data and support cohort-level insights through shared outputs and dashboards.",
-      // Iframe-embedding career-ikigai.org gave the wrong aspect ratio inside
-      // the modal; switched to cover image + launch button so the live app
-      // opens in its own tab where it has room to breathe.
+      // Embed the live app itself (the wider/taller demo-modal sizing now gives
+      // it room). The cover image stays as a fallback; embedUrl takes priority.
+      // If career-ikigai.org ever blocks framing, drop a dedicated embed URL here.
       image: "/assets/images/anniversary/career-ikigai-cover.png",
-      embedUrl: "",
+      embedUrl: "https://career-ikigai.org/",
       videoUrl: "",
       link: "https://career-ikigai.org/",
       linkLabel: "Launch Career Ikigai"
@@ -605,6 +608,43 @@ window.ANNIVERSARY_DATA = {
       svc: "elearning",
       summary: "Most of us engaging with NGSS curriculum find ourselves wondering, “So, when do students make a hypothesis?” The answer is that sometimes they don’t, and scientists don’t always start from hypotheses either.\n\nWe can credit John Dewey for the scientific method, though maybe he didn’t mean for it to be taught dogmatically for a century. Dewey readily admitted he was a non-scientist. In fact, that may be what made his work so accessible and attractive to high-school teachers, as our public schools massively increased the number of students served, and his articulation became the “scientific method”.\n\nIn a detailed and character-driven book, How We Teach Science: What’s Changed, and Why It Matters, John Rudolph details how this dated approach has undermined public support for science. Rudolph points out that real scientists were never comfortable with teaching only the scientific method. Pretending that all science begins with a testable hypothesis, and follows a consistent set of steps, teachers have oversimplified science, which has had longterm effects on our ability to navigate scientifically complex issues like climate change.\n\nClimate science and evolution require a broader range of observation, reasoning, and inferencing, not an if-then hypothesis. Because of the enduring success of the scientific method, climate and evolution deniers can sound like academic skeptics seeking to frame these complex issues with a simplistic if-then hypothesis and explanation.\n\nThe crosscutting concepts of the NGSS as well as the Science and Engineering Practices (SEPs) are a laudable effort to replace the scientific method with a more nuanced understanding of the many and varied ways science works. NGSS synthesize several trends in science and pedagogy that have been evolving since we started teaching science in the US. In the spirit of John Dewey, here’s a non-scientist’s oversimplified synthesis of how we got here.",
       image: "/assets/images/anniversary/ngss-infographic-2019.png",
+      videoUrl: "",
+      link: ""
+    },
+    valuePropChatbot: {
+      title: "Value Prop Module with Chatbot",
+      client: "StriveTogether",
+      year: 2024,
+      serviceArea: "eLearning & Blended Learning, AI-Powered Feedback",
+      svc: "elearning",
+      summary: "We designed and authored an interactive eLearning module in Articulate Storyline as part of a broader course on place-based partnerships for StriveTogether's network of nonprofit leaders. The module features case studies of local service providers and explores how organizations align their work within a shared, community-level strategy.\n\nAn embedded AI chatbot supports application of the content by guiding each learner through drafting and refining a concise value proposition. Drawing on user inputs and local context, the chatbot prompts leaders to clarify their organization's role, core assets, and contribution to shared outcomes. The result is a structured, polished statement that leaders can use in cross-sector conversations and partnership planning.",
+      embedUrl: "https://integral-elearning.space/demo/value_prop_chatbot/story.html",
+      videoUrl: "",
+      link: ""
+    },
+    catalogK12PD: {
+      title: "Catalog for K-12 Teacher PD",
+      client: "Integral Ed",
+      year: 2023,
+      serviceArea: "Growth Strategy & Marketing, Sales Collateral",
+      svc: "growth",
+      summary: "A designed catalog of K-12 teacher professional-development offerings, part of the growth-strategy and marketing collateral our Growth Strategy & Marketing practice produces to help partners package and present their programs to districts and LEAs.",
+      // ASSET NEEDED: drop a preview image (PNG/JPG) of the catalog here, e.g.
+      // /assets/images/anniversary/catalog-k12-pd.png  (or a PDF/URL in `link`).
+      image: "",
+      videoUrl: "",
+      link: ""
+    },
+    salesSheetK12PD: {
+      title: "Sales Sheet for K-12 Teacher PD",
+      client: "Integral Ed",
+      year: 2023,
+      serviceArea: "Growth Strategy & Marketing, Sales Collateral",
+      svc: "growth",
+      summary: "A one-page sales sheet for a K-12 teacher professional-development offering: clear value, audience, and outcomes, designed as ready-to-use sales collateral for cross-sector and district conversations.",
+      // ASSET NEEDED: drop a preview image (PNG/JPG) of the sales sheet here, e.g.
+      // /assets/images/anniversary/sales-sheet-k12-pd.png  (or a PDF/URL in `link`).
+      image: "",
       videoUrl: "",
       link: ""
     },
