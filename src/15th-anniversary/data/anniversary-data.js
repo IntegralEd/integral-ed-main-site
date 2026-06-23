@@ -335,7 +335,7 @@ window.ANNIVERSARY_DATA = {
       // Marketing so the map matches the timeline + services palette.
       stage: "Data & analysis",
       tagline: "One person, one laptop.",
-      whatWeCouldDo: "Turn messy program data into clear, decision-ready insight.",
+      whatWeCouldDo: "Turn messy data from multiple sources into actionable insights and data-driven storytelling.",
       proof: "The founding service: analytics for mission-driven education orgs.",
       color: "silver"
     },

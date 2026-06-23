@@ -866,65 +866,110 @@
     function txt(el, sel) { var n = el && el.querySelector(sel); return n ? n.textContent.trim() : ''; }
     function buildSteps() {
       var out = [];
-      function sec(id, title, caption) {
+      function push(o) { out.push(o); }
+      function brk(title, lede) { push({ kind: 'break', title: title, lede: lede || '' }); }
+      function sectionStep(id, title, caption) {
         var el = document.getElementById(id);
-        if (el) out.push({ el: el, section: el, kind: 'section', title: title, caption: caption });
+        if (el) push({ el: el, section: el, kind: 'section', title: title, caption: caption });
       }
-      function each(sectionId, sel, kind, getTitle, getCaption) {
-        var section = document.getElementById(sectionId);
-        if (!section) return;
-        Array.prototype.forEach.call(section.querySelectorAll(sel), function (el) {
-          out.push({
-            el: el, section: section, kind: kind,
-            title: getTitle(el), caption: getCaption(el),
-            evoId: el.getAttribute('data-evo-id') || null
+
+      // Openers (no section break)
+      sectionStep('intro',   'Welcome',       'Fifteen years, by the numbers.');
+      sectionStep('welcome', 'Why this page', 'Why we built this.');
+
+      // History: a step per YEAR
+      var historyEl = document.getElementById('history');
+      if (historyEl) {
+        var years = historyEl.querySelectorAll('.anniv-tl-item');
+        if (years.length) {
+          brk('How it started, and how it grew', 'Fifteen years, one turning point at a time.');
+          Array.prototype.forEach.call(years, function (el) {
+            push({ el: el, section: historyEl, kind: 'year',
+              title: txt(el, '.anniv-tl-year') || 'History', caption: txt(el, '.anniv-tl-title') });
           });
-        });
+        }
       }
-      sec('intro',   'Welcome',       'Fifteen years, by the numbers.');
-      sec('welcome', 'Why this page', 'Why we built this.');
-      each('history', '.anniv-tl-item', 'year',
-        function (el) { return txt(el, '.anniv-tl-year') || 'History'; },
-        function (el) { return txt(el, '.anniv-tl-title'); });
-      // Evolution: feature the SUBWAY MAP and light up one line per step (the
-      // "layers one at a time" idea). When the map is hidden (narrow widths)
-      // fall back to stepping the legend cards.
+
+      // Evolution: feature the SUBWAY MAP, light up one line per step, with the
+      // card text overlaid. Falls back to legend cards when the map is hidden.
       var evoSection = document.getElementById('evolution');
       if (evoSection) {
         var evoMap = evoSection.querySelector('.anniv-subway-wrap');
         var mapVisible = evoMap && evoMap.offsetParent !== null;
-        Array.prototype.forEach.call(evoSection.querySelectorAll('.anniv-evo-row'), function (row) {
-          out.push({
-            el: mapVisible ? evoMap : row,
-            section: evoSection,
-            kind: 'service',
-            title: txt(row, '.anniv-evo-stage') || 'Capability',
-            caption: txt(row, '.anniv-evo-tagline'),
-            evoId: row.getAttribute('data-evo-id') || null
+        var rows = evoSection.querySelectorAll('.anniv-evo-row');
+        if (rows.length) {
+          brk('Each year, a new thing we could do', 'The capabilities we added, line by line.');
+          Array.prototype.forEach.call(rows, function (row) {
+            push({
+              el: mapVisible ? evoMap : row, section: evoSection, kind: 'service',
+              title: txt(row, '.anniv-evo-stage') || 'Capability',
+              caption: txt(row, '.anniv-evo-what') || txt(row, '.anniv-evo-tagline'),
+              evoId: row.getAttribute('data-evo-id') || null,
+              evoYear: txt(row, '.anniv-evo-year'),
+              evoWhat: txt(row, '.anniv-evo-what'),
+              evoProof: txt(row, '.anniv-evo-proof')
+            });
           });
-        });
+        }
       }
-      each('work', '.anniv-project', 'work',
-        function (el) { return txt(el, '.anniv-project-title') || 'Project'; },
-        function (el) { return txt(el, '.anniv-project-meta'); });
-      sec('team',    'The Team', 'The people behind the work.');
-      // Clients: step through each testimonial, quote shown large (H1 style)
+
+      // Work: a step per project
+      var workEl = document.getElementById('work');
+      if (workEl) {
+        var projects = workEl.querySelectorAll('.anniv-project');
+        if (projects.length) {
+          brk("Work we're proud of", 'A few projects that capture the craft.');
+          Array.prototype.forEach.call(projects, function (el) {
+            push({ el: el, section: workEl, kind: 'work',
+              title: txt(el, '.anniv-project-title') || 'Project', caption: txt(el, '.anniv-project-meta') });
+          });
+        }
+      }
+
+      // Team (a single scrollable carousel step)
+      var teamEl = document.getElementById('team');
+      if (teamEl) {
+        brk('The people behind the work', 'Long-tenured, multi-disciplinary, and growing.');
+        push({ el: teamEl, section: teamEl, kind: 'section', title: 'The Team', caption: 'Scroll through everyone.' });
+      }
+
+      // Clients: a step per testimonial, quote shown large
       var clientsSection = document.getElementById('clients');
-      var clientCards = clientsSection ? clientsSection.querySelectorAll('.anniv-client-card') : [];
-      if (clientCards.length) {
-        Array.prototype.forEach.call(clientCards, function (card) {
-          var logo = card.querySelector('.anniv-client-logo');
-          var nm = (logo && logo.getAttribute('alt')) || txt(card, '.anniv-client-name') || 'A partner';
-          out.push({ el: card, section: clientsSection, kind: 'client',
-            title: nm, caption: txt(card, '.anniv-client-attribution') });
-        });
-      } else if (clientsSection) {
-        out.push({ el: clientsSection, section: clientsSection, kind: 'section',
-          title: 'Clients', caption: 'Who we have grown alongside.' });
+      if (clientsSection) {
+        var clientCards = clientsSection.querySelectorAll('.anniv-client-card');
+        brk("Who we've grown alongside", 'In their words.');
+        if (clientCards.length) {
+          Array.prototype.forEach.call(clientCards, function (card) {
+            var logo = card.querySelector('.anniv-client-logo');
+            var nm = (logo && logo.getAttribute('alt')) || txt(card, '.anniv-client-name') || 'A partner';
+            push({ el: card, section: clientsSection, kind: 'client',
+              title: nm, caption: txt(card, '.anniv-client-attribution') });
+          });
+        } else {
+          push({ el: clientsSection, section: clientsSection, kind: 'section',
+            title: 'Clients', caption: 'Who we have grown alongside.' });
+        }
       }
-      sec('today',   'Today',    'What we do now, and where to start.');
-      out.push({ el: finaleEl, section: null, kind: 'finale',
+
+      // Today
+      var todayEl = document.getElementById('today');
+      if (todayEl) {
+        brk('What we do today', 'Six related service areas, one partner.');
+        push({ el: todayEl, section: todayEl, kind: 'section', title: 'Today', caption: 'What we do now, and where to start.' });
+      }
+
+      // Finale (no break)
+      push({ el: finaleEl, section: null, kind: 'finale',
         title: "Here's to the next fifteen", caption: 'Thanks for taking the tour.' });
+
+      // Each break's "Skip" jumps to the next break (or the finale).
+      var last = out.length - 1;
+      for (var i = 0; i < out.length; i++) {
+        if (out[i].kind !== 'break') continue;
+        var target = last;
+        for (var j = i + 1; j < out.length; j++) { if (out[j].kind === 'break') { target = j; break; } }
+        out[i].skipTo = target;
+      }
       return out;
     }
 
@@ -970,6 +1015,40 @@
       '</div>';
     document.body.appendChild(finaleEl);
 
+    // Section-break "slide" shown before each section's steps (slideshow style).
+    var breakEl = document.createElement('div');
+    breakEl.className = 'anniv-tour-break';
+    breakEl.setAttribute('hidden', '');
+    breakEl.innerHTML =
+      '<div class="anniv-tour-break-card" role="dialog" aria-label="Up next">' +
+        '<p class="anniv-tour-break-kicker">Up next</p>' +
+        '<h2 class="anniv-tour-break-h"></h2>' +
+        '<p class="anniv-tour-break-lede"></p>' +
+        '<div class="anniv-tour-break-actions">' +
+          '<button type="button" class="anniv-tour-break-btn anniv-tour-break-btn--primary" data-act="next">Next &rarr;</button>' +
+          '<button type="button" class="anniv-tour-break-btn anniv-tour-break-btn--ghost" data-act="skip">Skip this section</button>' +
+        '</div>' +
+        '<button type="button" class="anniv-tour-break-exit" data-act="exit">Exit tour</button>' +
+      '</div>';
+    document.body.appendChild(breakEl);
+    var brkH = breakEl.querySelector('.anniv-tour-break-h');
+    var brkLede = breakEl.querySelector('.anniv-tour-break-lede');
+
+    // Evolution overlay: the active service's card text, laid over the map frame.
+    var evoWrap = document.querySelector('#evolution .anniv-subway-wrap');
+    var evoOverlay = null;
+    if (evoWrap) {
+      evoOverlay = document.createElement('div');
+      evoOverlay.className = 'anniv-evo-overlay';
+      evoOverlay.setAttribute('hidden', '');
+      evoOverlay.innerHTML =
+        '<span class="anniv-evo-overlay-yr"></span>' +
+        '<h3 class="anniv-evo-overlay-stage"></h3>' +
+        '<p class="anniv-evo-overlay-what"></p>' +
+        '<p class="anniv-evo-overlay-proof"></p>';
+      evoWrap.appendChild(evoOverlay);
+    }
+
     var elStep  = bar.querySelector('.anniv-tour-step');
     var elTitle = bar.querySelector('.anniv-tour-title');
     var elCap   = bar.querySelector('.anniv-tour-caption');
@@ -986,7 +1065,11 @@
     }
     function spotlight(step) {
       clearSpot();
-      if (step.kind === 'finale') { document.documentElement.classList.add('anniv-tour-spot'); return; }
+      if (evoOverlay) evoOverlay.setAttribute('hidden', '');
+      if (step.kind === 'finale' || step.kind === 'break') {
+        document.documentElement.classList.add('anniv-tour-spot');
+        return;
+      }
       // backdrop "stage" only for the bite-sized item steps, not section overviews
       document.documentElement.classList.toggle('anniv-tour-spot', step.kind !== 'section');
       if (step.section) step.section.classList.add('is-tour-focus');
@@ -996,25 +1079,37 @@
           function (n) { n.classList.add('is-spotlit'); });
         var wrap = document.querySelector('.anniv-subway-wrap');
         if (wrap) wrap.classList.add('is-drawn');   // make sure the lines are drawn in
+        if (evoOverlay) {
+          evoOverlay.querySelector('.anniv-evo-overlay-yr').textContent    = step.evoYear || '';
+          evoOverlay.querySelector('.anniv-evo-overlay-stage').textContent = step.title || '';
+          evoOverlay.querySelector('.anniv-evo-overlay-what').textContent  = step.evoWhat || '';
+          evoOverlay.querySelector('.anniv-evo-overlay-proof').textContent = step.evoProof || '';
+          evoOverlay.removeAttribute('hidden');
+        }
       }
     }
     function render() {
       var s = STEPS[idx];
       elStep.textContent  = (idx + 1) + ' / ' + STEPS.length;
       elTitle.textContent = s.title;
-      elCap.textContent   = s.caption;
+      elCap.textContent   = s.caption || '';
       btnPrev.disabled    = (idx === 0);
-      var isFinale = (s.kind === 'finale');
-      btnNext.style.display = isFinale ? 'none' : '';   // finale card carries its own actions
+      // finale + section-break cards carry their own forward actions
+      var ownActions = (s.kind === 'finale' || s.kind === 'break');
+      btnNext.style.display = ownActions ? 'none' : '';
       btnNext.textContent = (idx === STEPS.length - 1) ? 'Finish' : 'Next →';
     }
     function go(i) {
       idx = Math.max(0, Math.min(STEPS.length - 1, i));
       var step = STEPS[idx];
       if (finaleEl) { if (step.kind === 'finale') finaleEl.removeAttribute('hidden'); else finaleEl.setAttribute('hidden', ''); }
+      if (breakEl) {
+        if (step.kind === 'break') { brkH.textContent = step.title || ''; brkLede.textContent = step.lede || ''; breakEl.removeAttribute('hidden'); }
+        else breakEl.setAttribute('hidden', '');
+      }
       spotlight(step);
-      // finale + client cards are fixed/centered overlays, so don't scroll to them
-      if (step.kind !== 'finale' && step.kind !== 'client') {
+      // finale, break, and client cards are fixed/centered overlays: no scroll
+      if (step.kind !== 'finale' && step.kind !== 'break' && step.kind !== 'client') {
         var block = (step.kind === 'section') ? 'start' : 'center';
         try { step.el.scrollIntoView({ behavior: reduce ? 'auto' : 'smooth', block: block }); } catch (e) {}
       }
@@ -1044,6 +1139,8 @@
       document.documentElement.classList.remove('anniv-tour-on', 'anniv-tour-spot');
       bar.setAttribute('hidden', '');
       if (finaleEl) finaleEl.setAttribute('hidden', '');
+      if (breakEl) breakEl.setAttribute('hidden', '');
+      if (evoOverlay) evoOverlay.setAttribute('hidden', '');
       clearSpot();
       setModeParam(false);
     }
@@ -1072,6 +1169,24 @@
       else if (act === 'schedule') track('anniv_tour_schedule', {});   // the <a> then navigates
       else if (act === 'share') { e.preventDefault(); shareTour(e.target); }
     });
+    breakEl.addEventListener('click', function (e) {
+      var act = e.target.getAttribute && e.target.getAttribute('data-act');
+      if (act === 'next') go(idx + 1);
+      else if (act === 'skip') { var s = STEPS[idx]; track('anniv_tour_skip', { section: s.title }); go(s.skipTo != null ? s.skipTo : idx + 1); }
+      else if (act === 'exit') stop();
+    });
+    // Click a subway line to jump to that service (as elsewhere on the page).
+    if (evoWrap) {
+      evoWrap.addEventListener('click', function (e) {
+        if (!on) return;
+        var line = e.target.closest && e.target.closest('.anniv-subway-line[data-evo-id]');
+        if (!line) return;
+        var id = line.getAttribute('data-evo-id');
+        for (var i = 0; i < STEPS.length; i++) {
+          if (STEPS[i].kind === 'service' && STEPS[i].evoId === id) { go(i); break; }
+        }
+      });
+    }
     document.addEventListener('keydown', function (e) {
       if (!on) return;
       if (e.key === 'Escape') stop();
