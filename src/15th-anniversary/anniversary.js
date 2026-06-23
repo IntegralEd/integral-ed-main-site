@@ -908,7 +908,20 @@
         function (el) { return txt(el, '.anniv-project-title') || 'Project'; },
         function (el) { return txt(el, '.anniv-project-meta'); });
       sec('team',    'The Team', 'The people behind the work.');
-      sec('clients', 'Clients',  'Who we have grown alongside.');
+      // Clients: step through each testimonial, quote shown large (H1 style)
+      var clientsSection = document.getElementById('clients');
+      var clientCards = clientsSection ? clientsSection.querySelectorAll('.anniv-client-card') : [];
+      if (clientCards.length) {
+        Array.prototype.forEach.call(clientCards, function (card) {
+          var logo = card.querySelector('.anniv-client-logo');
+          var nm = (logo && logo.getAttribute('alt')) || txt(card, '.anniv-client-name') || 'A partner';
+          out.push({ el: card, section: clientsSection, kind: 'client',
+            title: nm, caption: txt(card, '.anniv-client-attribution') });
+        });
+      } else if (clientsSection) {
+        out.push({ el: clientsSection, section: clientsSection, kind: 'section',
+          title: 'Clients', caption: 'Who we have grown alongside.' });
+      }
       sec('today',   'Today',    'What we do now, and where to start.');
       return out;
     }
@@ -1026,6 +1039,39 @@
     } catch (e) {}
   }
 
+  /* ── Team carousel: arrows + overflow state for the horizontal team row ──── */
+  function setupTeamCarousel() {
+    var row = $('anniv-team');
+    if (!row || !row.children.length) return;
+    var reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+    var holder = document.createElement('div');
+    holder.className = 'anniv-team-holder';
+    row.parentNode.insertBefore(holder, row);
+    var prev = document.createElement('button');
+    prev.type = 'button'; prev.className = 'anniv-team-arrow anniv-team-arrow--prev';
+    prev.setAttribute('aria-label', 'Scroll team left'); prev.innerHTML = '&larr;';
+    var next = document.createElement('button');
+    next.type = 'button'; next.className = 'anniv-team-arrow anniv-team-arrow--next';
+    next.setAttribute('aria-label', 'Scroll team right'); next.innerHTML = '&rarr;';
+    holder.appendChild(prev); holder.appendChild(row); holder.appendChild(next);
+
+    function step(dir) {
+      row.scrollBy({ left: dir * Math.max(280, row.clientWidth * 0.7), behavior: reduce ? 'auto' : 'smooth' });
+    }
+    prev.addEventListener('click', function () { step(-1); });
+    next.addEventListener('click', function () { step(1); });
+    function update() {
+      var canScroll = row.scrollWidth - row.clientWidth > 8;
+      holder.classList.toggle('has-overflow', canScroll);
+      prev.disabled = row.scrollLeft <= 2;
+      next.disabled = row.scrollLeft + row.clientWidth >= row.scrollWidth - 2;
+    }
+    row.addEventListener('scroll', update, { passive: true });
+    window.addEventListener('resize', update);
+    update();
+  }
+
   /* ── Mobile rail: collapse the section nav into a menu icon ──────────────── */
   function setupRailMenu() {
     var rail   = $('anniv-rail');
@@ -1070,6 +1116,7 @@
     setupAnalytics();
     setupFeedbackPill();
     setupRailMenu();
+    setupTeamCarousel();
     setupTour();
   }
 

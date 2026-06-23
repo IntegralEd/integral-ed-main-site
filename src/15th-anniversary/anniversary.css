@@ -840,7 +840,28 @@ html.anniv-modal-open { overflow: hidden; }
 .anniv-tenure-val { font-weight: 700; text-align: right; }
 
 /* ── Team cards (photo reveal on hover, link to vanity profile) ──────────── */
-.anniv-team { display: grid; grid-template-columns: repeat(auto-fill, minmax(168px, 1fr)); gap: var(--spacing-md); }
+/* Team is a horizontal carousel: scroll/swipe through everyone, with arrows on
+   desktop. Cards are fixed-width snap items. */
+.anniv-team-holder { position: relative; }
+.anniv-team {
+  display: flex; gap: var(--spacing-md);
+  overflow-x: auto; scroll-snap-type: x proximity;
+  padding: 0.4rem 0.25rem 1.3rem;
+  scrollbar-width: thin; -webkit-overflow-scrolling: touch;
+}
+.anniv-team > .anniv-member { flex: 0 0 auto; width: clamp(152px, 44vw, 186px); scroll-snap-align: start; }
+.anniv-team-arrow {
+  position: absolute; top: calc(50% - 1rem); transform: translateY(-50%); z-index: 6;
+  width: 2.7rem; height: 2.7rem; border-radius: 50%; border: 1px solid var(--border-light);
+  background: var(--bg-primary); color: var(--text-primary); cursor: pointer; font-size: 1.15rem;
+  box-shadow: var(--shadow-md); display: none; align-items: center; justify-content: center;
+  transition: opacity var(--transition-fast), transform var(--transition-fast);
+}
+.anniv-team-holder.has-overflow .anniv-team-arrow { display: inline-flex; }
+.anniv-team-arrow--prev { left: -0.6rem; }
+.anniv-team-arrow--next { right: -0.6rem; }
+.anniv-team-arrow:hover:not(:disabled) { transform: translateY(-50%) scale(1.08); }
+.anniv-team-arrow:disabled { opacity: 0.25; cursor: default; }
 .anniv-member {
   display: block; text-decoration: none; color: inherit; border-radius: var(--radius-lg);
   overflow: hidden; background: var(--bg-primary); border: 1px solid var(--border-light);
@@ -1253,6 +1274,20 @@ html.anniv-tour-spot .anniv-tour-backdrop { opacity: 1; }
 /* keep the other lines as faint context (not invisible) and pop the active one */
 html.anniv-tour-spot .anniv-subway-wrap.is-tour-spot .anniv-subway-line:not(.is-spotlit) { opacity: 0.42; }
 html.anniv-tour-spot .anniv-subway-wrap.is-tour-spot .anniv-subway-line.is-spotlit { opacity: 1; }
+
+/* Client testimonial step: lift the card and blow the quote up to a hero line */
+html.anniv-tour-spot .anniv-client-card.is-tour-spot {
+  overflow: visible;
+  box-shadow: 0 44px 110px rgba(0,0,0,0.6), 0 0 0 1px rgba(255,255,255,0.05);
+}
+html.anniv-tour-spot .anniv-client-card.is-tour-spot .anniv-client-quote {
+  font-size: clamp(1.6rem, 4vw, 2.9rem);
+  line-height: 1.24;
+  font-weight: 700;
+  color: var(--text-primary);
+}
+html.anniv-tour-spot .anniv-client-card.is-tour-spot .anniv-client-mark { font-size: 5rem; }
+html.anniv-tour-spot .anniv-client-card.is-tour-spot .anniv-client-story { display: none; }
 @media (prefers-reduced-motion: reduce) {
   .is-tour-spot { transition: none; transform: none; }
   .anniv-tour-backdrop { transition: none; }
