@@ -1013,12 +1013,13 @@
       var step = STEPS[idx];
       if (finaleEl) { if (step.kind === 'finale') finaleEl.removeAttribute('hidden'); else finaleEl.setAttribute('hidden', ''); }
       spotlight(step);
-      if (step.kind !== 'finale') {
+      // finale + client cards are fixed/centered overlays, so don't scroll to them
+      if (step.kind !== 'finale' && step.kind !== 'client') {
         var block = (step.kind === 'section') ? 'start' : 'center';
         try { step.el.scrollIntoView({ behavior: reduce ? 'auto' : 'smooth', block: block }); } catch (e) {}
       }
       render();
-      if (step.kind === 'finale') track('anniv_tour_finish', {});
+      if (step.kind === 'finale') { track('anniv_tour_finish', {}); fireConfetti(finaleEl); }
     }
     function setModeParam(active) {
       try {

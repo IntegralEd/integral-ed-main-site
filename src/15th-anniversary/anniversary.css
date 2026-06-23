@@ -1263,6 +1263,10 @@ html.anniv-tour-spot .anniv-tour-backdrop { opacity: 1; }
 
 /* Evolution steps feature the subway map: lift it onto a dark panel and, on a
    service step, dim every line except the one this step is about. */
+/* .anniv-evolution makes its own stacking context (z-index:2) which traps the
+   lifted map BELOW the backdrop (the "mask"). Raise it above the backdrop when
+   the map is the active tour spot so the panel reads. */
+html.anniv-tour-spot .anniv-evolution:has(.anniv-subway-wrap.is-tour-spot) { z-index: 850; }
 .anniv-subway-wrap.is-tour-spot {
   background:
     radial-gradient(120% 120% at 30% 0%, rgba(74, 20, 86, 0.97), rgba(36, 8, 44, 0.97));
@@ -1275,18 +1279,21 @@ html.anniv-tour-spot .anniv-tour-backdrop { opacity: 1; }
 html.anniv-tour-spot .anniv-subway-wrap.is-tour-spot .anniv-subway-line:not(.is-spotlit) { opacity: 0.42; }
 html.anniv-tour-spot .anniv-subway-wrap.is-tour-spot .anniv-subway-line.is-spotlit { opacity: 1; }
 
-/* Client testimonial step: lift the card and blow the quote up to a hero line */
+/* Client testimonial step: float the card to the center of the screen as a
+   LANDSCAPE quote slide, so the (now ~half-size) quote wraps to a few lines and
+   the card can never fall offscreen. */
 html.anniv-tour-spot .anniv-client-card.is-tour-spot {
-  overflow: visible;
+  position: fixed; left: 50%; top: 50%; transform: translate(-50%, -50%);
+  width: min(860px, 92vw); max-height: 86vh; overflow-y: auto; z-index: 850;
+  text-align: center;
   box-shadow: 0 44px 110px rgba(0,0,0,0.6), 0 0 0 1px rgba(255,255,255,0.05);
 }
 html.anniv-tour-spot .anniv-client-card.is-tour-spot .anniv-client-quote {
-  font-size: clamp(1.6rem, 4vw, 2.9rem);
-  line-height: 1.24;
-  font-weight: 700;
-  color: var(--text-primary);
+  font-size: clamp(1.1rem, 2.3vw, 1.55rem);
+  line-height: 1.4; font-weight: 700; color: var(--text-primary);
 }
-html.anniv-tour-spot .anniv-client-card.is-tour-spot .anniv-client-mark { font-size: 5rem; }
+html.anniv-tour-spot .anniv-client-card.is-tour-spot .anniv-client-mark { font-size: 3.4rem; }
+html.anniv-tour-spot .anniv-client-card.is-tour-spot .anniv-client-logo { margin-left: auto; margin-right: auto; }
 html.anniv-tour-spot .anniv-client-card.is-tour-spot .anniv-client-story { display: none; }
 @media (prefers-reduced-motion: reduce) {
   .is-tour-spot { transition: none; transform: none; }
