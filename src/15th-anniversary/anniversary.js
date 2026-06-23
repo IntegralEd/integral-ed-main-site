@@ -887,7 +887,7 @@
       if (historyEl) {
         var years = historyEl.querySelectorAll('.anniv-tl-item');
         if (years.length) {
-          brk('How it started, and how it grew', 'Fifteen years, one turning point at a time.');
+          brk('How it started, and how it grew', "The story you've been part of, one turning point at a time.");
           Array.prototype.forEach.call(years, function (el) {
             push({ el: el, section: historyEl, kind: 'year',
               title: txt(el, '.anniv-tl-year') || 'History', caption: txt(el, '.anniv-tl-title') });
@@ -903,7 +903,7 @@
         var mapVisible = evoMap && evoMap.offsetParent !== null;
         var rows = evoSection.querySelectorAll('.anniv-evo-row');
         if (rows.length) {
-          brk('Each year, a new thing we could do', 'The capabilities we added, line by line.');
+          brk('Each year, a new thing we could do', 'Every capability we added so we could do more for you.');
           Array.prototype.forEach.call(rows, function (row) {
             push({
               el: mapVisible ? evoMap : row, section: evoSection, kind: 'service',
@@ -923,7 +923,7 @@
       if (workEl) {
         var projects = workEl.querySelectorAll('.anniv-project');
         if (projects.length) {
-          brk("Work we're proud of", 'A few projects that capture the craft.');
+          brk("Work we're proud of", 'A few projects we built with partners like you.');
           Array.prototype.forEach.call(projects, function (el) {
             push({ el: el, section: workEl, kind: 'work',
               title: txt(el, '.anniv-project-title') || 'Project', caption: txt(el, '.anniv-project-meta') });
@@ -934,7 +934,7 @@
       // Team (a single scrollable carousel step)
       var teamEl = document.getElementById('team');
       if (teamEl) {
-        brk('The people behind the work', 'Long-tenured, multi-disciplinary, and growing.');
+        brk('The people behind the work', "The team you've worked with.");
         push({ el: teamEl, section: teamEl, kind: 'section', title: 'The Team', caption: 'Scroll through everyone.' });
       }
 
@@ -942,7 +942,7 @@
       var clientsSection = document.getElementById('clients');
       if (clientsSection) {
         var clientCards = clientsSection.querySelectorAll('.anniv-client-card');
-        brk("Who we've grown alongside", 'In their words.');
+        brk("Who we've grown alongside", 'Partners like you, in their words.');
         if (clientCards.length) {
           Array.prototype.forEach.call(clientCards, function (card) {
             var logo = card.querySelector('.anniv-client-logo');
@@ -959,7 +959,7 @@
       // Today
       var todayEl = document.getElementById('today');
       if (todayEl) {
-        brk('What we do today', 'Six related service areas, one partner.');
+        brk('What we do today', 'What we can do for you now.');
         push({ el: todayEl, section: todayEl, kind: 'section', title: 'Today', caption: 'What we do now, and where to start.' });
       }
 
@@ -1011,9 +1011,10 @@
         '<p class="anniv-tour-finale-sub">Bring us the project you\'re trying to move forward, and we\'ll help you find the right starting point.</p>' +
         '<div class="anniv-tour-finale-actions">' +
           '<a class="anniv-tour-finale-btn anniv-tour-finale-btn--primary" data-act="schedule" href="/contact/?ref=15th-anniversary-tour">Schedule a conversation &rarr;</a>' +
-          '<button type="button" class="anniv-tour-finale-btn anniv-tour-finale-btn--ghost" data-act="share">Share this story</button>' +
+          '<button type="button" class="anniv-tour-finale-btn anniv-tour-finale-btn--ghost" data-act="refer">Introduce us to a colleague &rarr;</button>' +
         '</div>' +
         '<div class="anniv-tour-finale-foot">' +
+          '<button type="button" data-act="share">Share this story</button>' +
           '<button type="button" data-act="restart">&#8634; Restart the tour</button>' +
           '<button type="button" data-act="exit">Explore on your own</button>' +
         '</div>' +
@@ -1167,11 +1168,21 @@
         navigator.clipboard.writeText(url).then(function () { flash('Link copied!'); }, function () { flash('Copy failed'); });
       } else { flash('Copy: ' + url); }
     }
+    // Word-of-mouth is how the studio grew: a one-click warm intro a partner can
+    // forward to a colleague, pre-composed with the tour link.
+    function referIntro() {
+      track('anniv_tour_refer', {});
+      var url = window.location.href;
+      var subject = 'Thought you might find this useful';
+      var body = "I've partnered with Integral Ed and thought of you. Here's a look at their work over the last fifteen years:\n\n" + url + "\n";
+      window.location.href = 'mailto:?subject=' + encodeURIComponent(subject) + '&body=' + encodeURIComponent(body);
+    }
     finaleEl.addEventListener('click', function (e) {
       var act = e.target.getAttribute && e.target.getAttribute('data-act');
       if (act === 'restart') go(0);
       else if (act === 'exit') stop();
       else if (act === 'schedule') track('anniv_tour_schedule', {});   // the <a> then navigates
+      else if (act === 'refer') { e.preventDefault(); referIntro(); }
       else if (act === 'share') { e.preventDefault(); shareTour(e.target); }
     });
     breakEl.addEventListener('click', function (e) {

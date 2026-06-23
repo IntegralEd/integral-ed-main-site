@@ -39,7 +39,7 @@ window.ANNIVERSARY_DATA = {
     counters: [
       { value: 15,  suffix: "",  label: "Years growing together" },
       { value: 250, suffix: "+", label: "Projects delivered" },
-      { value: 75,  suffix: "",  label: "Partner organizations" },
+      { value: 75,  suffix: "",  label: "Partners who trust us" },
       { value: 20,  suffix: "+", label: "Teammates today" }   // "20+" stays accurate as headcount drifts
     ]
   },
@@ -52,8 +52,10 @@ window.ANNIVERSARY_DATA = {
     kicker: "To the partners who got us here",
     headline: "We're here thanks to YOU!",
     paragraphs: [
-      "Almost all of Integral Ed's growth and success has come from referrals and word of mouth. We don't advertise. We have grown by serving the same clients as trusted partners for fifteen years, and as our capacities have grown, we can serve them better and meet more of their learning, growth, and strategic needs.",
-      "If you're visiting this page, you are part of the reason Integral Ed has survived, thrived, and grown since 2011. We want to tell you that story and show you what we are capable of today."
+      "If you're visiting this page, you are part of the reason Integral Ed has survived, thrived, and grown since 2011.",
+      "Almost all of Integral Ed's growth and success has come from referrals and word of mouth. We don't advertise. We have grown by serving the same clients as trusted partners for fifteen years.",
+      "As we have learned with you, our team, expertise, and service areas have grown. Now we can meet more of your learning, growth, and strategic needs.",
+      "We want to tell you that story and show you what we are capable of today."
     ],
     objectivesIntro: "In “learning objectives” lingo, if you click through this page, we hope you'll be able to:",
     objectives: [
