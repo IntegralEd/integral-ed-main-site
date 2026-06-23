@@ -164,7 +164,15 @@
 /* ── "So what" intro band ───────────────────────────────────────────────── */
 .anniv-sowhat { padding-top: var(--spacing-2xl); padding-bottom: var(--spacing-2xl); }
 .anniv-sowhat-inner { max-width: 760px; margin: 0 auto; text-align: center; }
-.anniv-sowhat-inner .anniv-kicker { display: inline-block; margin-bottom: var(--spacing-md); }
+.anniv-sowhat-inner .anniv-kicker { display: inline-block; margin-bottom: 0.6rem; }
+.anniv-sowhat-h {
+  font-size: clamp(2rem, 5.5vw, 3.4rem); line-height: 1.05; font-weight: 800;
+  margin: 0.2rem 0 1.3rem; color: var(--text-primary); letter-spacing: -0.01em;
+}
+.anniv-sowhat-you {
+  background: linear-gradient(120deg, var(--accent-magenta), var(--accent-yellow));
+  -webkit-background-clip: text; background-clip: text; color: transparent;
+}
 .anniv-sowhat-p {
   font-size: 1.18rem; line-height: 1.7; color: var(--text-secondary);
   margin: 0 0 1.1rem;

@@ -49,9 +49,11 @@ window.ANNIVERSARY_DATA = {
    *     timeline, so visitors know why they're reading the story.
    * ------------------------------------------------------------------------- */
   soWhat: {
+    kicker: "To the partners who got us here",
+    headline: "We're here thanks to YOU!",
     paragraphs: [
-      "We are grateful for your support. Almost all of Integral Ed's growth and success has come from referrals and word of mouth. We don't advertise. We have grown by serving the same clients as trusted partners for the last 15 years. As our capacities have grown, we can serve clients better and meet more of their learning, growth, and strategic needs.",
-      "If you're visiting this page, you are part of the reason Integral Ed has survived, thrived, and grown since 2011. We want to tell you that story and help you understand what we are capable of today."
+      "Almost all of Integral Ed's growth and success has come from referrals and word of mouth. We don't advertise. We have grown by serving the same clients as trusted partners for fifteen years, and as our capacities have grown, we can serve them better and meet more of their learning, growth, and strategic needs.",
+      "If you're visiting this page, you are part of the reason Integral Ed has survived, thrived, and grown since 2011. We want to tell you that story and show you what we are capable of today."
     ],
     objectivesIntro: "In “learning objectives” lingo, if you click through this page, we hope you'll be able to:",
     objectives: [

@@ -99,7 +99,12 @@
     var paras = (s.paragraphs || []).filter(Boolean);
     var objs  = (s.objectives || []).filter(Boolean);
     if (!paras.length && !objs.length) { el.innerHTML = ''; return; }
-    var html = '<span class="anniv-kicker">Why this page</span>';
+    var html = '<span class="anniv-kicker">' + esc(s.kicker || 'Thank you') + '</span>';
+    if (s.headline) {
+      // pop "YOU" in a warm gradient when present
+      html += '<h2 class="anniv-sowhat-h">' +
+        esc(s.headline).replace(/\bYOU\b/, '<span class="anniv-sowhat-you">YOU</span>') + '</h2>';
+    }
     html += paras.map(function (p) { return '<p class="anniv-sowhat-p">' + linkNames(p) + '</p>'; }).join('');
     if (objs.length) {
       if (s.objectivesIntro) html += '<p class="anniv-sowhat-objintro">' + esc(s.objectivesIntro) + '</p>';
@@ -874,8 +879,8 @@
       }
 
       // Openers (no section break)
-      sectionStep('intro',   'Welcome',       'Fifteen years, by the numbers.');
-      sectionStep('welcome', 'Why this page', 'Why we built this.');
+      sectionStep('intro',   'Welcome',                 'Fifteen years, by the numbers.');
+      sectionStep('welcome', 'Thanks for your support', 'Almost all of our growth has come from you.');
 
       // History: a step per YEAR
       var historyEl = document.getElementById('history');
