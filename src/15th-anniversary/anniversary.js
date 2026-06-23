@@ -923,6 +923,8 @@
           title: 'Clients', caption: 'Who we have grown alongside.' });
       }
       sec('today',   'Today',    'What we do now, and where to start.');
+      out.push({ el: finaleEl, section: null, kind: 'finale',
+        title: "Here's to the next fifteen", caption: 'Thanks for taking the tour.' });
       return out;
     }
 
@@ -948,6 +950,26 @@
     backdrop.className = 'anniv-tour-backdrop';
     document.body.appendChild(backdrop);
 
+    // Closing CTA card shown as the final tour step (share + schedule).
+    var finaleEl = document.createElement('div');
+    finaleEl.className = 'anniv-tour-finale';
+    finaleEl.setAttribute('hidden', '');
+    finaleEl.innerHTML =
+      '<div class="anniv-tour-finale-card" role="dialog" aria-label="Tour finale">' +
+        '<p class="anniv-tour-finale-kicker">That\'s our fifteen years</p>' +
+        '<h2 class="anniv-tour-finale-h">Here\'s to the next fifteen.</h2>' +
+        '<p class="anniv-tour-finale-sub">Bring us the project you\'re trying to move forward, and we\'ll help you find the right starting point.</p>' +
+        '<div class="anniv-tour-finale-actions">' +
+          '<a class="anniv-tour-finale-btn anniv-tour-finale-btn--primary" data-act="schedule" href="/contact/?ref=15th-anniversary-tour">Schedule a conversation &rarr;</a>' +
+          '<button type="button" class="anniv-tour-finale-btn anniv-tour-finale-btn--ghost" data-act="share">Share this story</button>' +
+        '</div>' +
+        '<div class="anniv-tour-finale-foot">' +
+          '<button type="button" data-act="restart">&#8634; Restart the tour</button>' +
+          '<button type="button" data-act="exit">Explore on your own</button>' +
+        '</div>' +
+      '</div>';
+    document.body.appendChild(finaleEl);
+
     var elStep  = bar.querySelector('.anniv-tour-step');
     var elTitle = bar.querySelector('.anniv-tour-title');
     var elCap   = bar.querySelector('.anniv-tour-caption');
@@ -964,6 +986,7 @@
     }
     function spotlight(step) {
       clearSpot();
+      if (step.kind === 'finale') { document.documentElement.classList.add('anniv-tour-spot'); return; }
       // backdrop "stage" only for the bite-sized item steps, not section overviews
       document.documentElement.classList.toggle('anniv-tour-spot', step.kind !== 'section');
       if (step.section) step.section.classList.add('is-tour-focus');
@@ -981,15 +1004,21 @@
       elTitle.textContent = s.title;
       elCap.textContent   = s.caption;
       btnPrev.disabled    = (idx === 0);
+      var isFinale = (s.kind === 'finale');
+      btnNext.style.display = isFinale ? 'none' : '';   // finale card carries its own actions
       btnNext.textContent = (idx === STEPS.length - 1) ? 'Finish' : 'Next →';
     }
     function go(i) {
       idx = Math.max(0, Math.min(STEPS.length - 1, i));
       var step = STEPS[idx];
+      if (finaleEl) { if (step.kind === 'finale') finaleEl.removeAttribute('hidden'); else finaleEl.setAttribute('hidden', ''); }
       spotlight(step);
-      var block = (step.kind === 'section') ? 'start' : 'center';
-      try { step.el.scrollIntoView({ behavior: reduce ? 'auto' : 'smooth', block: block }); } catch (e) {}
+      if (step.kind !== 'finale') {
+        var block = (step.kind === 'section') ? 'start' : 'center';
+        try { step.el.scrollIntoView({ behavior: reduce ? 'auto' : 'smooth', block: block }); } catch (e) {}
+      }
       render();
+      if (step.kind === 'finale') track('anniv_tour_finish', {});
     }
     function setModeParam(active) {
       try {
@@ -1013,6 +1042,7 @@
       on = false;
       document.documentElement.classList.remove('anniv-tour-on', 'anniv-tour-spot');
       bar.setAttribute('hidden', '');
+      if (finaleEl) finaleEl.setAttribute('hidden', '');
       clearSpot();
       setModeParam(false);
     }
@@ -1022,6 +1052,24 @@
       if (act === 'next') { idx === STEPS.length - 1 ? stop() : go(idx + 1); }
       else if (act === 'prev') go(idx - 1);
       else if (act === 'exit') stop();
+    });
+
+    function shareTour(btn) {
+      track('anniv_tour_share', {});
+      var url = window.location.href;
+      var label = btn ? btn.textContent : '';
+      var flash = function (msg) { if (btn) { btn.textContent = msg; setTimeout(function () { btn.textContent = label; }, 1800); } };
+      if (navigator.share) { navigator.share({ title: document.title, url: url }).catch(function () {}); }
+      else if (navigator.clipboard && navigator.clipboard.writeText) {
+        navigator.clipboard.writeText(url).then(function () { flash('Link copied!'); }, function () { flash('Copy failed'); });
+      } else { flash('Copy: ' + url); }
+    }
+    finaleEl.addEventListener('click', function (e) {
+      var act = e.target.getAttribute && e.target.getAttribute('data-act');
+      if (act === 'restart') go(0);
+      else if (act === 'exit') stop();
+      else if (act === 'schedule') track('anniv_tour_schedule', {});   // the <a> then navigates
+      else if (act === 'share') { e.preventDefault(); shareTour(e.target); }
     });
     document.addEventListener('keydown', function (e) {
       if (!on) return;
