@@ -882,9 +882,24 @@
       each('history', '.anniv-tl-item', 'year',
         function (el) { return txt(el, '.anniv-tl-year') || 'History'; },
         function (el) { return txt(el, '.anniv-tl-title'); });
-      each('evolution', '.anniv-evo-row', 'service',
-        function (el) { return txt(el, '.anniv-evo-stage') || 'Capability'; },
-        function (el) { return txt(el, '.anniv-evo-tagline'); });
+      // Evolution: feature the SUBWAY MAP and light up one line per step (the
+      // "layers one at a time" idea). When the map is hidden (narrow widths)
+      // fall back to stepping the legend cards.
+      var evoSection = document.getElementById('evolution');
+      if (evoSection) {
+        var evoMap = evoSection.querySelector('.anniv-subway-wrap');
+        var mapVisible = evoMap && evoMap.offsetParent !== null;
+        Array.prototype.forEach.call(evoSection.querySelectorAll('.anniv-evo-row'), function (row) {
+          out.push({
+            el: mapVisible ? evoMap : row,
+            section: evoSection,
+            kind: 'service',
+            title: txt(row, '.anniv-evo-stage') || 'Capability',
+            caption: txt(row, '.anniv-evo-tagline'),
+            evoId: row.getAttribute('data-evo-id') || null
+          });
+        });
+      }
       each('work', '.anniv-project', 'work',
         function (el) { return txt(el, '.anniv-project-title') || 'Project'; },
         function (el) { return txt(el, '.anniv-project-meta'); });
@@ -939,6 +954,8 @@
       if (step.evoId) {
         Array.prototype.forEach.call(document.querySelectorAll('[data-evo-id="' + step.evoId + '"]'),
           function (n) { n.classList.add('is-spotlit'); });
+        var wrap = document.querySelector('.anniv-subway-wrap');
+        if (wrap) wrap.classList.add('is-drawn');   // make sure the lines are drawn in
       }
     }
     function render() {
