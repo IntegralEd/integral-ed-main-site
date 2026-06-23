@@ -172,7 +172,7 @@ window.ANNIVERSARY_DATA = {
       joins: ["Erin McIntee"],
       events: [
         {
-          theme: "Whole programs move online",
+          theme: "Live facilitated programs move to Zoom facilitation and towards blended delivery",
           svc: "platforms",
           body: "When the world went remote, we supported partners including The Danielson Group to select and deploy a Learning Management System (LMS) and begin delivering professional development as eLearning, with Erin McIntee bringing expert, complex Storyline development.",
           highlights: []
