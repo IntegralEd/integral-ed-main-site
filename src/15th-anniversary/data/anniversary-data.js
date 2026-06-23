@@ -624,27 +624,23 @@ window.ANNIVERSARY_DATA = {
     },
     catalogK12PD: {
       title: "Catalog for K-12 Teacher PD",
-      client: "Integral Ed",
+      client: "The Danielson Group",
       year: 2023,
       serviceArea: "Growth Strategy & Marketing, Sales Collateral",
       svc: "growth",
-      summary: "A designed catalog of K-12 teacher professional-development offerings, part of the growth-strategy and marketing collateral our Growth Strategy & Marketing practice produces to help partners package and present their programs to districts and LEAs.",
-      // ASSET NEEDED: drop a preview image (PNG/JPG) of the catalog here, e.g.
-      // /assets/images/anniversary/catalog-k12-pd.png  (or a PDF/URL in `link`).
-      image: "",
+      summary: "A designed professional-development catalog for The Danielson Group: their vision, offerings, and a clear catalog of courses and workshops for K-12 educators (“When Teachers Thrive, Students Thrive”). One example of the sales collateral our Growth Strategy & Marketing practice produces to help partners package and present their programs to districts and LEAs.",
+      image: "/assets/images/anniversary/danielson-sales-sheet.png",
       videoUrl: "",
       link: ""
     },
     salesSheetK12PD: {
       title: "Sales Sheet for K-12 Teacher PD",
-      client: "Integral Ed",
+      client: "UnboundEd",
       year: 2023,
       serviceArea: "Growth Strategy & Marketing, Sales Collateral",
       svc: "growth",
-      summary: "A one-page sales sheet for a K-12 teacher professional-development offering: clear value, audience, and outcomes, designed as ready-to-use sales collateral for cross-sector and district conversations.",
-      // ASSET NEEDED: drop a preview image (PNG/JPG) of the sales sheet here, e.g.
-      // /assets/images/anniversary/sales-sheet-k12-pd.png  (or a PDF/URL in `link`).
-      image: "",
+      summary: "A one-look sales sheet for UnboundEd's Standards Institute: “catalyze organizational and individual change,” with standards-based outcomes, a daily schedule at a glance, and new offerings, designed as ready-to-use sales collateral for districts choosing professional learning.",
+      image: "/assets/images/anniversary/unbounded-sales-sheet.png",
       videoUrl: "",
       link: ""
     },
