@@ -144,9 +144,12 @@
   color: var(--ink-dark);
 }
 .anniv-section--dark h2 { color: #fff; }
-.anniv-section--dark .anniv-lede { color: var(--ink-dark-2); }
+/* Lede on the dark + CTA (plum) sections: a brighter lavender for legible
+   contrast against the plum (the muted gray washed out). */
+.anniv-section--dark .anniv-lede,
+.anniv-section--cta .anniv-lede { color: #e3d4ef; }
 
-.anniv-section-head { max-width: 760px; margin: 0 auto var(--spacing-2xl); text-align: center; }
+.anniv-section-head { max-width: 900px; margin: 0 auto var(--spacing-2xl); text-align: center; }
 .anniv-kicker {
   font-family: var(--font-mono, monospace);
   font-size: 0.72rem;
@@ -159,7 +162,7 @@
   margin: 0.6rem 0 0.8rem;
   line-height: 1.1;
 }
-.anniv-lede { font-size: 1.08rem; color: var(--text-tertiary); margin: 0; }
+.anniv-lede { font-size: 1.08rem; color: var(--text-tertiary); margin: 0.55rem auto 0; max-width: 52ch; }
 
 /* ── "So what" intro band ───────────────────────────────────────────────── */
 .anniv-sowhat { padding-top: var(--spacing-2xl); padding-bottom: var(--spacing-2xl); }
@@ -173,17 +176,23 @@
   background: linear-gradient(120deg, var(--accent-magenta), var(--accent-yellow));
   -webkit-background-clip: text; background-clip: text; color: transparent;
 }
+/* Two clean tiers: a lead paragraph, then uniform body. Constrained to a
+   comfortable reading measure so lines don't sprawl at large widths. */
 .anniv-sowhat-p {
-  font-size: 1.18rem; line-height: 1.7; color: var(--text-secondary);
-  margin: 0 0 1.1rem;
+  font-size: 1.05rem; line-height: 1.7; color: var(--text-secondary);
+  margin: 0 auto 1rem; max-width: 58ch;
 }
-.anniv-sowhat-p:first-of-type { font-size: 1.3rem; color: var(--text-primary); }
-.anniv-sowhat-objintro { margin: 1.4rem 0 0.8rem; font-weight: 600; color: var(--text-primary); }
-.anniv-sowhat-obj {
-  list-style: none; padding: 0; margin: 0 auto 1.6rem; max-width: 460px;
-  display: grid; gap: 0.6rem; text-align: left;
+.anniv-sowhat-p:first-of-type { font-size: 1.22rem; line-height: 1.55; color: var(--text-primary); }
+
+/* Learning-objectives callout: a contained, left-aligned card */
+.anniv-sowhat-callout {
+  margin: 1.8rem auto; max-width: 460px; text-align: left;
+  background: var(--bg-tertiary); border: 1px solid var(--border-light);
+  border-radius: var(--radius-md); padding: 1.25rem 1.5rem;
 }
-.anniv-sowhat-obj li { font-size: 1.05rem; color: var(--text-secondary); }
+.anniv-sowhat-objintro { margin: 0 0 0.9rem; font-weight: 600; color: var(--text-primary); font-size: 0.98rem; }
+.anniv-sowhat-obj { list-style: none; padding: 0; margin: 0; display: grid; gap: 0.7rem; text-align: left; }
+.anniv-sowhat-obj li { font-size: 1.02rem; color: var(--text-secondary); }
 
 /* Storyline-style tickable checkboxes for the learning objectives */
 .anniv-check { display: flex; align-items: center; gap: 0.75rem; cursor: pointer; }

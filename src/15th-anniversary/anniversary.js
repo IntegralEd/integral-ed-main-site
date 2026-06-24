@@ -107,6 +107,9 @@
     }
     html += paras.map(function (p) { return '<p class="anniv-sowhat-p">' + linkNames(p) + '</p>'; }).join('');
     if (objs.length) {
+      // The learning objectives live in a distinct callout so they read as a
+      // deliberate element, not stray left-aligned text in the centered column.
+      html += '<div class="anniv-sowhat-callout">';
       if (s.objectivesIntro) html += '<p class="anniv-sowhat-objintro">' + esc(s.objectivesIntro) + '</p>';
       // Storyline-style checkboxes: tickable, with a check that pops in.
       html += '<ul class="anniv-sowhat-obj">' + objs.map(function (o) {
@@ -118,7 +121,7 @@
           '</span>' +
           '<span class="anniv-check-label">' + linkNames(o) + '</span>' +
           '</label></li>';
-      }).join('') + '</ul>';
+      }).join('') + '</ul></div>';
     }
     if (s.cta) {
       html += '<a class="anniv-sowhat-cta" href="#history">' + esc(s.cta) +
