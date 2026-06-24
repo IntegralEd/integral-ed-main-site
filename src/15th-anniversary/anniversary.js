@@ -495,6 +495,14 @@
         section: activeSection()
       });
     }, true);
+    // Internal campaign CTAs (same-site, so the outbound handler skips them).
+    document.addEventListener('click', function (e) {
+      var a = e.target.closest ? e.target.closest('a[href]') : null;
+      if (!a) return;
+      var href = a.getAttribute('href') || '';
+      if (/\/join-our-team\/?/.test(href)) track('anniv_join_click', { section: activeSection() });
+      else if (a.closest('.anniv-cta-box') && /\/contact\//.test(href)) track('anniv_schedule_click', { source: 'scroll_cta' });
+    }, true);
   }
 
   function openProjectModal(i)     { openItemModal(PROJECTS[i]); }
@@ -817,46 +825,6 @@
     io.observe(wrap);
   }
 
-  /* ── Per-section feedback pills (PREVIEW ONLY) ────────────────────────────
-   * Pattern ported from NextGenSW (docs/PILL_COMMENT_INTEGRATION.md): every
-   * section[id] gets a small pill in its bottom-right corner. Clicking opens
-   * the WorkBase Tickets form in a NEW TAB with ?Section=<id>&URL=<full url
-   * including #section>, so the form's hidden URL field records exactly
-   * where the reviewer clicked. Tickets land in the WorkBase app (not the
-   * NextGenSW app). Unlike NextGenSW we don't require an iframe: this page
-   * has its own password gate, which is the access control (pills are
-   * hidden via CSS until html.anniv-locked clears). Remove this block +
-   * the .anniv-feedback-sec CSS when the page goes fully public. */
-  var FEEDBACK_FORM_URL = 'https://workbase.softr.app/feedback-ticket';
-  function buildFeedbackUrl(sectionId) {
-    var url = location.origin + location.pathname + '#' + sectionId;
-    return FEEDBACK_FORM_URL +
-      '?Section=' + encodeURIComponent(sectionId) +
-      '&URL=' + encodeURIComponent(url);
-  }
-  function setupFeedbackPill() {
-    var sections = document.querySelectorAll('.anniv-main section[id]');
-    Array.prototype.forEach.call(sections, function (sec) {
-      if (sec.querySelector('.anniv-feedback-sec')) return;
-      var btn = document.createElement('button');
-      btn.type = 'button';
-      btn.className = 'anniv-feedback-sec';
-      btn.dataset.section = sec.id;
-      btn.setAttribute('aria-label', 'Enter comments on the ' + sec.id + ' section (opens a new tab)');
-      btn.title = 'Enter comments, click to open a new tab';
-      btn.innerHTML = '<span aria-hidden="true">&#128172;</span>' +
-        '<span class="anniv-feedback-sec-label">Feedback</span>' +
-        '<span class="anniv-feedback-sec-hint">Enter comments, click to open a new tab</span>';
-      sec.appendChild(btn);
-    });
-    document.addEventListener('click', function (e) {
-      var b = e.target.closest ? e.target.closest('.anniv-feedback-sec') : null;
-      if (!b) return;
-      e.preventDefault();
-      window.open(buildFeedbackUrl(b.dataset.section || ''), '_blank', 'noopener');
-    });
-  }
-
   /* ── Init ─────────────────────────────────────────────────────────────── */
   /* ── Guided "click-through" tour (mode=tour) ──────────────────────────────
    * An optional paginated walkthrough. Activated by the hero "Take the tour"
@@ -1144,6 +1112,7 @@
       document.documentElement.classList.add('anniv-tour-on');
       bar.removeAttribute('hidden');
       setModeParam(true);
+      track('anniv_tour_start', { steps: STEPS.length });
       go(typeof at === 'number' ? at : 0);
     }
     function stop() {
@@ -1311,7 +1280,6 @@
     setupProjectModal();
     setupCelebrate();
     setupAnalytics();
-    setupFeedbackPill();
     setupRailMenu();
     setupTeamCarousel();
     setupTour();
