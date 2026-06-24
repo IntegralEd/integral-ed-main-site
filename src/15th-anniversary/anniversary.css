@@ -879,6 +879,11 @@ html.anniv-modal-open { overflow: hidden; }
 .anniv-team-arrow--next { right: -0.6rem; }
 .anniv-team-arrow:hover:not(:disabled) { transform: translateY(-50%) scale(1.08); }
 .anniv-team-arrow:disabled { opacity: 0.25; cursor: default; }
+
+/* Subtle "join our team" line under the team carousel */
+.anniv-team-join { margin: var(--spacing-lg) 0 0; font-size: 0.95rem; color: var(--text-secondary); }
+.anniv-team-join a { color: var(--color-plum); font-weight: 700; text-decoration: none; }
+.anniv-team-join a:hover { text-decoration: underline; }
 .anniv-member {
   display: block; text-decoration: none; color: inherit; border-radius: var(--radius-lg);
   overflow: hidden; background: var(--bg-primary); border: 1px solid var(--border-light);
