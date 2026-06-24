@@ -1286,7 +1286,11 @@ html.anniv-tour-spot .anniv-tour-backdrop { opacity: 1; }
   transform: scale(1.14);
   box-shadow: 0 44px 110px rgba(0,0,0,0.6), 0 0 0 1px rgba(255,255,255,0.06);
 }
-/* Learning-objectives slide: lift the callout to center stage */
+/* Learning-objectives slide: lift the callout to center stage. During the tour
+   the in-band callout is hidden so it ONLY appears as its own focused slide
+   (no double-show in the welcome overview). */
+html.anniv-tour-on .anniv-sowhat-callout { display: none; }
+html.anniv-tour-on .anniv-sowhat-callout.is-tour-spot { display: block; }
 .anniv-sowhat-callout.is-tour-spot {
   margin-left: auto; margin-right: auto; transform: scale(1.06);
   background: var(--bg-primary);
