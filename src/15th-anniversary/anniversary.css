@@ -149,7 +149,7 @@
 .anniv-section--dark .anniv-lede,
 .anniv-section--cta .anniv-lede { color: #e3d4ef; }
 
-.anniv-section-head { max-width: 900px; margin: 0 auto var(--spacing-2xl); text-align: center; }
+.anniv-section-head { max-width: 900px; margin: 0 auto var(--spacing-2xl); text-align: left; }
 .anniv-kicker {
   font-family: var(--font-mono, monospace);
   font-size: 0.72rem;
@@ -162,11 +162,11 @@
   margin: 0.6rem 0 0.8rem;
   line-height: 1.1;
 }
-.anniv-lede { font-size: 1.08rem; color: var(--text-tertiary); margin: 0.55rem auto 0; max-width: 52ch; }
+.anniv-lede { font-size: 1.08rem; color: var(--text-tertiary); margin: 0.55rem 0 0; max-width: 52ch; }
 
 /* ── "So what" intro band ───────────────────────────────────────────────── */
 .anniv-sowhat { padding-top: var(--spacing-2xl); padding-bottom: var(--spacing-2xl); }
-.anniv-sowhat-inner { max-width: 760px; margin: 0 auto; text-align: center; }
+.anniv-sowhat-inner { max-width: 900px; margin: 0 auto; text-align: left; }
 .anniv-sowhat-inner .anniv-kicker { display: inline-block; margin-bottom: 0.6rem; }
 .anniv-sowhat-h {
   font-size: clamp(2rem, 5.5vw, 3.4rem); line-height: 1.05; font-weight: 800;
@@ -180,13 +180,13 @@
    comfortable reading measure so lines don't sprawl at large widths. */
 .anniv-sowhat-p {
   font-size: 1.05rem; line-height: 1.7; color: var(--text-secondary);
-  margin: 0 auto 1rem; max-width: 58ch;
+  margin: 0 0 1rem; max-width: 60ch;
 }
 .anniv-sowhat-p:first-of-type { font-size: 1.22rem; line-height: 1.55; color: var(--text-primary); }
 
 /* Learning-objectives callout: a contained, left-aligned card */
 .anniv-sowhat-callout {
-  margin: 1.8rem auto; max-width: 460px; text-align: left;
+  margin: 1.8rem 0; max-width: 460px; text-align: left;
   background: var(--bg-tertiary); border: 1px solid var(--border-light);
   border-radius: var(--radius-md); padding: 1.25rem 1.5rem;
 }
@@ -558,7 +558,7 @@ html.anniv-locked .anniv-feedback-sec { display: none; }
 }
 
 /* ── Evolution: subway-map weave ─────────────────────────────────────────── */
-.anniv-evolution { position: relative; z-index: 2; max-width: 1000px; margin: 0 auto; }
+.anniv-evolution { position: relative; z-index: 2; max-width: 900px; margin: 0 auto; }
 
 /* brand colors mapped to each stream */
 .evo-blue    { --evo-c: var(--accent-blue); }
@@ -755,7 +755,7 @@ button.svc-chip:hover::before, button.svc-chip:focus-visible::before {
 }
 
 /* ── Projects ───────────────────────────────────────────────────────────── */
-.anniv-projects { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: var(--spacing-lg); }
+.anniv-projects { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: var(--spacing-lg); max-width: 900px; margin: 0 auto; }
 .anniv-project {
   background: var(--bg-primary); border: 1px solid var(--border-light); border-radius: var(--radius-lg);
   overflow: hidden; box-shadow: var(--shadow-sm); transition: transform var(--transition-base), box-shadow var(--transition-base);
@@ -925,7 +925,7 @@ a.anniv-member:hover .anniv-member-cta { opacity: 1; transform: translateY(0); }
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   gap: var(--spacing-xl);
-  max-width: 1100px;
+  max-width: 900px;
   margin: var(--spacing-xl) auto var(--spacing-2xl);
 }
 
@@ -1285,6 +1285,12 @@ html.anniv-tour-spot .anniv-tour-backdrop { opacity: 1; }
 .anniv-project.is-tour-spot {
   transform: scale(1.14);
   box-shadow: 0 44px 110px rgba(0,0,0,0.6), 0 0 0 1px rgba(255,255,255,0.06);
+}
+/* Learning-objectives slide: lift the callout to center stage */
+.anniv-sowhat-callout.is-tour-spot {
+  margin-left: auto; margin-right: auto; transform: scale(1.06);
+  background: var(--bg-primary);
+  box-shadow: 0 40px 100px rgba(0,0,0,0.6), 0 0 0 1px rgba(255,255,255,0.06);
 }
 .anniv-evo-row.is-tour-spot {
   transform: scale(1.04);

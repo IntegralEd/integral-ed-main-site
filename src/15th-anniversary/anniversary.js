@@ -884,6 +884,10 @@
       // Openers (no section break)
       sectionStep('intro',   'Welcome',                 'Fifteen years, by the numbers.');
       sectionStep('welcome', 'Thanks for your support', 'Almost all of our growth has come from you.');
+      // The learning objectives get their own slide
+      var calloutEl = document.querySelector('#welcome .anniv-sowhat-callout');
+      if (calloutEl) push({ el: calloutEl, section: document.getElementById('welcome'),
+        kind: 'objectives', title: 'Learning objectives', caption: "What you'll be able to do by the end." });
 
       // History: a step per YEAR
       var historyEl = document.getElementById('history');
