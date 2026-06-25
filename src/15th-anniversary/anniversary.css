@@ -1513,9 +1513,17 @@ html.anniv-tour-spot .anniv-tl-item.is-tour-spot,
 html.anniv-tour-spot .anniv-project.is-tour-spot {
   background: var(--bg-primary, #fff) !important;
 }
+/* Service card: white like the other tour cards (the dark version read dim
+   against the dimmed backdrop). Re-color its inner text for a light card. */
 html.anniv-tour-spot .anniv-evo-row.is-tour-spot {
-  background: color-mix(in srgb, var(--evo-c) 30%, #160510) !important;
+  background: #fff !important;
+  border: 1px solid var(--border-light);
 }
+html.anniv-tour-spot .anniv-evo-row.is-tour-spot .anniv-evo-stage { color: var(--text-primary); }
+html.anniv-tour-spot .anniv-evo-row.is-tour-spot .anniv-evo-tagline,
+html.anniv-tour-spot .anniv-evo-row.is-tour-spot .anniv-evo-what { color: var(--text-secondary); }
+html.anniv-tour-spot .anniv-evo-row.is-tour-spot .anniv-evo-year { color: color-mix(in srgb, var(--evo-c) 62%, #2a1133); }
+html.anniv-tour-spot .anniv-evo-row.is-tour-spot .anniv-evo-proof { color: color-mix(in srgb, var(--accent-teal) 68%, #15302a); }
 
 /* ── Mobile tour: card-based steps + playbar cleanup ──────────────────────── */
 @media (max-width: 880px) {

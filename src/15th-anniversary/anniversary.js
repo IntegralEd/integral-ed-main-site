@@ -1092,10 +1092,17 @@
         step.el.classList.add('is-tour-split');
         step.eventEl.classList.add('is-tour-event');
       }
-      // Teammate cards live inside the horizontal scroll carousel; iOS Safari
-      // clips position:fixed descendants of a scroll container, masking the
-      // centered card. Lift it out to <body> while spotlit (restored above).
-      if (step.kind === 'teammate' && step.el.parentNode && step.el.parentNode !== document.body) {
+      // ROOT CAUSE of the recurring "mask": iOS Safari clips position:fixed
+      // elements to any ancestor that establishes a containing block — our
+      // sections use overflow:hidden, the layout uses overflow-x:clip, the dark
+      // sections blur glow blobs (filter), and the team is an overflow carousel.
+      // Chromium (the preview engine) does NOT clip in these cases, so the cards
+      // look perfect in preview but are masked on a real iPhone. The only robust
+      // fix is to lift EVERY centered card out to <body>, which has no trapping
+      // ancestor (restored in clearSpot).
+      var liftToBody = step.kind === 'client' || step.kind === 'teammate'
+        || ((step.kind === 'service' || step.kind === 'work') && isMobileTour());
+      if (liftToBody && step.el && step.el.parentNode && step.el.parentNode !== document.body) {
         relocatedCard = { el: step.el, parent: step.el.parentNode, next: step.el.nextSibling };
         document.body.appendChild(step.el);
       }
