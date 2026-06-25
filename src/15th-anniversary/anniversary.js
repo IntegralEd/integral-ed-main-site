@@ -1185,10 +1185,23 @@
         window.history.replaceState(null, '', url);
       } catch (e) {}
     }
+    // The teammate photos (and project images) are loading="lazy", so the first
+    // time each card is shown the image fetches on demand and lags. Warm them
+    // into cache when the tour starts; by the time you page to them they're ready.
+    var preloaded = false;
+    function preloadTourImages() {
+      if (preloaded) return; preloaded = true;
+      var imgs = document.querySelectorAll('#anniv-team .anniv-member-photo, #anniv-projects .anniv-project-media img');
+      Array.prototype.forEach.call(imgs, function (img) {
+        var src = img.getAttribute('src');
+        if (src) { var p = new Image(); p.src = src; }
+      });
+    }
     function start(at) {
       if (on) return;
       if (!STEPS) STEPS = buildSteps();
       if (!STEPS.length) return;
+      preloadTourImages();
       on = true;
       document.documentElement.classList.add('anniv-tour-on');
       bar.removeAttribute('hidden');
