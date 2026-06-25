@@ -15,10 +15,10 @@ GA4 setup and the promotion. Boxes below are the open items.
 - [x] Preview feedback pill removed (JS + CSS)
 - [x] Page set to `index, follow`
 - [x] Social share images created: `og-share.png` (1200x630) + `share-square-1200.png` (1200x1200)
-- [x] Canonical + OG host aligned to `https://www.integral-ed.com`
+- [x] Canonical + OG host set to the canonical non-www host (`https://integral-ed.com`); www 301-redirects to it
 - [x] Heavy images compressed (collateral and cards, ~4.2MB to ~1.8MB)
 - [x] End-to-end smoke test passed (sections, tour, modals, links, mobile, no console errors, GA4 firing)
-- [ ] **Confirm the non-www to www redirect resolves in production** (visit `https://integral-ed.com/15th-anniversary/`, confirm it 301s to `www`, and that the og image loads at the `www` URL). One-time check after deploy.
+- [x] Verified production hosting: `www` 301-redirects to non-www (`integral-ed.com` is the canonical, serving host); page and og image both serve 200 at the non-www URL.
 - [ ] `/join-our-team/` now 302-redirects to the careers app (`integral-careers.netlify.app`). Commit `netlify.toml` when you're ready for that to go live, and click the "Join our team" link on the page once to confirm it lands correctly.
 
 ## B. GA4 key events (your task, ~15 min)
