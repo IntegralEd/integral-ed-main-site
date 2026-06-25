@@ -851,6 +851,53 @@ a.anniv-member:hover .anniv-member-cta { opacity: 1; transform: translateY(0); }
 .anniv-member-name { display: block; font-weight: 700; font-size: 0.95rem; line-height: 1.2; }
 .anniv-member-role { display: block; color: var(--text-tertiary); font-size: 0.78rem; margin-top: 0.15rem; line-height: 1.3; }
 
+/* ── Desktop "featured + grid" team ──────────────────────────────────────────
+   Below 980px the markup is the mobile carousel (feature panel hidden). At
+   980px+ the stage becomes two columns: a large featured teammate beside a
+   wrapping grid of faces; hover/click a face to feature it. */
+.anniv-team-feature { display: none; }
+@media (min-width: 980px) {
+  .anniv-team-stage {
+    display: grid; grid-template-columns: minmax(280px, 330px) 1fr;
+    gap: var(--spacing-xl); align-items: start;
+  }
+  .anniv-team-feature {
+    display: block; position: sticky; top: calc(var(--nav-offset) + 1rem);
+    background: var(--bg-primary); border: 1px solid var(--border-light);
+    border-radius: var(--radius-lg); overflow: hidden; box-shadow: var(--shadow-md);
+  }
+  .anniv-team-feature-frame {
+    aspect-ratio: 4 / 5; overflow: hidden;
+    background: linear-gradient(140deg, var(--color-plum), var(--accent-magenta));
+    display: flex; align-items: center; justify-content: center;
+  }
+  .anniv-team-feature-frame img { width: 100%; height: 100%; object-fit: cover; object-position: center top; }
+  .anniv-team-feature-body { padding: 1.1rem 1.3rem 1.4rem; }
+  .anniv-team-feature-badge {
+    display: inline-block; font-size: 0.7rem; font-weight: 800; letter-spacing: 0.04em;
+    color: var(--color-plum); background: var(--color-yellow);
+    padding: 0.2rem 0.6rem; border-radius: 999px;
+  }
+  .anniv-team-feature-name { margin: 0.55rem 0 0.15rem; font-size: 1.55rem; line-height: 1.1; }
+  .anniv-team-feature-role { margin: 0 0 0.85rem; color: var(--text-secondary); font-size: 0.98rem; }
+  .anniv-team-feature-link { color: var(--color-plum); font-weight: 700; text-decoration: none; font-size: 0.95rem; }
+  .anniv-team-feature-link:hover { text-decoration: underline; }
+
+  /* the grid of faces (no carousel scroll/arrows on desktop) */
+  .anniv-team-holder .anniv-team-arrow { display: none !important; }
+  .anniv-team {
+    display: grid !important; overflow: visible !important;
+    grid-template-columns: repeat(auto-fill, minmax(102px, 1fr));
+    gap: 0.7rem; padding: 0.2rem 0 0; scroll-snap-type: none;
+  }
+  .anniv-team > .anniv-member { width: auto !important; cursor: pointer; }
+  .anniv-team > .anniv-member .anniv-member-cta { display: none; }
+  .anniv-team > .anniv-member .anniv-member-info { padding: 0.45rem 0.55rem 0.6rem; }
+  .anniv-team > .anniv-member .anniv-member-name { font-size: 0.8rem; }
+  .anniv-team > .anniv-member .anniv-member-role { display: none; }
+  .anniv-team > .anniv-member.is-featured { outline: 2px solid var(--color-plum); outline-offset: 1px; }
+}
+
 /* ── Clients: 2x2 testimonial grid ──────────────────────────────────────
    Each card carries its own svc-* class so a top color band + decorative
    quote mark take on that client's hue. Distinct color per card makes the

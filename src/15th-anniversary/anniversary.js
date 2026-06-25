@@ -1356,6 +1356,66 @@
     update();
   }
 
+  /* ── Desktop "featured + grid" team: a large featured teammate beside the
+     grid of faces. Hover or click a face to feature them. Mobile keeps the
+     carousel (CSS shows the feature panel only >= 980px, and the handlers
+     no-op below that). ──────────────────────────────────────────────────── */
+  function setupTeamFeature() {
+    var row = $('anniv-team');
+    var holder = row && row.parentNode;
+    if (!row || !holder || !row.children.length) return;
+    var members = Array.prototype.slice.call(row.querySelectorAll('.anniv-member'));
+    if (!members.length) return;
+    function txt(el, sel) { var n = el && el.querySelector(sel); return n ? n.textContent.trim() : ''; }
+
+    var stage = document.createElement('div');
+    stage.className = 'anniv-team-stage';
+    var feature = document.createElement('div');
+    feature.className = 'anniv-team-feature';
+    feature.setAttribute('aria-live', 'polite');
+    feature.innerHTML =
+      '<div class="anniv-team-feature-frame"></div>' +
+      '<div class="anniv-team-feature-body">' +
+        '<span class="anniv-team-feature-badge"></span>' +
+        '<h3 class="anniv-team-feature-name"></h3>' +
+        '<p class="anniv-team-feature-role"></p>' +
+        '<a class="anniv-team-feature-link" href="#" target="_blank" rel="noopener">View profile &rarr;</a>' +
+      '</div>';
+    holder.parentNode.insertBefore(stage, holder);
+    stage.appendChild(feature);
+    stage.appendChild(holder);
+
+    var fFrame = feature.querySelector('.anniv-team-feature-frame');
+    var fBadge = feature.querySelector('.anniv-team-feature-badge');
+    var fName  = feature.querySelector('.anniv-team-feature-name');
+    var fRole  = feature.querySelector('.anniv-team-feature-role');
+    var fLink  = feature.querySelector('.anniv-team-feature-link');
+
+    function feat(m) {
+      members.forEach(function (n) { n.classList.toggle('is-featured', n === m); });
+      var photo = m.querySelector('.anniv-member-photo');
+      var initials = m.querySelector('.anniv-member-initials');
+      fFrame.innerHTML = photo
+        ? '<img src="' + esc(photo.getAttribute('src')) + '" alt="' + esc(photo.getAttribute('alt') || '') + '">'
+        : '<span class="anniv-member-initials">' + esc(initials ? initials.textContent : '') + '</span>';
+      fBadge.textContent = txt(m, '.anniv-member-badge');
+      fBadge.style.display = fBadge.textContent ? '' : 'none';
+      fName.textContent = txt(m, '.anniv-member-name');
+      fRole.textContent = txt(m, '.anniv-member-role');
+      var href = m.tagName === 'A' ? m.getAttribute('href') : '';
+      if (href) { fLink.href = href; fLink.style.display = ''; }
+      else { fLink.style.display = 'none'; }
+    }
+
+    function isDesktop() { return window.matchMedia('(min-width: 980px)').matches; }
+    members.forEach(function (m) {
+      m.addEventListener('mouseenter', function () { if (isDesktop()) feat(m); });
+      m.addEventListener('focus', function () { if (isDesktop()) feat(m); });
+      m.addEventListener('click', function (e) { if (isDesktop()) { e.preventDefault(); feat(m); } });
+    });
+    feat(members[0]);
+  }
+
   /* ── Mobile rail: collapse the section nav into a menu icon ──────────────── */
   function setupRailMenu() {
     var rail   = $('anniv-rail');
@@ -1400,6 +1460,7 @@
     setupAnalytics();
     setupRailMenu();
     setupTeamCarousel();
+    setupTeamFeature();
     setupTour();
   }
 
