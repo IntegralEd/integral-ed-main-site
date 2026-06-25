@@ -1465,3 +1465,43 @@ html.anniv-tour-spot .anniv-project.is-tour-spot {
 html.anniv-tour-spot .anniv-evo-row.is-tour-spot {
   background: color-mix(in srgb, var(--evo-c) 30%, #160510) !important;
 }
+
+/* ── Mobile tour: card-based steps + playbar cleanup ──────────────────────── */
+@media (max-width: 880px) {
+  /* Playbar: drop the section title (and caption) so the Back arrow is never
+     covered; the step count is enough orientation in the bar. */
+  html.anniv-tour-on .anniv-tour-title,
+  html.anniv-tour-on .anniv-tour-caption { display: none !important; }
+  html.anniv-tour-on .anniv-tour-info { flex: 0 0 auto; }
+  html.anniv-tour-on .anniv-tour-nav { margin-left: auto; }
+
+  /* Timeline year cards: use the full width (the 56px dot gutter + right joins
+     gutter squeezed longer years off the card). */
+  html.anniv-tour-spot .anniv-tl-item.is-tour-spot {
+    padding-left: 1.2rem !important;
+    padding-right: 1.2rem !important;
+  }
+  html.anniv-tour-spot .anniv-tl-item.is-tour-spot .anniv-tl-dot { display: none; }
+
+  /* Service + teammate steps float to center as opaque cards, like the client
+     quotes (the wide subway map and the in-grid member tiles don't frame in
+     portrait). */
+  html.anniv-tour-spot .anniv-evo-row.is-tour-spot,
+  html.anniv-tour-spot .anniv-member.is-tour-spot {
+    position: fixed !important; left: 50%; top: 44%;
+    transform: translate(-50%, -50%) !important;
+    width: min(440px, 91vw); max-height: 74vh; overflow-y: auto;
+    z-index: 850; border-radius: 18px;
+    box-shadow: 0 40px 100px rgba(0, 0, 0, 0.6), 0 0 0 1px rgba(255, 255, 255, 0.06);
+  }
+  /* teammate card: centered photo, name, role */
+  html.anniv-tour-spot .anniv-member.is-tour-spot {
+    background: var(--bg-primary) !important;
+    color: var(--text-primary);
+    text-align: center;
+    padding: 1.5rem 1.4rem 1.7rem;
+  }
+  html.anniv-tour-spot .anniv-member.is-tour-spot .anniv-member-frame { margin: 0 auto 1rem; }
+  html.anniv-tour-spot .anniv-member.is-tour-spot .anniv-member-cta { display: none; }
+  html.anniv-tour-spot .anniv-member.is-tour-spot .anniv-member-info { align-items: center; }
+}

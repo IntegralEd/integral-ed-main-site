@@ -881,7 +881,9 @@
           brk('Each year, a new thing we could do', 'Every capability we added so we could do more for you.');
           Array.prototype.forEach.call(rows, function (row) {
             push({
-              el: mapVisible ? evoMap : row, section: evoSection, kind: 'service',
+              // On mobile the wide subway map doesn't frame in portrait, so
+              // spotlight the legend ROW and float it as a centered card instead.
+              el: (mapVisible && !isMobileTour()) ? evoMap : row, section: evoSection, kind: 'service',
               title: txt(row, '.anniv-evo-stage') || 'Capability',
               caption: txt(row, '.anniv-evo-what') || txt(row, '.anniv-evo-tagline'),
               evoId: row.getAttribute('data-evo-id') || null,
@@ -906,11 +908,20 @@
         }
       }
 
-      // Team (a single scrollable carousel step)
+      // Team: on mobile, page through one teammate at a time as centered cards
+      // (on desktop the grid reads fine as a single scroll step).
       var teamEl = document.getElementById('team');
       if (teamEl) {
         brk('The people behind the work', "The team you've worked with.");
-        push({ el: teamEl, section: teamEl, kind: 'section', title: 'The Team', caption: 'Scroll through everyone.' });
+        var teamMembers = teamEl.querySelectorAll('.anniv-member');
+        if (teamMembers.length && isMobileTour()) {
+          Array.prototype.forEach.call(teamMembers, function (m) {
+            push({ el: m, section: teamEl, kind: 'teammate',
+              title: txt(m, '.anniv-member-name') || 'Teammate', caption: txt(m, '.anniv-member-role') });
+          });
+        } else {
+          push({ el: teamEl, section: teamEl, kind: 'section', title: 'The Team', caption: 'Scroll through everyone.' });
+        }
       }
 
       // Clients: a step per testimonial, quote shown large
@@ -1055,7 +1066,7 @@
       document.documentElement.classList.toggle('anniv-tour-spot', step.kind !== 'section');
       if (step.section) step.section.classList.add('is-tour-focus');
       if (step.el !== step.section) step.el.classList.add('is-tour-spot');
-      if (step.evoId) {
+      if (step.evoId && !isMobileTour()) {
         Array.prototype.forEach.call(document.querySelectorAll('[data-evo-id="' + step.evoId + '"]'),
           function (n) { n.classList.add('is-spotlit'); });
         var wrap = document.querySelector('.anniv-subway-wrap');
@@ -1093,7 +1104,11 @@
       }
       spotlight(step);
       // finale, break, and client cards are fixed/centered overlays: no scroll
-      if (step.kind !== 'finale' && step.kind !== 'break' && step.kind !== 'client') {
+      // Centered-card steps (overlays) don't scroll. On mobile, service and
+      // teammate steps join the client cards as centered overlays.
+      var centeredCard = step.kind === 'finale' || step.kind === 'break' || step.kind === 'client'
+        || step.kind === 'teammate' || (step.kind === 'service' && isMobileTour());
+      if (!centeredCard) {
         if (isMobileTour() && step.kind !== 'section') {
           // Center the focused piece in the stage ABOVE the playbar (nav + rail
           // are hidden on mobile during the tour), not the naive viewport center,
