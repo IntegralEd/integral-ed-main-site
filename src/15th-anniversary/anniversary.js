@@ -1047,7 +1047,14 @@
     var btnPrev = bar.querySelector('.anniv-tour-prev');
     var btnNext = bar.querySelector('.anniv-tour-next');
 
+    var relocatedCard = null;
     function clearSpot() {
+      // Put any lifted-to-body card back where it came from.
+      if (relocatedCard) {
+        var rc = relocatedCard; relocatedCard = null;
+        if (rc.next && rc.next.parentNode === rc.parent) rc.parent.insertBefore(rc.el, rc.next);
+        else rc.parent.appendChild(rc.el);
+      }
       Array.prototype.forEach.call(document.querySelectorAll('.is-tour-spot'),
         function (n) { n.classList.remove('is-tour-spot'); });
       Array.prototype.forEach.call(document.querySelectorAll('.anniv-main > section.is-tour-focus'),
@@ -1066,6 +1073,13 @@
       document.documentElement.classList.toggle('anniv-tour-spot', step.kind !== 'section');
       if (step.section) step.section.classList.add('is-tour-focus');
       if (step.el !== step.section) step.el.classList.add('is-tour-spot');
+      // Teammate cards live inside the horizontal scroll carousel; iOS Safari
+      // clips position:fixed descendants of a scroll container, masking the
+      // centered card. Lift it out to <body> while spotlit (restored above).
+      if (step.kind === 'teammate' && step.el.parentNode && step.el.parentNode !== document.body) {
+        relocatedCard = { el: step.el, parent: step.el.parentNode, next: step.el.nextSibling };
+        document.body.appendChild(step.el);
+      }
       if (step.evoId && !isMobileTour()) {
         Array.prototype.forEach.call(document.querySelectorAll('[data-evo-id="' + step.evoId + '"]'),
           function (n) { n.classList.add('is-spotlit'); });
