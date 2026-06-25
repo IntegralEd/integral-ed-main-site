@@ -1101,7 +1101,10 @@
       elCap.textContent   = s.caption || '';
       btnPrev.disabled    = (idx === 0);
       // finale + section-break cards carry their own forward actions
-      var ownActions = (s.kind === 'finale' || s.kind === 'break');
+      // Only the finale hides the bar's Next (it has its own CTAs). Section
+      // breaks KEEP the bar Next visible so you can click straight through
+      // without reaching up to the centered break card.
+      var ownActions = (s.kind === 'finale');
       btnNext.style.display = ownActions ? 'none' : '';
       btnNext.textContent = (idx === STEPS.length - 1) ? 'Finish' : 'Next →';
     }
@@ -1136,8 +1139,14 @@
             catch (e) { window.scrollTo(0, Math.max(0, target)); }
           });
         } else {
-          var block = (step.kind === 'section') ? 'start' : 'center';
-          try { step.el.scrollIntoView({ behavior: reduce ? 'auto' : 'smooth', block: block }); } catch (e) {}
+          // Section steps land at their top; but if the section holds the team
+          // gallery, center THAT so it isn't cut off under the bar.
+          var tgt = step.el, blk = (step.kind === 'section') ? 'start' : 'center';
+          if (step.kind === 'section' && step.section) {
+            var gallery = step.section.querySelector('.anniv-team-stage');
+            if (gallery) { tgt = gallery; blk = 'center'; }
+          }
+          try { tgt.scrollIntoView({ behavior: reduce ? 'auto' : 'smooth', block: blk }); } catch (e) {}
         }
       }
       render();
