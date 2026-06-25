@@ -596,9 +596,10 @@ window.ANNIVERSARY_DATA = {
       svc: "career",
       summary: "Career Ikigai is a chat-based learning experience that guides users through a structured interview to surface interests, strengths, and goals. The system synthesizes responses into personalized pathways, actionable next steps, and a formatted slide output that can be edited and shared with advisors or mentors. Designed for use in counseling, advising, and workforce programs, it can connect to localized job market data and support cohort-level insights through shared outputs and dashboards.",
       // Embed the live app itself (the wider/taller demo-modal sizing now gives
-      // it room). The cover image stays as a fallback; embedUrl takes priority.
-      // If career-ikigai.org ever blocks framing, drop a dedicated embed URL here.
-      image: "/assets/images/anniversary/career-ikigai-cover.png",
+      // it room). The thumbnail is the card preview + embed fallback; embedUrl
+      // takes priority. If career-ikigai.org ever blocks framing, drop a
+      // dedicated embed URL here.
+      image: "/assets/images/anniversary/CareerIkigaiThumbnail.png",
       embedUrl: "https://career-ikigai.org/",
       videoUrl: "",
       link: "https://career-ikigai.org/",
