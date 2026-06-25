@@ -1,6 +1,17 @@
 const fs = require('fs');
 const path = require('path');
 const { loadTeam, syncPhotos, renderTeamCards, renderTeamModals, renderStandalone } = require('./build-team');
+const crypto = require('crypto');
+
+// Content-hash a file for cache-busting (the URL changes only when the file
+// changes), so phones never serve a stale anniversary CSS/JS after a deploy.
+function assetHash(p) {
+  try { return crypto.createHash('sha1').update(fs.readFileSync(p)).digest('hex').slice(0, 8); }
+  catch (e) { return ''; }
+}
+const ANNIV_CSS_VER  = assetHash('src/15th-anniversary/anniversary.css');
+const ANNIV_JS_VER   = assetHash('src/15th-anniversary/anniversary.js');
+const ANNIV_DATA_VER = assetHash('src/15th-anniversary/data/anniversary-data.js');
 
 function copyRecursive(src, dest) {
   const items = fs.readdirSync(src);
@@ -65,6 +76,11 @@ function processHtml(content, navHtml, footerHtml, analyticsHtml, widgetHtml, si
   } else if (widgetHtml) {
     content = content.replace('</body>', `${widgetHtml}\n</body>`);
   }
+  // Cache-bust the anniversary assets (only this page references them) so a
+  // deploy is picked up without a manual hard refresh.
+  if (ANNIV_CSS_VER)  content = content.replace('/15th-anniversary/anniversary.css"', `/15th-anniversary/anniversary.css?v=${ANNIV_CSS_VER}"`);
+  if (ANNIV_JS_VER)   content = content.replace('/15th-anniversary/anniversary.js"', `/15th-anniversary/anniversary.js?v=${ANNIV_JS_VER}"`);
+  if (ANNIV_DATA_VER) content = content.replace('/15th-anniversary/data/anniversary-data.js"', `/15th-anniversary/data/anniversary-data.js?v=${ANNIV_DATA_VER}"`);
   return content;
 }
 

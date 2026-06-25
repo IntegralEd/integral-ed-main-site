@@ -1488,9 +1488,12 @@ html.anniv-tour-spot .anniv-evo-row.is-tour-spot {
      portrait). */
   html.anniv-tour-spot .anniv-evo-row.is-tour-spot,
   html.anniv-tour-spot .anniv-member.is-tour-spot {
-    position: fixed !important; left: 50%; top: 44%;
+    position: fixed !important; left: 50%;
+    /* center in the stage ABOVE the playbar (shift up ~half the bar), and cap
+       height so the card always clears the bar, even in short landscape. */
+    top: calc(50% - 38px);
     transform: translate(-50%, -50%) !important;
-    width: min(440px, 91vw); max-height: 74vh; overflow-y: auto;
+    width: min(440px, 91vw); max-height: calc(100vh - 128px); overflow-y: auto;
     z-index: 850; border-radius: 18px;
     box-shadow: 0 40px 100px rgba(0, 0, 0, 0.6), 0 0 0 1px rgba(255, 255, 255, 0.06);
   }
