@@ -1507,4 +1507,34 @@ html.anniv-tour-spot .anniv-evo-row.is-tour-spot {
   html.anniv-tour-spot .anniv-member.is-tour-spot .anniv-member-frame { margin: 0 auto 1rem; }
   html.anniv-tour-spot .anniv-member.is-tour-spot .anniv-member-cta { display: none; }
   html.anniv-tour-spot .anniv-member.is-tour-spot .anniv-member-info { align-items: center; }
+
+  /* Work/project steps also float to center as a card (they were spotlit
+     in-place, so they overflowed and read as masked). Cap the image so the
+     title + text fit. */
+  html.anniv-tour-spot .anniv-project.is-tour-spot {
+    position: fixed !important; left: 50%; top: calc(50% - 38px);
+    transform: translate(-50%, -50%) !important;
+    width: min(460px, 92vw); max-height: calc(100vh - 128px); overflow-y: auto;
+    z-index: 850;
+  }
+  html.anniv-tour-spot .anniv-project.is-tour-spot .anniv-project-media img {
+    max-height: 38vh; object-fit: cover;
+  }
+}
+
+/* Landscape phones are short and wide: give the centered cards more width so
+   their content fits without a long internal scroll. */
+@media (max-width: 880px) and (orientation: landscape) {
+  html.anniv-tour-spot .anniv-project.is-tour-spot,
+  html.anniv-tour-spot .anniv-evo-row.is-tour-spot,
+  html.anniv-tour-spot .anniv-member.is-tour-spot {
+    width: min(700px, 94vw);
+  }
+  html.anniv-tour-spot .anniv-project.is-tour-spot .anniv-project-media img { max-height: 30vh; }
+  /* teammate: photo beside the name/role instead of stacked, to fit the height */
+  html.anniv-tour-spot .anniv-member.is-tour-spot {
+    display: flex; align-items: center; gap: 1.2rem; text-align: left;
+  }
+  html.anniv-tour-spot .anniv-member.is-tour-spot .anniv-member-frame { margin: 0; flex: 0 0 auto; }
+  html.anniv-tour-spot .anniv-member.is-tour-spot .anniv-member-info { align-items: flex-start; }
 }

@@ -1107,7 +1107,8 @@
       // Centered-card steps (overlays) don't scroll. On mobile, service and
       // teammate steps join the client cards as centered overlays.
       var centeredCard = step.kind === 'finale' || step.kind === 'break' || step.kind === 'client'
-        || step.kind === 'teammate' || (step.kind === 'service' && isMobileTour());
+        || step.kind === 'teammate'
+        || ((step.kind === 'service' || step.kind === 'work') && isMobileTour());
       if (!centeredCard) {
         if (isMobileTour() && step.kind !== 'section') {
           // Center the focused piece in the stage ABOVE the playbar (nav + rail
