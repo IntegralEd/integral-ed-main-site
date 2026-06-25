@@ -2,6 +2,24 @@
   command = "npm run build"
   publish = "dist"
 
+# ── /join-our-team/ → careers app (302 temporary, forced) ───────────────────
+# The careers listing now lives in the integral-talent repo and renders open
+# roles dynamically from its positions feed. The main site only redirects; it
+# stores no applicant data and runs no feed fetch. force = true so the redirect
+# wins even if a stale static page is ever republished. Switch to 301 once the
+# careers home settles.
+[[redirects]]
+  from = "/join-our-team"
+  to   = "https://integral-careers.netlify.app/join-our-team/"
+  status = 302
+  force  = true
+
+[[redirects]]
+  from = "/join-our-team/"
+  to   = "https://integral-careers.netlify.app/join-our-team/"
+  status = 302
+  force  = true
+
 # ── /practice-areas/ → /services/ redirects (301 permanent) ─────────────────
 # Covers old URLs from pre-March-2026 site and any inbound microsite links.
 # Legacy slug variants (elearning-and-blended-learning etc.) redirect to the
