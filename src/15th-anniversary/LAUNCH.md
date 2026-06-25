@@ -9,7 +9,7 @@ GA4 setup and the promotion. Boxes below are the open items.
 
 ---
 
-## A. Pre-launch (engineering) — essentially done
+## A. Pre-launch (engineering): essentially done
 
 - [x] Password gate removed
 - [x] Preview feedback pill removed (JS + CSS)
@@ -54,9 +54,9 @@ form's submit event as a key event too. If the form doesn't emit one, add a
 
 ### Optional, makes the data far more useful
 - **Custom dimensions** (Admin > Custom definitions > Create, event-scoped) for the params the events carry, so you can break results down:
-  - `section` (on join/skip/project events) — where on the page they acted
-  - `source` (on `anniv_schedule_click`) — which CTA
-  - `item` (on `anniv_project_open`) — which work sample drew interest
+  - `section` (on join/skip/project events): where on the page they acted
+  - `source` (on `anniv_schedule_click`): which CTA
+  - `item` (on `anniv_project_open`): which work sample drew interest
 - **Funnel exploration** (Explore > Funnel): `page_view` to `anniv_tour_start` to `anniv_tour_finish` to `anniv_tour_schedule`. Shows where people drop.
 - **Traffic by channel:** make sure every promoted link carries UTMs (see section D) so GA4 attributes sessions to LinkedIn / email / ConstantContact.
 
