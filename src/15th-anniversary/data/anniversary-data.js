@@ -337,7 +337,7 @@ window.ANNIVERSARY_DATA = {
       // Silver, not blue: the founding analytics stream isn't one of today's
       // six service areas, and blue now belongs to Growth Strategy &
       // Marketing so the map matches the timeline + services palette.
-      stage: "Data & analysis",
+      stage: "Data Analysis",
       tagline: "One person, one laptop.",
       whatWeCouldDo: "Turn messy data from multiple sources into actionable insights and data-driven storytelling.",
       proof: "The founding service: analytics for mission-driven education orgs.",
@@ -346,7 +346,7 @@ window.ANNIVERSARY_DATA = {
     {
       id: "curriculum",
       year: 2014,
-      stage: "Curriculum & facilitation",
+      stage: "Curriculum",
       tagline: "Slides, guides, facilitator kits.",
       whatWeCouldDo: "Design the curriculum and facilitator materials partners teach from.",
       proof: "Ava Millstone joins to lead curriculum and learning design.",
@@ -355,7 +355,7 @@ window.ANNIVERSARY_DATA = {
     {
       id: "media",
       year: 2017,
-      stage: "Media & print",
+      stage: "Print and Media",
       tagline: "Design, video, print media.",
       whatWeCouldDo: "Bring design, motion, and print-media craft to every learning experience.",
       proof: "Creative Director Asha Kelly joins; Michaela Bradley later builds out in-house media production.",
@@ -364,7 +364,7 @@ window.ANNIVERSARY_DATA = {
     {
       id: "elearning",
       year: 2019,
-      stage: "eLearning & STEM",
+      stage: "eLearning",
       tagline: "Interactive, blended, at scale.",
       whatWeCouldDo: "Build interactive, self-paced modules, including STEM-specialized experiences, that scale beyond the room.",
       proof: "Nadia Zaid joins for our first eLearning build with Early Learning Indiana; Cara Johnson grows our STEM specialization with Nano.",
@@ -373,7 +373,7 @@ window.ANNIVERSARY_DATA = {
     {
       id: "agentic",
       year: 2023,
-      stage: "Chat interactions and AI-powered feedback",
+      stage: "AI-powered Feedback",
       tagline: "Chat-based interviews, AI-assisted learning.",
       whatWeCouldDo: "Add chat-based interviews and AI-powered feedback so learning responds in real time and tailors to each learner.",
       proof: "Career Ikigai personalized pathway tool; the StriveTogether CI Toolkit later launches with an AI-powered chatbot.",
@@ -382,7 +382,7 @@ window.ANNIVERSARY_DATA = {
     {
       id: "growth",
       year: 2023,
-      stage: "Growth strategy & marketing",
+      stage: "Marketing & Growth Strategy",
       tagline: "Market plans, partnerships, front-of-funnel.",
       whatWeCouldDo: "Help clients plan and execute growth: marketing plans, sales and partnership team design, and go-to-market strategy for districts and LEAs.",
       proof: "Diane Takata Powell joins, anchoring the practice behind our Growth Strategy & Marketing service area.",
@@ -391,7 +391,7 @@ window.ANNIVERSARY_DATA = {
     {
       id: "apps",
       year: 2024,
-      stage: "Apps & custom platforms",
+      stage: "Custom Platforms",
       tagline: "Dashboards, custom LMS, AI-powered feedback.",
       whatWeCouldDo: "Design custom apps, data dashboards, and bespoke LMS builds, with AI-powered feedback wrapped around the learning.",
       proof: "App design for data dashboards, custom LMS, and AI-powered feedback join the toolkit.",
@@ -400,7 +400,7 @@ window.ANNIVERSARY_DATA = {
     {
       id: "techCapacity",
       year: 2025,
-      stage: "Technical Assistance and Storytelling",
+      stage: "Technical Assistance & Comms",
       tagline: "TA, design systems, and narrative for the field.",
       whatWeCouldDo: "Pair technical assistance with brand-grade storytelling: design systems, branded portals, print + web ecosystems, and field-facing publications that turn subject matter expertise into shareable practice.",
       proof: "The Baltimore Healthy Babies hub: subject matter expert interviews synthesized into seven branded publications + a content portal integrated into BHB's site.",
