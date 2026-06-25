@@ -1080,6 +1080,9 @@
       btnNext.style.display = ownActions ? 'none' : '';
       btnNext.textContent = (idx === STEPS.length - 1) ? 'Finish' : 'Next →';
     }
+    function isMobileTour() {
+      return !!(window.matchMedia && window.matchMedia('(max-width: 880px)').matches);
+    }
     function go(i) {
       idx = Math.max(0, Math.min(STEPS.length - 1, i));
       var step = STEPS[idx];
@@ -1091,8 +1094,21 @@
       spotlight(step);
       // finale, break, and client cards are fixed/centered overlays: no scroll
       if (step.kind !== 'finale' && step.kind !== 'break' && step.kind !== 'client') {
-        var block = (step.kind === 'section') ? 'start' : 'center';
-        try { step.el.scrollIntoView({ behavior: reduce ? 'auto' : 'smooth', block: block }); } catch (e) {}
+        if (isMobileTour() && step.kind !== 'section') {
+          // Center the focused piece in the stage ABOVE the playbar (nav + rail
+          // are hidden on mobile during the tour), not the naive viewport center,
+          // which would tuck it behind the bar.
+          requestAnimationFrame(function () {
+            var barH = bar ? bar.offsetHeight : 84;
+            var r = step.el.getBoundingClientRect();
+            var target = window.pageYOffset + r.top + r.height / 2 - (window.innerHeight - barH) / 2;
+            try { window.scrollTo({ top: Math.max(0, target), behavior: reduce ? 'auto' : 'smooth' }); }
+            catch (e) { window.scrollTo(0, Math.max(0, target)); }
+          });
+        } else {
+          var block = (step.kind === 'section') ? 'start' : 'center';
+          try { step.el.scrollIntoView({ behavior: reduce ? 'auto' : 'smooth', block: block }); } catch (e) {}
+        }
       }
       render();
       if (step.kind === 'finale') { track('anniv_tour_finish', {}); fireConfetti(finaleEl); }
@@ -1134,12 +1150,19 @@
       else if (act === 'exit') stop();
     });
 
+    // Shared links point at the naked page URL (no #section / ?mode=tour) so the
+    // recipient lands on the welcome, plus a ?ref=share token so GA4 can
+    // attribute the traffic.
+    function shareUrl() {
+      try { return window.location.origin + window.location.pathname + '?ref=share'; }
+      catch (e) { return window.location.href; }
+    }
     // "Spread the word": copy the link and show a well-defined confirmation
     // (with an email option), instead of the native share sheet, which on
     // desktop is an unpredictable OS panel.
     function shareTour(btn) {
       track('anniv_tour_share', {});
-      var url = window.location.href;
+      var url = shareUrl();
       if (navigator.clipboard && navigator.clipboard.writeText) {
         navigator.clipboard.writeText(url).then(
           function () { openSharePop(btn, url, false); },
@@ -1200,7 +1223,7 @@
     // forward to a colleague, pre-composed with the tour link.
     function referIntro() {
       track('anniv_tour_refer', {});
-      var url = window.location.href;
+      var url = shareUrl();
       var subject = 'Thought you might find this useful';
       var body = "I've partnered with Integral Ed and thought of you. Here's a look at their work over the last fifteen years:\n\n" + url + "\n";
       window.location.href = 'mailto:?subject=' + encodeURIComponent(subject) + '&body=' + encodeURIComponent(body);
@@ -1236,6 +1259,19 @@
       if (e.key === 'Escape') stop();
       else if (e.key === 'ArrowRight') { e.preventDefault(); idx === STEPS.length - 1 ? stop() : go(idx + 1); }
       else if (e.key === 'ArrowLeft')  { e.preventDefault(); go(idx - 1); }
+    });
+
+    // Objectives slide: ticking a checkbox pulses the Next button so it's clear
+    // those checks aren't the way forward (they confused some users).
+    var pulseT;
+    document.addEventListener('change', function (e) {
+      if (!on) return;
+      var t = e.target;
+      if (t && t.classList && t.classList.contains('anniv-check-input') && t.checked) {
+        btnNext.classList.add('anniv-tour-next--pulse');
+        clearTimeout(pulseT);
+        pulseT = setTimeout(function () { btnNext.classList.remove('anniv-tour-next--pulse'); }, 2600);
+      }
     });
 
     var startBtn = $('anniv-tour-start');

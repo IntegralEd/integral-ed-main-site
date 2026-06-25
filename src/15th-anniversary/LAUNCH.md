@@ -93,7 +93,7 @@ network/prospects, (4) talent.
 
 **ConstantContact (designed campaign)**
 - [ ] Hero = the share image. Headline "We're here thanks to you." ONE primary CTA ("Take the tour").
-- [ ] A/B the subject line ("Fifteen years, thanks to you" vs "A look back, and what's next").
+- [ ] A/B the subject line. Candidates: "Look who's been around for 15 years now!" (playful) / "Fifteen years, thanks to you" (gratitude) / "A look back, and what's next" (forward-looking).
 - [ ] Send Tue to Thu morning. Tag the segment; watch open/click.
 
 **UTMs (so GA4 can attribute):** add to every promoted link:

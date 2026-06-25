@@ -1167,7 +1167,10 @@ html.anniv-tour-spot .anniv-tour-backdrop { opacity: 1; }
 /* the focused piece: raised above the backdrop, scaled, elevated like a card */
 .is-tour-spot {
   position: relative; z-index: 850;
-  transition: transform 0.4s cubic-bezier(.2,.85,.25,1), box-shadow 0.4s ease, background 0.4s ease;
+  /* NB: background is intentionally NOT transitioned. Fading it in from
+     transparent flashed the dark backdrop through the card (the "black mask"),
+     worst on mobile where the card fills the screen. Snap it opaque instead. */
+  transition: transform 0.4s cubic-bezier(.2,.85,.25,1), box-shadow 0.4s ease;
 }
 .anniv-tl-item.is-tour-spot,
 .anniv-project.is-tour-spot,
@@ -1422,3 +1425,43 @@ html.anniv-tour-spot .anniv-client-card.is-tour-spot .anniv-client-story { displ
 }
 .anniv-share-pop-email:hover { text-decoration: underline; }
 .anniv-share-pop-email:focus-visible { outline: 2px solid var(--color-plum); outline-offset: 2px; }
+
+/* ── Objectives slide: pulse Next when a checkbox is ticked ───────────────────
+   The checkboxes confused some users into thinking they were the way forward;
+   ticking one now pulses the bar's Next button to point them on. */
+@keyframes anniv-next-pulse {
+  0%   { box-shadow: 0 0 0 0 rgba(255, 188, 80, 0.6); }
+  70%  { box-shadow: 0 0 0 13px rgba(255, 188, 80, 0); }
+  100% { box-shadow: 0 0 0 0 rgba(255, 188, 80, 0); }
+}
+.anniv-tour-next--pulse { animation: anniv-next-pulse 0.9s ease-out 3; }
+@media (prefers-reduced-motion: reduce) {
+  .anniv-tour-next--pulse { animation: none; box-shadow: 0 0 0 3px rgba(255, 188, 80, 0.6); }
+}
+
+/* ── Frameless mobile tour ────────────────────────────────────────────────────
+   On phones the tour becomes a full-screen takeover: hide the global site nav
+   and the page's section rail so the spotlight stage uses the whole height
+   (the JS centers each step in the space above the playbar). Both return on
+   exit because the rules only apply while .anniv-tour-on is set. */
+@media (max-width: 880px) {
+  html.anniv-tour-on .navbar { display: none !important; }
+  html.anniv-tour-on .anniv-rail { display: none !important; }
+  html.anniv-tour-on { --nav-offset: 8px; }
+  /* let the focused piece breathe and never collide with the bottom bar */
+  html.anniv-tour-on.anniv-tour-spot .anniv-main { padding-bottom: 96px; }
+}
+
+/* ── Fix tour "black masking" ─────────────────────────────────────────────────
+   On item steps the focused card MUST stay opaque against the dimmed backdrop,
+   or it reads as a solid black hole. A higher-priority paint (reveal state /
+   animation) was pinning these backgrounds transparent, so force them: a white
+   card on light sections (timeline / projects), an opaque tinted card on the
+   dark evolution rows so their light text still reads. */
+html.anniv-tour-spot .anniv-tl-item.is-tour-spot,
+html.anniv-tour-spot .anniv-project.is-tour-spot {
+  background: var(--bg-primary, #fff) !important;
+}
+html.anniv-tour-spot .anniv-evo-row.is-tour-spot {
+  background: color-mix(in srgb, var(--evo-c) 30%, #160510) !important;
+}
