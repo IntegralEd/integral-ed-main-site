@@ -1582,10 +1582,18 @@ html.anniv-tour-spot .anniv-evo-row.is-tour-spot {
     width: min(700px, 94vw);
   }
   html.anniv-tour-spot .anniv-project.is-tour-spot .anniv-project-media img { max-height: 30vh; }
-  /* teammate: photo beside the name/role instead of stacked, to fit the height */
+  /* teammate: small square photo BESIDE the name/role (stacked would overflow
+     the short landscape height). Constrain the photo or it fills the card. */
   html.anniv-tour-spot .anniv-member.is-tour-spot {
-    display: flex; align-items: center; gap: 1.2rem; text-align: left;
+    display: flex; align-items: center; gap: 1.3rem; text-align: left;
+    padding: 1.1rem 1.3rem;
   }
-  html.anniv-tour-spot .anniv-member.is-tour-spot .anniv-member-frame { margin: 0; flex: 0 0 auto; }
-  html.anniv-tour-spot .anniv-member.is-tour-spot .anniv-member-info { align-items: flex-start; }
+  html.anniv-tour-spot .anniv-member.is-tour-spot .anniv-member-frame {
+    margin: 0; flex: 0 0 auto;
+    width: clamp(120px, 42vh, 190px); height: clamp(120px, 42vh, 190px);
+    aspect-ratio: 1 / 1; border-radius: var(--radius-md);
+  }
+  html.anniv-tour-spot .anniv-member.is-tour-spot .anniv-member-info { align-items: flex-start; padding: 0; }
+  html.anniv-tour-spot .anniv-member.is-tour-spot .anniv-member-name { font-size: 1.4rem; }
+  html.anniv-tour-spot .anniv-member.is-tour-spot .anniv-member-role { display: block; color: var(--text-secondary); font-size: 0.95rem; margin-top: 0.2rem; }
 }
