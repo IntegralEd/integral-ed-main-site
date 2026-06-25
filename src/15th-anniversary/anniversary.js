@@ -864,8 +864,18 @@
         if (years.length) {
           brk('How it started, and how it grew', "The story you've been part of, one turning point at a time.");
           Array.prototype.forEach.call(years, function (el) {
-            push({ el: el, section: historyEl, kind: 'year',
-              title: txt(el, '.anniv-tl-year') || 'History', caption: txt(el, '.anniv-tl-title') });
+            var evs = el.querySelectorAll('.anniv-tl-event');
+            if (evs.length > 1) {
+              // A year that added more than one capability splits into a card
+              // per service, so each new service gets its own focused slide.
+              Array.prototype.forEach.call(evs, function (ev) {
+                push({ el: el, section: historyEl, kind: 'year', eventEl: ev,
+                  title: txt(el, '.anniv-tl-year') || 'History', caption: txt(ev, '.anniv-tl-event-theme') });
+              });
+            } else {
+              push({ el: el, section: historyEl, kind: 'year',
+                title: txt(el, '.anniv-tl-year') || 'History', caption: txt(el, '.anniv-tl-title') });
+            }
           });
         }
       }
@@ -1061,6 +1071,10 @@
         function (n) { n.classList.remove('is-tour-focus'); });
       Array.prototype.forEach.call(document.querySelectorAll('.anniv-subway-line.is-spotlit, .anniv-evo-row.is-spotlit'),
         function (n) { n.classList.remove('is-spotlit'); });
+      Array.prototype.forEach.call(document.querySelectorAll('.anniv-tl-item.is-tour-split'),
+        function (n) { n.classList.remove('is-tour-split'); });
+      Array.prototype.forEach.call(document.querySelectorAll('.anniv-tl-event.is-tour-event'),
+        function (n) { n.classList.remove('is-tour-event'); });
     }
     function spotlight(step) {
       clearSpot();
@@ -1073,6 +1087,11 @@
       document.documentElement.classList.toggle('anniv-tour-spot', step.kind !== 'section');
       if (step.section) step.section.classList.add('is-tour-focus');
       if (step.el !== step.section) step.el.classList.add('is-tour-spot');
+      // Multi-service year: show only this service's strand on the card.
+      if (step.eventEl) {
+        step.el.classList.add('is-tour-split');
+        step.eventEl.classList.add('is-tour-event');
+      }
       // Teammate cards live inside the horizontal scroll carousel; iOS Safari
       // clips position:fixed descendants of a scroll container, masking the
       // centered card. Lift it out to <body> while spotlit (restored above).
