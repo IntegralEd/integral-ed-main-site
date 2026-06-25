@@ -450,79 +450,8 @@
   .anniv-tl-item > .anniv-tl-joins .anniv-tl-join-name::after { content: none; }
 }
 
-/* ── Per-section feedback pills (PREVIEW ONLY; see setupFeedbackPill) ────
-   NextGenSW pill-comment pattern. DELIBERATELY GARISH (lime, flips to hot
-   magenta on hover) so reviewers never mistake it for final UI; it pulses
-   to draw the eye and expands on hover to spell out the instruction. The
-   whole block is removed when the page goes public. One pill per
-   section[id], bottom-right inside the section. Hidden behind the gate. */
+/* Sections are positioning contexts (for tour spotlights, glow blobs, etc.) */
 .anniv-main section[id] { position: relative; }
-.anniv-feedback-sec {
-  position: absolute;
-  bottom: 14px;
-  right: 14px;
-  z-index: 20;
-  display: inline-flex;
-  align-items: center;
-  gap: 0.45rem;
-  padding: 0.6rem 1rem;
-  background: #c6ff00;                 /* garish lime: clearly preview-only */
-  color: #18112b;
-  border: 2px solid #18112b;
-  border-radius: 999px;
-  font-family: var(--font-display);
-  font-size: 0.82rem;
-  font-weight: 800;
-  line-height: 1;
-  letter-spacing: 0.01em;
-  cursor: pointer;
-  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.3);
-  opacity: 0.96;
-  transition: background var(--transition-fast), color var(--transition-fast),
-              border-color var(--transition-fast), transform 80ms ease,
-              box-shadow var(--transition-fast), opacity var(--transition-fast);
-  animation: anniv-fb-pulse 2.2s ease-in-out infinite;
-}
-@keyframes anniv-fb-pulse {
-  0%, 100% { box-shadow: 0 4px 14px rgba(0,0,0,0.3), 0 0 0 0 rgba(198,255,0,0.6); }
-  50%      { box-shadow: 0 4px 14px rgba(0,0,0,0.3), 0 0 0 9px rgba(198,255,0,0); }
-}
-.anniv-feedback-sec:hover {
-  opacity: 1;
-  background: #ff2d95;                 /* flips to hot magenta on hover */
-  color: #fff;
-  border-color: #fff;
-  transform: translateY(-2px) scale(1.04);
-  box-shadow: 0 8px 22px rgba(255, 45, 149, 0.45);
-  animation: none;
-}
-.anniv-feedback-sec:active { transform: translateY(0) scale(1); }
-.anniv-feedback-sec:focus-visible { outline: 3px solid #ffbc50; outline-offset: 3px; opacity: 1; animation: none; }
-.anniv-feedback-sec-label { white-space: nowrap; }
-/* Hover-expand: hide the short "Feedback" label, slide in the instruction.
-   The pill is anchored to the right, so it grows leftward and never clips
-   the viewport edge. */
-.anniv-feedback-sec-hint {
-  max-width: 0;
-  overflow: hidden;
-  white-space: nowrap;
-  opacity: 0;
-  transition: max-width 0.3s ease, opacity 0.2s ease;
-}
-.anniv-feedback-sec:hover .anniv-feedback-sec-label,
-.anniv-feedback-sec:focus-visible .anniv-feedback-sec-label { display: none; }
-.anniv-feedback-sec:hover .anniv-feedback-sec-hint,
-.anniv-feedback-sec:focus-visible .anniv-feedback-sec-hint { max-width: 24rem; opacity: 1; }
-/* Hidden behind the password gate; gate.js removes .anniv-locked on unlock */
-html.anniv-locked .anniv-feedback-sec { display: none; }
-@media (prefers-reduced-motion: reduce) {
-  .anniv-feedback-sec { animation: none; }
-}
-@media (max-width: 540px) {
-  .anniv-feedback-sec { bottom: 10px; right: 10px; padding: 0.5rem 0.7rem; }
-  /* No hover on touch: keep the icon only, drop both text spans */
-  .anniv-feedback-sec-label, .anniv-feedback-sec-hint { display: none; }
-}
 
 /* ── Confetti burst on "celebrate" timeline entries (2026) ──────────────── */
 .anniv-tl-item--celebrate { position: relative; }
@@ -1201,39 +1130,6 @@ a.anniv-member:hover .anniv-member-cta { opacity: 1; transform: translateY(0); }
   width: 12px; height: 12px; background: #fff; border-right: 1px solid var(--border-light); border-bottom: 1px solid var(--border-light);
 }
 .anniv-name-pop.below::after { bottom: auto; top: -6px; border-right: 0; border-bottom: 0; border-left: 1px solid var(--border-light); border-top: 1px solid var(--border-light); }
-
-/* ── Soft preview password gate ─────────────────────────────────────────── */
-html.anniv-locked, html.anniv-locked body { overflow: hidden; height: 100%; }
-html.anniv-locked .anniv-layout { filter: blur(12px); pointer-events: none; user-select: none; }
-.anniv-gate { display: none; }
-.anniv-gate[hidden] { display: none !important; }
-html.anniv-locked .anniv-gate {
-  display: flex; position: fixed; inset: 0; z-index: 99999;
-  align-items: center; justify-content: center; padding: 1.5rem;
-  background: radial-gradient(130% 130% at 30% 0%, #3a0a40, #1c0420 70%);
-  -webkit-backdrop-filter: blur(4px); backdrop-filter: blur(4px);
-}
-.anniv-gate-card { max-width: 460px; width: 100%; text-align: center; color: #f4eef6; }
-.anniv-gate-mark {
-  font-size: 4.5rem; font-weight: 800; line-height: 1; letter-spacing: -0.02em;
-  background: linear-gradient(120deg, #ffbc50, #b8357b); -webkit-background-clip: text;
-  background-clip: text; -webkit-text-fill-color: transparent; margin-bottom: 0.5rem;
-}
-.anniv-gate-card h1 { font-size: 1.9rem; margin: 0 0 0.6rem; color: #fff; }
-.anniv-gate-card p { color: #c9b6d2; margin: 0 auto 1.4rem; max-width: 38ch; }
-#anniv-gate-form { display: flex; gap: 0.5rem; justify-content: center; flex-wrap: wrap; }
-#anniv-gate-input {
-  flex: 1 1 220px; min-width: 0; padding: 0.8rem 1rem; font-size: 1rem; border-radius: 999px;
-  border: 1px solid rgba(255,255,255,0.25); background: rgba(255,255,255,0.08); color: #fff;
-}
-#anniv-gate-input::placeholder { color: rgba(255,255,255,0.5); }
-#anniv-gate-input:focus { outline: none; border-color: #ffbc50; background: rgba(255,255,255,0.14); }
-#anniv-gate-form button {
-  padding: 0.8rem 1.4rem; font-size: 1rem; font-weight: 700; border: 0; border-radius: 999px;
-  cursor: pointer; color: #1c0420; background: #ffbc50; transition: transform 0.15s ease, filter 0.15s ease;
-}
-#anniv-gate-form button:hover { transform: translateY(-1px); filter: brightness(1.05); }
-.anniv-gate-err { color: #ffbc50 !important; font-weight: 600; margin-top: 1rem !important; }
 
 /* ── Hero "Take the tour" CTA (under the counters) ──────────────────────── */
 .anniv-hero-actions {
