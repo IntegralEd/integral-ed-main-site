@@ -952,12 +952,10 @@
         }
       }
 
-      // Today
-      var todayEl = document.getElementById('today');
-      if (todayEl) {
-        brk('What we do today', 'What we can do for you now.');
-        push({ el: todayEl, section: todayEl, kind: 'section', title: 'Today', caption: 'What we do now, and where to start.' });
-      }
+      // (The "What we do today" section is intentionally skipped in the tour:
+      // those service areas are already paged through as the Evolution service
+      // cards, and the section overview had no real focus. Tour ends on the
+      // finale right after Clients.)
 
       // Finale (no break)
       push({ el: finaleEl, section: null, kind: 'finale',

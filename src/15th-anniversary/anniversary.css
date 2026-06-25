@@ -1339,8 +1339,14 @@ html.anniv-tour-spot .anniv-client-card.is-tour-spot .anniv-client-story { displ
 }
 .anniv-tour-prev { background: rgba(255,255,255,0.12); color: #fff; padding: 0.55rem 0.85rem; }
 .anniv-tour-prev:disabled { opacity: 0.35; cursor: default; }
-.anniv-tour-next { background: var(--accent-yellow); color: #1c0420; }
+.anniv-tour-next { background: var(--accent-yellow); color: #1c0420; position: relative; }
 .anniv-tour-next:hover { transform: translateY(-1px); filter: brightness(1.05); }
+/* Enlarge the Next tap target into the bottom-right corner so a fat-finger
+   tap near the edge still advances instead of hitting the card behind it. */
+.anniv-tour-next::after {
+  content: ""; position: absolute; z-index: 1;
+  top: -0.7rem; left: -0.4rem; right: -2.4rem; bottom: -2.4rem;
+}
 .anniv-tour-prev:not(:disabled):hover { background: rgba(255,255,255,0.2); }
 
 /* Tour finale: a closing CTA card (schedule + share) above the dimmed stage */
