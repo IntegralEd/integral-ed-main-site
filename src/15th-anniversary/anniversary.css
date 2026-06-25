@@ -1356,3 +1356,69 @@ html.anniv-tour-spot .anniv-client-card.is-tour-spot .anniv-client-story { displ
   .anniv-tour-on .anniv-main > section { transition: none; }
   .anniv-tour-start, .anniv-tour-next, .anniv-tour-prev { transition: none; }
 }
+
+/* ── "Spread the word" share popover ─────────────────────────────────────
+   Replaces the unpredictable native share sheet with a well-defined
+   copy-link confirmation (plus an email option). Anchored to the button
+   via fixed positioning set in JS. Reads on both light and dark sections. */
+.anniv-share-pop {
+  position: fixed;
+  z-index: 1000;
+  width: 264px;
+  background: var(--bg-primary);
+  color: var(--text-primary);
+  border: 1px solid var(--border-light);
+  border-radius: var(--radius-md);
+  box-shadow: 0 20px 54px rgba(0, 0, 0, 0.32);
+  padding: 0.95rem 1.05rem 1.05rem;
+  font-family: var(--font-primary);
+  opacity: 0;
+  transform: translateY(6px);
+  transition: opacity 140ms ease, transform 140ms ease;
+  pointer-events: none;
+}
+.anniv-share-pop.is-open { opacity: 1; transform: none; pointer-events: auto; }
+.anniv-share-pop-msg {
+  margin: 0 0 0.3rem;
+  font-size: 0.98rem;
+  font-weight: 800;
+  display: flex;
+  align-items: center;
+  gap: 0.45rem;
+}
+.anniv-share-pop-check {
+  display: inline-flex;
+  width: 1.2rem;
+  height: 1.2rem;
+  flex: 0 0 auto;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  background: var(--color-plum);
+  color: #fff;
+  font-size: 0.72rem;
+}
+.anniv-share-pop-help {
+  margin: 0 0 0.55rem;
+  font-size: 0.85rem;
+  line-height: 1.4;
+  color: var(--text-secondary);
+}
+.anniv-share-pop-url {
+  margin: 0 0 0.7rem;
+  padding: 0.35rem 0.5rem;
+  font-size: 0.72rem;
+  color: var(--text-tertiary);
+  background: var(--bg-tertiary);
+  border-radius: var(--radius-sm, 6px);
+  word-break: break-all;
+  user-select: all;
+}
+.anniv-share-pop-email {
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: var(--color-plum);
+  text-decoration: none;
+}
+.anniv-share-pop-email:hover { text-decoration: underline; }
+.anniv-share-pop-email:focus-visible { outline: 2px solid var(--color-plum); outline-offset: 2px; }

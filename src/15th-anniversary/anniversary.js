@@ -1134,15 +1134,67 @@
       else if (act === 'exit') stop();
     });
 
+    // "Spread the word": copy the link and show a well-defined confirmation
+    // (with an email option), instead of the native share sheet, which on
+    // desktop is an unpredictable OS panel.
     function shareTour(btn) {
       track('anniv_tour_share', {});
       var url = window.location.href;
-      var label = btn ? btn.textContent : '';
-      var flash = function (msg) { if (btn) { btn.textContent = msg; setTimeout(function () { btn.textContent = label; }, 1800); } };
-      if (navigator.share) { navigator.share({ title: document.title, url: url }).catch(function () {}); }
-      else if (navigator.clipboard && navigator.clipboard.writeText) {
-        navigator.clipboard.writeText(url).then(function () { flash('Link copied!'); }, function () { flash('Copy failed'); });
-      } else { flash('Copy: ' + url); }
+      if (navigator.clipboard && navigator.clipboard.writeText) {
+        navigator.clipboard.writeText(url).then(
+          function () { openSharePop(btn, url, false); },
+          function () { openSharePop(btn, url, true); }
+        );
+      } else {
+        openSharePop(btn, url, true);
+      }
+    }
+
+    var sharePop = null, sharePopCloser = null;
+    function closeSharePop() { if (sharePopCloser) sharePopCloser(); }
+    function openSharePop(btn, url, copyFailed) {
+      closeSharePop();
+      if (!sharePop) {
+        sharePop = document.createElement('div');
+        sharePop.className = 'anniv-share-pop';
+        sharePop.setAttribute('role', 'status');
+        sharePop.innerHTML =
+          '<p class="anniv-share-pop-msg"><span class="anniv-share-pop-check" aria-hidden="true">✓</span> <span class="anniv-share-pop-msg-txt"></span></p>' +
+          '<p class="anniv-share-pop-help">Paste it to a colleague who’d find it useful.</p>' +
+          '<p class="anniv-share-pop-url"></p>' +
+          '<a class="anniv-share-pop-email" href="#">Email it to someone &rarr;</a>';
+        document.body.appendChild(sharePop);
+      }
+      sharePop.querySelector('.anniv-share-pop-msg-txt').textContent = copyFailed ? 'Copy this link' : 'Link copied';
+      sharePop.querySelector('.anniv-share-pop-url').textContent = url;
+      var subject = 'Thought you might find this useful';
+      var body = "I've partnered with Integral Ed and thought of you. Here's a look at their work over the last fifteen years:\n\n" + url + "\n";
+      var emailLink = sharePop.querySelector('.anniv-share-pop-email');
+      emailLink.href = 'mailto:?subject=' + encodeURIComponent(subject) + '&body=' + encodeURIComponent(body);
+      emailLink.onclick = function () { track('anniv_tour_refer', {}); closeSharePop(); };
+
+      sharePop.classList.add('is-open');
+      var r = btn.getBoundingClientRect();
+      var w = sharePop.offsetWidth, h = sharePop.offsetHeight;
+      var left = Math.min(window.innerWidth - w - 10, Math.max(10, r.left));
+      var top = (r.bottom + 10 + h > window.innerHeight) ? (r.top - h - 10) : (r.bottom + 10);
+      sharePop.style.left = left + 'px';
+      sharePop.style.top = Math.max(10, top) + 'px';
+
+      var onDoc = function (e) { if (sharePop && !sharePop.contains(e.target) && e.target !== btn) closeSharePop(); };
+      var onKey = function (e) { if (e.key === 'Escape') closeSharePop(); };
+      var timer = setTimeout(closeSharePop, 9000);
+      sharePopCloser = function () {
+        clearTimeout(timer);
+        document.removeEventListener('click', onDoc, true);
+        document.removeEventListener('keydown', onKey, true);
+        if (sharePop) sharePop.classList.remove('is-open');
+        sharePopCloser = null;
+      };
+      setTimeout(function () {
+        document.addEventListener('click', onDoc, true);
+        document.addEventListener('keydown', onKey, true);
+      }, 0);
     }
     // Word-of-mouth is how the studio grew: a one-click warm intro a partner can
     // forward to a colleague, pre-composed with the tour link.
