@@ -1345,7 +1345,22 @@ html.anniv-tour-spot .anniv-client-card.is-tour-spot .anniv-client-story { displ
    tap near the edge still advances instead of hitting the card behind it. */
 .anniv-tour-next::after {
   content: ""; position: absolute; z-index: 1;
-  top: -0.7rem; left: -0.4rem; right: -2.4rem; bottom: -2.4rem;
+  top: -1.2rem; left: -0.5rem; right: -3.5rem; bottom: -3.5rem;
+}
+
+/* Disable double-tap-to-zoom during the tour: rapid Next taps (or a fat-finger
+   miss, especially in landscape) were triggering the browser's double-tap zoom,
+   which is disconcerting. Pinch-zoom and scrolling are unaffected. */
+html.anniv-tour-on,
+html.anniv-tour-on body,
+html.anniv-tour-on .anniv-tour-bar,
+html.anniv-tour-on .anniv-tour-bar *,
+html.anniv-tour-on .is-tour-spot,
+html.anniv-tour-on .anniv-tour-break,
+html.anniv-tour-on .anniv-tour-break *,
+html.anniv-tour-on .anniv-tour-finale,
+html.anniv-tour-on .anniv-tour-finale * {
+  touch-action: manipulation;
 }
 .anniv-tour-prev:not(:disabled):hover { background: rgba(255,255,255,0.2); }
 
