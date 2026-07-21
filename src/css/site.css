@@ -156,19 +156,19 @@
 }
 
 /* ── Top-nav anniversary highlight (TEMP feature for the campaign) ───────
-   Outline twin of the filled .nav-cta-link, same plum palette, with a
-   few attention pulses after the page settles. Remove this block and
-   restore the nav CTA when the campaign winds down. */
+   Filled like the classic nav CTA (imperial plum, white text) with a white
+   celebration emoji and a few attention pulses after the page settles.
+   Background/colors come from the base .nav-cta-link rules; this modifier
+   adds only the pulse + emoji treatment. Remove this block and restore
+   "Talk With Our Team" in nav.html when the campaign winds down. */
 .nav-cta-link--anniv {
-  background: transparent;
-  color: var(--primary) !important;
-  border: 2px solid var(--primary);
-  padding: calc(0.5rem - 2px) calc(1.25rem - 2px);
   animation: nav-anniv-pulse 1.8s ease-out 2.8s 3;
 }
-.nav-cta-link--anniv:hover {
-  background: var(--primary);
-  color: white !important;
+.nav-anniv-emoji {
+  display: inline-block;
+  margin-right: 0.4rem;
+  /* Render the emoji as a white glyph so it reads on the plum pill */
+  filter: grayscale(1) brightness(0) invert(1);
 }
 @keyframes nav-anniv-pulse {
   0%   { box-shadow: 0 0 0 0 rgba(96, 11, 104, 0.45); }
