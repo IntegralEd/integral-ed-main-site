@@ -20,6 +20,13 @@
   status = 302
   force  = true
 
+# Deep links carry the role slug through, e.g. /join-our-team/video-editor.
+[[redirects]]
+  from = "/join-our-team/*"
+  to   = "https://integral-careers.netlify.app/join-our-team/:splat"
+  status = 302
+  force  = true
+
 # ── /practice-areas/ → /services/ redirects (301 permanent) ─────────────────
 # Covers old URLs from pre-March-2026 site and any inbound microsite links.
 # Legacy slug variants (elearning-and-blended-learning etc.) redirect to the
