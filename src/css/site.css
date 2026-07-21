@@ -99,6 +99,59 @@
   .nav-dropdown-menu li a { font-size: 1rem; padding: 0.35rem 0; }
 }
 
+/* ── 15th Anniversary banner (homepage + team page) ─────────────────────── */
+.anniv-banner-section { padding: var(--spacing-md) 0; }
+.anniv-banner {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-md);
+  padding: 1.1rem 1.6rem;
+  border-radius: var(--radius-md);
+  background: radial-gradient(120% 160% at 18% 0%, #3a0a42, #1c0420 75%);
+  color: #fff;
+  text-decoration: none;
+  box-shadow: var(--shadow-sm);
+  transition: transform var(--transition-fast), box-shadow var(--transition-fast);
+}
+.anniv-banner:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-md);
+}
+.anniv-banner-mark {
+  flex: 0 0 auto;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 52px;
+  height: 52px;
+  border-radius: 50%;
+  font-family: 'Inter', sans-serif;
+  font-size: 1.35rem;
+  font-weight: 800;
+  color: #1c0420;
+  background: linear-gradient(120deg, var(--accent-yellow, #ffbc50), var(--accent-magenta, #b8357b));
+}
+.anniv-banner-text { min-width: 0; font-size: 0.95rem; line-height: 1.45; color: #d9c8e2; }
+.anniv-banner-text strong {
+  display: block;
+  font-size: 1.05rem;
+  color: #fff;
+  letter-spacing: 0.01em;
+}
+.anniv-banner-arrow {
+  margin-left: auto;
+  flex: 0 0 auto;
+  font-size: 1.4rem;
+  color: var(--accent-yellow, #ffbc50);
+  transition: transform var(--transition-fast);
+}
+.anniv-banner:hover .anniv-banner-arrow { transform: translateX(4px); }
+@media (max-width: 560px) {
+  .anniv-banner { gap: var(--spacing-sm); padding: 1rem 1.1rem; }
+  .anniv-banner-mark { width: 42px; height: 42px; font-size: 1.1rem; }
+  .anniv-banner-arrow { display: none; }
+}
+
 /* ── Brand headline ─────────────────────────────────────────────────────── */
 .brand-headline {
   padding: calc(90px + 72px) 32px 72px;
