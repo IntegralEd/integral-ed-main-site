@@ -164,14 +164,11 @@
 .nav-cta-link--anniv {
   animation: nav-anniv-pulse 1.8s ease-out 2.8s 3;
 }
-.nav-anniv-icon {
+.nav-anniv-emoji {
   display: inline-block;
-  height: 1.25em;
-  width: auto;
-  margin-right: 0.45rem;
-  vertical-align: -0.3em;
-  /* The SVG is the middle 50% crop of the celebration icon, white fill
-     baked in, so it reads directly on the plum pill. */
+  margin-right: 0.4rem;
+  /* Render the emoji as a white glyph so it reads on the plum pill */
+  filter: grayscale(1) brightness(0) invert(1);
 }
 @keyframes nav-anniv-pulse {
   0%   { box-shadow: 0 0 0 0 rgba(96, 11, 104, 0.45); }
