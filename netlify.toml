@@ -7,7 +7,7 @@
   # and fails the build if it finds one. These three Airtable coordinates are NOT
   # secrets: AIRTABLE_TABLE_NAME ("Team") matches all over the team pages, and the
   # base id / view name appear in tools/regen-team-from-airtable.js. Exempt them.
-  # AIRTABLE_TOKEN is deliberately NOT listed — it is the real secret, is kept
+  # AIRTABLE_TOKEN is deliberately NOT listed: it is the real secret, is kept
   # under scanning, and must never appear in source (verified it doesn't).
   SECRETS_SCAN_OMIT_KEYS = "AIRTABLE_BASE_ID,AIRTABLE_TABLE_NAME,AIRTABLE_VIEW"
   # sharp (0.35) needs Node 18+; pin a known-good LTS now that the build has a
