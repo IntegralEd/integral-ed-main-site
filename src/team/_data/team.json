@@ -40,7 +40,7 @@
     "firstName": "Chelsea",
     "lastName": "George",
     "fullName": "Chelsea George",
-    "roleLevel": "Org Admin",
+    "roleLevel": "Contributor",
     "title": "Curriculum Associate",
     "photo": "/assets/team/chelseageorge.png",
     "bio": "Chelsea joined Integral Ed’s curriculum team in 2024 after achieving success as a Kindergarten teacher. Since transitioning from the classroom, Chelsea is pursuing her passion for instructional design, earning a Master’s in Education from Georgia Southern University. She now supports Integral Ed's curriculum teams with eLearning design and LMS administration.\nWhen not at work, Chelsea enjoys exploring new arts and crafts and traveling.",
@@ -57,7 +57,7 @@
     "photo": "/assets/team/aprilgraham.jpg",
     "bio": "April has been designing curriculum with Integral Ed since 2015. As a writer, copy-editor, and instructional designer, she has enjoyed creating unique and bespoke curriculum for our partners and their learners, and welcomes each project as an opportunity to learn something new.\n\nApril enjoys a peripatetic life, but is currently residing in Germany with her husband and two kids. \n​\n​",
     "quote": "\"Our aim in education is to give a full life.\" \n##### *— Charlotte Mason*",
-    "tenureN": 10
+    "tenureN": 11
   },
   {
     "slug": "whitneyhenderson",
@@ -88,24 +88,12 @@
     "firstName": "Asha",
     "lastName": "Kelly",
     "fullName": "Asha Kelly",
-    "roleLevel": "Org Admin",
+    "roleLevel": "Team Leader",
     "title": "Creative Director",
     "photo": "/assets/team/ashakelly.jpg",
     "bio": "Asha joined Integral Ed in 2017. She collaborates with curriculum and marketing teams to develop cohesive experiences for all stakeholders across platforms and media, including K-12 students and teachers, adult learners, and professional development facilitators. She collaborates with curriculum and marketing teams to enhance usability, messaging, storytelling, and brand identity.\n\nWhen she is away from her desk, Asha also works as a theatre and film actor, director, and screenwriter.",
     "quote": "“Form follows function--that has been misunderstood. Form and function should be one, joined in a spiritual union.” \n\n##### *— Frank Lloyd Wright*",
     "tenureN": 8
-  },
-  {
-    "slug": "emilykiefer",
-    "firstName": "Emily",
-    "lastName": "Kiefer",
-    "fullName": "Emily Kiefer",
-    "roleLevel": "Contributor",
-    "title": "Curriculum Associate",
-    "photo": "/assets/team/EmilyK.png",
-    "bio": "Emily joined the curriculum team in 2026, bringing STEM curriculum expertise and data-analysis capacity.",
-    "quote": "",
-    "tenureN": 0
   },
   {
     "slug": "davidmalbin",
@@ -117,7 +105,7 @@
     "photo": "/assets/team/davidmalbin.jpg",
     "bio": "David supports Integral Ed’s team to deliver our best work for our partners and their learners. David is proud of Integral Ed’s work empowering young adults to build skills and explore career pathways that stoke their fire and build a healthy future.\n​\nDavid lives with his wife and two kids in Austin, TX.\n​",
     "quote": "\"Know all the theories, master all the techniques, but as you touch a human soul be just another human soul.”\n\n##### *— Carl Jung*",
-    "tenureN": 14
+    "tenureN": 15
   },
   {
     "slug": "erinmcintee",
@@ -136,7 +124,7 @@
     "firstName": "Ava",
     "lastName": "Millstone",
     "fullName": "Ava Millstone",
-    "roleLevel": "Org Admin",
+    "roleLevel": "Team Leader",
     "title": "Senior Director of Curriculum",
     "photo": "/assets/team/avamillstone.jpg",
     "bio": "Ava has led Integral Ed’s curriculum design practice since 2014. She has supported our amazing designers and content specialists to develop dozens of custom and responsive curricula for our clients and partners.\n​\nAva lives in Washington, DC with her husband and two sons, and is proud of her advocacy on behalf of their neighborhood DC Public School (go Tigers!).",
@@ -164,8 +152,8 @@
     "title": "Senior Storyline Developer",
     "photo": "/assets/team/lucianasantimaria.jpg",
     "bio": "Luciana is an eLearning Developer with 10 years of experience, specializing in creating visually compelling graphics and animations to enhance the learning experience. Based in Argentina, she holds a degree in Graphic Design and a specialization in Educational Technology. She is fluent in Spanish, English, and French, and brings a passion for communication and education to every project she undertakes.",
-    "quote": "“Education is the best weapon for peace.”\n\n##### *-Maria Montessori*",
-    "tenureN": 1
+    "quote": "“Education is the best weapon for peace.”\n\n##### *— Maria Montessori*",
+    "tenureN": 2
   },
   {
     "slug": "shannaschlossberg",
@@ -173,11 +161,11 @@
     "lastName": "Schlossberg",
     "fullName": "Shanna Schlossberg",
     "roleLevel": "Contributor",
-    "title": "Content Specialist",
+    "title": "Senior Learning Technologist",
     "photo": "/assets/team/shannaschlossberg.jpg",
-    "bio": "Shanna has been working as an educator for nearly two decades, holding roles in education policy, curriculum development, academic advising, home-based instruction, and teaching. She has been developing curriculum since January 2022, creating content for schools, nonprofits, and workforce training sessions. In addition to her experience, she has a master's degree in Public Administration from Arizona State University and a master's degree in Curriculum and Instruction from Plymouth State University.",
-    "quote": "\"Experience is simply the name we give our mistakes.”\n\n##### *— Oscar Wilde*",
-    "tenureN": 2
+    "bio": "Shanna has been working in education for nearly two decades, with experience spanning policy, curriculum and assessment development, academic advising, home-based instruction, and teaching.\n\nSince 2022, her work has centered on instructional technology, including LMS setup and platform management, eLearning development, and accessibility remediation. She holds a master's degree in Public Administration from Arizona State University and a master's degree in Curriculum and Instruction from Plymouth State University.",
+    "quote": "\"The mind is not a vessel to be filled, but a fire to be kindled.\"\n\n##### _— Plutarch_",
+    "tenureN": 3
   },
   {
     "slug": "dianetakatapowell",
@@ -187,7 +175,7 @@
     "roleLevel": "Team Leader",
     "title": "Senior Advisor",
     "photo": "/assets/team/dianetakatapowell.jpg",
-    "bio": "Diane has over 25 years of leadership experience in corporate, education, and non-profit sectors. She has led a global internet startup expansion, executed nationwide digital initiatives, and guided an organization through a virtual product transition. She has also served as a paraprofessional, teacher, instructional coach, administrator, and the Director of Elementary Curriculum in Charlotte Mecklenburg Schools. Most recently, as the Deputy Chief of Strategic Growth & Partnerships at UnboundEd, she grew the sales and marketing teams. Diane is a proud graduate of the University of Virginia, Drexel University, and Winthrop University. \n\nDiane lives in Charleston, SC, raising two sons alongside her husband, and enjoys challenging workouts, quality beach time, and getting lost in a good book.",
+    "bio": "Diane has over 25 years of leadership experience in corporate, education, and non-profit sectors. She has led a global internet startup expansion, executed nationwide digital initiatives, and guided an organization through a virtual product transition. She has also served as a paraprofessional, teacher, instructional coach, administrator, and the Director of Elementary Curriculum in Charlotte Mecklenburg Schools. Most recently, as the Deputy Chief of Strategic Growth & Partnerships at UnboundEd, she grew the sales and marketing teams. Diane is a proud graduate of the University of Virginia, Drexel University, and Winthrop University.\nDiane lives in Charleston, SC, raising two sons alongside her husband, and enjoys challenging workouts, quality beach time, and getting lost in a good book.",
     "quote": "\"Yesterday is gone. Tomorrow has not yet come. We have only today. Let us begin.\" \n\n##### *—Mother Teresa*",
     "tenureN": 2
   },
@@ -199,7 +187,7 @@
     "roleLevel": "Team Leader",
     "title": "Director of Integrated Adult Learning",
     "photo": "/assets/team/morgantaveras.jpg",
-    "bio": "Morgan has pioneered story-based learning at Integral Ed, utilizing characters, case studies, and authentic scenarios to enhance learner engagement and provide impactful educational experiences. In her current role as Director of Integrated Adult Learning, she orchestrates the collaboration of diverse contributors to develop integrated learning elements like experience-driven content, interactive learning journals, and other complex interactions. Morgan is passionate about inclusion and belonging, developing a compassionate user experience that centers principles of accessibility and representation into each course she designs or contributes to.\n\nWhen she isn’t drafting and revising storyboards, Morgan spends her time dancing flamenco, studying Spanish, painting with her daughter, and enjoying la isla del encanto, Puerto Rico, where she resides with her family.",
+    "bio": "Morgan has pioneered story-based learning at Integral Ed, utilizing characters, case studies, and authentic scenarios to enhance learner engagement and provide impactful educational experiences. In her current role as Director of Integrated Adult Learning, she orchestrates the collaboration of diverse contributors to develop integrated learning elements like experience-driven content, interactive learning journals, and other complex interactions. Morgan is passionate about inclusion and belonging, developing a compassionate user experience that centers principles of accessibility and representation into each course she designs or contributes to.\n\nWhen she isn’t drafting and revising storyboards, Morgan spends her time dancing flamenco, studying Spanish, painting with her daughter, and enjoying _la isla del encanto_, Puerto Rico, where she resides with her family.",
     "quote": "“When education is not liberating, the dream of the oppressed is to become the oppressor.”\n\n##### _— Paulo Freire_",
     "tenureN": 5
   },
@@ -224,8 +212,8 @@
     "title": "Senior Director of Partnerships",
     "photo": "/assets/team/tarawilliams.jpg",
     "bio": "Since 2016, Tara has led Integral Ed's strategic consultation practice, supporting clients in growth strategy, K12 curriculum and professional learning, sales and customer success training, and marketing and media design. From 2019 onward, she has helped clients transition their services from in-person to online through eLearning development and Learning Management System deployment.  \n  \nAfter 15 years of living in a new state or country every few years, Tara is now enjoying putting down roots in Colorado with her husband, four children, dog, and three cats.",
-    "quote": "\"Education is the most powerful weapon which you can use to change the world.\"\n\n##### *— Nelson Mandela*",
-    "tenureN": 9
+    "quote": "“Education is the most powerful weapon which you can use to change the world.”  ##### * — Nelson Mandela*",
+    "tenureN": 10
   },
   {
     "slug": "nadiazaid",
@@ -237,6 +225,6 @@
     "photo": "/assets/team/nadiazaid.jpg",
     "bio": "Nadia joined Integral Ed in 2019 and brings a deep expertise in creating user-driven eLearning experiences. Nadia leads our team of Articulate360 developers and oversees our platform services related to LMS and e-learning distribution. She believes that online learning should be memorable, engaging and it should result in improved performance, not just increased knowledge.\n \nNadia enjoys traveling and spending time outdoors with her husband and two daughters.",
     "quote": "“Be not afraid of growing slowly. Be only afraid of standing still.” \n##### *—Chinese proverb*",
-    "tenureN": 6
+    "tenureN": 7
   }
 ]

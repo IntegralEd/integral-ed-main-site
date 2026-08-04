@@ -774,7 +774,7 @@ window.ANNIVERSARY_DATA = {
       { name: "Luciana Santimaria",  role: "Senior Storyline Developer",                       dept: "eLearning / LMS",      since: 2024, image: "/assets/team/lucianasantimaria.jpg",  href: "/team/lucianasantimaria/",  bio: "" },
       { name: "Chelsea George",      role: "Curriculum Associate",                             dept: "eLearning / LMS",      since: 2024, image: "/assets/team/chelseageorge.png",      href: "/team/chelseageorge/",      bio: "" },
       { name: "Maddie Murphy",       role: "Curriculum Associate",                             dept: "eLearning / LMS",      since: 2024, image: "/assets/team/maddiemurphy.jpg",       href: "/team/maddiemurphy/",       bio: "Joined in 2024; roots with the Three Affiliated Tribes of North Dakota." },
-      { name: "Emily Kiefer",        role: "Curriculum Associate",                             dept: "Instructional Design", since: 2026, image: "/assets/team/EmilyK.png",            href: "/team/emilykiefer/",        bio: "Our newest teammate." }
+      { name: "Emily Kiefer",        role: "Curriculum Associate",                             dept: "Instructional Design", since: 2026, image: "/assets/team/EmilyK.png",            href: "/team/",                    bio: "Our newest teammate." }
     ]
   },
 
