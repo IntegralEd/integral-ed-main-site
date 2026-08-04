@@ -56,8 +56,8 @@ function findHtmlFiles(dir, baseDir, skip = ['partials', 'data']) {
   return files;
 }
 
-// Process a single HTML file: inject partials, analytics, widget
-function processHtml(content, navHtml, footerHtml, analyticsHtml, widgetHtml, siteSlug, extras) {
+// Process a single HTML file: inject partials + analytics
+function processHtml(content, navHtml, footerHtml, analyticsHtml, siteSlug, extras) {
   if (extras) {
     if (extras.cards  != null) content = content.replace('<!-- @team-cards -->',  extras.cards);
     if (extras.modals != null) content = content.replace('<!-- @team-modals -->', extras.modals);
@@ -68,14 +68,12 @@ function processHtml(content, navHtml, footerHtml, analyticsHtml, widgetHtml, si
     const siteNameScript = `<script>window.IE_SITE_NAME = '${siteSlug}';</script>`;
     content = content.replace('</head>', `${siteNameScript}\n${analyticsHtml}\n</head>`);
   }
-  // Pages can opt out of the chat widget with a <!-- @no-widget --> marker
-  // anywhere in their HTML (e.g. the 15th-anniversary preview, where the
-  // widget crowds the long-scroll UX). The marker is stripped either way.
-  if (content.includes('<!-- @no-widget -->')) {
-    content = content.replace('<!-- @no-widget -->', '');
-  } else if (widgetHtml) {
-    content = content.replace('</body>', `${widgetHtml}\n</body>`);
-  }
+  // The chat widget ("sales assistant" popup) is DEPRECATED site-wide (low
+  // traffic/use per analytics), so it is no longer injected on any page. The
+  // shared vendor component (vendor/integralthemes/components/widgets.html) is
+  // left intact for other sites. Strip any leftover <!-- @no-widget --> opt-out
+  // markers so they don't surface in the output.
+  content = content.replace('<!-- @no-widget -->', '');
   // Cache-bust the anniversary assets (only this page references them) so a
   // deploy is picked up without a manual hard refresh.
   if (ANNIV_CSS_VER)  content = content.replace('/15th-anniversary/anniversary.css"', `/15th-anniversary/anniversary.css?v=${ANNIV_CSS_VER}"`);
@@ -117,7 +115,6 @@ function loadPartial(relPath, label) {
 }
 
 const analyticsHtml = loadPartial('vendor/integralthemes/components/analytics.html', 'analytics');
-const widgetHtml    = loadPartial('vendor/integralthemes/components/widgets.html',   'chat widget');
 const navHtml       = loadPartial('src/partials/nav.html',    'nav partial');
 const footerHtml    = loadPartial('src/partials/footer.html', 'footer partial');
 console.log('');
@@ -140,7 +137,7 @@ htmlFiles.forEach(relPath => {
   const extras = relPath === path.join('team', 'index.html')
     ? { cards: teamCardsHtml, modals: teamModalsHtml }
     : null;
-  content = processHtml(content, navHtml, footerHtml, analyticsHtml, widgetHtml, siteSlug, extras);
+  content = processHtml(content, navHtml, footerHtml, analyticsHtml, siteSlug, extras);
   fs.writeFileSync(destPath, content, 'utf8');
   console.log(`  ${relPath}`);
 });
@@ -151,7 +148,7 @@ const siteUrl = 'https://www.integral-ed.com';
 team.forEach(member => {
   const html = processHtml(
     renderStandalone(member, siteUrl),
-    navHtml, footerHtml, analyticsHtml, widgetHtml, siteSlug, null
+    navHtml, footerHtml, analyticsHtml, siteSlug, null
   );
   const dir = path.join(distDir, 'team', member.slug);
   fs.mkdirSync(dir, { recursive: true });
