@@ -30,28 +30,20 @@ process.env.AIRTABLE_BASE_ID = 'apps7roRhnziLR2ou';   // Integral Ed's Team and 
 process.env.AIRTABLE_TABLE_NAME = 'Team';
 process.env.AIRTABLE_VIEW = 'IE_Public_Website_Fields';
 
-const { loadTeam } = require(path.join(ROOT, 'build-team'));
-
-async function download(url, dest) {
-  const res = await fetch(url);
-  if (!res.ok) throw new Error('HTTP ' + res.status);
-  const buf = Buffer.from(await res.arrayBuffer());
-  fs.writeFileSync(dest, buf);
-  return buf.length;
-}
+const { loadTeam, downloadReducedPhoto } = require(path.join(ROOT, 'build-team'));
 
 (async function () {
   const team = await loadTeam({ srcDir: SRC });   // fetches Airtable (env set)
   console.log('\nFetched ' + team.length + ' teammate(s) from Airtable.\n');
 
-  // Refresh photos referenced by the fetched records.
+  // Refresh photos (reduced to JPEG, same as the Netlify build does).
   fs.mkdirSync(PHOTOS_DIR, { recursive: true });
   for (const m of team) {
     if (!m._photoUrl) { console.warn('  [no photo] ' + m.slug); continue; }
     const dest = path.join(PHOTOS_DIR, path.basename(m.photo));
     try {
-      const bytes = await download(m._photoUrl, dest);
-      console.log('  ' + m.slug.padEnd(22) + (bytes / 1024).toFixed(1).padStart(8) + ' KB');
+      const bytes = await downloadReducedPhoto(m._photoUrl, dest);
+      console.log('  ' + m.slug.padEnd(22) + (bytes / 1024).toFixed(0).padStart(6) + ' KB');
     } catch (e) {
       console.error('  [photo-fail] ' + m.slug + ': ' + e.message);
     }

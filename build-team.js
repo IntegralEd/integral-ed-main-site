@@ -17,8 +17,16 @@
  * logs a loud warning and uses the snapshot. Builds error only if both fail.
  */
 
-const fs   = require('fs');
-const path = require('path');
+const fs    = require('fs');
+const path  = require('path');
+const sharp = require('sharp');
+
+// Every headshot is normalized to a reduced JPEG on download: Airtable's
+// "full" thumbnails run up to ~3000px / multiple MB, far heavier than our
+// card + profile display sizes need. This keeps /team and the anniversary
+// roster light without depending on right-sized uploads.
+const PHOTO_MAX_PX   = 1200;   // longest side; ~2x our largest display size
+const PHOTO_QUALITY  = 80;     // mozjpeg quality
 
 // ── Slug rule (must match tools/seed-team.js)
 function slugify(first, last) {
@@ -112,22 +120,21 @@ function pickAttachmentUrl(field) {
   return (t.full && t.full.url) || (t.large && t.large.url) || a.url;
 }
 
-function pickAttachmentExt(field) {
-  if (!Array.isArray(field) || !field.length) return '.jpg';
-  const a = field[0];
-  if (a.type) {
-    if (/png/.test(a.type))  return '.png';
-    if (/gif/.test(a.type))  return '.gif';
-    if (/webp/.test(a.type)) return '.webp';
-  }
-  const m = (a.filename || '').match(/\.(jpe?g|png|gif|webp)$/i);
-  return m ? '.' + m[1].toLowerCase().replace('jpeg', 'jpg') : '.jpg';
-}
-
-async function downloadPhoto(url, dest) {
+// Download an Airtable photo and write a reduced JPEG to dest. Auto-orients
+// from EXIF, caps the longest side at PHOTO_MAX_PX (never upscales), flattens
+// any alpha onto white, and re-encodes as mozjpeg. Returns the byte count.
+async function downloadReducedPhoto(url, dest) {
   const res = await fetch(url);
   if (!res.ok) throw new Error(`photo HTTP ${res.status}`);
-  fs.writeFileSync(dest, Buffer.from(await res.arrayBuffer()));
+  const input = Buffer.from(await res.arrayBuffer());
+  const out = await sharp(input)
+    .rotate()
+    .resize(PHOTO_MAX_PX, PHOTO_MAX_PX, { fit: 'inside', withoutEnlargement: true })
+    .flatten({ background: '#ffffff' })
+    .jpeg({ quality: PHOTO_QUALITY, mozjpeg: true })
+    .toBuffer();
+  fs.writeFileSync(dest, out);
+  return out.length;
 }
 
 function airtableToRecords(rawRecords) {
@@ -144,8 +151,8 @@ function airtableToRecords(rawRecords) {
 
     const attach = f['Proposal_Photo'] || f['Photo'];
     const url = pickAttachmentUrl(attach);
-    const ext = pickAttachmentExt(attach);
-    const photoFile = slug + ext;
+    // Always .jpg: downloadReducedPhoto re-encodes every headshot to JPEG.
+    const photoFile = slug + '.jpg';
 
     records.push({
       slug,
@@ -174,8 +181,8 @@ async function syncPhotos(team, distAssetsDir) {
   for (const m of targets) {
     const dest = path.join(distAssetsDir, path.basename(m.photo));
     try {
-      await downloadPhoto(m._photoUrl, dest);
-      console.log(`  ${m.slug}`);
+      const bytes = await downloadReducedPhoto(m._photoUrl, dest);
+      console.log(`  ${m.slug.padEnd(22)} ${(bytes / 1024).toFixed(0).padStart(5)} KB`);
     } catch (e) {
       console.warn(`  [photo-fail] ${m.slug}: ${e.message}`);
     }
@@ -316,4 +323,4 @@ function renderStandalone(m, siteUrl) {
 `;
 }
 
-module.exports = { loadTeam, syncPhotos, renderTeamCards, renderTeamModals, renderStandalone, slugify };
+module.exports = { loadTeam, syncPhotos, downloadReducedPhoto, renderTeamCards, renderTeamModals, renderStandalone, slugify };
