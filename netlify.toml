@@ -2,6 +2,18 @@
   command = "npm run build"
   publish = "dist"
 
+[build.environment]
+  # Netlify scans every configured env-var VALUE against the repo + build output
+  # and fails the build if it finds one. These three Airtable coordinates are NOT
+  # secrets: AIRTABLE_TABLE_NAME ("Team") matches all over the team pages, and the
+  # base id / view name appear in tools/regen-team-from-airtable.js. Exempt them.
+  # AIRTABLE_TOKEN is deliberately NOT listed — it is the real secret, is kept
+  # under scanning, and must never appear in source (verified it doesn't).
+  SECRETS_SCAN_OMIT_KEYS = "AIRTABLE_BASE_ID,AIRTABLE_TABLE_NAME,AIRTABLE_VIEW"
+  # sharp (0.35) needs Node 18+; pin a known-good LTS now that the build has a
+  # native dependency, so the runtime doesn't drift under it.
+  NODE_VERSION = "20"
+
 # ── /join-our-team/ → careers app (302 temporary, forced) ───────────────────
 # The careers listing now lives in the integral-talent repo and renders open
 # roles dynamically from its positions feed. The main site only redirects; it
