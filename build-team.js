@@ -66,16 +66,55 @@ function bioToHtml(bio) {
 // ── Quote pattern from CSV: "<text>"\n##### *— Author*
 // The regex tolerates an optional leading backslash before ##### so that
 // Airtable entries like \##### (escaped by some editors) still parse correctly.
+// Teammate quotes are hand-entered in Airtable in many inconsistent shapes:
+//   "...text..." \n##### *- Author*      (markdown heading + italic + em-dash)
+//   "...text..."\n\n##### _- Author_     (underscore emphasis)
+//   "...text..."\n\n***- Author***       (bold-italic, no heading)
+//   "...text..."  ##### * - Author*       (no line break before the heading)
+//   "...text..." - Author                 (single line, plain hyphen)
+// Normalize all of them to one presented format: the quotation in a blockquote,
+// then the person on their own line as "— Name" (italicized by CSS). Runs
+// on every build, so it survives Airtable re-syncs regardless of entry style.
+function splitQuote(raw) {
+  let s = String(raw || '').replace(/\r/g, '').replace(/―/g, '—').trim(); // horizontal bar -> em-dash
+  if (!s) return { body: '', author: '' };
+  let text = s, attr = '';
+
+  const heading = s.match(/\\?#{3,}\s*([\s\S]+)$/);          // 1) ##### marker anywhere
+  if (heading) {
+    text = s.slice(0, heading.index);
+    attr = heading[1];
+  } else {
+    const nl = s.lastIndexOf('\n');                          // 2) last line, if it reads as an attribution
+    if (nl !== -1) {
+      const after = s.slice(nl + 1);
+      if (/^[\s*_]*[-—]/.test(after) || after.replace(/[*_\s]/g, '').length < 40) {
+        text = s.slice(0, nl);
+        attr = after;
+      }
+    }
+    if (!attr) {                                             // 3) single line: " - Name" / " — Name" tail
+      const tail = s.match(/\s[-—]\s+([^-—]+?)\s*$/);
+      if (tail) { text = s.slice(0, tail.index); attr = tail[1]; }
+    }
+  }
+
+  const author = attr
+    .replace(/[*_#]+/g, ' ')            // drop emphasis + heading marks
+    .replace(/^\s*[-—]\s*/, '')    // drop the leading attribution dash
+    .replace(/\s+/g, ' ')
+    .trim();
+  const body = text.replace(/[*_#]+\s*$/, '').trim();
+  return { body, author };
+}
+
 function quoteToHtml(quote) {
   if (!quote) return '';
-  const idx = quote.search(/\n\s*\\?#####\s*/);
-  if (idx === -1) {
-    return `<blockquote class="team-quote">${inlineMd(quote.trim())}</blockquote>`;
-  }
-  const text = quote.slice(0, idx).trim();
-  const attribution = quote.slice(idx).replace(/\n\s*\\?#####\s*/, '').trim();
-  return `<blockquote class="team-quote">${inlineMd(text)}</blockquote>` +
-         `<p class="team-attribution">${inlineMd(attribution)}</p>`;
+  const { body, author } = splitQuote(quote);
+  const block = `<blockquote class="team-quote">${inlineMd(body)}</blockquote>`;
+  return author
+    ? block + `<p class="team-attribution">— ${esc(author)}</p>`
+    : block;
 }
 
 // ── Tenure label, e.g. "8 years @ Integral Ed", "1 year @ Integral Ed"
