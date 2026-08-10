@@ -9,7 +9,7 @@
     "photo": "/assets/team/jobarnett.jpg",
     "bio": "Jo has been working with Integral Ed since 2023 as a writer and content specialist. She has a Masters Degree in Education and over ten years of experience in curriculum design, e-learning, teaching, and program management.",
     "quote": "\"Learning is a place where paradise can be created.\" \n##### *—bell hooks*",
-    "tenureN": 2
+    "tenureN": 3
   },
   {
     "slug": "michaelabradley",
@@ -94,6 +94,18 @@
     "bio": "Asha joined Integral Ed in 2017. She collaborates with curriculum and marketing teams to develop cohesive experiences for all stakeholders across platforms and media, including K-12 students and teachers, adult learners, and professional development facilitators. She collaborates with curriculum and marketing teams to enhance usability, messaging, storytelling, and brand identity.\n\nWhen she is away from her desk, Asha also works as a theatre and film actor, director, and screenwriter.",
     "quote": "“Form follows function--that has been misunderstood. Form and function should be one, joined in a spiritual union.” \n\n##### *— Frank Lloyd Wright*",
     "tenureN": 8
+  },
+  {
+    "slug": "emilykiefer",
+    "firstName": "Emily",
+    "lastName": "Kiefer",
+    "fullName": "Emily Kiefer",
+    "roleLevel": "Contributor",
+    "title": "Curriculum Associate",
+    "photo": "/assets/team/emilykiefer.jpg",
+    "bio": "Emily is a curriculum developer, learning designer, and educator based in Chicago, IL with more than a decade of experience creating engaging learning experiences for both children and adults. She has an expertise in designing curriculum that turns complex ideas into practical, meaningful experiences. Her work has centered on problem-based learning and creating learning experiences that are relevant, accessible, and grounded in how people learn best.\n\nEmily also designs corporate wellness programs, combining her expertise in curriculum and adult learning with her background in sound healing and nervous system-focused wellness. She is especially interested in designing workplace learning experiences that are practical, engaging, and built for the realities of modern work.",
+    "quote": "\"The more that you read, the more things you will know. The more that you learn, the more places you'll go.\" - Dr. Seuss",
+    "tenureN": 0
   },
   {
     "slug": "davidmalbin",
