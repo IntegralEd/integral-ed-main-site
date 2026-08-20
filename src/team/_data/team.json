@@ -1,5 +1,17 @@
 [
   {
+    "slug": "rundaalamour",
+    "firstName": "Runda",
+    "lastName": "Alamour",
+    "fullName": "Runda Alamour",
+    "roleLevel": "Contributor",
+    "title": "EdTech Specialist",
+    "photo": "/assets/team/rundaalamour.jpg",
+    "bio": "Runda has been working with Integral Ed since 2019 on platform administration and deployment across a range of learning systems. She has supported program design for charters and national CMOs, sales motions for curriculum publishers, and platform adoption for K12 organizations. A former high school English teacher in Asheville City and Buncombe County Schools, Runda also leads large-scale programs and events for educators across North Carolina, giving her a well rounded perspective on how systems of schools actually work.",
+    "quote": "\"Freedom is never granted: It is won. Justice is never given: It is exacted\"\n--A. Philip Randolph",
+    "tenureN": 7
+  },
+  {
     "slug": "jobarnett",
     "firstName": "Jo",
     "lastName": "Barnett",

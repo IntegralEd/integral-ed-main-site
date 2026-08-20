@@ -101,7 +101,7 @@ function splitQuote(raw) {
 
   const author = attr
     .replace(/[*_#]+/g, ' ')            // drop emphasis + heading marks
-    .replace(/^\s*[-—]\s*/, '')    // drop the leading attribution dash
+    .replace(/^[\s\-—]+/, '')           // drop leading attribution dash(es), incl. "--"
     .replace(/\s+/g, ' ')
     .trim();
   const body = text.replace(/[*_#]+\s*$/, '').trim();
