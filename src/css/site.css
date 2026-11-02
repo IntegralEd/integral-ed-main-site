@@ -479,6 +479,13 @@
   margin-top: var(--spacing-xl);
 }
 
+/* Seven service areas: center a lone card in the last row when the grid is three across */
+@media (min-width: 1040px) {
+  .practice-cards > .practice-card:last-child:nth-child(3n + 1) {
+    grid-column: 2 / 3;
+  }
+}
+
 .practice-card {
   background: var(--bg-primary);
   border: 2px solid var(--border-light);
