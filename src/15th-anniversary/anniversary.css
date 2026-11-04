@@ -1626,3 +1626,9 @@ html.anniv-tour-spot .anniv-evo-row.is-tour-spot .anniv-evo-proof { color: color
   html.anniv-tour-spot .anniv-member.is-tour-spot .anniv-member-name { font-size: 1.4rem; }
   html.anniv-tour-spot .anniv-member.is-tour-spot .anniv-member-role { display: block; color: var(--text-secondary); font-size: 0.95rem; margin-top: 0.2rem; }
 }
+
+/* The shared menu bar scrolls away at this size (integralthemes), so the section
+   rail moves up to the top of the screen. */
+@media (max-width: 768px), (max-height: 500px) {
+  .anniv-rail { top: 0; }
+}
